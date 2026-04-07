@@ -624,6 +624,29 @@ Rozdíl 9. a 11. obrazce = (2×11−1)² − (2×9−1)² = 21² − 17² = 441�
 Trik: nemusíš počítat oba zvlášť — postačí (A+B)×(A−B) = (21+17)×(21−17) = 38×4 = 152 ✓
 </div>""", "#fff8f0", "#C87941"),
 
+("🔺", "Součtový trojúhelník — čísla do rámečků", f"""
+{SVG_SOUCET_T}
+<div class="ex"><div class="lbl">Jak funguje součtový trojúhelník</div>
+Součet dvou sousedních čísel v jednom řádku = číslo <b>pod nimi</b>.<br>
+Třeba: 3 a 7 sousedí → pod nimi je <b>10</b>.
+</div>
+<div class="ex"><div class="lbl">Krok 1: Znám vrchní řadu — jdu DOLŮ (sčítám)</div>
+Horní řada: 3, 7, 2<br>
+{calc_row('3 + 7', '= 10')} &nbsp;&nbsp; {calc_row('7 + 2', '= 9')}<br>
+{calc_row('10 + 9', '= 19')} ← spodní číslo
+</div>
+{SVG_SOUCET_PRIKLAD}
+<div class="ex"><div class="lbl">Krok 2: Znám spodní číslo a jedno horní — hledám neznámá (?)</div>
+Příklad: pravé horní = 8, obě levá horní jsou stejná (?), spodní = 44<br>
+Střední řada: levý součet = <b>2?</b>, pravý součet = <b>? + 8</b><br>
+Spodní: 2? + (? + 8) = 44 → <b>3? = 36</b> → <span class="hint-result">? = 12</span><br>
+Ověř: 12, 12, 8 → 24, 20 → 44 ✓
+</div>
+<div class="ex"><div class="lbl">Zlaté pravidlo pro hledání ?</div>
+Zkus dosadit různá celá čísla a kontroluj zda vyjde správný součet dole.<br>
+Nebo: zapíš rovnici (2? + ? + 8 = 44) a řeš krok za krokem bez závorek.
+</div>""", "#fff8f0", "#A04000"),
+
 ("⚠️", "Nejčastější chyby u posloupností", f"""
 <table class="htable">
 <tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
@@ -632,6 +655,7 @@ Trik: nemusíš počítat oba zvlášť — postačí (A+B)×(A−B) = (21+17)×
 <tr><td>🔴 U tmavých čtverečků: záměna šířky a výšky</td><td>Šířka = počet sloupců světlé části, výška = počet řad</td></tr>
 <tr><td>🔴 Zapomenu vypsat tabulku pro prvních 4–5 obrazců</td><td>Bez tabulky to nejde — vždy nakresli a vypiš hodnoty!</td></tr>
 <tr><td>🔴 U rozdílu dvou obrazců: počítám oba zvlášť</td><td>Trik: (A+B)×(A−B) — např. 21²−17² = 38×4 = 152 (rychlejší!)</td></tr>
+<tr><td>🔴 V součtovém trojúhelníku: sčítám špatně (odspodu nahoru)</td><td>Vždy jdi SHORA DOLŮ — součet sousedů je vždy POD nimi, ne nad!</td></tr>
 </table>""", "#fff0f0", "#C0392B"),
 ]
 
@@ -728,6 +752,31 @@ Součet záporných: 150+300+400 = 850 Kč<br>
 350 &lt; 850 → celkově <b>utratil</b> (tvrzení „ušetřil celkově" = N)
 </div>""", "#f9f0ff", "#6C3483"),
 
+("📈", "Spojnicový graf — dvě čáry najednou", f"""
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Graf udává počet mužů a žen v turistickém oddílu v letech 2015–2018. Rozhodněte, která tvrzení jsou pravdivá (A) nebo nepravdivá (N)."</i>
+</div>
+<div class="ex"><div class="lbl">Krok 1: Přečti obě čáry a zapiš do tabulky tužkou</div>
+<table class="htable">
+<tr><th style="background:#6C3483;color:white">Rok</th><th style="background:#6C3483;color:white">Muži</th><th style="background:#6C3483;color:white">Ženy</th><th style="background:#6C3483;color:white">Celkem</th></tr>
+<tr><td>2015</td><td>{fi('?')}</td><td>{fi('?')}</td><td>{fi('?')}</td></tr>
+<tr><td>2016</td><td>{fi('?')}</td><td>{fi('?')}</td><td>{fi('?')}</td></tr>
+</table>
+Bez tabulky se v hodnotách snadno ztratíš — vždy si je vypiš!
+</div>
+<div class="ex"><div class="lbl">Krok 2: Ověřuj tvrzení jedno po druhém</div>
+<table class="htable">
+<tr><th style="background:#6C3483;color:white">Tvrzení</th><th style="background:#6C3483;color:white">Co počítám</th></tr>
+<tr><td>„Celkem v roce 2016"</td><td>Muži + Ženy dohromady</td></tr>
+<tr><td>„Mužů bylo o třetinu více než v 2015"</td><td>Hodnota 2015 + hodnota 2015 ÷ 3</td></tr>
+<tr><td>„Ženy poprvé poklesly v 2018"</td><td>Zkontroluj 2015→2016, 2016→2017 — nesmí klesat!</td></tr>
+<tr><td>„Oddíl rostl každý rok"</td><td>Porovnej celkový součet za každý rok</td></tr>
+</table>
+</div>
+<div class="ex"><div class="lbl">⚠️ Pozor: čáry se mohou křížit!</div>
+V místě křížení mají obě čáry <b>stejnou hodnotu</b>. Zkontroluj přesné číselné hodnoty — nekříží se tam, kde to jen vypadá.
+</div>""", "#f9f0ff", "#9B59B6"),
+
 ("⚠️", "Nejčastější chyby při čtení grafů", f"""
 <table class="htable">
 <tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
@@ -735,6 +784,7 @@ Součet záporných: 150+300+400 = 850 Kč<br>
 <tr><td>🔴 „R vytřídil o třetinu méně než S" → třetina z R</td><td>Třetina se počítá ze S (ze srovnávané hodnoty!)</td></tr>
 <tr><td>🔴 Graf mincí: porovnávám počty mincí</td><td>Přepočítej na koruny: počet mincí × 50 Kč</td></tr>
 <tr><td>🔴 „Poprvé kleslo v 2018" — zkontroluji jen 2018</td><td>Musíš zkontrolovat VŠECHNY předchozí roky — ani jeden nesmí klesat!</td></tr>
+<tr><td>🔴 U dvou čar: čtu jen jednu a zapomenu na druhou</td><td>Vypiš obě čáry do tabulky — pak ověřuj tvrzení</td></tr>
 <tr><td>🔴 Sečtu hodnoty místo porovnání tvrzení</td><td>Nejdřív si vypiš hodnoty do tabulky, pak teprve ověřuj</td></tr>
 </table>""", "#fff0f0", "#C0392B"),
 ]
@@ -981,11 +1031,40 @@ Proč +1? Na každé straně je 13 <em>mezer mezi rostlinami</em> = 14 rostlin (
 Celkem: 3 strany × 14 − 3 rohové (které jsme počítali 2×) = 42−3 = <span class="hint-result">39 rostlin ✓</span>
 </div>""", "#f5f5f5", "#515A5A"),
 
+("📐", "Obvod v čtvercové síti — pozor na šikmé strany!", f"""
+<div class="ex"><div class="lbl">Jak může zadání vypadat (25r1, 22r1, 24n1)</div>
+<i>„Ve čtvercové síti jsou trojúhelník ABC a čtverec DEFG. O kolik cm se liší jejich obvody?"</i>
+</div>
+<div class="ex"><div class="lbl">Pravidlo 1: Vodorovná a svislá strana — jednoduchá</div>
+Strana jde přímo po mřížce → délka = počet čtverečků × 1 cm<br>
+Příklad: strana přes 3 čtverečky = <span class="hint-result">3 cm</span>
+</div>
+<div class="ex"><div class="lbl">Pravidlo 2: Šikmá strana — je DELŠÍ než vypadá!</div>
+Šikmá strana přes 1 čtvereček diagonálně ≈ <b>1,4 cm</b> (ne 1 cm!)<br>
+Šikmá strana přes 3 vpravo a 4 dolů ≈ <b>5 cm</b> (Pythagorova trojice 3-4-5)<br>
+<table class="htable" style="margin-top:6px">
+<tr><th style="background:#515A5A;color:white">Posun (vpravo × dolů)</th><th style="background:#515A5A;color:white">Délka strany</th><th style="background:#515A5A;color:white">Jak poznám</th></tr>
+<tr><td>1 × 1</td><td>≈ 1,4 cm</td><td>diagonála jednoho čtverečku</td></tr>
+<tr><td>2 × 2</td><td>≈ 2,8 cm</td><td>diagonála 2×2 bloku</td></tr>
+<tr><td>3 × 4 nebo 4 × 3</td><td>= 5 cm</td><td>Pythagorova trojice!</td></tr>
+<tr><td>1 × 2 nebo 2 × 1</td><td>≈ 2,2 cm</td><td>kratší než 3 cm, delší než 2 cm</td></tr>
+</table>
+</div>
+<div class="ex"><div class="lbl">Postup: porovnání dvou obvodů</div>
+<ol>
+<li>Spočítej obvod 1. tvaru — rozlišuj přímé a šikmé strany</li>
+<li>Spočítej obvod 2. tvaru stejně</li>
+<li>Odečti: větší − menší = rozdíl</li>
+</ol>
+Šikmé strany vždy <b>prodlužují</b> obvod — tvar s šikmými stranami bude mít větší obvod než tvar se stejnými přímými stranami!
+</div>""", "#f5f5f5", "#515A5A"),
+
 ("⚠️", "Nejčastější chyby při výpočtu obvodu a obsahu", f"""
 <table class="htable">
 <tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
 <tr><td>🔴 Zahrnu vnitřní dělicí čáru do obvodu</td><td>Do obvodu patří jen VNĚJŠÍ okraj — vnitřní čáry se NEpočítají!</td></tr>
 <tr><td>🔴 Pletám obvod (cm) a obsah (cm²)</td><td>Obvod = délka cesty okolo, obsah = plocha uvnitř. Jiné jednotky!</td></tr>
+<tr><td>🔴 Šikmá strana v síti = 1 cm (jako přímá)</td><td>Šikmá strana je VŽDY delší! Diagonála 1×1 ≈ 1,4 cm, trojice 3-4-5 = 5 cm</td></tr>
 <tr><td>🔴 U záhonu: rohové rostliny počítám dvakrát</td><td>Rohová rostlina patří oběma stranám — každý roh počítám jen jednou</td></tr>
 <tr><td>🔴 U trojúhelníku v síti: beru špatnou výšku</td><td>Výška musí být KOLMÁ na základnu — ne šikmá strana</td></tr>
 <tr><td>🔴 1 m² = 100 cm²</td><td>1 m² = 10 000 cm² (protože 100 cm × 100 cm = 10 000 cm²!)</td></tr>
