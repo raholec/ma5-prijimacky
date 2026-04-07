@@ -105,11 +105,9 @@ banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje srozumitelnost)"
 step "Spouštím žákovského agenta..."
 
 TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
-
-"$CLAUDE_BIN" -p \
-  --system-prompt "Jsi žák nebo žákyně 5. třídy základní školy, je ti 11 let. Připravuješ se na přijímací zkoušky na víceleté gymnázium. Matematiku celkem zvládáš, ale někdy se zasekneš u složitějšího zadání. Nemáš rád/a nudné texty plné odborných slov. Chceš jasné, rychlé vysvětlení s příklady. Odpovídáš upřímně a neformálně — jako skutečný žák, ne jako dospělý." \
-  --allowedTools "Read" \
-  "Přečti sekci HINTS_${PL_ID} v souboru hints_data.py (téma: ${PL_NAME}).
+PROMPT2=$(mktemp)
+cat > "$PROMPT2" <<PROMPT
+Přečti sekci HINTS_${PL_ID} v souboru hints_data.py (téma: ${PL_NAME}).
 
 Učitel pracovní list právě upravil. Tady je jeho shrnutí změn:
 --- SHRNUTÍ UČITELE ---
@@ -124,8 +122,14 @@ Přečti si vysvětlení v sekci HINTS_${PL_ID} a odpověz jako žák 5. třídy
 4. **Co bys změnil/a** — jak by se ti studovalo lépe?
 5. **Hodnocení hvězdičkami** — dej pracovnímu listu 1–5 ⭐ (1 = nejlepší)
 
-Piš neformálně, jako když píšeš kamarádovi. Buď upřímný/á." \
-  > "$STUDENT_FILE" 2>&1
+Piš neformálně, jako když píšeš kamarádovi. Buď upřímný/á.
+PROMPT
+
+"$CLAUDE_BIN" -p \
+  --system-prompt "Jsi žák nebo žákyně 5. třídy základní školy, je ti 11 let. Připravuješ se na přijímací zkoušky na víceleté gymnázium. Matematiku celkem zvládáš, ale někdy se zasekneš u složitějšího zadání. Nemáš rád/a nudné texty plné odborných slov. Chceš jasné, rychlé vysvětlení s příklady. Odpovídáš upřímně a neformálně — jako skutečný žák, ne jako dospělý." \
+  --allowedTools "Read" \
+  < "$PROMPT2" > "$STUDENT_FILE" 2>&1
+rm -f "$PROMPT2"
 
 ok "Žák dokončil hodnocení."
 echo ""
@@ -140,11 +144,9 @@ step "Spouštím CERMAT agenta..."
 
 TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
 STUDENT_FEEDBACK=$(cat "$STUDENT_FILE")
-
-"$CLAUDE_BIN" -p \
-  --system-prompt "Jsi zkušený odborný pracovník Centra pro zjišťování výsledků vzdělávání (CERMAT) s 10 lety zkušeností. Podílel/a ses na tvorbě a hodnocení didaktických testů MA5 pro přijímací zkoušky na víceletá gymnázia. Výborně znáš požadavky na matematické kompetence žáků 5. třídy, typické chyby v testech a způsoby, jak na ně žáky připravit. Hodnotíš didaktické materiály odborně, konstruktivně a konkrétně." \
-  --allowedTools "Read" \
-  "Posuz didaktický materiál pro přípravu na přijímací zkoušky MA5.
+PROMPT3=$(mktemp)
+cat > "$PROMPT3" <<PROMPT
+Posuz didaktický materiál pro přípravu na přijímací zkoušky MA5.
 
 Pracovní list: ${PL_ID} — ${PL_NAME}
 
@@ -168,8 +170,14 @@ Z pozice pracovníka CERMAT posud:
 4. **Pokrytí typických chyb** — jsou pokryty chyby, které žáci v MA5 testech nejčastěji dělají?
 5. **Konkrétní doporučení** — co přesně změnit ve struktuře nebo postupu?
 
-Buď konkrétní — cituj části textu a navrhuj přesné změny. Max 500 slov." \
-  2>&1 | tee -a "$REPORT_FILE.cermat_tmp"
+Buď konkrétní — cituj části textu a navrhuj přesné změny. Max 500 slov.
+PROMPT
+
+"$CLAUDE_BIN" -p \
+  --system-prompt "Jsi zkušený odborný pracovník Centra pro zjišťování výsledků vzdělávání (CERMAT) s 10 lety zkušeností. Podílel/a ses na tvorbě a hodnocení didaktických testů MA5 pro přijímací zkoušky na víceletá gymnázia. Výborně znáš požadavky na matematické kompetence žáků 5. třídy, typické chyby v testech a způsoby, jak na ně žáky připravit. Hodnotíš didaktické materiály odborně, konstruktivně a konkrétně." \
+  --allowedTools "Read" \
+  < "$PROMPT3" 2>&1 | tee -a "$REPORT_FILE.cermat_tmp"
+rm -f "$PROMPT3"
 
 CERMAT_REPORT=$(cat "$REPORT_FILE.cermat_tmp" 2>/dev/null || echo "")
 
