@@ -1,0 +1,30 @@
+7
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 8
+Věra, Pavel a Tomáš šetřili po dobu čtyř měsíců pouze padesátikorunové mince a všechny 
+našetřené mince vkládali do kasičky. Graf udává počet mincí, které děti vložily do kasičky 
+v jednotlivých měsících.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Věra vložila do kasičky v lednu tolik korun, kolik našetřila během zbývajících
+tří měsíců dohromady.
+8.2 V únoru vložili do kasičky Pavel s Věrou dohromady třikrát více korun 
+než Tomáš.
+8.3 Tomáš vložil v dubnu do kasičky více než jednu devítinu všech peněz, které
+našetřily za uvedené čtyři měsíce všechny tři děti dohromady.
+0
+2
+4
+6
+8
+10
+12
+14
+Leden Únor Březen Duben
+Počet padesátikorun
+Nově vložené mince
+Věra
+Pavel
+Tomáš

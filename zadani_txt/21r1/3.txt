@@ -1,0 +1,24 @@
+3
+VÝCHOZÍ TEXT A TABULKA K ÚLOZE 3
+Závod mladších žáků v běhu na lyžích absolvovalo 6 závodníků (A–F).
+První závodník vyběhl na trať v 9 hodin 20 minut, další vybíhali v půlminutových intervalech.
+Zvítězil závodník, který strávil na trati nejkratší dobu, tedy má nejlepší výsledný čas.
+(Všechny časy v tabulce jsou uvedeny ve tvaru h:min:s.)
+(CZVV)
+max. 4 body
+3
+3.1 Vypočtěte výsledný čas vítěze závodu (v minutách a sekundách).
+3.2 Určete, na kolikátém místě se umístil závodník, který proběhl cílem jako první.
+3.3 Uveďte písmena všech závodníků, kteří proběhli cílem později než závodník D.
+VÝCHOZÍ TEXT K ÚLOZE 4
+V cukrárně mají zabaleno celkem 80 zákusků buď na táccích po 2 zákuscích, nebo 
+v krabičkách po 3 zákuscích. Počet tácků se zákusky je o 10 větší než počet krabiček se zákusky.
+(CZVV)
+max. 4 body
+4 Určete
+4.1 počet všech krabiček se zákusky,
+4.2 celkový počet zákusků na táccích.
+Závodník A B C D E F
+Čas při startu 9:20:00 9:20:30 9:21:00 9:21:30 9:22:00 9:22:30
+Čas v cíli 9:43:15 9:43:05 9:43:25 9:43:20
+Výsledný čas 0:23:15 0:22:25 0:23:05 0:22:30

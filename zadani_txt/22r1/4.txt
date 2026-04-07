@@ -1,0 +1,16 @@
+4
+VÝCHOZÍ TEXT A OBRÁZKY K ÚLOZE 6
+Každý z obrazců A, B, C, D má obsah 96 cm2a skládá se ze čtyř stejných trojúhelníků.
+V trojúhelníku mají dvě kratší strany délky 4 cm a 13 cm.
+Obvod obrazce B je o 4 cm menší než obvod obrazce C.
+(CZVV)
+max. 4 body
+6 Vypočtěte
+6.1 v cm2 obsah jednoho trojúhelníku,
+6.2 v cm obvod obrazce A,
+6.3 v cm obvod jednoho trojúhelníku,
+6.4 v cm obvod obrazce D.
+Obrazec A Obrazec B
+Obrazec C Obrazec D
+13 cm
+4 cm

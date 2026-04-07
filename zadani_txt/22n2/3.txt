@@ -1,0 +1,24 @@
+3
+VÝCHOZÍ TEXT A OBRÁZKY K ÚLOZE 4
+VZOR:
+Do prázdných kroužků a čtverečků se v souladu s uvedenými výpočty doplňují pouze celá 
+čísla větší než 0.
+(CZVV)
+max. 4 body
+4 Doplňte taková čísla, aby byl součet v silně ohraničeném čtverečku
+4.1 v I. nákresu co nejmenší,
+4.2 ve II. nákresu co největší.
+V záznamovém archu uveďte pouze čísla doplněná do silně ohraničených čtverečků.
+I. nákres
++ =
+⋅ 3 ⋅ 4
++ = 43
+II. nákres
++ =
+⋅ 3 ⋅ 4
++ = 43
++ =
+⋅ 3 ⋅ 4
++ =
+2 3 5
+6 12 18

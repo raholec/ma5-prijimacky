@@ -1,0 +1,34 @@
+9
+VÝCHOZÍ TEXT A DIAGRAM K ÚLOZE 13
+V každém diagramu se stejné symboly (např.⊛) nahradí stejným kladným celým číslem 
+a do prázdného oválu se doplní takové celé číslo, aby byly všechny výpočty provedené 
+ve směru šipek správné.
+VZOR:
+Ve vzorovém diagramu se každý symbol ⊛nahradí číslem 2 a do prázdného oválu se doplní
+číslo 23.
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každému diagramu (13.1–13.3) číslo (A–F) doplněné 
+do prázdného oválu.
+13.1
+_____
+13.2
+_____
+13.3
+_____
+A) 13
+B) 14
+C) 15
+D) 16
+E) 17
+F) jiné číslo
+⋅ ⊛ + 10 ∶ ⊛ − ⊛
+20 50
+⋅ 2 + 10 ∶ 2 − 2
+20 50 23
+⋅ ⦿ ⋅ ⦿ ∶ 4 − 2 ⋅ ⦿
+4 100
+∶ ⍟ + ⍟ ⋅ ⍟ − ⍟
+10 72
+∶ ⊚ − 10 ⋅ 10 − ⊚
+480 120

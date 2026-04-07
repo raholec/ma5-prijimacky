@@ -1,0 +1,20 @@
+4
+max. 4 body
+5
+5.1 Písmena 𝐾, 𝐿 představují dvě různé číslice. 
+V zápise součtu dvou trojciferných čísel se písmena nahradí číslicemi a místo 
+hvězdiček se zapíšou chybějící číslice součtu tak, aby byl výpočet správný.
+𝐾 𝐿 𝐿
+𝐾 𝐿 𝐾
+∗ ∗ 1 1
+Určete číslice, kterými se nahradí písmena 𝐾, 𝐿, a zapište je v tomto pořadí.
+5.2 Písmena 𝑆, 𝑇, 𝑈 představují tři navzájem různé číslice.
+V zápise součtu tří dvouciferných čísel se písmena nahradí číslicemi tak, aby byl 
+výpočet správný.
+𝑆 𝑇
+𝑆 𝑇
+𝑇 𝑈
+2 1 1
+Určete číslice, kterými se nahradí písmena 𝑆, 𝑇, 𝑈, a zapište je v tomto pořadí.
+Najděte všechna tři řešení.
+V záznamovém archu uveďte každé řešení (trojici číslic) na nový řádek.

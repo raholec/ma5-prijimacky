@@ -1,0 +1,15 @@
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 3
+V součtovém trojúhelníku platí, že součet dvou čísel, která jsou v rámečcích v řádku 
+vedle sebe, je vždy zapsán o řádek níže do rámečku, který s těmito oběma čísly sousedí.
+Například:
+1 2 3
+1 + 2 = 3 2 + 3 = 5
+3 + 5 = 8
+Mějme součtový trojúhelník:
+8
+44
+.
+3 body
+3 Do obou šedých polích patří stejné číslo.
+Jaké číslo musí být v obou šedých polích?
+Do záznamového archu uveďte pouze chybějící číslo, které patří do šedých polí.

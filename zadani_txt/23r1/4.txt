@@ -1,0 +1,22 @@
+4
+VÝCHOZÍ TEXT K ÚLOZE 5
+Pro děti klubu SEN se letos otevřel pouze sportovní, divadelní a robotický kroužek.
+Každé dítě klubu SEN navštěvuje alespoň jeden z těchto tří kroužků – 3 děti navštěvují 
+všechny tři kroužky, 8 dětí navštěvuje právě dva kroužky a ostatní děti jediný kroužek.
+Sportovní kroužek navštěvuje 14 dětí, divadelní 12 dětí a robotický 6 dětí.
+(CZVV)
+max. 4 body
+5 Vypočtěte,
+5.1 kolik dětí klubu SEN navštěvuje pouze jeden kroužek,
+5.2 kolik dětí je v klubu SEN.
+VÝCHOZÍ TEXT K ÚLOZE 6
+Na odměny pro tři nejlepší soutěžící byla připravena finanční částka v korunách.
+První soutěžící získal polovinu této částky. 
+Druhý soutěžící dostal 300 korun. 
+Třetí soutěžící získal zbytek připravené částky, což bylo třikrát méně korun, než získal první 
+soutěžící.
+(CZVV)
+max. 3 body
+6 Vypočtěte,
+6.1 kolikrát více korun dostal druhý soutěžící než třetí soutěžící,
+6.2 kolik korun bylo celkem připraveno na odměny.

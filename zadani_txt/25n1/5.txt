@@ -1,0 +1,13 @@
+5
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Šestiúhelník na obrázku je rozdělen dvěma úsečkami na dva bílé čtverce a dva stejné tmavé
+trojúhelníky.
+Délka strany malého čtverce je o čtvrtinu menší než délka strany velkého čtverce. 
+Obvody obou čtverců se liší o 12 cm. 
+Obvod jednoho tmavého trojúhelníku je stejný jako obvod malého čtverce.
+(CZVV)
+max. 5 bodů
+6
+6.1 Vypočtěte v cm délku strany malého čtverce.
+6.2 Vypočtěte v cm obvod velkého čtverce.
+6.3 Určete, kolikrát větší je obvod šestiúhelníku než obvod malého čtverce.

@@ -1,0 +1,32 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží bod K a přímky a, b.
+(CZVV)
+7.2 Bod K je vrchol obdélníku KLMN.
+Jedna strana tohoto obdélníku leží na některé z přímek a, b
+a zbývající vrchol obdélníku leží na druhé z těchto přímek.
+Sestrojte vrcholy L, M, N obdélníku KLMN, označte je písmeny a obdélník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+VÝCHOZÍ TEXT K ÚLOZE 8
+Děti sbírají kartičky pokémonů.
+Petr má 12 kartiček a Pavel má o
+1
+3
+kartiček více než Petr.
+Marek má o
+1
+8
+kartiček více než Nela. Počty kartiček Marka a Nely se liší o 6.
+Alice má 45 kartiček a Bára 30 kartiček.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Petr a Pavel mají dohromady méně než 28 kartiček.
+8.2 Marek má 54 kartiček.
+8.3 Alice má o jednu třetinu kartiček více než Bára.
+K
+a
+b

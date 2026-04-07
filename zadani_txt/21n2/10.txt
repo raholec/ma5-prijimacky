@@ -1,0 +1,13 @@
+10
+VÝCHOZÍ TEXT K ÚLOZE 14
+Do řady po sobě jdoucích kladných celých čísel přidáme za každé číslo dělitelné třemi 
+toto číslo ještě jednou. Nová řada tak všechna čísla dělitelná třemi obsahuje dvakrát.
+V nové řadě je na 1. až 17. místě následujících 17 čísel:
+1, 2, 3, 3, 4, 5, 6, 6, 7, 8, 9, 9, 10, 11, 12, 12, 13, …
+(CZVV)
+max. 4 body
+14 Určete,
+14.1 na kolikátém místě nové řady je číslo 100,
+14.2 které číslo je na 100. místě nové řady,
+14.3 na kolika místech nové řady je mezi čísly 1 až 101 uvedeno sudé číslo.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.

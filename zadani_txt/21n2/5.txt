@@ -1,0 +1,12 @@
+5
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží polopřímka LS a bod U.
+(CZVV)
+7.2 Bod L je vrchol rovnoramenného trojúhelníku KLM, bod S je střed strany LM. 
+V tomto trojúhelníku je každé z obou ramen dvakrát delší než základna.
+Bod U leží uvnitř trojúhelníku KLM.
+Sestrojte vrcholy K, M trojúhelníku KLM, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna 3 řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+L
+U S

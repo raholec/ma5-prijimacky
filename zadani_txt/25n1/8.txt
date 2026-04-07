@@ -1,0 +1,32 @@
+8
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 8
+Rodný dům slavného spisovatele je otevřen pouze v letní sezoně od května do září. 
+V pokladně zaznamenávají počet prodaných vstupenek dětským a dospělým návštěvníkům. 
+V grafu je uvedena návštěvnost v jedné sezoně.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 V prvních třech měsících sezony bylo mezi návštěvníky rodného domu 
+třikrát více dospělých než dětí.
+8.2 Dospělých návštěvníků rodného domu bylo v srpnu o polovinu více
+než v červnu.
+8.3 Za celou sezonu bylo dětských návštěvníků rodného domu o 340 méně
+než dospělých.
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+110
+Květen Červen Červenec Srpen Září
+Počet prodaných vstupenek
+Děti
+Dospělí

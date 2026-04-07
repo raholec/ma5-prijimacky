@@ -1,0 +1,28 @@
+7
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+Ve čtvercové síti jsou zakresleny tři útvary, jejichž vrcholy leží v mřížových bodech.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z útvarů (8.1–8.3), zda je osově souměrný (A),
+či nikoli (N).
+A N
+8.1 1. útvar
+8.2 2. útvar
+8.3 3. útvar
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 9
+Petr šel z domova do sportovní haly. Každou pětinu cesty ušel za stejnou dobu. 
+Když ušel první pětinu cesty od domova, jeho hodinky ukazovaly čas 14:54. 
+Když mu k hale zbývala ještě pětina cesty, ukazovaly hodinky čas 15:12.
+(CZVV)
+2 body
+9 Jaký čas ukazovaly Petrovy hodinky, když vycházel z domova?
+A) méně než 14:35
+B) 14:35
+C) 14:42
+D) 14:48
+E) více než 14:48
+1. útvar 2. útvar 3. útvar
+domov
+14:54
+15:12
+hala

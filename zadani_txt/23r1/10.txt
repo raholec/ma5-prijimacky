@@ -1,0 +1,19 @@
+10
+VÝCHOZÍ TEXT A OBRÁZKY K ÚLOZE 14
+Ze stejně velkých světlých a tmavých čtverečků tvoříme obrazce tvaru čtverce nebo obdélníku.
+Základní obrazec je tvořen jednou nebo více řadami světlých čtverečků.
+Z každého základního obrazce vytvoříme rozšířený obrazec tak, že přidáme nahoru jednu 
+řadu tmavých čtverečků a pak vlevo i vpravo po jednom sloupci tmavých čtverečků.
+(CZVV)
+max. 4 body
+14
+14.1 Ze základního obrazce, který má 5 řad,
+vytvoříme rozšířený obrazec přidáním 30 tmavých čtverečků.
+Určete počet sloupců v základním obrazci.
+14.2 Rozšířený obrazec má 3 řady a tvoří jej stejný počet tmavých a světlých čtverečků.
+Určete počet sloupců v rozšířeném obrazci.
+14.3 Můžeme najít mnoho rozšířených obrazců s 50 tmavými čtverečky.
+Určete počet všech těchto rozšířených obrazců.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+Příklad základního obrazce (2 řady, 3 sloupce, 6 čtverečků)
+Rozšířený obrazec (3 řady, 5 sloupců, 15 čtverečků – z toho 9 tmavých)

@@ -1,0 +1,21 @@
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+Ve čtvercové síti je nakreslen obrazec, který se skládá z částí označenými písmeny A, B, C, 
+D a E a jehož vrcholy leží v mřížových bodech. Každý čtvereček čtvercové sítě má stranu
+délky 1 cm a obsah 1 cm2.
+max. 3 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3),
+zda je pravdivé (A), či nikoli (N).
+A N
+8.1 Obvod části E je 18 cm. 
+8.2 Obsah části A je právě čtyřikrát větší než obsah části B. 
+8.3 Obsah celého obrazce je větší než 60 cm2. 
+____________________________________________________________________________
+2 body
+9 Kilogram broskví stojí 32 Kč a kilogram jablek 28 Kč. Petra koupila stejný počet 
+kilogramů jablek jako broskví a utratila 720 Kč. 
+Kolik kilogramů broskví Petra koupila?
+A) 6
+B) 8
+C) 10
+D) 12
+E) jiný počet

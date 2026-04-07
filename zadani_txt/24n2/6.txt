@@ -1,0 +1,23 @@
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+Ve čtvercové síti je nakreslen obdélník ABCD s vrcholy v mřížových bodech. Tento 
+obdélník lze rozstříhat na 20 shodných čtverců. Obvod tohoto obdélníku je 54 cm.
+max. 3 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3),
+zda je pravdivé (A), či nikoli (N).
+A N
+8.1 Obsah obdélníku ABCD je 180 cm2. 
+8.2 Obvod tmavého obrazce je 69 cm. 
+8.3 Obsah tmavého obrazce je 90 cm2. 
+____________________________________________________________________________
+2 body
+9 Jedno balení stavebnice obsahuje 180 kostek. Jedna desetina těchto kostek je 
+modrá a jedna devítina červená.
+Kolik takových balení kostek musíme koupit, abychom dohromady měli 
+190 modrých a červených kostek?
+A) 1
+B) 3
+C) 5
+D) 10
+E) jiný výsledek
+A B
+D C

@@ -1,0 +1,12 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží přímka p a body N, O. 
+(CZVV) 
+7.2 Body N, O jsou vrcholy trojúhelníku NOP. Vrchol P tohoto trojúhelníku leží na přímce p. 
+Délka strany NO je polovinou délky strany OP. 
+Sestrojte vrchol P trojúhelníku NOP, označte jej písmenem a trojúhelník narýsujte. 
+Najděte všechna řešení. 
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena). 
+p
+O
+N

@@ -1,0 +1,33 @@
+7
+VÝCHOZÍ TEXT A GRAF K ÚLOHÁM 9–10
+Farma vykupuje tři druhy léčivých bylin A, B, C. Výkupní cenu za 1 kg každé z bylin 
+znázorňuje následující graf, i když skutečná cena v korunách není uvedena.
+(CZVV)
+2 body
+9 Vedoucí skautského oddílu nasbírala 2 kg byliny A a 1 kg byliny B. 
+Za nasbírané byliny A dostala o 60 korun více než za byliny B.
+Kolik korun celkem dostala vedoucí za nasbírané byliny?
+A) 130 korun
+B) 195 korun
+C) 260 korun
+D) 390 korun
+E) více než 390 korun
+2 body
+10 Chlapci ze skautského oddílu nasbírali 14 kg byliny B, dívky sbíraly bylinu C.
+Dívky dostaly za nasbírané byliny stejnou částku jako chlapci.
+Kolik kg byliny C nasbíraly dívky?
+A) 5 kg
+B) 7 kg
+C) 8 kg
+D) 9 kg
+E) 10 kg
+0
+2
+4
+6
+8
+10
+12
+A B C
+Druh bylin 
+Ceny bylin za 1 kg

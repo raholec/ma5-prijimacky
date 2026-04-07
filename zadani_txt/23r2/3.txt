@@ -1,0 +1,18 @@
+3
+max. 4 body
+4
+4.1 V aquaparku je zapůjčení županu o 30 korun dražší než zapůjčení osušky. 
+Zapůjčení 5 osušek stojí stejně jako zapůjčení 3 županů.
+Vypočtěte, kolik korun stojí v aquaparku zapůjčení jednoho županu.
+4.2 Na plaveckém tréninku uplavali Jirka, Míša a Pavla dohromady 60 bazénů. 
+Míša uplavala stejný počet bazénů jako Jirka, ale dvakrát více bazénů než Pavla.
+Vypočtěte, kolik bazénů uplavala na tréninku Míša.
+VÝCHOZÍ TEXT K ÚLOZE 5
+Šest kamarádů si v mobilní aplikaci posílalo různé vzkazy.
+Vytvořili si mezi sebou jednak všechny možné pětičlenné skupiny, jednak všechny možné 
+dvoučlenné skupiny.
+(CZVV)
+max. 3 body
+5 Určete, kolik vytvořili
+5.1 pětičlenných skupin,
+5.2 dvoučlenných skupin.

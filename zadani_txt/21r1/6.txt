@@ -1,0 +1,28 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží lomená čára BCDEFG.
+(CZVV)
+7.2 Body B, C jsou vrcholy trojúhelníku ABC. 
+Vrchol A tohoto trojúhelníku leží na lomené čáře BCDEFG. 
+Délka strany AC je stejná jako délka úsečky EF.
+Sestrojte vrchol A trojúhelníku ABC, označte ho písmenem a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+V počítačové hře jsou tři znaky (hvězdička, kolečko a čtvereček).
+Jedna hvězdička má hodnotu tří koleček. =
+Čtvereček a kolečko mají dohromady hodnotu dvou hvězdiček. =
+(CZVV)
+max. 4 body
+8 Rozhodněte o každé z následujících rovností (8.1–8.3), zda
+platí (A), či nikoli (N).
+A N
+8.1 =
+8.2 =
+8.3 =
+B
+C
+D
+E
+F
+G

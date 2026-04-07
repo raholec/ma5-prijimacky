@@ -1,0 +1,13 @@
+12
+VÝCHOZÍ TEXT K ÚLOZE 14
+Řada je vytvořena z celých čísel. První trojice čísel je 0, 1, 2. 
+Každou další trojici vytvoříme tak, že jednotlivá čísla z předchozí trojice zvětšíme o 1.
+V řadě je na 1. až 18. místě následujících 18 čísel:
+0, 1, 2, 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 6, 5, 6, 7, …
+(CZVV)
+max. 4 body
+14 Určete,
+14.1 na kolikátém místě řady je poprvé číslo 12,
+14.2 na kolika místech řady je mezi prvními 125 čísly uvedeno liché číslo,
+14.3 které číslo je na 152. místě řady.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.

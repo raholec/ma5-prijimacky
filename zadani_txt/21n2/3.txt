@@ -1,0 +1,24 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 4
+V dětské hře se smí provádět pouze následující nákupy:
+– za 5 mincí lze koupit 3 autíčka,
+– za 3 mince lze koupit 4 figurky.
+(CZVV)
+max. 4 body
+4
+4.1 Amélie si chce koupit několik autíček a dvakrát tolik figurek.
+Určete nejmenší počet mincí, které k takovému nákupu potřebuje.
+4.2 Franta si chce koupit přesně o 10 autíček více než figurek.
+Určete nejmenší počet mincí, které k takovému nákupu potřebuje.
+VÝCHOZÍ TEXT K ÚLOZE 5
+Bílá krabička je prázdná, v zelené krabičce jsou jen zelené kuličky a v modré krabičce 
+jsou jen modré kuličky. Modrých kuliček je 60.
+Do bílé krabičky přendáme ze zelené a modré krabičky tolik kuliček, aby byl ve všech třech
+krabičkách stejný počet kuliček. Ze zelené krabičky tak musíme přendat o 9 kuliček více než 
+z modré krabičky.
+(CZVV)
+max. 4 body
+5
+5.1 Určete počet všech zelených kuliček.
+5.2 Vypočtěte, kolik kuliček zůstane v modré krabičce.
+5.3 Vypočtěte, kolik zelených kuliček přendáme do bílé krabičky.

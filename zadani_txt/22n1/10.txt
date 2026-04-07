@@ -1,0 +1,25 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 13
+Ze stejně velkých krychliček lepíme těleso podle návodu. 
+Návod obsahuje zobrazení tělesa při pohledu zepředu a při pohledu zprava.
+Těleso slepené podle vzorového návodu může obsahovat nejvíce 12 krychliček.
+Podle téhož návodu je možné slepit i těleso z menšího počtu krychliček (vynechat lze např. 
+některé tmavé krychličky).
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každému návodu (13.1–13.3) největší počet krychliček (A–F),
+z nichž může být těleso slepeno.
+Pohled zepředu Pohled zprava
+13.1
+_____
+13.2
+_____
+13.3
+_____
+A) 11 krychliček
+B) 12 krychliček
+C) 13 krychliček
+D) 14 krychliček
+E) 15 krychliček
+F) jiný počet krychliček
+VZOR: Pohled zepředu Pohled zprava Těleso

@@ -1,0 +1,27 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Obrazec ABCDEF se skládá ze čtverce, rovnostranného a rovnoramenného trojúhelníku.
+Obvod čtverce je 24 cm, obvod rovnoramenného trojúhelníku je o třetinu větší než 
+obvod čtverce.
+(CZVV)
+max. 4 body
+6 Vypočtěte v cm obvod
+6.1 rovnostranného trojúhelníku,
+6.2 rovnoramenného trojúhelníku,
+6.3 celého obrazce ABCDEF.
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží body N, O, P.
+(CZVV)
+7.1 Body N, O jsou středy protějších stran AB a CD obdélníku ABCD
+a bod P leží na straně BC tohoto obdélníku.
+Sestrojte vrcholy obdélníku ABCD, označte je písmeny a obdélník narýsujte.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+N
+O
+P
+A B
+C
+E D
+F

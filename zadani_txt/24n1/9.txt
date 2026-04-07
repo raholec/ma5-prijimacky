@@ -1,0 +1,45 @@
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 12
+Tři sourozenci Sára, Dana a Lukáš postupně šetřili každý do své pokladničky peníze, které 
+dostávali. Zároveň si ze své pokladničky brali peníze na drobnosti pro sebe či dárky 
+pro ostatní. Graf znázorňuje částky, které si jednotliví sourozenci našetřili, nebo které
+utratili každý měsíc v první polovině roku.
+max. 3 body
+12
+12.1 Kolik peněz měl v pokladničce Lukáš na konci června, když víme, že 1. ledna 
+měl v pokladničce 600 Kč?
+A) 200 Kč
+B) 400 Kč
+C) 750 Kč
+D) 1 000 Kč
+E) Výsledek nelze určit. 
+12.2 O kolik se změnila částka, kterou měla v pokladničce Sára, za první polovinu 
+roku?
+A) 400 Kč
+B) 650 Kč
+C) 750 Kč
+D) 1 250 Kč
+E) 1 800 Kč
+utracené peníze našetřené peníze
+květen
+červen
+Sára
+leden
+únor březen
+duben
+Dana
+Lukáš
+400
+350
+300
+250
+200
+150
+100
+50
+0
+50
+100
+150
+200
+250
+300

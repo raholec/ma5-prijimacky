@@ -1,0 +1,27 @@
+7
+VÝCHOZÍ TEXT K ÚLOZE 9
+V obchodě prodávají ve 2 různých sadách figurky dvou druhů dinosaurů, T-rex a Velociraptor.
+Velká sada stojí 180 korun a obsahuje 8 figurek druhu T-rex a 5 figurek druhu Velociraptor. 
+Malá sada stojí 54 korun a obsahuje 2 figurky druhu T-rex a 2 figurky druhu Velociraptor.
+Standa koupil 2 velké sady a několik malých sad. Celkem tak získal 70 nových figurek dinosaurů.
+(CZVV)
+2 body
+9 Kolik korun utratil Standa za nákup figurek dinosaurů?
+A) 900 korun
+B) 954 korun
+C) 988 korun
+D) 1008 korun
+E) jinou částku
+VÝCHOZÍ TEXT K ÚLOZE 10
+Ve stanici Lichá Lhota stojí na každé ze tří kolejí jeden vlak. 
+Vlak na druhé koleji má o 3 vagony více než vlak na první koleji a dvakrát méně vagonů než 
+vlak na třetí koleji. 
+Všechny tři vlaky dohromady mají 41 vagonů.
+(CZVV)
+2 body
+10 O kolik vagonů více má vlak na třetí koleji než vlak na první koleji?
+A) o 8 vagonů
+B) o 10 vagonů
+C) o 11 vagonů
+D) o 13 vagonů
+E) o 14 vagonů

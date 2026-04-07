@@ -1,0 +1,15 @@
+6
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží bod U a přímka p procházející bodem S.
+(CZVV)
+7.1 Na přímce p leží strana AB pravoúhlého trojúhelníku ABC s pravým úhlem při vrcholu A.
+Bod S je střed strany AB a vzdálenost bodu A od bodu S je 3 cm. 
+Vrchol C trojúhelníku ABC leží na polopřímce US.
+Sestrojte všechny vrcholy trojúhelníku ABC, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+U
+p
+S

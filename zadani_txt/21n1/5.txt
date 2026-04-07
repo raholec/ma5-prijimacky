@@ -1,0 +1,15 @@
+5
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží body A, S a přímka p procházející bodem S.
+(CZVV)
+7.1 Bod A je vrchol trojúhelníku ABC, jehož strana AC měří 4 cm. 
+Oba vrcholy B, C tohoto trojúhelníku leží na přímce p. 
+Bod S je střed strany BC.
+Sestrojte vrcholy B, C trojúhelníku ABC, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+A
+S
+p

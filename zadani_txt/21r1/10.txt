@@ -1,0 +1,27 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+První obrazec tvoří jediný puntík.
+V dalších obrazcích jsou puntíky uspořádány ve čtvercích.
+Strana hraničního čtverce u druhého obrazce obsahuje 3 puntíky a u každého 
+následujícího obrazce má vždy o 2 puntíky více (např. strana hraničního čtverce 5. obrazce 
+obsahuje 9 puntíků).
+Počínaje třetím obrazcem vidíme uvnitř hraničního čtverce vždy celý obrazec, který má 
+pořadové číslo o 2 menší (např. uvnitř hraničního čtverce 5. obrazce vidíme celý 3. obrazec).
+(Následují další obrazce.)
+(CZVV)
+max. 4 body
+14 Určete,
+14.1 kolik puntíků obsahuje jedna strana hraničního čtverce 10. obrazce,
+14.2 o kolik se liší počty puntíků v 9. a 11. obrazci,
+14.3 u kolikátého obrazce se počty puntíků v okolních dvou obrazcích liší o 120
+(okolními rozumíme obrazec těsně před a těsně za hledaným obrazcem).
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+1. 2.
+8 puntíků
+3.
+17 puntíků
+4.
+32 puntíků
+5.
+9 puntíků
+49 puntíků

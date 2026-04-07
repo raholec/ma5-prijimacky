@@ -1,0 +1,33 @@
+9
+VÝCHOZÍ TEXT A TABULKA K ÚLOZE 13
+Na začátku hry si hráč vylosuje určitý počet žetonů. 
+Během hry může žetony vyhrát, ale i prohrát. 
+Na konci hry zjistí, kolik žetonů mu zůstalo.
+Následující tabulka udává některé údaje tří hráčů.
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každé otázce (13.1–13.3) správnou odpověď (A–F).
+13.1 Blance zůstala na konci hry jen třetina žetonů, které si na začátku vylosovala.
+Kolik žetonů Blanka během hry prohrála? _____
+13.2 Emil si na začátku hry vylosoval o 8 žetonů více, než vyhrál během hry.
+Kolik žetonů si Emil vylosoval na začátku hry? _____
+13.3 Ivana měla na konci hry o jednu šestinu žetonů více, než si vylosovala 
+na začátku hry.
+Kolik žetonů si Ivana vylosovala na začátku hry? _____
+A) 30 žetonů
+B) 32 žetonů
+C) 34 žetonů
+D) 36 žetonů
+E) 38 žetonů
+F) jiný počet žetonů
+Počet žetonů na začátku 
+hry
+vyhraných 
+během hry
+prohraných 
+během hry
+na konci 
+hry
+Blanka 48 6
+Emil 0 52
+Ivana 18 12

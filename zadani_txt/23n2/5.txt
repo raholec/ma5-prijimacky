@@ -1,0 +1,16 @@
+5
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží body P, Q, R a přímka a.
+(CZVV)
+7.1 Na přímce a leží strana AB čtverce ABCD.
+Dva ze tří bodů P, Q, R leží uvnitř dvou různých stran tohoto čtverce 
+a třetí bod leží vně čtverce ABCD.
+Sestrojte všechny vrcholy čtverce ABCD, označte je písmeny a čtverec narýsujte. 
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+P
+Q
+R
+a

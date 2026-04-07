@@ -1,0 +1,22 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Doplňte do rámečku takové číslo, aby platila rovnost:
+V záznamovém archu uveďte čísla doplněná do rámečků.
+1.1
+∶ 11 = (5 + 5 ⋅ 20) − 101
+1.2
+(188 − 152) ∶ (1 + ) = 4 + 20 ∶ 4
+max. 4 body
+2
+2.1 Tabulka má obsahovat všechna celá čísla od 0 do 8. Do prázdných polí tabulky se 
+doplní chybějící čísla tak, aby byl součet v každém sloupci i v každém řádku stejný.
+0
+2
+1 3
+Určete číslo, které patří do prostředního pole tabulky.
+2.2 V diagramu se do prázdných kroužků doplní taková čísla, aby byly všechny výpočty 
+provedené ve směru šipek správné.
+Určete obě čísla doplněná do prázdných kroužků.
++ 90
+∶ 3

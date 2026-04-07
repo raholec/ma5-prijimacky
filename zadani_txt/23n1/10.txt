@@ -1,0 +1,22 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Každý obrazec tvaru obdélníku je složen z malých šedých čtverečků a větších bílých čtverečků.
+Všechny šedé čtverečky jsou stejné a jsou poskládány do spodní řady a do levého sloupce. 
+Zbytek obrazce tvoří bílé čtverečky. Každý bílý čtvereček má dvakrát delší stranu než šedý.
+První obrazec má ve spodní řadě 5 šedých čtverečků a v levém sloupci 3 šedé čtverečky. 
+Skládá se celkem z 9 čtverečků (bílých i šedých dohromady).
+Každý další obrazec má oproti předchozímu vždy o 2 šedé čtverečky více jak ve spodní řadě,
+tak i v levém sloupci.
+(CZVV)
+max. 4 body
+14
+14.1 Obrazec má ve spodní řadě 41 šedých čtverečků.
+Určete počet bílých čtverečků v obrazci.
+14.2 V obrazci je 90 bílých čtverečků.
+Určete počet šedých čtverečků v obrazci.
+14.3 Počet všech čtverečků (bílých i šedých dohromady) v posledním a v předposledním 
+obrazci se liší o 106.
+Určete počet šedých čtverečků v posledním obrazci.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+…
+1. obrazec 2. obrazec

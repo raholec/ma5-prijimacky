@@ -1,0 +1,17 @@
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7
+Jsou dány body A, C a D, které tvoří vrcholy rovnoramenného pravoúhlého trojúhelníku 
+s rameny AD a DC a s pravým úhlem při vrcholu D.
+max. 6 bodů
+7
+7.1 Sestrojte čtverec ABCD.
+7.2 Narýsujte přímku p, která prochází body B a D. Na přímce p vyznačte bod X, 
+který je ve stejné vzdálenosti od bodu B jako bod D. Na polopřímce CB
+vyznačte bod Y, který je ve stejné vzdálenosti od bodu B jako bod X. 
+Najděte všechny body X a Y, které odpovídají zadání.
+7.3 Sestrojte trojúhelník XYB. 
+Narýsujte všechna řešení.
+V záznamovém archu obtáhněte celou konstrukci propisovací tužkou (všechny 
+čáry, kružnice nebo jejich části i písmena).
+D
+A
+C

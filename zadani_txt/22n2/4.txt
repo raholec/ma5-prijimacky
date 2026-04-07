@@ -1,0 +1,31 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 5
+Z nádvoří se chodí nahoru na ochoz věže po 120 stejných vyšších schodech, 
+zatímco zpět na nádvoří se chodí dolů jiným schodištěm po 180 stejných nižších schodech.
+Obě schodiště jsou ve dvou místech propojena odpočívadly.
+Mezi 1. odpočívadlem a ochozem je třikrát více vyšších schodů než mezi nádvořím 
+a 1. odpočívadlem. (Totéž musí platit o nižších schodech.)
+Z nádvoří na 2. odpočívadlo vede směrem nahoru 96 vyšších schodů.
+(CZVV)
+max. 4 body
+5 Vypočtěte,
+5.1 kolik vyšších schodů vede směrem nahoru z nádvoří na 1. odpočívadlo,
+5.2 kolik nižších schodů vede směrem dolů z ochozu na 1. odpočívadlo,
+5.3 kolik nižších schodů vede směrem dolů z 2. odpočívadla na nádvoří.
+VÝCHOZÍ TEXT K ÚLOZE 6
+Stejné zahradní dlaždice se skládají na stejné dřevěné palety.
+Plná paleta obsahuje 10 kusů dlaždic.
+Dvě plné palety s dlaždicemi váží dohromady 340 kg.
+Jedna paleta se 4 dlaždicemi váží 80 kg.
+(CZVV)
+max. 3 body
+6 Vypočtěte, kolik kg váží
+6.1 jedna dlaždice,
+6.2 jedna prázdná paleta.
+nádvoří
+1. odpočívadlo
+2. odpočívadlo
+ochoz
+5.1
+5.2
+5.3

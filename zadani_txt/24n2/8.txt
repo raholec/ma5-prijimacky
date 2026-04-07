@@ -1,0 +1,27 @@
+VÝCHOZÍ TEXT K ÚLOZE 12
+Dělník pracuje stále stejným tempem a vyrobí 1 200 součástek za 3 hodiny.
+max. 3 body
+12
+12.1 Za jak dlouho vyrobí dělník 4 000 těchto součástek?
+A) za 8 hodin
+B) za 9 hodin
+C) za 10 hodin
+D) za 11 hodin
+E) za 12 hodin
+12.2 Za jak dlouho by bylo vyrobeno 12 000 těchto součástek, pokud by první 
+polovinu součástek vyráběl dělník sám a druhou polovinu součástek by 
+vyráběl ve spolupráci s kolegou, který pracuje stejným tempem jako on?
+A) za 7,5 hodiny
+B) za 10 hodin
+C) za 15 hodin
+D) za 17,5 hodiny
+E) za 22,5 hodiny
+12.3 Kolik součástek vyrobí dva dělníci za 9 hodin za předpokladu, že druhý dělník 
+pracuje také stále stejným, ale polovičním tempem? 
+(Druhý dělník vyrobí za stejnou dobu polovinu součástek oproti dělníkovi 
+z výchozího textu.)
+A) 1 800
+B) 3 600
+C) 4 000
+D) 5 400
+E) 7 200

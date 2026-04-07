@@ -1,0 +1,13 @@
+7
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží bod R a přímka m procházející bodem K.
+(CZVV)
+7.2 Bod K je vrchol obdélníku KLMN.
+Na přímce m leží vrchol M tohoto obdélníku. 
+Přitom úsečka MR má stejnou délku jako úsečka KR. 
+Vrchol L obdélníku KLMN leží na přímce KR.
+Sestrojte vrcholy L, M, N obdélníku KLMN, označte je písmeny a obdélník narýsujte.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+R
+m
+K

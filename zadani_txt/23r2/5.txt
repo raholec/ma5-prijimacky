@@ -1,0 +1,14 @@
+5
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží bod F a přímka g.
+(CZVV)
+7.1 Bod F je vrchol rovnoramenného trojúhelníku EFG. 
+Strana EF tohoto trojúhelníku měří 5 cm a leží na kolmici k přímce g. 
+Na přímce g leží vrchol G trojúhelníku EFG.
+Sestrojte vrcholy E, G trojúhelníku EFG, označte je písmeny a trojúhelník narýsujte. 
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+F
+g

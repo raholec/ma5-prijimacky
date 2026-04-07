@@ -1,0 +1,13 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží bod K a různoběžné přímky r, s.
+(CZVV)
+7.2 Bod K je vrchol obdélníku KLMN. 
+Strana KL tohoto obdélníku je rovnoběžná s přímkou r. 
+Na přímce s leží střed S strany KN a vrchol M obdélníku KLMN.
+Sestrojte bod S a vrcholy L, M, N obdélníku KLMN, označte je písmeny 
+a obdélník narýsujte.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+K
+r
+s

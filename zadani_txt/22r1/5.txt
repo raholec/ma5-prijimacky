@@ -1,0 +1,16 @@
+5
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží body P, S a přímka q.
+(CZVV)
+7.1 Bod P je vrchol trojúhelníku PQR. 
+Na přímce q leží vrchol Q tohoto trojúhelníku. 
+Vrcholy P a Q leží na téže kružnici se středem S. 
+Bod S je zároveň středem strany QR.
+Sestrojte vrcholy Q, R trojúhelníku PQR, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+P
+S
+q

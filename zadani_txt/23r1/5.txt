@@ -1,0 +1,16 @@
+5
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží bod C a přímky a, b.
+(CZVV)
+7.1 Bod C je vrchol trojúhelníku ABC. 
+Na přímce a leží vrchol A a na přímce b vrchol B tohoto trojúhelníku. 
+Strana AC trojúhelníku ABC je rovnoběžná s přímkou b.
+Strany AB a AC mají stejnou délku.
+Sestrojte vrcholy A, B trojúhelníku ABC, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+C
+a
+b

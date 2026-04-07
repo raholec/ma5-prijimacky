@@ -1,0 +1,16 @@
+12
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Vytváříme obrazce tvaru šestiúhelníku složené ze stejně velkých bílých a šedých 
+rovnostranných trojúhelníků.
+První obrazec se skládá ze 3 bílých a 3 šedých trojúhelníků a každý další obrazec vznikne 
+přidáním jednoho pásu trojúhelníků okolo předchozího obrazce (viz obrázek).
+(CZVV)
+max. 4 body
+14
+14.1 Vypočtěte, kolik trojúhelníků (bílých i šedých dohromady) obsahuje poslední 
+přidaný pás 4. obrazce.
+14.2 Vypočtěte, kolik šedých trojúhelníků obsahuje celý 6. obrazec.
+14.3 Určete, kolikátý obrazec má v posledním přidaném pásu 225 šedých trojúhelníků.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+1. obrazec 2. obrazec 3. obrazec
+…

@@ -1,0 +1,37 @@
+6
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 8
+V prvních dvou lednových týdnech učitel matematiky vyzkoušel všech 30 žáků třídy 5. A, 
+a to každého právě jednou. Graf udává počty žáků vyzkoušených v jednotlivých dnech.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 V 1. týdnu učitel vyzkoušel o 6 žáků méně než ve 2. týdnu.
+8.2 Ve 2. týdnu učitel vyzkoušel v pátek sedmkrát více žáků než ve středu.
+8.3 V úterý 11. 1. učitel vyzkoušel čtvrtinu z těch žáků, kteří nebyli vyzkoušeni
+v žádném z předchozích dnů.
+VÝCHOZÍ TEXT K ÚLOZE 9
+Květinářka měla v prodejně celkem 105 růží, některé byly červené a ostatní bílé. 
+Ze všech těchto růží uvázala kytice po 5 růžích. V každé kytici byly právě 3 růže červené.
+(CZVV)
+2 body
+9 Kolik bílých růží měla květinářka v prodejně?
+A) 21
+B) 35
+C) 42
+D) 63
+E) více než 63
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+Po Út St Čt Pá Po Út St Čt Pá
+3. 1. 4. 1. 5. 1. 6. 1. 7. 1. 10. 1. 11. 1. 12. 1. 13. 1. 14. 1.
+1. týden 2. týden
+Počet vyzkoušených žáků

@@ -1,0 +1,24 @@
+11
+VÝCHOZÍ TEXT A TABULKA K ÚLOZE 13
+Skupina 18 osob přijela do penzionu na jednu noc.
+Tabulka udává počty volných pokojů a ceny lůžek na těchto pokojích. 
+Každý pronajatý pokoj musí být vždy plně obsazen.
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každé situaci (13.1–13.3) počet dvoulůžkových
+pokojů (A–F), které skupina obsadí.
+13.1 Skupina obsadí stejný počet jednolůžkových, dvoulůžkových _____ 
+i třílůžkových pokojů.
+13.2 Skupina obsadí všechny volné třílůžkové pokoje _____
+a zaplatí celkem 10 300 korun.
+13.3 Skupina si vybere nejlevnější možné obsazení pokojů. _____
+A) žádný dvoulůžkový pokoj
+B) 1
+C) 2
+D) 3
+E) 4
+F) 5
+Pokoj jednolůžkový dvoulůžkový třílůžkový čtyřlůžkový
+Počet volných pokojů 6 5 5 2
+Cena v korunách za 
+jedno lůžko na pokoji 1400 700 500 300

@@ -1,0 +1,29 @@
+3
+3.2 Cyklista během 5 dní ujel na kole celkem 200 km. 
+První den ujel nejdelší trasu a každý další den ujel o 6 km méně než předchozí den 
+(např. 4. den ujel o 6 km méně než 3. den).
+Vypočtěte, kolik km ujel cyklista první den.
+VÝCHOZÍ TEXT A DIAGRAM K ÚLOZE 4
+Malé opičky mají pravidelný denní režim (viz diagram). 
+Po každém 4hodinovém úseku (I.–VI.) se u nich střídají 
+ošetřovatelé.
+V diagramu představují bílé plochy části dne, které tráví 
+opičky venku, a šedé plochy části dne, po které jsou 
+uvnitř svého příbytku.
+Dva 4hodinové úseky jsou v diagramu rozděleny, neboť 
+jednu pětinu z II. úseku dne jsou opičky uvnitř příbytku, 
+zatímco jednu šestinu ze VI. úseku dne tráví opičky venku.
+(CZVV)
+max. 4 body
+4 Určete,
+4.1 v kolik hodin a minut opičky ráno vylézají z příbytku ven,
+4.2 v kolik hodin a minut opičky večer zalézají do příbytku,
+4.3 o kolik minut více stráví každý den opičky uvnitř příbytku než venku.
+půlnoc
+poledne
+16:00 8:00
+I.
+II.
+IV. III.
+V.
+VI.

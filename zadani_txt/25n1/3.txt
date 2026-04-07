@@ -1,0 +1,21 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 3
+Stuhu jsme beze zbytku rozstříhali na 20 dílů dvou různých délek – kratší díly po 20 cm 
+a delší po 30 cm. Kratších dílů bylo o třetinu méně než delších dílů.
+(CZVV)
+max. 3 body
+3 Vypočtěte,
+3.1 kolik delších dílů jsme ze stuhy nastříhali,
+3.2 kolik cm měřila celá stuha, než jsme ji začali stříhat.
+VÝCHOZÍ TEXT K ÚLOZE 4
+Adam pravidelně kupuje pro psy mražené mleté maso v baleních po 2 kg.
+Dnes měl v peněžence o 14 korun víc, než potřeboval minule na nákup 12 kg masa. 
+Maso však bylo zdraženo, a tak mu dnes na nákup stejného množství masa 40 korun chybělo.
+Koupil proto o 1 balení masa méně a v peněžence mu zbylo 50 korun.
+(CZVV)
+max. 5 bodů
+4 Vypočtěte,
+4.1 kolik balení masa Adam dnes koupil,
+4.2 kolik korun dnes stálo jedno balení masa,
+4.3 kolik korun si dnes Adam vzal na nákup masa,
+4.4 o kolik korun bylo dnes jedno balení masa dražší než minule.

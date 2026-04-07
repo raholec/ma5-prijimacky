@@ -1,0 +1,26 @@
+9
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 13
+Na podložce byla ze stejných krychliček postavena velká krychle, která měla 4 vrstvy 
+po 16 krychličkách.
+Klára odebrala z velké krychle několik krychliček, aby vytvořila stavbu podle nákresu 1.
+Mirek odebral z Klářiny stavby několik krychliček, aby vytvořil stavbu podle nákresu 2.
+Nora odebrala z Mirkovy stavby několik krychliček, aby vytvořila stavbu podle nákresu 3.
+(Děti krychličky pouze odebíraly, s ostatními krychličkami nehýbaly.)
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každé otázce (13.1–13.3) správnou odpověď (A–F).
+13.1 Kolik krychliček odebrala Klára z velké krychle? _____
+13.2 Kolik nejvíce krychliček mohl Mirek odebrat z Klářiny stavby? _____
+13.3 Kolik nejméně krychliček musela Nora odebrat z Mirkovy stavby? _____
+A) 7
+B) 6
+C) 5
+D) 4
+E) 3
+F) jiný počet
+Nákres 1
+Klára
+Nákres 2
+Mirek
+Nákres 3
+Nora

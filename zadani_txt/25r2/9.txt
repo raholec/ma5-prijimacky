@@ -1,0 +1,25 @@
+9
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOHÁM 10–11
+Záhon má tvar rovnostranného trojúhelníku. Celý záhon je osázen žlutě a fialově kvetoucími
+rostlinami, a to ve stejných rozestupech. Po jedné rostlině je i v každém vrcholu trojúhelníku.
+Ze všech rostlin na záhoně je 39 rostlin rozmístěno po obvodu záhonu.
+Žlutě kvetoucí rostliny vytvářejí v záhonu 6 stejných žlutých rovnostranných trojúhelníků. 
+Fialově kvetoucí rostliny tvoří 3 fialové rovnostranné trojúhelníky. Každý fialový trojúhelník 
+má o 1 řadu rostlin více než žlutý trojúhelník. Rozmístění trojúhelníků je na obrázku vpravo.
+(CZVV)
+2 body
+10 Kolik žlutě kvetoucích rostlin vytváří jeden žlutý trojúhelník?
+A) 6 rostlin
+B) 9 rostlin
+C) 10 rostlin
+D) 12 rostlin
+E) 15 rostlin
+2 body
+11 Kolik fialově kvetoucích rostlin je vysazeno na celém záhonu?
+A) 36 rostlin
+B) 45 rostlin
+C) 48 rostlin
+D) 51 rostlin
+E) více než 51 rostlin
+rozestup
+…

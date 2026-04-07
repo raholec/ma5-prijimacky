@@ -1,0 +1,27 @@
+4
+VÝCHOZÍ TEXT K ÚLOZE 5
+Na pódiu má tančit stejný počet chlapců a dívek.
+Při tanci všichni tančící vytvoří několik velkých a několik malých kroužků. V každém velkém
+kroužku bude sedm chlapců a jedna dívka, v každém malém kroužku budou čtyři dívky.
+(CZVV)
+max. 3 body
+5 Určete nejmenší možný počet
+5.1 všech tančících (chlapců i dívek) na pódiu,
+5.2 malých kroužků.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Na vytvoření každého obrazce použijeme beze zbytku dva čtverce o straně délky 6 cm. 
+Čtverce rozstříháme a ze všech získaných dílů sestavíme obrazec, jehož strany (úsečky po 
+obvodu) mají pouze dvě různé délky.
+(Čtverec o straně délky 6 cm má obsah 36 cm2.)
+(CZVV)
+max. 4 body
+6
+6.1 Vypočtěte v cm obvod obrazce A.
+6.2 Vypočtěte, kolik cm měří nejdelší svislá strana obrazce B.
+6.3 Určete, o kolik cm2se liší obsahy obrazců A, B.
+6 cm
+Obrazec A
+6 cm
+Obrazec B
+nejdelší
+svislá strana

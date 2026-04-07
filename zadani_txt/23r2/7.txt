@@ -1,0 +1,39 @@
+7
+VÝCHOZÍ TEXT K ÚLOZE 9
+Každá bytost na planetě Zorstar má právě tři nohy a zároveň má buď tři oči, nebo čtyři oči.
+Na náměstí se sešly bytosti, které měly dohromady 84 nohou. 
+Mezi nimi bylo tříokých bytostí o 8 více než čtyřokých.
+(CZVV)
+2 body
+9 Kolik očí měly dohromady všechny bytosti, které se sešly na náměstí?
+A) 94 očí
+B) 96 očí
+C) 102 očí
+D) 122 očí
+E) 130 očí
+VÝCHOZÍ TEXT K ÚLOZE 10
+Sára, Lukáš, Dan a Adéla hráli hru, ve které získávali body.
+Sára získala stejný počet bodů jako Lukáš.
+Dan získal 60 bodů, což je o polovinu bodů více, než získali Sára a Lukáš dohromady, 
+ale o čtvrtinu bodů méně, než získala Adéla.
+(CZVV)
+2 body
+10 Který z grafů zobrazuje odpovídající počty bodů získaných ve hře?
+A) B)
+C) D)
+E)
+0
+60
+Sára Lukáš Dan Adéla
+0
+60
+Sára Lukáš Dan Adéla
+0
+60
+Sára Lukáš Dan Adéla
+0
+60
+Sára Lukáš Dan Adéla
+0
+60
+Sára Lukáš Dan Adéla

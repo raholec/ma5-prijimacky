@@ -1,0 +1,16 @@
+10
+VÝCHOZÍ TEXT A OBRÁZKY K ÚLOZE 12
+Ve stavebnici jsou dva druhy kostek – krychle (K) a hranol (H), který lze složit ze dvou krychlí.
+Adam a Marek postavili ze stavebnice dva stejně velké kvádry (viz obrázek). 
+Zatímco Adam použil jen hranoly, Markův kvádr obsahuje jak hranoly, tak krychle.
+(CZVV)
+2 body
+12 Jaký je největší možný počet hranolů (H) v kvádru, který postavil Marek?
+A) 2 hranoly
+B) 6 hranolů
+C) 7 hranolů
+D) 8 hranolů
+E) jiný počet hranolů
+K H
+=
+Adamův kvádr Markův kvádr

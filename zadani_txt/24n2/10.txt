@@ -1,0 +1,17 @@
+VÝCHOZÍ TEXT K ÚLOZE 14
+Standa se rozhodl, že bude prodávat domácí vajíčka. Proto si koupil 99 slepic, za které 
+zaplatil 12 000 Kč. Standovy slepice snášely vajíčka následujícím způsobem: každá třetí 
+slepice snášela vajíčko každý den ráno, každá druhá slepice ze zbývajících slepic snášela 
+vajíčko každý druhý den ráno a zbylé slepice snášely vajíčko každý třetí den ráno. Standa
+sesbíral každé odpoledne všechna snesená vajíčka a prodával jedno za 3 Kč.
+max. 6 bodů
+14
+14.1 Kolik vajíček sesbíral Standa za prvních šest dní?
+14.2 Kolik peněz Standa utržil za vajíčka, pokud prodal všechna vajíčka snesená
+za prvních 30 dní?
+14.3 Po čtyřiceti dvou dnech musel Standa slepice prodat. Prodal je dohromady 
+za 6 000 Kč.
+Kolik peněz Standa utržil za slepice a vajíčka za celou dobu, po kterou choval 
+slepice, pokud předpokládáme, že prodal všechna vajíčka, která slepice 
+za 42 dní snesly?
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.

@@ -1,0 +1,20 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Ve výloze obchodu jsou dvě reklamní lišty se žárovkami. 
+Na kratší liště jsou 4 žárovky a na delší liště je 6 žárovek. Na počátku žádná žárovka nesvítí.
+Na kratší i delší liště se v 1. sekundě rozsvítí první žárovka zleva, ve 2. sekundě ještě 
+druhá žárovka, ve 3. sekundě ještě třetí žárovka atd.
+Jakmile jsou na některé liště rozsvíceny všechny žárovky, od další sekundy začínají 
+žárovky na této liště postupně zhasínat, a to ve stejném pořadí, v němž se rozsvěcovaly.
+Jakmile na liště zhasnou všechny žárovky, od další sekundy se začnou žárovky na této 
+liště opět rozsvěcovat. Celý cyklus se u každé lišty opakuje stále dokola.
+(CZVV)
+max. 4 body
+14 Určete,
+14.1 v kolikáté sekundě bude poprvé na kratší liště rozsvíceno více žárovek než na delší liště,
+14.2 kolik žárovek bude rozsvíceno na delší liště v 57. sekundě,
+14.3 kolik žárovek bude dohromady rozsvíceno na obou lištách v 91. sekundě.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+1. sekunda 2. sekunda 3. sekunda 4. sekunda 5. sekunda 6. sekunda 7. sekunda
+8. sekunda
+…

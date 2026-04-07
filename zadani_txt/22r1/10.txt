@@ -1,0 +1,16 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Pyramida se skládá ze shodných čtverců. Horní řadu tvoří vždy jeden tmavý čtverec. 
+V pyramidě, která má více než 1 čtverec, se pravidelně střídají řady s tmavými a řady s bílými
+čtverci. Každá další řada má vždy o 1 čtverec více než řada nad ní.
+(CZVV)
+max. 4 body
+14
+14.1 Pyramida má 10 řad.
+Určete, o kolik se liší počet tmavých a bílých čtverců v pyramidě.
+14.2 Pyramida má 73 řad.
+Určete, o kolik se liší počet tmavých a bílých čtverců v pyramidě.
+14.3 V pyramidě je o 101 bílých čtverců méně než tmavých čtverců.
+Určete, kolik řad má pyramida.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+…

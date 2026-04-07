@@ -1,0 +1,14 @@
+5
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží body P, S a přímka m.
+(CZVV)
+7.2 Bod S je střed kružnice k, která má poloměr 5 cm. 
+Bod P je vrchol rovnostranného trojúhelníku PQR. 
+Další vrchol tohoto trojúhelníku leží na přímce m a zároveň na kružnici k
+a poslední vrchol trojúhelníku PQR leží uvnitř kružnice k.
+Sestrojte vrcholy Q, R trojúhelníku PQR, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+P
+S
+m

@@ -1,0 +1,33 @@
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 13
+Pepa byl týden na brigádě. Graf znázorňuje, kolik nasbíral denně kilogramů jablek, 
+hrušek a hroznového vína.
+max. 3 body
+13 Rozhodněte o každém z následujících tvrzení (13.1–13.3),
+zda je pravdivé (A), či nikoli (N).
+A N
+13.1 Kdyby Pepa nasbíral za celý týden o 25 kg více jablek, nasbíral by
+za tento týden stejně jablek jako hrušek. 
+13.2 Z daných druhů ovoce Pepa za uvedený týden nasbíral nejvíce
+ hroznového vína. 
+13.3 Jedna devítina hroznového vína, které za daný týden Pepa nasbíral,
+je rovna jedné šestině hrušek, které za daný týden Pepa nasbíral. 
+0
+25
+50
+75
+100
+125
+150
+175
+200
+225
+250
+275
+300
+325
+350
+ponělí úterý středa čtvrtek pátek sobota neděle
+jablka
+hrušky
+hroznové víno
+pondělí

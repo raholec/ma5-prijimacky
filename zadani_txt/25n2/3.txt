@@ -1,0 +1,16 @@
+3
+VÝCHOZÍ TEXT A TABULKA K ÚLOZE 4
+Vědomostní soutěže, která měla dvě kola, se zúčastnil 10členný tým. 
+V každém kole získali jednotliví soutěžící 8, 9, nebo 10 bodů. Některé údaje jsou v tabulce.
+(CZVV)
+max. 4 body
+4
+4.1 V 1. kole bylo soutěžících, kteří získali 8 bodů, o jednoho méně než těch, 
+kteří získali 10 bodů.
+Určete součet bodů celého týmu v 1. kole.
+4.2 Určete, kolik soutěžících mohlo ve 2. kole získat 9 bodů.
+Najděte všechna řešení.
+Počet soutěžících, kteří získali Součet bodů 
+celého týmu 8 bodů 9 bodů 10 bodů
+1. kolo 5
+2. kolo 95

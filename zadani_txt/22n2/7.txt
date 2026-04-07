@@ -1,0 +1,28 @@
+7
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+Ve čtvercové síti jsou z tmavých čtverců složeny tři útvary A, B, C. Každý z nich má pouze 
+jednu osu souměrnosti.
+V každém útvaru přemístíme jediný tmavý čtverec tak, aby měl upravený útvar co nejvíce
+různých os souměrnosti (sestrojených svisle, vodorovně nebo šikmo).
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Správně upravený útvar A má pouze 2 osy souměrnosti.
+8.2 Správně upravený útvar B má pouze 2 osy souměrnosti.
+8.3 Správně upravený útvar C má pouze 1 osu souměrnosti.
+VÝCHOZÍ TEXT K ÚLOZE 9
+Ve stánku mají celkem 140 krabiček s čaji.
+Všechny jsou naskládány do sloupečků po čtyřech krabičkách.
+V 10 sloupečcích jsou pouze krabičky s černými čaji a v každém ze zbývajících sloupečků je 
+jedna krabička s černým čajem a 3 krabičky s ovocnými čaji.
+(CZVV)
+2 body
+9 Kolik krabiček s ovocnými čaji mají ve stánku?
+A) 30 krabiček
+B) 40 krabiček
+C) 75 krabiček
+D) 100 krabiček
+E) jiný počet krabiček
+A B C

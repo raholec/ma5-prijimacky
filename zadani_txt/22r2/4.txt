@@ -1,0 +1,24 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Písmeno E (na obrázku) slepené z 12 stejných bílých krychliček 
+jsme obarvili ze všech stran (i zespodu) modrou barvou.
+Po čase se písmeno rozpadlo na jednotlivé krychličky. 
+Původně slepené stěny krychliček zůstaly bílé.
+(CZVV)
+max. 3 body
+6 Určete, kolik krychliček z rozpadlého písmene E
+6.1 má právě 4 stěny modré,
+6.2 má stejný počet modrých a bílých stěn.
+max. 6 bodů
+7 Doporučení: Rýsujte přímo do záznamového archu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.1
+V rovině leží body A, O a přímka p procházející bodem O.
+(CZVV)
+7.1 Bod A je vrchol obdélníku ABCD. Na přímce p leží vrchol C tohoto obdélníku. 
+Bod O je střed některé strany obdélníku ABCD.
+Sestrojte vrcholy B, C, D obdélníku ABCD, označte je písmeny a obdélník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+A
+O
+p

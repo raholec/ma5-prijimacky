@@ -1,0 +1,30 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží body S, Q a přímka p.
+(CZVV)
+7.2 Na přímce p leží vrcholy C, D obdélníku ABCD.
+Bod S je střed strany AD tohoto obdélníku. 
+Bodem Q prochází úhlopříčka obdélníku ABCD (spojnice jeho protějších vrcholů).
+Sestrojte všechny vrcholy obdélníku ABCD, označte je písmeny a obdélník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+Ve čtvercové síti jsou zakresleny bílé obrazce A, C, E a tmavé obrazce B, D, F.
+Vrcholy všech obrazců leží v mřížových bodech čtvercové sítě. Obsah obrazce C je 9 cm2.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Obsah obrazce B tvoří čtvrtinu obsahu obrazce A.
+8.2 Obsah obrazce C je třikrát větší než obsah obrazce D.
+8.3 Obsah obrazce E je o třetinu větší než obsah obrazce F.
+S
+Q
+p
+A
+C
+E
+B
+D
+F

@@ -1,0 +1,20 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 3
+Mirek má menší jízdní kolo než jeho táta. Mirek na rovné cestě zjišťoval, kolikrát se u obou 
+jízdních kol otočí přední kolo, jestliže obě jízdní kola urazí stejnou vzdálenost. 
+Když se Mirkovo přední kolo otočilo 30krát, tátovo přední kolo se otočilo jen 25krát.
+(CZVV)
+max. 4 body
+3 Mirek a jeho táta urazili na svých jízdních kolech stejnou vzdálenost.
+Vypočtěte, kolikrát se otočilo Mirkovo přední kolo,
+3.1 jestliže se tátovo přední kolo otočilo 30krát,
+3.2 jestliže tátovo přední kolo vykonalo o 30 otáček méně než Mirkovo přední kolo.
+VÝCHOZÍ TEXT K ÚLOZE 4
+Velká kulička váží 30 gramů a malá kulička váží 20 gramů.
+Anička položila na prázdnou váhu určitý počet velkých kuliček a dvojnásobný počet malých
+kuliček. Váha ukázala celkovou hmotnost 560 gramů.
+(CZVV)
+max. 3 body
+4 Určete
+4.1 počet všech kuliček (malých i velkých dohromady) položených na váze,
+4.2 v gramech celkovou hmotnost všech malých kuliček položených na váze.

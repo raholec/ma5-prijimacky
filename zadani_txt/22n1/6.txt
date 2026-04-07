@@ -1,0 +1,14 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží body A, X a rovnoběžné přímky c, p.
+(CZVV)
+7.2 Bod A je vrchol obdélníku ABCD. Bod X leží uvnitř strany AB obdélníku. 
+Na přímce c leží vrchol C obdélníku ABCD
+a na přímce p jeden ze zbývajících dvou vrcholů obdélníku.
+Sestrojte vrcholy B, C, D obdélníku ABCD, označte je písmeny a obdélník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+A
+X
+c
+p

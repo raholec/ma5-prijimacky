@@ -1,0 +1,37 @@
+9
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 13
+Na podložce postavíme stavbu ze stejných krychliček. Každá krychlička má 6 stěn. 
+Při pohledu na stavbu z různých stran jsou některé stěny krychliček viditelné a jiné nejsou.
+Na všechny stěny viditelné při pohledu na stavbu zepředu napíšeme číslo 1, 
+na stěny viditelné zezadu číslo 2, na stěny viditelné zprava číslo 3, 
+na stěny viditelné zleva číslo 4 a na stěny viditelné shora číslo 5. 
+Na ostatní stěny žádná čísla nezapisujeme.
+U stavby VZOR sestavené z 8 krychliček je každé z čísel 1–5 
+zapsáno pětkrát. Např. na stěnách viditelných při pohledu zprava
+je zapsáno celkem pět čísel 3, jejichž součet je 15.
+Václav postavil na podložce stavbu ze 16 stejných krychliček.
+(CZVV)
+max. 5 bodů
+13 Václav na svou stavbu zapsal čísla podle zadání.
+Přiřaďte ke každé otázce (13.1–13.3) správnou odpověď (A–F).
+13.1 Jaký je součet všech zapsaných čísel 5 (pohled shora)? _____
+13.2 Jaký je součet všech zapsaných čísel 3 (pohled zprava)? _____
+13.3 O kolik se liší součet všech zapsaných čísel 4 (pohled zleva) od součtu _____
+všech zapsaných čísel 1 (pohled zepředu)?
+A) 30
+B) 33
+C) 34
+D) 38
+E) 39
+F) jiný počet
+Václavova
+stavba
+VZOR
+1
+1
+1
+1
+1
+pohled zprava
+3 3 3
+3 3

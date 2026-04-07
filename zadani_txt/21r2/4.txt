@@ -1,0 +1,18 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Každý velký obdélník má rozměry 2 cm a 7 cm a obsah 14 cm2.
+Rozstřižením velkého obdélníku vznikne buď dvojice menších obdélníků, nebo dvojice 
+shodných trojúhelníků.
+Každý z obrazců A, B, C, D je sestaven z jednoho velkého obdélníku a z 1. nebo 2. dvojice.
+(CZVV)
+max. 4 body
+6
+6.1 Vypočtěte v cm2 obsah obrazce A.
+6.2 Vypočtěte v cm obvod obrazce A.
+6.3 Vypočtěte v cm obvod obrazce B.
+6.4 Vypočtěte, o kolik cm se liší obvody obrazců C a D.
+Velký obdélník
+2 cm
+7 cm
+1. dvojice 2. dvojice 
+Obrazec A Obrazec B Obrazec C Obrazec D

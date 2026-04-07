@@ -1,0 +1,22 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Základním dílkem je 1. obdélník, který je rozdělený na bílý čtvereček a šest stejně velkých 
+trojúhelníků – bílé přiléhají ke kratším stranám obdélníku a šedé k delším stranám.
+Spojováním základních dílků vytváříme větší obdélníky podle následujících pravidel:
+- Přiléhají k sobě pouze trojúhelníky téže barvy, a jejich spojením tak vznikají další čtverečky.
+- Delší strana obdélníku je vždy dvakrát delší než kratší strana obdélníku.
+- V prvním obdélníku přiléhá ke kratší straně jeden bílý trojúhelník a v každém dalším 
+obdélníku vždy o jeden bílý trojúhelník více než v předchozím obdélníku.
+(CZVV)
+max. 4 body
+14
+14.1 Určete, kolik čtverečků (bílých i šedých dohromady) obsahuje 4. obdélník.
+14.2 Určete, kolik šedých čtverečků obsahuje obdélník se 45 bílými čtverečky.
+14.3 Určete, kolik bílých čtverečků obsahuje obdélník, ve kterém je bílých čtverečků 
+o 7 více než šedých.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+…
+1. obdélník 2. obdélník
+(6 bílých a 4 šedé
+čtverečky)
+3. obdélník

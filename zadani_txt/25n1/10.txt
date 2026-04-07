@@ -1,0 +1,33 @@
+10
+VÝCHOZÍ TEXT K ÚLOZE 11
+Záhon má tvar obdélníku, jehož délka je trojnásobkem jeho šířky. Záhon má obvod 16 m. 
+Po obvodu záhonu jsou vysázeny květiny ve stejných rozestupech, vzdálenost dvou 
+sousedních květin je vždy 40 cm. Jedna květina je i v každém rohu záhonu.
+(CZVV)
+2 body
+11 O kolik se liší počet květin vysázených na kratší straně záhonu 
+a počet květin vysázených na delší straně záhonu?
+A) o 9 květin
+B) o 10 květin
+C) o 11 květin
+D) o 12 květin
+E) o jiný počet květin
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 12
+Ze tří stejných kvádrů o rozměrech 7 cm, 5 cm a 4 cm jsme v rohu místnosti postavili stavbu
+jako na obrázku. Po černě vyznačené trase vedoucí po hranách kvádrů lezl od startu do cíle 
+mravenec.
+(CZVV)
+2 body
+12 Jak dlouhá je vyznačená mravencova trasa?
+A) méně než 53 cm
+B) 53 cm
+C) 55 cm
+D) 56 cm
+E) 57 cm
+Cíl
+Start
+7 cm
+4 cm
+7 cm
+5 cm
+4 cm

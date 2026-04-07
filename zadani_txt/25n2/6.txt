@@ -1,0 +1,26 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží bod A a přímka p procházející bodem R.
+(CZVV)
+7.2 Bod A je vrchol čtverce ABCD. Na přímce p leží vrchol B tohoto čtverce. 
+Bod R má od obou vrcholů A i B stejnou vzdálenost. 
+Bod R neleží uvnitř čtverce ABCD.
+Sestrojte vrcholy B, C, D čtverce ABCD, označte je písmeny a čtverec narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+VÝCHOZÍ TEXT K ÚLOZE 8
+Honza měl 22 sirek o délce 4 cm a 18 sirek o délce 5 cm.
+Ze všech těchto sirek poskládal obrazce tvaru čtverce a obrazce tvaru obdélníku. 
+Stranu obrazce tvořila vždy jediná sirka a žádné dva obrazce neměly společnou stranu.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Honza mohl vytvořit nejvýše 9 čtverců. 
+8.2 Honza mohl vytvořit stejný počet čtverců a obdélníků.
+8.3 Honza mohl vytvořit obrazce tak, že právě jeden z nich byl čtverec 
+a všechny ostatní byly obdélníky.
+A
+p
+R

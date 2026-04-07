@@ -1,0 +1,28 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Vypočtěte:
+1.1
+5 + 15 ⋅ (10 − 4) − 15 ∶ 5 =
+1.2
+55 ⋅ 16 + 45 ⋅ 16 − 50 ⋅ 16 =
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 2
+Na číselné ose je zobrazeno deset stejných dílků, číslo A = 72, číslo B = 192 a neznámé 
+číslo C.
+(CZVV)
+max. 3 body
+2
+2.1 Určete číslo C.
+2.2 K odpovídajícímu bodu číselné osy zapište číslo 0 a bod na ose zvýrazněte.
+max. 4 body
+3
+3.1 Kabel dlouhý 13 m a 8 cm rozdělíme na šest stejných dílů.
+Vypočtěte v cm délku jednoho dílu.
+3.2 Při příjezdu na letiště bylo ohlášené zpoždění odletu letadla 1 hodina a 50 minut, 
+ale nakonec bylo zpoždění šestkrát delší.
+Vypočtěte v hodinách, jaké bylo nakonec zpoždění odletu letadla.
+A
+72
+B
+192
+C

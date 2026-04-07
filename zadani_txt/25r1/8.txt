@@ -1,0 +1,41 @@
+8
+VÝCHOZÍ TEXT K ÚLOZE 10
+Maminka rozdělila peníze mezi své tři děti. Janě dala pětinu celkové částky, 
+Ivo dostal dvakrát více peněz než Jana a zbylých 240 korun dala maminka Evě.
+(CZVV)
+2 body
+10 Kolik korun celkem rozdělila maminka mezi své tři děti?
+A) 480 korun
+B) 600 korun
+C) 700 korun
+D) 720 korun
+E) 840 korun
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOHÁM 11–12
+Ve čtvercové síti jsou zakresleny trojúhelníky ABC, KLM a čtverec DEFG. 
+Vrcholy všech těchto obrazců leží v mřížových bodech.
+Každý čtvereček čtvercové sítě má stranu délky 1 cm a obsah 1 cm2.
+(CZVV)
+2 body
+11 O kolik cm se liší obvod trojúhelníku ABC a obvod čtverce DEFG?
+A) o méně než 2 cm
+B) o 2 cm
+C) o 3 cm
+D) o 4 cm
+E) o jinou délku
+2 body
+12 O kolik cm2se liší obsah trojúhelníku ABC a obsah trojúhelníku KLM?
+A) o 1 cm2
+B) o 2 cm2
+C) o 3 cm2
+D) o 4 cm2
+E) o jiný obsah
+1 cm
+A B 1 cm2
+C
+D
+E
+F
+G
+K
+L
+M

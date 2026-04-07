@@ -1,0 +1,18 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Amélka, Viktorka a Zuzanka vytvářely stavby z kostek podle následujících pravidel:
+První sloupec stavby tvoří 1 tmavá kostka 
+a dalších 5 sloupců je postaveno postupně ze 2, 3, 4, 3 a 2 bílých kostek.
+Poté se sloupce opakují ve stejném pořadí, ale po dostavění kteréhokoliv sloupce lze 
+stavbu ukončit.
+Např. stavba na obrázku má celkem 23 sloupců, z nichž je 19 sloupců bílých a 4 tmavé.
+(CZVV)
+max. 4 body
+14
+14.1 Amélčina stavba má celkem 42 sloupců.
+Vypočtěte, kolik kostek (bílých i tmavých dohromady) obsahuje Amélčina stavba.
+14.2 Viktorčina stavba má 58 bílých sloupců.
+Vypočtěte, kolik tmavých kostek obsahuje Viktorčina stavba.
+14.3 Zuzančina stavba obsahuje celkem 156 kostek (bílých i tmavých dohromady).
+Vypočtěte, kolik sloupců má Zuzančina stavba.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.

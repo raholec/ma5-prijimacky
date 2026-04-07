@@ -1,0 +1,26 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Vypočtěte:
+1.1
+(24 ⋅ 26 − 24 ⋅ 6) ∶ 12 − 2 =
+1.2
+(3 + 7 ⋅ 13) ⋅ 5 + 15 ⋅ 30 =
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 2
+Na číselné ose je vyznačeno 13 bodů, které oddělují 12 stejných dílků.
+V jednom z těchto bodů je číslo 20 a body A, B, C představují tři kladná čísla.
+Číslo v bodě C je součtem čísla v bodě A a čísla v bodě B.
+(CZVV)
+max. 4 body
+2
+2.1 Vyznačte na číselné ose bod P, v němž je číslo 0.
+2.2 Určete číslo v bodě B.
+max. 4 body
+3
+3.1 Závod v hodu kládou měl dvě kola a zúčastnilo se jej 36 závodníků. 
+V 1. kole házel každý závodník pouze jednou. Někteří závodníci postoupili do 2. kola,
+v němž házel každý z postupujících ještě dvakrát.
+Během celého závodu tak bylo provedeno celkem 64 hodů kládou.
+Vypočtěte, kolik závodníků postoupilo do druhého kola závodu.
+20
+A B C

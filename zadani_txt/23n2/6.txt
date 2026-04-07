@@ -1,0 +1,13 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží úsečka KL a bod U.
+(CZVV)
+7.2 Úsečka KL je strana trojúhelníku KLM.
+Jedna ze dvou zbývajících stran tohoto trojúhelníku má stejnou délku jako strana KL
+a druhá z nich prochází bodem U.
+Sestrojte vrchol M trojúhelníku KLM, označte ho písmenem a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+K
+L
+U

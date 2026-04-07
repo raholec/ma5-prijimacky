@@ -1,0 +1,20 @@
+8
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 10
+Čtyři chlapci (Petr, Radek, Standa a Tomáš) sbírají kartičky s legendárními hokejisty. 
+V grafu znázorňujícím počty jejich kartiček některé údaje chybí.
+Standa má o polovinu méně kartiček než Tomáš a oba dohromady mají 24 kartiček.
+Petr má o 5 kartiček více než Radek.
+(CZVV)
+2 body
+10 O kolik se liší počet Petrových a Standových kartiček?
+A) o 1 kartičku
+B) o 8 kartiček
+C) o 10 kartiček
+D) o 17 kartiček
+E) o jiný počet kartiček
+0
+Petr
+Radek
+Standa
+Tomáš
+Počet kartiček

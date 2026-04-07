@@ -1,0 +1,30 @@
+8
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOHÁM 11–12
+Stavebnice obsahuje stejně dlouhé dřevěné tyčky a plastové kuličky se šesti dírami, do nichž
+lze tyčky připevňovat.
+Denisa vytvořila z 8 kuliček a 12 tyček model nejmenší možné krychle.
+Emil vytvořil model druhé nejmenší krychle. Jeho model obsahuje celkem 27 kuliček 
+a 54 tyček, z nichž pouze tyčky znázorněné černou barvou leží na hranách této krychle.
+Filip vytvořil stejným způsobem model třetí nejmenší krychle. Ten obsahuje celkem 144 tyček.
+(CZVV)
+2 body
+11 Kolik kuliček celkem obsahuje Filipův model krychle?
+A) 36 kuliček
+B) 48 kuliček
+C) 56 kuliček
+D) 64 kuliček
+E) jiný počet kuliček
+2 body
+12 Kolik tyček leží na hranách Filipovy krychle?
+A) méně než 36 tyček
+B) 36 tyček
+C) 40 tyček
+D) 48 tyček
+E) více než 48 tyček
+Denisin
+model krychle
+Emilův
+model krychle
+Filipův
+model krychle
+?

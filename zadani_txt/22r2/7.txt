@@ -1,0 +1,37 @@
+7
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 10
+V nákresu se do tří prázdných kroužků doplní čísla v souladu se všemi uvedenými výpočty.
+(CZVV)
+2 body
+10 Jaký je součet čísel doplněných do tří prázdných kroužků?
+A) 89
+B) 100
+C) 122
+D) 188
+E) jiný součet
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 11
+Obdélník je rozdělen na 12 čtverců 
+čtyř různých velikostí (S, M, L a XL).
+Delší strana obdélníku měří 260 cm.
+(CZVV)
+2 body
+11 Jaký je obvod čtverce velikosti L?
+A) méně než 320 cm
+B) 320 cm
+C) 360 cm
+D) 400 cm
+E) více než 400 cm
++ 34
+− 12
+∶ 2
+VZOR:
++ 2
+− 8
+⋅ 3
+9
+3 11
+260 cm
+S
+L
+M
+XL

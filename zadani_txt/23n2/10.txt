@@ -1,0 +1,20 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Obrazce tvaru trojúhelníku se sestavují skládáním šedých trojúhelníků do pater (viz obrázek).
+Šedé trojúhelníky mají ve vrcholech puntíky a na stranách stejně dlouhé úsečky.
+V prvním obrazci je pouze jeden šedý trojúhelník a každý další obrazec má o jedno patro 
+šedých trojúhelníků více než předchozí obrazec.
+(CZVV)
+max. 4 body
+14
+14.1 Určete počet úseček v obrazci, který má 5 pater.
+14.2 Počet úseček v posledním a v předposledním obrazci se liší o 96. 
+Určete, o kolik se liší počet puntíků v posledním a předposledním obrazci.
+14.3 V jednom obrazci je 300 puntíků. 
+Určete počet úseček v následujícím obrazci.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+…
+Patra 1 2 3
+Šedé trojúhelníky 1 3 6
+Puntíky 3 6 10
+Úsečky 3 9 18

@@ -1,0 +1,26 @@
+7
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 8
+Zahrádkář zakoupil několik kusů rostlin od každého ze čtyř druhů A, B, C a D. 
+Některé zakoupené rostliny uschly, ostatní vzrostly. Většinu vzrostlých rostlin zahrádkář 
+později prodal.
+Graf udává počty zakoupených, vzrostlých a prodaných kusů rostlin jednotlivých druhů.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Zahrádkáři zůstalo celkem 9 neprodaných kusů vzrostlých rostlin.
+8.2 Zahrádkář zakoupil o polovinu více kusů rostlin, než jich prodal.
+8.3 Zahrádkář prodal všechny zakoupené kusy jen u jednoho druhu rostlin.
+0
+2
+4
+6
+8
+10
+12
+14
+16
+A B C D
+počet kusů rostlin
+zakoupené vzrostlé prodané

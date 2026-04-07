@@ -1,0 +1,27 @@
+7
+VÝCHOZÍ TEXT K ÚLOZE 9
+V obchodě s oříšky míchají směs arašídů a mandlí a prodávají ji v různě velkých baleních. 
+Sto gramů této směsi se prodává za 20 korun, přičemž sto gramů arašídů stojí 10 korun.
+Tereza si koupila 800gramové balení této směsi. V takovém balení je vždy 300 g arašídů.
+Cena směsi závisí pouze na hmotnosti a ceně použitých surovin.
+(CZVV)
+2 body
+9 Kolik korun stojí sto gramů mandlí?
+A) 26 korun
+B) 27 korun
+C) 28 korun
+D) 29 korun
+E) jiný počet korun
+VÝCHOZÍ TEXT K ÚLOZE 10
+Honza má kouzelný provázek. Pokaždé když jej rozstřihne, kratší kus provázku zmizí a delší 
+část provázku se okamžitě prodlouží na dvojnásobek.
+Kouzelný provázek měřil 44 cm a Honza ho dvakrát po sobě rozstřihl. V obou případech 
+zmizela stejně dlouhá část provázku a po prvním prodloužení provázek měřil 66 cm.
+(CZVV)
+2 body
+10 Kolik cm měřil kouzelný provázek po druhém prodloužení?
+A) 66 cm
+B) 88 cm
+C) 110 cm
+D) 132 cm
+E) jiný počet cm

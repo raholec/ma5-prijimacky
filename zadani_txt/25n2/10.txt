@@ -1,0 +1,24 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Hřiště má tvar obdélníku KLMN. 
+Po jeho obvodu vede soutěžní trasa 
+se stanovišti A, B, C, D (viz obrázek). 
+Úsečky AC a BD jsou rovnoběžné se stranami hřiště 
+a vyznačený šedý obrazec je čtverec.
+Úsek AKB soutěžní trasy (ze stanoviště A přes 
+vrchol K na stanoviště B) měří 45 m. 
+Úsek BLC měří 39 m a poslední úsek CMD měří 30 m.
+(CZVV)
+max. 4 body
+14 Vypočtěte v metrech
+14.1 rozdíl mezi délkami úseček BK a BL,
+14.2 délku kratší strany hřiště,
+14.3 obvod hřiště,
+14.4 vzdálenost stanoviště D od vrcholu N.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+K
+L M
+A N
+B
+C
+D

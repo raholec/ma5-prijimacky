@@ -1,0 +1,21 @@
+11
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Výsledný obrazec vytvoříme následujícím postupem:
+1. Na vodorovné přímce sestrojíme několik stejně vzdálených bodů (černých puntíků).
+2. Prvním černým puntíkem vedeme dvě různoběžné šikmé přímky. Druhým a každým dalším 
+černým puntíkem vedeme rovnoběžky s oběma těmito přímkami.
+3. Všechny nově vzniklé průsečíky označíme černými puntíky a těmi vedeme vodorovné přímky.
+4. Na spodní vodorovné přímce označíme všechny nově vzniklé průsečíky bílými puntíky.
+(CZVV)
+max. 4 body
+14
+14.1 Výsledný obrazec obsahuje celkem 36 černých puntíků.
+Určete počet všech vodorovných přímek v tomto obrazci.
+14.2 Výsledný obrazec obsahuje celkem 49 vodorovných přímek.
+Určete počet bílých puntíků na spodní vodorovné přímce tohoto obrazce.
+14.3 Výsledný obrazec má na spodní vodorovné přímce celkem 64 bílých puntíků.
+Určete počet všech černých puntíků v tomto obrazci.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+2 body
+3 body
+Výsledný obrazec

@@ -1,0 +1,25 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 4
+V dětské hře se smí provádět pouze následující nákupy:
+– za 5 mincí lze koupit 6 panáčků,
+– za 20 mincí lze koupit 9 zvířátek.
+(CZVV)
+max. 4 body
+4
+4.1 Žofie koupila 12 panáčků a určitý počet zvířátek. 
+Za panáčky a zvířátka zaplatila celkem 90 mincí.
+Určete, kolik zvířátek koupila.
+4.2 Pepa si chce koupit stejný počet panáčků jako zvířátek.
+Určete nejmenší počet mincí, které k takovému nákupu potřebuje.
+VÝCHOZÍ TEXT K ÚLOZE 5
+V zelené krabičce jsou jen zelené kuličky, v bílé krabičce jen bílé kuličky a v modré 
+krabičce jen modré kuličky. V těchto třech krabičkách je dohromady 180 kuliček.
+Modrých kuliček je o 10 více než bílých.
+Aby byl ve všech třech krabičkách stejný počet kuliček, ze zelené krabičky vyndáme 
+40 kuliček a rozdělíme je do zbývajících dvou krabiček.
+(CZVV)
+max. 4 body
+5
+5.1 Určete počet všech zelených kuliček.
+5.2 Určete, kolik zelených kuliček přendáme do bílé krabičky.
+5.3 Určete počet všech modrých kuliček.

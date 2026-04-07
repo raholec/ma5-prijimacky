@@ -1,0 +1,27 @@
+9
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 13
+Ze stejných kostek tvaru krychle se slepují tělesa. Skrz každou kostku je provrtaný jeden otvor.
+Kostky v tělese mohou být otočeny třemi směry: 
+otvor směřuje buď zepředu dozadu (P), 
+z boku na druhý bok (B), nebo shora dolů (H).
+Otvory v tělese jsou vyznačeny dvěma způsoby: 
+světlé otvory vedou skrz naskrz celým tělesem, 
+tmavé otvory jsou uvnitř tělesa uzavřeny jinou kostkou.
+V tělese určíme počty kostek otočených v daném směru.
+Např. v ukázkovém tělese jsou 2 kostky ve směru P, 
+1 kostka ve směru B a 2 kostky ve směru H.
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každému tělesu (13.1–13.3) počty kostek, které jsou 
+v tělese otočené v daném směru (A–F).
+_____ _____ _____
+A) 1P + 3B + 2H
+B) 1P + 2B + 3H
+C) 2P + 2B + 2H
+D) 2P + 1B + 3H
+E) 3P + 1B + 2H
+F) jiné počty
+13.1 13.2 13.3
+P B H
+2P + 1B + 2H
+Ukázkové těleso

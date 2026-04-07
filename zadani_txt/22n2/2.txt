@@ -1,0 +1,28 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Doplňte do rámečku takové číslo, aby platila rovnost:
+1.1
+96 − 3 ⋅ = 18 + 36 ∶ 3
+1.2
+(96 ∶ 3 − ) ⋅ 2 = 2 ⋅ 18
+V záznamovém archu uveďte čísla doplněná do rámečků.
+max. 4 body
+2
+2.1 Měsíc vyšel nad obzor včera večer v 18:17 a zapadl dnes ráno v 9:48.
+Vypočtěte, jak dlouho byl měsíc nad obzorem.
+Výsledek uveďte v hodinách a minutách.
+2.2 Vypočtěte v metrech:
+1
+20
+kilometru + 34 000 centimetrů =
+max. 4 body
+3
+3.1 Obrazec se skládá ze čtverce, dvou rovnostranných 
+trojúhelníků a dvou stejných obdélníků. 
+(Sousední útvary mají společnou jednu stranu.)
+Obvod celého obrazce je 54 cm a délka strany čtverce je 5 cm.
+Vypočtěte v cm obvod jednoho obdélníku.
+3.2 Na obrázku je zakreslena část čtvercové sítě.
+Určete počet všech čtverců, u kterých jsou zakresleny 
+všechny strany.

@@ -1,0 +1,36 @@
+8
+VÝCHOZÍ TEXT K ÚLOZE 10
+V kasičce je celkem 78 mincí – některé jsou pětikorunové a zbývající desetikorunové. 
+Hodnota všech pětikorunových mincí v kasičce je stejná jako hodnota všech desetikorunových
+mincí v kasičce.
+(CZVV)
+2 body
+10 Jaká je hodnota všech mincí v kasičce?
+A) 390 korun
+B) 520 korun
+C) 585 korun
+D) 780 korun
+E) jiná hodnota
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOHÁM 11–12
+Stavebnice obsahuje samé stejné dílky. 
+Každý dílek má tvar kvádru s rozměry 6 cm, 4 cm a 4 cm.
+(CZVV)
+2 body
+11 Kolik dílků stavebnice je třeba ke složení kvádru s rozměry
+8 cm, 12 cm a 16 cm?
+A) méně než 12 dílků
+B) 12 dílků
+C) 16 dílků
+D) 32 dílků
+E) více než 32 dílků
+2 body
+12 Kolik dílků stavebnice je třeba ke složení nejmenší možné krychle?
+A) méně než 6 dílků
+B) 6 dílků
+C) 12 dílků
+D) 18 dílků
+E) více než 24 dílků
+Dílek stavebnice
+6 cm
+4 cm
+4 cm

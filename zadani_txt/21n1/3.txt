@@ -1,0 +1,23 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 3
+Dvě rekreační plavkyně Jana s Květou byly společně plavat. Každá uplavala 25 bazénů. 
+Obě začaly plavat současně a každá plavala svým stále stejným tempem.
+Jana uplavala 5 bazénů za 7 minut.
+Květa uplavala 10 bazénů za čtvrt hodiny.
+(CZVV)
+max. 4 body
+3
+3.1 Vypočtěte, o kolik sekund se lišily časy obou plavkyň na první obrátce 
+(tj. po uplavání prvního bazénu).
+3.2 Určete, za jak dlouho uplavala 25 bazénů pomalejší plavkyně. 
+(Čas uveďte v minutách a sekundách, např. 5 min 12 s.)
+VÝCHOZÍ TEXT K ÚLOZE 4
+Lukáš vyhrál nad Matějem 20 kuliček, ale pak někde 14 kuliček ztratil.
+Potom přišla Karla, která měla 90 kuliček. Když pětinu z nich rozdělila rovným dílem 
+mezi oba chlapce, měli všichni tři stejný počet kuliček.
+(CZVV)
+max. 4 body
+4 Vypočtěte,
+4.1 kolik kuliček zbylo Karle,
+4.2 kolik kuliček měl Lukáš před výhrou nad Matějem,
+4.3 kolik kuliček měl Matěj před prohrou s Lukášem.

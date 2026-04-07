@@ -1,0 +1,22 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 4
+Pro soutěž Malování na chodník bylo připraveno celkem 300 kříd zabalených v krabičkách 
+dvou velikostí – menších a větších. V krabičkách téže velikosti byl vždy stejný počet kříd.
+Menších krabiček bylo pouze 5 a celkem v nich bylo tolik kříd jako ve 3 větších krabičkách.
+Každá z větších krabiček obsahovala 10 kříd.
+(CZVV)
+max. 4 body
+4 Určete
+4.1 počet kříd v jedné menší krabičce,
+4.2 počet všech větších krabiček s křídami.
+VÝCHOZÍ TEXT K ÚLOZE 5
+Displej byl zapnutý 10 hodin.
+Na počátku se na displeji zobrazilo číslo 51436
+a každou další sekundu se zobrazilo číslo o 1 větší.
+Číslo zobrazené na displeji bylo buď oranžové, nebo zelené. 
+Zelená byla právě ta čísla, která čteme zleva i zprava stejně, např. 62 526.
+(CZVV)
+max. 3 body
+5 Ze všech zelených čísel, která se zobrazila na displeji, určete
+5.1 nejmenší,
+5.2 největší.

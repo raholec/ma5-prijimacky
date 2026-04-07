@@ -1,0 +1,26 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Vypočtěte:
+1.1
+5 ⋅ 120 + (700 − 6 ⋅ 25) ∶ (10 − 7 + 2) =
+1.2
+(5 + 5 ⋅ 29) − 4 ⋅ (176 ∶ 8 − 8 ⋅ 2) =
+max. 4 body
+2
+2.1 Vypočtěte, o kolik litrů se liší čtvrtina z 24 litrů a třetina z 12 litrů.
+2.2 Vynásobením dvou kladných celých čísel jsme získali součin 180.
+Jedno z těchto dvou čísel zvětšíme dvakrát a jedno zmenšíme šestkrát.
+Určete, jaký součin získáme vynásobením obou změněných čísel.
+VÝCHOZÍ TEXT K ÚLOZE 3
+V rotě je jeden kapitán a má pod sebou 4 poručíky. Každý poručík má pod sebou 3 své četaře
+a každý četař má pod sebou 10 svých vojínů. (Další osoby v rotě nejsou.)
+Kapitán se rozhodl svolat celou rotu k nástupu. Rozkaz k nástupu se předával tak, že
+kapitán vydal rozkaz všem poručíkům, z nichž každý vydal tento rozkaz svým četařům 
+a každý četař jej vydal svým vojínům. Poté celá rota nastoupila.
+(CZVV)
+max. 3 body
+3 Vypočtěte,
+3.1 kolik je v rotě vojínů,
+3.2 kolik osob v rotě vydalo rozkaz k nástupu,
+3.3 kolik osob v rotě dostalo rozkaz k nástupu.

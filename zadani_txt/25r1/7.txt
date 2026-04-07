@@ -1,0 +1,44 @@
+7
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 8
+Graf udává počet všech členů (mužů a žen) turistického oddílu sledovaný v letech 2015–2018.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Počet mužů v turistickém oddílu byl v roce 2015 o jednu třetinu menší 
+než v roce 2016.
+8.2 Počet členů turistického oddílu byl v roce 2017 o jednu devítinu větší
+než v roce 2016.
+8.3 Ve sledovaném období se počet žen v turistickém oddílu poprvé snížil 
+oproti předchozímu roku až v roce 2018.
+VÝCHOZÍ TEXT K ÚLOZE 9
+Farmář měl původně 7 krav. Každá z nich nadojila denně 15 litrů mléka.
+Farmář 5 svých krav prodal, ale přikoupil několik dalších krav. 
+Každá z přikoupených krav nadojí denně 20 litrů mléka.
+Celkové množství mléka, které původních 7 farmářových krav nadojilo za dva dny, všechny 
+nynější farmářovy krávy dohromady nadojí za jeden den.
+(CZVV)
+2 body
+9 Kolik krav farmář přikoupil?
+A) 9 krav
+B) 10 krav
+C) 12 krav
+D) 14 krav
+E) jiný počet krav
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+110
+2015 2016 2017 2018
+Počet členů
+Ženy
+Muži

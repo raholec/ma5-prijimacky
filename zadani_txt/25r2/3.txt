@@ -1,0 +1,24 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 3
+Na šňůrku jsme navlékali korálky.
+Korálky na šňůrce jsme rozdělili do čtyř skupin. Na počátku šňůrky i za každou skupinou 
+jsme vytvořili uzlík.
+První skupina má nejmenší počet korálků. Každá další skupina má 4krát více korálků než 
+skupina před ní. Ve třetí skupině je 32 korálků.
+(CZVV)
+max. 5 bodů
+3
+3.1 Vypočtěte, kolik korálků je celkem navlečeno na šňůrce.
+3.2 Určete, kolikrát více korálků má čtvrtá skupina než druhá skupina.
+3.3 Na celé šňůrce se od počátku pravidelně střídají 4 černé a 1 bílý korálek.
+Vypočtěte, kolik černých korálků je ve čtvrté skupině.
+VÝCHOZÍ TEXT K ÚLOZE 4
+V restauraci byla na celý večer zarezervována čtvrtina všech stolů, což byly 4 stoly pro čtyři hosty 
+a 5 stolů pro dva hosty.
+(CZVV)
+max. 3 body
+4
+4.1 Určete celkový počet stolů v restauraci.
+4.2 Ze všech stolů v restauraci je polovina stolů pro dva hosty, třetina stolů je pro tři hosty
+a ostatní stoly jsou pro čtyři hosty.
+Vypočtěte, kolik míst pro hosty je celkem u všech stolů v restauraci.

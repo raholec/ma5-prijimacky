@@ -1,0 +1,13 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží body K, S a přímka p procházející bodem S.
+(CZVV)
+7.2 Bod K je vrchol obdélníku KLMN.
+Bod S je střed strany KL tohoto obdélníku. 
+Přímka p prochází středem S strany KL a středem ještě jedné strany obdélníku KLMN.
+Sestrojte vrcholy L, M, N obdélníku KLMN, označte je písmeny a obdélník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+K
+S
+p

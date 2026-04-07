@@ -1,0 +1,26 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Vypočtěte:
+1.1
+(1100 − 110 − 90) ∶ (5 − 2 ⋅ 2) + 24 =
+1.2
+60 ⋅ 40 − (5 + 5 ⋅ 13) ∶ 2 =
+max. 4 body
+2 Doplňte do rámečku takové číslo, aby platila rovnost:
+2.1
+1 hodina = 20 minut + sekund
+2.2
+1
+4
+metru + 340 milimetrů = 1 metr − centimetrů
+V záznamovém archu uveďte čísla doplněná do rámečků.
+max. 4 body
+3
+3.1 Od startovní čáry vyběhli současně 4 běžci. Každý doběhl do cíle v jiném čase. 
+Eda nebyl první ani poslední. 
+Leoš se umístil těsně před Adamem a Adam doběhl později než Honza.
+Zapište běžce ve stejném pořadí, v jakém doběhli do cíle.
+Každého běžce označte počátečním písmenem jeho jména.
+3.2 Na výletě bylo pětkrát více dětí než dospělých. Dospělých bylo o 60 méně než dětí.
+Vypočtěte, kolik dětí bylo na výletě.

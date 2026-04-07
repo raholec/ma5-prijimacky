@@ -1,0 +1,23 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 4 
+Děti koupily mamince k narozeninám kytici růží, bonboniéru, ozdobnou záložku a knihu. 
+Kytice s bonboniérou stály celkem 180 korun. Kytice byla dvakrát dražší než bonboniéra. 
+Všechny čtyři dárky stály celkem 310 korun. Samotná kniha byla o 100 korun dražší než 
+ozdobná záložka. 
+(CZVV) 
+max. 4 body 
+4 Vypočtěte, 
+4.1 kolik korun zaplatily děti za kytici růží, 
+4.2 kolik korun stála ozdobná záložka. 
+VÝCHOZÍ TEXT K ÚLOZE 5 
+Kouzelník přinesl víle kouzelný podnos se 42 bílými perlami. 
+Víla z podnosu odebírala perly na šperky. Za každou odebranou bílou perlu se 
+na podnose okamžitě vykouzlily 4 růžové perly, ale na růžové perly kouzlo nefungovalo. 
+Z prvních 30 odebraných bílých perel víla vytvořila náhrdelník. Když ho dokončila, 
+začala z podnosu odebírat další perly (bílé i růžové) na korunku. Perly na korunku odebírala 
+tak dlouho, dokud nebyl podnos prázdný. 
+(CZVV) 
+max. 4 body 
+5 Vypočtěte, 
+5.1 kolik perel bylo na podnose, když víla dokončila náhrdelník, 
+5.2 kolik perel odebrala víla z podnosu na korunku. 

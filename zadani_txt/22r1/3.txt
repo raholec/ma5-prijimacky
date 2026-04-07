@@ -1,0 +1,34 @@
+3
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 4
+Graf udává počet nehod, k nimž došlo v obcích A, B, C,D v jednotlivých čtvrtletích loňského roku,
+a celoroční počet nehod v obci E.
+V obci E
+– nebyla ve 4. čtvrtletí žádná nehoda,
+– bylo ve 2. čtvrtletí dvakrát více nehod než v 1. čtvrtletí,
+– byl ve 3. čtvrtletí stejný počet nehod jako v 1. čtvrtletí.
+(První pololetí se skládá z 1. a 2. čtvrtletí, druhé pololetí ze 3. a 4. čtvrtletí.)
+(CZVV)
+max. 4 body
+4
+4.1 Určete celkový počet nehod, k nimž došlo ve 3. čtvrtletí v obcích A, B, C a D.
+4.2 Určete, o kolik nehod více se v prvním pololetí stalo v obci D než v obci A.
+4.3 Určete počet nehod, k nimž došlo ve 2. čtvrtletí v obci E.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 5
+Na miskách vah leží koule , válce a závaží. Váhy na obrázku jsou v rovnováze.
+(CZVV)
+max. 3 body
+5 Vypočtěte, kolik gramů váží
+5.1 jedna koule,
+5.2 jeden válec.
+ 0
+ 2
+ 4
+ 6
+ 8
+ 10
+ 12
+ 14
+A B C D E
+Počet nehod
+1. čtvrtletí 2. čtvrtletí 3. čtvrtletí 4. čtvrtletí
+50 g 70 g

@@ -1,0 +1,27 @@
+4
+VÝCHOZÍ TEXT K ÚLOZE 5
+Na odvoz beden ze skladu se používají dva různí roboti A, B.
+Ve skladu bylo 140 beden. 
+Bedny nejprve odvážel robot A, a to po 5 kusech. Jezdil v pravidelných intervalech a odvezl 
+ze skladu za 2 hodiny celkem 50 beden. 
+Pak pokračoval robot B, který vozil bedny jen po 3 kusech, avšak v kratších pravidelných 
+intervalech. Odvezl tak ze skladu za 3 hodiny zbývajících 90 beden.
+(CZVV)
+max. 6 bodů
+5 Vypočtěte,
+5.1 o kolik kusů se liší počet beden odvezených ze skladu za 1 hodinu robotem A 
+a počet beden odvezených za 1 hodinu robotem B.
+5.2 kolikrát méně jízd vykoná za 1 hodinu robot A než robot B.
+5.3 kolik beden by ze skladu odvezli za 36 minut oba roboti dohromady při společném 
+provozu.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Na obrázku jsou obrazce A, B.
+Obrazec A je obdélník složený ze 4 stejných bílých obdélníčků a 4 stejných šedých čtverečků.
+Obvod bílé části obrazce A je o 32 cm větší než obvod šedé části.
+Obrazec B je osmiúhelník, který vznikl přeskládáním jednotlivých dílů obrazce A.
+(CZVV)
+max. 3 body
+6 Určete,
+6.1 kolik cm měří obvod obrazce A.
+6.2 o kolik cm se liší obvody obrazců A, B.
+Obrazec A Obrazec B

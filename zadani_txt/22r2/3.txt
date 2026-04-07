@@ -1,0 +1,20 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 4
+V kasičce bylo na začátku prázdnin 2 800 korun. 
+Každý den prázdnin si z kasičky brala Anna 30 korun a Radka 40 korun, a to až do dne, kdy 
+se kasička vyprázdnila.
+(CZVV)
+max. 4 body
+4
+4.1 Vypočtěte, kolikátý den prázdnin se kasička vyprázdnila.
+4.2 Když si jednoho prázdninového dne obě dívky vzaly peníze z kasičky, zůstalo v ní 
+přesně tolik korun, kolik už si z ní od začátku prázdnin vybrala Anna.
+Vypočtěte, kolikátý den prázdnin k tomu došlo.
+VÝCHOZÍ TEXT K ÚLOZE 5
+V pohádkové říši se setkání draků zúčastnili pouze dvouhlaví a tříhlaví draci.
+Draků bylo celkem 52 a dohromady měli 134 hlav.
+(CZVV)
+max. 4 body
+5 Vypočtěte,
+5.1 kolik dvouhlavých draků bylo na setkání,
+5.2 o kolik hlav více měli dohromady všichni tříhlaví draci než všichni dvouhlaví draci.

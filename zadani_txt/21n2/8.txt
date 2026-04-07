@@ -1,0 +1,28 @@
+8
+VÝCHOZÍ TEXT K ÚLOZE 11
+Provaz je 216 cm dlouhý. Třetina tohoto provazu je dvakrát delší než nit. 
+Nit rozstřihneme na tři stejně dlouhé části.
+(CZVV)
+2 body
+11 O kolik cm je provaz delší než jedna část niti?
+A) o 108 cm
+B) o 168 cm
+C) o 180 cm
+D) o 204 cm
+E) o jiný počet cm
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 12
+Podél řeky byl z dlouhých a krátkých tyček postaven plot jako na obrázku.
+Některé tyčky plotu slouží jako opěry. Každá opěra je sestavena ze dvou dlouhých tyček, 
+které jsou opatřeny patkami.
+Plot začíná i končí opěrou a opěry se v plotu pravidelně opakují. Mezi každými dvěma 
+sousedními opěrami jsou už jen svislé tyčky bez patek, a to vždy tři dlouhé a čtyři krátké.
+Všech dlouhých tyček (s patkami i bez patek) je v celém plotu o 80 více než krátkých.
+(CZVV)
+2 body
+12 Kolik patek bylo použito na stavbu celého plotu?
+A) 156 patek
+B) 158 patek
+C) 160 patek
+D) 162 patek
+E) jiný počet patek
+patka

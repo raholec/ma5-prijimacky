@@ -1,0 +1,16 @@
+3
+VÝCHOZÍ TEXT K ÚLOZE 4
+Jana koupila v papírnictví několik stejných linkovaných sešitů, několik stejných čtverečkovaných
+sešitů a několik stejných kružítek.
+(CZVV)
+max. 5 bodů
+4
+4.1 Jana koupila celkem 36 sešitů, přičemž linkovaných koupila třikrát více než 
+čtverečkovaných.
+Vypočtěte, kolik linkovaných sešitů koupila.
+4.2 Dva linkované sešity a dva čtverečkované sešity stojí dohromady 180 korun.
+Dva čtverečkované sešity stojí stejně jako tři linkované.
+Vypočtěte, kolik korun stojí jeden čtverečkovaný sešit.
+4.3 K nákupu šesti kružítek chybělo Janě 160 korun, proto koupila jen čtyři kružítka 
+a zbylo jí 100 korun.
+Vypočtěte, kolik korun zaplatila za 4 kružítka.

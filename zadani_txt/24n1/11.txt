@@ -1,0 +1,11 @@
+VÝCHOZÍ TEXT K ÚLOZE 14
+Tereza a Pepa šli hrát kuličky. Tereza si přinesla jen červené kuličky, měla jich 40. Pepa 
+si přinesl jen modré kuličky. První hru vyhrál Pepa a od Terezy vyhrál jednu čtvrtinu jejích 
+červených kuliček. Druhou hru vyhrála Tereza a získala tak od Pepy 16 modrých kuliček. 
+Po těchto dvou hrách měli Pepa i Tereza stejný počet kuliček.
+max. 6 bodů
+14
+14.1 Kolik modrých kuliček měla Tereza po těchto dvou hrách?
+14.2 Kolik kuliček měli Tereza a Pepa dohromady?
+14.3 Kolik modrých kuliček si na začátku přinesl Pepa?
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.

@@ -1,0 +1,28 @@
+7
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8 
+Ve čtvercové síti jsou zakresleny dva tmavé obrazce A, B. 
+Vrcholy obou obrazců leží v mřížových bodech. 
+Každý čtvereček čtvercové sítě má stranu délky 1 cm a obsah 1 cm2. 
+(CZVV) 
+max. 4 body 
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N). 
+A N 
+8.1 Obsah obrazce A je 7 cm2. 
+8.2 Obsah obrazce B je o 1 cm2 větší než obsah obrazce A. 
+8.3 Obvod obrazce B je stejný jako obvod obrazce A. 
+VÝCHOZÍ TEXT K ÚLOZE 9 
+Adéla a Hana dostaly stejnou knihu. 
+Hana přečetla z knihy denně 10 stran. Adéla přečetla celou knihu za 8 dní a každý den 
+z ní přečetla o polovinu více stran než Hana. 
+(CZVV) 
+2 body 
+9 Za kolik dní přečetla knihu Hana? 
+A) za méně než 10 dní 
+B) za 10 dní 
+C) za 12 dní 
+D) za 15 dní 
+E) za více než 15 dní
+1 cm2
+1 cm 
+A B 

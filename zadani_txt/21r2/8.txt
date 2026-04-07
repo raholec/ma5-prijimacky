@@ -1,0 +1,26 @@
+8
+VÝCHOZÍ TEXT K ÚLOZE 11
+Na 23denní tábor přivezl vedoucí malým skautům 16 sáčků po 30 bonbonech.
+Během tábora dal každému malému skautovi celkem 21 bonbonů, a zbyly mu tak už jen 
+bonbony v posledním načatém sáčku.
+(CZVV)
+2 body
+11 Kolik bonbonů zbylo vedoucímu v posledním načatém sáčku?
+A) 18
+B) 19
+C) 20
+D) 21
+E) 22
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 12
+Ve čtvercové síti leží pět tmavých útvarů A–E.
+Vrcholy všech útvarů leží v mřížových bodech. Některé útvary jsou souměrné podle osy 
+(svislé, vodorovné nebo šikmé).
+(CZVV)
+2 body
+12 Který útvar není souměrný podle žádné osy?
+A) útvar A
+B) útvar B
+C) útvar C
+D) útvar D
+E) útvar E
+A B C D E

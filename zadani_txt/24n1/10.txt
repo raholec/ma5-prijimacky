@@ -1,0 +1,30 @@
+12.3 Kolik peněz dohromady měli všichni sourozenci na konci června, když víme, 
+že Sára měla v pokladničce 1. ledna 1 050 Kč, Dana 750 Kč a Lukáš 600 Kč?
+A) Výsledek nelze určit.
+B) 1 250 Kč
+C) 1 800 Kč
+D) 2 400 Kč
+E) 4 200 Kč
+____________________________________________________________________________
+VÝCHOZÍ TEXT K ÚLOZE 13
+Katka jezdí každé ráno do školy a odpoledne ze školy na kole. Cesta do školy je do kopce, 
+takže Katce trvá dvakrát déle než cesta ze školy. Obě cesty dohromady trvají Katce každý 
+den 33 minut.
+max. 3 body
+13 Ke každé podúloze (13.1–13.3) přiřaďte správný výsledek (A–F).
+13.1 V kolik hodin ráno nejpozději musí Katka vyjíždět do školy, aby byla ve škole právě 
+10 minut před začátkem vyučování, které začíná v 8:00?
+________
+13.2 V kolik hodin ráno musí Katka nejpozději vycházet pěšky do školy, pokud má její 
+třída sraz před školou v 8:10 a cesta do školy pěšky jí trvá dvakrát déle než na kole?
+________
+13.3 Pokud venku prší, jede Katka do školy autobusem. Autobusem Katce trvá cesta 
+do školy stejně dlouho, jako jí trvá cesta ze školy na kole. V kolik hodin jí autobus 
+vyjíždí od domu, pokud ke škole autobus přijíždí v 7:43?
+________
+A) 7:24
+B) 7:26
+C) 7:28
+D) 7:30
+E) 7:32
+F) 7:34

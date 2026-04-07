@@ -1,0 +1,18 @@
+11
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 13
+Ve čtvercové síti je zakresleno 7 obrazců, které mají vrcholy v mřížových bodech.
+Každý čtvereček čtvercové sítě má stranu délky 1 cm a obsah 1 cm2.
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každé otázce (13.1–13.3) správnou odpověď (A–F).
+13.1 Kolik obrazců má obsah 3 cm2? _____
+13.2 Kolik obrazců je osově souměrných alespoň podle jedné osy souměrnosti? _____
+13.3 Kolik světlých obrazců má stejný obvod jako tmavý trojúhelník? _____
+A) žádný obrazec
+B) 1 obrazec
+C) 2 obrazce
+D) 3 obrazce
+E) 4 obrazce
+F) 5 obrazců
+1 cm
+1 cm2

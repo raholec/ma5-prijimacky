@@ -1,0 +1,15 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Obdélník se stranami délek 10 cm a 24 cm byl rozdělen úhlopříčkami na čtyři rovnoramenné
+trojúhelníky. Z takových čtyř trojúhelníků je sestaven každý z obrazců A, B, C, D.
+Obvody obrazců A, B se liší o 4 cm.
+(CZVV)
+max. 4 body
+6 Vypočtěte,
+6.1 kolik cm měří obvod obrazce A,
+6.2 o kolik cm se liší obvody obrazců B, C,
+6.3 kolik cm měří obvod obrazce D.
+24 cm
+10 cm
+Obrazec A Obrazec B
+Obrazec C Obrazec D

@@ -1,0 +1,39 @@
+7
+VÝCHOZÍ TEXT, TABULKA A OBRÁZEK K ÚLOZE 9
+Panáček se rozloží na 6 dílků – čepici, hlavu, každou ruku zvlášť, trup a nohy.
+Tabulka udává, jakou část hmotnosti panáčka tvoří jednotlivé dílky.
+(Např. nohy váží 72 gramů a tvoří jednu třetinu hmotnosti panáčka.)
+(CZVV)
+2 body
+9 O kolik gramů je trup panáčka těžší než čepice?
+A) o méně než 18 gramů
+B) o 18 gramů
+C) o 27 gramů
+D) o 36 gramů
+E) o 54 gramů
+VÝCHOZÍ TEXT K ÚLOZE 10
+Karla, Zora a Olda postupně zametli 1 km dlouhý chodník.
+První část chodníku zametla Karla, Zora pak zametla dvakrát delší část než Karla a Olda
+zametl ještě o 100 metrů delší část chodníku než Zora.
+(Každou část chodníku zametala pouze jedna osoba.)
+(CZVV)
+2 body
+10 Kolik metrů chodníku zametl Olda?
+A) 460 metrů
+B) 500 metrů
+C) 540 metrů
+D) 550 metrů
+E) jiný počet metrů
+Dílek panáčka Část hmotnosti 
+panáčka Hmotnost
+Čepice 1
+12
+Hlava 1
+6
+1 ruka 1
+12
+Trup 1
+4
+Nohy 1
+3
+72 gramů

@@ -1,0 +1,33 @@
+8
+VÝCHOZÍ TEXT A GRAF K ÚLOHÁM 11–12
+Lucka si ukládala do kasičky jen desetikoruny. Na konci každého měsíce všechny peníze 
+v kasičce spočítala, celou částku zaokrouhlila na stovky korun a zaznamenala do grafu.
+Následující graf zobrazuje tyto zaokrouhlené částky v prvních čtyřech měsících roku. 
+V tomto období Lucka peníze pouze ukládala, z kasičky nic nevybírala.
+(CZVV)
+2 body
+11 Jakou nejvyšší částku mohla mít Lucka v kasičce na konci března?
+A) 650 korun
+B) 690 korun
+C) 740 korun
+D) 750 korun
+E) jinou částku
+2 body
+12 Které z následujících tvrzení není pravdivé?
+A) Na konci ledna měla Lucka v kasičce méně než 450 korun.
+B) Během února uložila Lucka do kasičky více než 100 korun.
+C) V březnu uložila Lucka do kasičky alespoň jednu desetikorunu.
+D) Během dubna se částka v Lucčině kasičce mohla zvýšit o 100 korun.
+E) Na konci dubna mohla mít Lucka v kasičce jinou částku než na konci března.
+0
+100
+200
+300
+400
+500
+600
+700
+800
+Leden Únor Březen Duben
+Zaokrouhlená částka 
+v korunách

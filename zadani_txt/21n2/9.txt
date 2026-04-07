@@ -1,0 +1,44 @@
+9
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 13
+V nákresu se do prázdných kroužků doplňují čísla v souladu se všemi uvedenými výpočty.
+VZOR:
+(Ve vzorovém nákresu patří do silně ohraničeného kroužku číslo 12.)
+(CZVV)
+max. 5 bodů
+13 Přiřaďte ke každému nákresu (13.1–13.3) číslo (A–F), které patří 
+do silně ohraničeného kroužku.
+13.1
+_____
+13.2
+_____
+13.3
+_____
+A) číslo menší než 30
+B) 30
+C) 31
+D) 32
+E) 33
+F) číslo větší než 33
++
++1
++3
+5 +
++1
++3
+4 5 7 12
++
+−1
++6
+18
++ +
++3
+−2
++3
+−2
+64
++ +
+−3
+−5
+−3
+−5
+120

@@ -1,0 +1,21 @@
+4
+VÝCHOZÍ TEXT K ÚLOZE 6
+Po jarních prázdninách postupně onemocnělo mnoho žáků.
+V pondělí chyběla
+1
+6
+všech žáků školy. V úterý byla nemocná již
+1
+4
+všech žáků školy.
+V pátek byla ve škole už jen
+1
+3
+všech žáků školy, tedy 80 nejodolnějších žáků.
+Všichni ostatní žáci školy byli nemocní.
+(CZVV)
+max. 4 body
+6 Vypočtěte,
+6.1 kolik žáků měla škola,
+6.2 kolik žáků bylo v pondělí ve škole,
+6.3 o kolik nemocných žáků bylo v pátek více než v úterý.

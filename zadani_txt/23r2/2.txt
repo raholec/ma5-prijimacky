@@ -1,0 +1,25 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Vypočtěte:
+1.1
+28 − 3 ⋅ 2 + 18 ∶ 2 =
+1.2
+(8 ⋅ 125 + 25) ⋅ (440 ∶ 20 − 5 ⋅ 4) =
+max. 4 body
+2
+2.1 Vypočtěte v centimetrech:
+2 m 72 cm − 520 mm + 100 cm =
+2.2 Hodiny, které jdou přesně, ukazují čas 21:42.
+Vypočtěte, jaký čas budou ukazovat za 212 minut.
+VÝCHOZÍ TEXT K ÚLOZE 3
+Přečteme-li číslo 2 073 zprava, získáme číslo 3 702.
+Kladné celé číslo, které čteme zleva i zprava stejně, se nazývá palindromické číslo, 
+např. 73 937.
+(CZVV)
+max. 4 body
+3 Určete
+3.1 nejmenší pěticiferné palindromické číslo, ve kterém se vyskytují tři různé číslice,
+3.2 počet všech palindromických čísel větších než 34 643 a zároveň menších než 35 253,
+3.3 nejmenší kladné číslo, jehož přičtením k palindromickému číslu 73 937 získáme 
+opět palindromické číslo.

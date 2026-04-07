@@ -1,0 +1,12 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží body A, T, V a přímka p procházející body T, V.
+(CZVV)
+7.2 Bod A je vrchol čtverce ABCD. 
+Přímka p protíná stranu AB tohoto čtverce v bodě T a stranu CD v bodě V.
+Sestrojte vrcholy B, C, D čtverce ABCD, označte je písmeny a čtverec narýsujte.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+A
+p
+T
+V

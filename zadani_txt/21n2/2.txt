@@ -1,0 +1,27 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Vypočtěte:
+1.1
+(11 706 − 7 302) ∶ 12 =
+1.2
+2 ⋅ 1600 − 585 − 85 ⋅ 20 =
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 2
+Na číselné ose je zobrazeno šestnáct stejných dílků, číslo 45 a dvě neznámá čísla A a B.
+Číslo B je dvakrát větší než číslo A. Součet čísel A a B je stejný jako součet čísel 45 a C.
+(CZVV)
+max. 3 body
+2 K odpovídajícímu bodu číselné osy zapište
+2.1 číslo 0,
+2.2 číslo C.
+V záznamovém archu oba body na ose zvýrazněte.
+max. 4 body
+3
+3.1 Telefonní hovor trval 8 minut a 55 sekund. Během hovoru blikala žárovka. 
+Žárovka poprvé blikla po prvních 25 sekundách hovoru a poté znovu po každých 
+25 sekundách.
+Určete, kolikrát během celého hovoru blikla žárovka.
+3.2 Řeka Labe protéká pouze dvěma státy a délka celého jejího toku je 1094 km. 
+V Německu je tok Labe o 352 km delší než v České republice.
+Vypočtěte délku toku Labe v Německu.
+45 A B

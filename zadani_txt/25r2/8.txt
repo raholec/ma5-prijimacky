@@ -1,0 +1,15 @@
+8
+VÝCHOZÍ TEXT A TABULKA K ÚLOZE 9
+Do prázdných bílých polí tabulky patří čísla 27, 50, 62 a ještě jedno neznámé číslo.
+Každé číslo v šedém poli tabulky je součin čísel v příslušném řádku nebo sloupci.
+(CZVV)
+2 body
+9 Jaké je neznámé číslo, které patří do tabulky?
+A) 13
+B) 16
+C) 23
+D) 26
+E) jiné číslo
+29 23 374
+11 14 850
+682 783 650

@@ -1,0 +1,31 @@
+7
+VÝCHOZÍ TEXT A TABULKA K ÚLOHÁM 9–10
+Třídy 5. A a 5. B se zúčastnily soutěže, která měla tři kola.
+V tabulce jsou uvedeny počty bodů, které třídy získaly v jednotlivých kolech soutěže, 
+některé údaje však chybí.
+(CZVV)
+2 body
+9 Třída 5. A získala nejméně bodů v 1. kole a nejvíce bodů ve 3. kole. 
+Počet bodů získaných ve 2. kole se od obou zbývajících kol liší o stejný počet bodů.
+Kolik bodů v soutěži získaly dohromady obě třídy?
+A) méně než 264 bodů
+B) 264 bodů
+C) 267 bodů
+D) 270 bodů
+E) více než 270 bodů
+2 body
+10 Třída 5. B získala ve 2. kole o 6 bodů méně než v 1. kole 
+a ve 3. kole dvakrát více bodů než v 1. kole.
+Kolik bodů získaly dohromady obě třídy v 1. kole soutěže?
+A) 67 bodů
+B) 70 bodů
+C) 78 bodů
+D) 82 bodů
+E) jiný počet bodů
+Třída
+Počet bodů získaných
+Součet bodů
+v 1. kole ve 2. kole ve 3. kole
+5. A 34 52
+5. B 138
+Obě třídy

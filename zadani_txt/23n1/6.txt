@@ -1,0 +1,40 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží přímka p a přímka q procházející bodem R.
+(CZVV)
+7.2 Bod R je vrchol pravoúhlého rovnoramenného trojúhelníku PQR se základnou PQ.
+Na přímce p leží vrchol P a na přímce q leží vrchol Q trojúhelníku PQR.
+Sestrojte vrcholy P, Q trojúhelníku PQR, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 8
+Na táboře je každé dítě zařazeno do jednoho ze tří oddílů A, B a C.
+V oddíle A je dvakrát více dětí než v oddíle C.
+Graf udává počty chlapců a dívek 
+v jednotlivých oddílech, 
+jeden údaj však chybí.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 V oddíle C je 5 dívek.
+8.2 V oddíle B je chlapců o polovinu více než dívek.
+8.3 Na táboře je dívek o pětinu méně než chlapců.
+p
+q
+R
+A
+B
+C
+9
+7
+8
+4
+3
+chlapci
+dívky
+chlapci
+dívky
+chlapci
+dívky

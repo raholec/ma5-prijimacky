@@ -1,0 +1,12 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží bod S a různoběžné přímky m, n.
+(CZVV)
+7.2 Na přímce m leží strana EF trojúhelníku EFG
+a na přímce n leží strana EG tohoto trojúhelníku. 
+Bod S má od všech tří vrcholů trojúhelníku EFG stejnou vzdálenost.
+Sestrojte vrcholy trojúhelníku EFG, označte je písmeny a trojúhelník narýsujte.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+S
+m
+n

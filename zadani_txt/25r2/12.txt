@@ -1,0 +1,19 @@
+12
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Připojováním čtverečků k velkému bílému čtverci vytváříme obrazce (viz obrázek).
+První obrazec má tvar čtverce a vznikl připojením 7 menších tmavých čtverečků.
+Postupným připojením dalších 20 čtverečků dvou různých velikostí byl z prvního obrazce 
+vytvořen druhý, který má také tvar čtverce.
+Třetí obrazec vznikl z druhého připojením dalších 11 čtverečků a má tvar obdélníku.
+První obrazec má obvod 80 cm.
+(CZVV)
+max. 4 body
+14
+14.1 Vypočtěte v cm obvod druhého obrazce.
+14.2 Vypočtěte, o kolik cm se liší délky sousedních stran třetího obrazce.
+14.3 Na obrázku vpravo je silně vyznačena uzavřená lomená
+čára, která kopíruje strany čtverečků ve třetím obrazci.
+Určete v cm celkovou délku této lomené čáry.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+1. obrazec 2. obrazec 3. obrazec
+3. obrazec

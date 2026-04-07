@@ -1,0 +1,29 @@
+9
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOHÁM 11–12
+Ve čtvercové síti sestrojíme dva obdélníky s vrcholy 
+v mřížových bodech podle vzoru na obrázku.
+Kratší strana obdélníku má vždy délku 9 cm 
+a obsahuje 10 mřížových bodů.
+Nejmenší čtverec s vrcholy v mřížových bodech 
+má obsah 1 cm2.
+(CZVV)
+2 body
+11 První sestrojený obdélník obsahuje celkem 120 mřížových bodů 
+(včetně mřížových bodů po jeho obvodu).
+Jaký je obsah tohoto obdélníku?
+A) 90 cm2
+B) 99 cm2
+C) 108 cm2
+D) 120 cm2
+E) jiný obsah
+2 body
+12 Obvod druhého sestrojeného obdélníku je 120 cm.
+Kolik mřížových bodů celkem obsahuje tento obdélník 
+(včetně mřížových bodů po jeho obvodu)?
+A) 500
+B) 510
+C) 520
+D) 530
+E) jiný počet
+9 cm
+1 cm2

@@ -1,0 +1,12 @@
+4
+VÝCHOZÍ TEXT K ÚLOZE 6 
+Každý ze tří spolužáků měl zapsat co nejvíce hlavních měst evropských států. 
+Adam zapsal 12 hlavních měst, stejně jako Bětka, ale Eliška jich zapsala jen 6. 
+Mezi všemi zapsanými hlavními městy byla 2 města zapsána třikrát, 7 měst dvakrát 
+a ostatní jen jedenkrát. 
+(CZVV) 
+max. 4 body 
+6 Vypočtěte, 
+6.1 kolik hlavních měst bylo zapsáno jen jedenkrát, 
+6.2 kolik různých hlavních měst bylo celkem zapsáno. 
+ 

@@ -1,0 +1,30 @@
+10
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 14
+Trojúhelníkové obrazce se podle vzoru sestavují z tmavých šestiúhelníků a bílých 
+trojúhelníků. Šestiúhelník se skládá ze 6 shodných tmavých trojúhelníků.
+Na obrázku jsou tři nejmenší trojúhelníkové obrazce. Jednotlivé řady obrazce jsou 
+očíslovány vždy od nejkratší po nejdelší.
+(CZVV)
+max. 4 body
+14 Obrazec má 19 řad.
+Určete počet
+14.1 bílých trojúhelníků v 9. řadě,
+14.2 tmavých trojúhelníků v 16. řadě,
+14.3 tmavých šestiúhelníků v celém obrazci.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.
+…
+1.
+2.
+3.
+1.
+2.
+3.
+4.
+5.
+1.
+2.
+3.
+4.
+5.
+6.
+7.

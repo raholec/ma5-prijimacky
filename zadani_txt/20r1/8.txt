@@ -1,0 +1,46 @@
+8
+VÝCHOZÍ TEXT A GRAF K ÚLOHÁM 10–11 
+Všichni žáci 4. a 5. třídy se zúčastnili soutěže, v níž mohl každý z nich získat 0 až 3 body. 
+V následujícím grafu jsou uvedeny počty žáků, kteří získali v soutěži daný počet bodů, 
+jeden údaj však chybí. 
+Žáci 4. třídy získali v soutěži celkem o 2 body méně než žáci 5. třídy. 
+(CZVV) 
+2 body 
+10 Kolik bodů celkem získali v soutěži žáci 5. třídy? 
+A) 34 bodů
+B) 36 bodů
+C) 38 bodů
+D) 40 bodů
+E) jiný počet bodů
+2 body 
+11 Kolik žáků chodí do 5. třídy? 
+A) méně než 24 žáků
+B) 24 žáků
+C) 25 žáků
+D) 26 žáků
+E) více než 26 žáků
+VÝCHOZÍ TEXT K ÚLOZE 12 
+První číslo je čtvrtinou druhého čísla. 
+Třetí číslo je 64, což je čtyřnásobek druhého čísla. 
+(CZVV) 
+2 body 
+12 Jaké je první číslo? 
+A) 64 
+B) 32 
+C) 16 
+D) 8 
+E) 4 
+?
+0
+2
+4
+6
+8
+10
+12
+0 bodů 1 bod 2 body 3 body
+Po
+čet žák
+ů
+4. třída
+5. třída

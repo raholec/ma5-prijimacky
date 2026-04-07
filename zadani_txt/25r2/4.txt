@@ -1,0 +1,22 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 5
+Na papír lepíme stejné samolepící čtverečky, které mají stranu délky 1 cm a obsah 1 cm2.
+Vytváříme tak různé obdélníky, z nichž každý má obvod 18 cm. Jeden z takových obdélníků
+je na obrázku. Sousední čtverečky v obdélníku mají vždy jednu stranu společnou.
+(CZVV)
+max. 4 body
+5
+5.1 Vypočtěte, kolik cm měří nejdelší možná strana takového obdélníku.
+5.2 Určete, kolik navzájem různých obsahů mají všechny takové obdélníky.
+5.3 Vypočtěte v cm2, jaký je největší možný obsah takového obdélníku.
+VÝCHOZÍ TEXT K ÚLOZE 6
+Karel a Mirka zapsali na tabuli dvě různá dvojciferná čísla.
+Karel ve svém čísle zapsal na místě desítek číslici o 3 větší než Mirka, ale na místě jednotek 
+číslici o 2 menší než Mirka.
+(CZVV)
+max. 4 body
+6
+6.1 Vypočtěte, o kolik se liší Karlovo a Mirčino číslo.
+6.2 Zapsaná čísla se liší o třetinu Karlova čísla.
+Určete, jaké číslo zapsala na tabuli Mirka.
+Čtvereček Obdélník vytvořený ze čtverečků

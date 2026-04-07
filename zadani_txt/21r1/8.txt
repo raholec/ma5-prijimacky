@@ -1,0 +1,37 @@
+8
+VÝCHOZÍ TEXT, GRAF A TABULKA K ÚLOHÁM 11–12
+Stejná trička a stejné mikiny se prodávaly ve 3 různých obchodech (A–C) za různé ceny.
+Tričko se v obchodě C prodávalo o 40 Kč levněji než v obchodě A.
+V obchodě B utržili za prodaná trička dohromady tolik korun jako za prodané mikiny.
+(CZVV)
+2 body
+11 Kolik korun utržili v obchodě C za všechna prodaná trička?
+A) 960 Kč
+B) 1050 Kč
+C) 1260 Kč
+D) 1740 Kč
+E) více než 1740 Kč
+2 body
+12 O kolik korun se lišila cena jedné mikiny v obchodech B a C?
+A) o 20 Kč
+B) o 40 Kč
+C) o 60 Kč
+D) o 90 Kč
+E) ceny se nelišily
+0
+4
+8
+12
+16
+20
+24
+28
+32
+Počet prodaných kusů
+Trička
+Mikiny
+Obchod A B C
+Cena jednoho trička 180 Kč
+Peníze za prodaná trička 1000 Kč
+Cena jedné mikiny 500 Kč
+Peníze za prodané mikiny 6 000 Kč 7 200 Kč

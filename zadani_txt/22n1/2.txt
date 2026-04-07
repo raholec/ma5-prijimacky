@@ -1,0 +1,26 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Doplňte do rámečku takové číslo, aby byly výpočty správné:
+1.1
+∶ 21 + 6 = 14
+1.2
+213 ∶ = 14, zbytek 3
+V záznamovém archu uveďte čísla doplněná do rámečků.
+max. 4 body
+2
+2.1 Z kabelu dlouhého 610 centimetrů jsme uřízli pět půlmetrových kusů 
+a zbytek jsme rozdělili na 9 stejně dlouhých dílů.
+Určete, kolik centimetrů měří jeden díl.
+2.2 Cesta na kole z Roztok do Neratovic trvá 1 hodinu a 50 minut. 
+S využitím přívozu se doba cestování zkrátí o tři čtvrtě hodiny.
+Vypočtěte, kolik minut trvá cesta z Roztok do Neratovic s využitím přívozu.
+VÝCHOZÍ TEXT K ÚLOZE 3
+Kapli si během dne prohlédlo celkem 630 návštěvníků. Na každou prohlídku šla stejně 
+početná skupina návštěvníků, kterou doprovázel vždy jeden z 5 průvodců.
+Každý průvodce provedl 4 skupiny návštěvníků dopoledne a 2 skupiny odpoledne.
+(CZVV)
+max. 4 body
+3 Vypočtěte,
+3.1 kolik návštěvníků bylo v jedné skupině,
+3.2 kolik návštěvníků si kapli prohlédlo během dopoledne.

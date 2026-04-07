@@ -1,0 +1,28 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky.
+max. 4 body
+1 Vypočtěte:
+1.1
+(2 ⋅ 243 − 18) ∶ (10 ⋅ 165 ⋅ 0 + 20 ∶ 5) =
+1.2
+4 ⋅ (540 − 360) − (8 ⋅ 180 − 5 ⋅ 180) =
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 2
+Na číselné ose je zobrazeno devět bodů oddělujících osm stejných dílků. 
+Body A, B, C, D představují čtyři čísla.
+V bodě C je číslo 48, které je trojnásobkem čísla v bodě B.
+(CZVV)
+max. 4 body
+2 Určete číslo v bodě
+2.1 A,
+2.2 D.
+max. 4 body
+3
+3.1 Neznámé číslo je větší než 1. Když ho vynásobíme samo sebou, dostaneme číslo 
+o 17 menší než devítinásobek čísla 9.
+Určete neznámé číslo.
+3.2 V každé bedýnce je 6 lahví se sirupem. Každá lahev obsahuje půl litru sirupu. 
+Ve všech bedýnkách je celkem 321 litrů sirupu.
+Určete počet bedýnek se sirupem.
+A B
+48
+C D

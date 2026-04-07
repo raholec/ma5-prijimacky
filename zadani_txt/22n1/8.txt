@@ -1,0 +1,27 @@
+8
+VÝCHOZÍ TEXT K ÚLOZE 9
+Hruškový král rozdělil podle zásluh všechny zlaté hrušky mezi tři rytíře.
+Druhý rytíř dostal o 24 hrušek více než první rytíř 
+a třetí rytíř dostal dvakrát více hrušek než první rytíř.
+Druhý a třetí rytíř dostali dohromady šestkrát více hrušek než první rytíř.
+(CZVV)
+2 body
+9 Kolik zlatých hrušek rozdělil král mezi tři rytíře?
+A) 36
+B) 42
+C) 48
+D) 56
+E) jiný počet
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 10
+Obdélník je sestaven z bílého čtverce o obsahu 120 cm2
+a dvou menších bílých čtverců.
+Uvnitř každého bílého čtverce je zakreslen tmavý čtverec, jehož
+vrcholy dělí všechny strany tohoto bílého čtverce na poloviny.
+(CZVV)
+2 body
+10 Jaký je celkový obsah všech tří tmavých čtverců v obdélníku?
+A) 60 cm2
+B) 75 cm2
+C) 90 cm2
+D) 105 cm2
+E) 120 cm2

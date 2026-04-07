@@ -1,0 +1,26 @@
+2
+V úlohách 1–6 a 14 přepište do záznamového archu pouze výsledky. 
+max. 4 body 
+1 Vypočtěte: 
+1.1
+305 െ 20 ൅ 15 ׷ 5 െ 2 ڄ ሺ4 ൅ 2 ڄ 3ሻ ൌ
+1.2
+ሺ883 ൅ 884 ൅ 885ሻ ׷ 3 െ 880 ׷ 4 ൌ
+max. 4 body 
+2
+2.1 Sjezdovka je o polovinu delší než lanovka. Jejich délky se liší o čtvrt kilometru. 
+Vypočtěte v metrech délku sjezdovky. 
+2.2 Jízda lanovkou trvala 1 minutu a 24 sekund. 
+Lyžař sjel sjezdovku za dobu o třetinu kratší. 
+Vypočtěte v sekundách, za jak dlouho sjel lyžař sjezdovku. 
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 3 
+Na každé z 6 kartiček bylo zapsáno jedno číslo od 1 do 6. 
+Žádná dvojice kartiček neobsahovala stejné číslo. 
+Tři kartičky měl Eda a zbývající tři Petr. 
+Součet čísel na Edových kartičkách byl o 3 větší než součet čísel na Petrových kartičkách. 
+(CZVV) 
+max. 3 body 
+3 Určete, která čísla byla na Petrových kartičkách. 
+Najděte všechna řešení. 
+(Nezapisujte čísla na Edových kartičkách.) 
+1 2 3 4 5 6 

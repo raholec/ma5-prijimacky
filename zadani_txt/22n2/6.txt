@@ -1,0 +1,13 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7.2
+V rovině leží bod F a různoběžné přímky g, h.
+(CZVV)
+7.2 Bod F je vrchol trojúhelníku FGH. 
+Na přímce g leží vrchol G tohoto trojúhelníku a na přímce h leží vrchol H.
+Obě strany FG i GH mají stejnou délku, a to 5 cm.
+Sestrojte vrcholy G, H trojúhelníku FGH, označte je písmeny a trojúhelník narýsujte.
+Najděte všechna řešení.
+V záznamovém archu obtáhněte vše propisovací tužkou (čáry i písmena).
+F
+g
+h

@@ -1,0 +1,15 @@
+3
+3.2 V obchodě prodávají sběratelské kartičky v baleních jednak po čtyřech, jednak 
+po sedmi kartičkách. Během týdne prodali celkem 224 kartiček, přičemž balení 
+po čtyřech kartičkách prodali o 10 méně než balení po sedmi kartičkách.
+Vypočtěte, kolik balení sběratelských kartiček během týdne celkem prodali.
+max. 4 body
+4
+4.1 Závodník uběhl celou trasu za 3 hodiny.
+Během první hodiny uběhl třetinu celé trasy. 
+Během poslední hodiny uběhl jen 9 km, což byla čtvrtina celé trasy.
+Vypočtěte, kolik km uběhl závodník během druhé hodiny.
+4.2 Při rozklusání uběhla Ema o 900 m kratší trasu než Marek.
+Oba běželi nejprve spolu. Jakmile Marek uběhl pětinu své trasy, zrychlil a dále běželi 
+každý sám. Ema v doprovodu Marka uběhla třetinu své trasy.
+Vypočtěte, kolik metrů uběhl při rozklusání Marek.

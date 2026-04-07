@@ -1,0 +1,24 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 5
+Šestiúhelník na obrázku se skládá z rovnoramenného trojúhelníku, obdélníku a čtverce.
+Základna rovnoramenného trojúhelníku splývá s delší stranou 
+obdélníku a rameno tohoto trojúhelníku je o 1 cm delší než 
+strana čtverce.
+Obvod čtverce je stejný jako obvod trojúhelníku, 
+ale o 8 cm menší než obvod obdélníku.
+(CZVV)
+max. 3 body
+5 Vypočtěte,
+5.1 o kolik cm se liší délka a šířka obdélníku,
+5.2 kolik cm měří rameno rovnoramenného trojúhelníku.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Čtyřúhelník ABCD na obrázku se skládá ze 7 šedých čtverců 
+a 4 bílých čtverců.
+Obvod jednoho šedého čtverce je 48 cm.
+(CZVV)
+max. 4 body
+6 Vypočtěte v cm
+6.1 obvod jednoho bílého čtverce,
+6.2 obvod celého čtyřúhelníku ABCD.
+A B
+D C

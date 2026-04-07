@@ -1,0 +1,35 @@
+7
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 10
+Všechny díly stavebnice jsou pravidelné čtyřboké hranoly s rozměry 1 cm × 1 cm × 2 cm.
+Ve stavbě, která má podobu tří spojených kvádrů, jsou jednotlivé díly naskládány bez mezer
+tak, aby stavba obsahovala co největší počet stojících dílů. Stojící díl má dole čtvercovou 
+stěnu, ležící díl nikoli.
+(CZVV)
+2 body
+10 Kolik ležících dílů stavba obsahuje?
+A) 0
+B) 6
+C) 12
+D) 18
+E) 24
+Rozměry v obrázku jsou v cm. 
+Stavba
+3
+4
+6
+3
+2
+3
+4
+5
+Stojící díl
+1
+1
+2
+Ležící díl
+2
+1
+1
+1
+2
+1

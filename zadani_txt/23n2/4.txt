@@ -1,0 +1,45 @@
+4
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 5
+Na miskách vah leží jedno velké, jedno střední 
+a tři stejná malá závaží.
+Hmotnost středního závaží je o třetinu menší než 
+hmotnost velkého závaží.
+Jedno velké a jedno malé závaží váží dohromady 100 g, 
+stejně jako jedno střední a dvě malá závaží.
+(CZVV)
+max. 3 body
+5 Určete,
+5.1 kolikrát větší je hmotnost velkého závaží než hmotnost malého závaží,
+5.2 kolik gramů váží střední závaží.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Ve čtvercové síti jsou z tmavých čtverců složeny tři útvary A, B, C. 
+Z každého útvaru vytvoříme odebráním jediného tmavého čtverce nový útvar, který je 
+osově souměrný podle některé osy (svislé, vodorovné nebo šikmé).
+V jednotlivých útvarech jsme každý tmavý čtverec označili číslem.
+Z útvaru A lze vytvořit osově souměrný útvar buď odebráním čtverce 2, nebo odebráním 
+čtverce 8.
+(CZVV)
+max. 4 body
+6 Určete číslo čtverce, jehož odebráním vytvoříme osově souměrný útvar
+6.1 z útvaru B,
+6.2 z útvaru C.
+V každé části úlohy najděte obě řešení.
+A
+1
+2 3 4
+5 6 7 8
+9
+B
+1 2
+3 4 5 6
+7 8 9
+10 11 12
+13 14
+C
+1
+2
+3 4
+5 6 7
+8
+9
+100 g 100 g

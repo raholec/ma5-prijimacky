@@ -1,0 +1,13 @@
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 7
+V rovině leží přímka p a bod K, který neleží na této přímce.
+max. 6 bodů
+7
+7.1 Narýsujte jeden čtverec KLMN tak, aby body L a M ležely na přímce p.
+7.2 Do stejného obrázku narýsujte rovnoramenný trojúhelník KZM tak, 
+aby platilo, že ramena trojúhelníku tvoří úsečky KM a KZ a zároveň 
+bod Z leží na přímce p.
+Při hledání bodu Z použijte kružítko.
+V záznamovém archu obtáhněte celou konstrukci propisovací tužkou (všechny 
+čáry, kružnice nebo jejich části i písmena).
+K
+p

@@ -1,0 +1,19 @@
+4
+VÝCHOZÍ TEXT K ÚLOZE 5
+5 talířků a 2 hrnky váží stejně jako 2 mísy.
+1 mísa váží stejně jako 3 hrnky.
+(CZVV)
+max. 3 body
+5 Vypočtěte, kolik talířků váží stejně jako
+5.1 4 hrnky,
+5.2 4 mísy.
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 6
+Na vytvoření obrazce můžeme použít velké a malé čtverce a trojúhelníky.
+Malý čtverec má obsah 4 cm2. Velký čtverec lze složit z 9 malých čtverců. Trojúhelníky 
+získáme rozstřižením malého nebo velkého čtverce na dvě poloviny.
+(CZVV)
+max. 4 body
+6 Vypočtěte v cm2 obsah
+6.1 obrazce A,
+6.2 obrazce B.
+Obrazec A Obrazec B

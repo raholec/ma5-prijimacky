@@ -1,0 +1,30 @@
+6
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+Ve čtvercové síti jsou z tmavých čtverců složeny tři útvary A, B, C.
+Ke každému útvaru doplňte jediný tmavý čtverec tak, aby byl útvar osově souměrný 
+a měl co nejvíce různých os souměrnosti (sestrojených svisle, vodorovně nebo šikmo).
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Útvar A doplněný o požadovaný čtverec má 4 osy souměrnosti.
+8.2 Útvar B doplněný o požadovaný čtverec má 2 osy souměrnosti.
+8.3 Útvar C doplněný o požadovaný čtverec má pouze 1 osu souměrnosti.
+VÝCHOZÍ TEXT A GRAF K ÚLOZE 9
+Soutěž měla čtyři kola. V grafu jsou uvedeny výsledky družstva v prvních třech kolech.
+V 1. kole družstvo získalo o 15 bodů méně než ve 2. kole.
+Ve 4. kole družstvo získalo o polovinu více bodů než ve 3. kole.
+(CZVV)
+2 body
+9 Kolik bodů získalo družstvo ve 4. kole?
+A) 25 bodů
+B) 30 bodů
+C) 35 bodů
+D) 40 bodů
+E) jiný počet bodů
+?
+0
+1. kolo 2. kolo 3. kolo 4. kolo
+Počet bodů
+A B C

@@ -1,0 +1,30 @@
+7
+VÝCHOZÍ TEXT A OBRÁZEK K ÚLOZE 8
+Desetiúhelník na obrázku se skládá 
+z jednoho rovnostranného trojúhelníku, 
+pěti stejných čtverců, 
+jednoho šedého obdélníku 
+a dvou stejných šedých trojúhelníků.
+Nejkratší strana desetiúhelníku měří 4 cm, 
+nejdelší 20 cm.
+(CZVV)
+max. 4 body
+8 Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je 
+pravdivé (A), či nikoli (N).
+A N
+8.1 Obvod rovnostranného trojúhelníku je 12 cm.
+8.2 Obvod šedého obdélníku je 56 cm.
+8.3 Obvod šedého trojúhelníku je větší než 50 cm.
+VÝCHOZÍ TEXT K ÚLOZE 9
+Maminka koupila v cukrárně tři různé zákusky.
+První zákusek stál 72 korun. 
+Druhý zákusek byl o čtvrtinu levnější než první. 
+Cena třetího zákusku byla třetinou celkové ceny všech tří zákusků.
+(CZVV)
+2 body
+9 O kolik korun byl třetí zákusek dražší než druhý?
+A) o méně než 12 korun
+B) o 12 korun
+C) o 15 korun
+D) o 18 korun
+E) o více než 18 korun

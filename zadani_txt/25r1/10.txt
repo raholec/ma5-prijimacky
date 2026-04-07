@@ -1,0 +1,19 @@
+10
+VÝCHOZÍ TEXT K ÚLOZE 14
+Poutník měl u sebe 54 dukátů, stejně jako kouzelník.
+Kouzelník mu prozradil kouzlo: 
+„Když mi dáš právě tolik dukátů, abys měl polovinu toho, co budu mít i s darovanými dukáty já, 
+zbytek tvých dukátů se zdvojnásobí a budeme mít opět stejně. Pokud to však zkusíš, ale 
+nedokážeš, o všechny dukáty přijdeš.“
+(CZVV)
+max. 4 body
+14
+14.1 Poutník dal kouzelníkovi správný počet dukátů a zbytek dukátů se mu zdvojnásobil.
+Určete, kolik dukátů dal poutník kouzelníkovi.
+14.2 Protože kouzlo poprvé fungovalo, poutník jej použil ještě jednou.
+Vypočtěte, kolik dukátů měl poutník, když se kouzlo vyplnilo podruhé.
+14.3 Poutník kouzla několikrát využil. Když si správně spočítal, že už pomocí kouzla nemůže
+další dukáty získat a že by při dalším pokusu určitě o všechny přišel, dál nepokračoval.
+Kouzelníkovi poděkoval a rozloučil se s ním.
+Vypočtěte, kolik dukátů měl poutník, když se s kouzelníkem rozloučil.
+ZKONTROLUJTE, ZDA JSTE DO ZÁZNAMOVÉHO ARCHU UVEDL/A VŠECHNY ODPOVĚDI.

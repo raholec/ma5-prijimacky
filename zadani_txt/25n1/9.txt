@@ -1,0 +1,29 @@
+9
+VÝCHOZÍ TEXT K ÚLOZE 9
+V kamionu se převážejí bedny naplněné baleními minerálek.
+Do každé bedny se jednotlivá balení naskládají do 4 vrstev nad sebou. 
+Každá vrstva obsahuje 3 řady po 7 baleních.
+K přepravě bylo připraveno 1560 balení minerálek, která se postupně skládala do beden. 
+Všechny bedny kromě poslední byly zcela naplněny.
+(CZVV)
+2 body
+9 Kolik balení minerálek by bylo třeba přidat do poslední bedny, 
+aby byla plná?
+A) méně než 32 balení
+B) 32 balení
+C) 34 balení
+D) 36 balení
+E) více než 36 balení
+VÝCHOZÍ TEXT K ÚLOZE 10
+Jitka s maminkou a babičkou trhaly na zahradě rybíz do stejně velkých hrnků. 
+Maminka natrhala dvakrát více rybízu než Jitka. 
+Babička natrhala o polovinu více rybízu než Jitka. 
+Přitom babička natrhala o 2 hrnky rybízu méně než maminka.
+(CZVV)
+2 body
+10 Kolik hrnků rybízu natrhaly všechny tři dohromady?
+A) 18 hrnků
+B) 20 hrnků
+C) 21 hrnků
+D) 24 hrnků
+E) 25 hrnků
