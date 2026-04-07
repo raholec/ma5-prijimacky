@@ -370,7 +370,7 @@ Ověř: (52 + 28) × 5 ÷ 2 = 80 × 5 ÷ 2 = <span class="hint-result">200 ✓</
 </ol>
 </div>
 <div class="ex"><div class="lbl">Jak jít pozpátku (když znám pozdější člen)</div>
-Znám 3. člen = 32, každý je 4× větší.<div class="hint-calc"><b>32</b> <span class="step-arrow">→ ÷4 →</span> <b>8</b> <span class="step-arrow">→ ÷4 →</span> <b>2</b></div>
+Znám 3. člen = 32, každý je 4× větší. 32 → ÷4 → 8 → ÷4 → 2
 </div>
 </div><div class="hint-block" style="background:#fff8f0;border-color:#A04000">
 <h3>🔷 Obrázky z trojúhelníků — tabulka je klíč</h3>
@@ -410,6 +410,39 @@ Tmavých = (18+2) + 2×5 = 20+10 = <span class="hint-result">30 tmavých čtvere
 <div class="ex"><div class="lbl">Jak najít šířku: přidáme 30 tmavých, základní má 5 řad</div>
 (šířka+2) + 2×5 = 30 → šířka+12 = 30 → šířka = <span class="hint-result">18 sloupců</span>
 </div>
+</div><div class="hint-block" style="background:#fff8f0;border-color:#C87941">
+<h3>⬛ Puntíky ve čtvercích — vzorec krok za krokem</h3>
+
+<div class="ex"><div class="lbl">Jak může zadání vypadat (20r1, 21r1, 22n1)</div>
+<i>„Obrazce jsou tvořeny puntíky uspořádanými do čtverců. Strana 2. obrazce má 3 puntíky, každý další má o 2 více. Kolik puntíků má 10. obrazec?"</i>
+</div>
+<div class="ex"><div class="lbl">Krok 1: Zjisti stranu n-tého obrazce</div>
+<table class="htable">
+<tr><th style="background:#A04000;color:white">Obrazec č.</th><th style="background:#A04000;color:white">1.</th><th style="background:#A04000;color:white">2.</th><th style="background:#A04000;color:white">3.</th><th style="background:#A04000;color:white">4.</th><th style="background:#A04000;color:white">5.</th><th style="background:#A04000;color:white">n.</th></tr>
+<tr><td>Strana</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td><td><b>2n−1</b></td></tr>
+<tr><td>Puntíků celkem</td><td>1</td><td>9</td><td>25</td><td>49</td><td>81</td><td><b>(2n−1)²</b></td></tr>
+</table>
+Vzorec: strana n-tého obrazce = <b>2n−1</b>, celkem puntíků = <b>(2n−1)²</b>
+</div>
+<div class="ex"><div class="lbl">Krok 2: Dosaď</div>
+10. obrazec: strana = 2×10−1 = <b>19 puntíků</b> na straně<br>
+Celkem puntíků: 19×19 = ? &nbsp;→ Trik: 20×19 − 19 = 380−19 = <span class="hint-result">361 puntíků</span>
+</div>
+<div class="ex"><div class="lbl">Krok 3: Jak spočítat rozdíl dvou obrazců</div>
+Rozdíl 9. a 11. obrazce = (2×11−1)² − (2×9−1)² = 21² − 17² = 441−289 = <span class="hint-result">152</span><br>
+Trik: nemusíš počítat oba zvlášť — postačí (A+B)×(A−B) = (21+17)×(21−17) = 38×4 = 152 ✓
+</div>
+</div><div class="hint-block" style="background:#fff0f0;border-color:#C0392B">
+<h3>⚠️ Nejčastější chyby u posloupností</h3>
+
+<table class="htable">
+<tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
+<tr><td>🔴 U sirek: 1. obrazec má 9, takže n-tý = 9 + 4n</td><td>Správně: n-tý = 9 + 4×(n−1). Ověř: 1. = 9+0=9 ✓, 2. = 9+4=13 ✓</td></tr>
+<tr><td>🔴 U puntíků: zapomenu odečíst vnitřní obrazec</td><td>Puntíky n-tého = celý čtverec (2n−1)² — NEZAPOMEŇ odečíst!</td></tr>
+<tr><td>🔴 U tmavých čtverečků: záměna šířky a výšky</td><td>Šířka = počet sloupců světlé části, výška = počet řad</td></tr>
+<tr><td>🔴 Zapomenu vypsat tabulku pro prvních 4–5 obrazců</td><td>Bez tabulky to nejde — vždy nakresli a vypiš hodnoty!</td></tr>
+<tr><td>🔴 U rozdílu dvou obrazců: počítám oba zvlášť</td><td>Trik: (A+B)×(A−B) — např. 21²−17² = 38×4 = 152 (rychlejší!)</td></tr>
+</table>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#C87941">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
 <div class="q-num">Otázka 1</div>
@@ -428,51 +461,51 @@ Tmavých = (18+2) + 2×5 = 20+10 = <span class="hint-result">30 tmavých čtvere
 <div class="q-text">Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. pás = 21... Kolik šedých je v 5. pásu?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>30</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>33</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#C87941">
 <div class="quiz-answers-title" style="color:#C87941">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a1_13643')" id="tg_a1_13643">
+<div class="ans-toggle" onclick="tA('a1_44806')" id="tg_a1_44806">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 1 — Posloupnost: 5, 11, 17, 23, 29... Jaká je 6. člen?</span>
 </div>
-<div class="ans-body" id="a1_13643">
+<div class="ans-body" id="a1_44806">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
   <div class="ans-row-exp">Rozdíly jsou všechny +6 → přičítám vždy 6. Takže: 5, 11, 17, 23, 29, 35. Šestý člen je 35.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a2_76653')" id="tg_a2_76653">
+<div class="ans-toggle" onclick="tA('a2_98480')" id="tg_a2_98480">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 2 — Cyklista jede 5 dní, celkem 200 km. Každý den ujede o 6 km méně než de…</span>
 </div>
-<div class="ans-body" id="a2_76653">
+<div class="ans-body" id="a2_98480">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">Kdybych každý den jel stejně (□ km), bylo by to 5×□. Ale 2.–5. den jedu celkem o 6+12+18+24 = 60 km méně. Takže 5×□ − 60 = 200 → 5×□ = 260 → □ = 52 km. Zkontroluj: 52+46+40+34+28 = 200 ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a3_93273')" id="tg_a3_93273">
+<div class="ans-toggle" onclick="tA('a3_10061')" id="tg_a3_10061">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 3 — Korálky: 1. skupina = 2, každá další je 4× větší. Kolik korálků je cel…</span>
 </div>
-<div class="ans-body" id="a3_93273">
+<div class="ans-body" id="a3_10061">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">1. = 2, 2. = 8, 3. = 32, 4. = 128. Celkem: 2 + 8 + 32 + 128 = 170 korálků.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a4_84399')" id="tg_a4_84399">
+<div class="ans-toggle" onclick="tA('a4_72652')" id="tg_a4_72652">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 4 — Základní obrazec má 5 řad a 18 sloupců světlých čtverečků. Kolik tmavý…</span>
 </div>
-<div class="ans-body" id="a4_84399">
+<div class="ans-body" id="a4_72652">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">Tmavých = (šířka + 2) + 2 × výška = (18 + 2) + 2 × 5 = 20 + 10 = 30 tmavých čtverečků.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a5_99803')" id="tg_a5_99803">
+<div class="ans-toggle" onclick="tA('a5_45962')" id="tg_a5_45962">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 5 — Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. …</span>
 </div>
-<div class="ans-body" id="a5_99803">
+<div class="ans-body" id="a5_45962">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
@@ -695,6 +728,121 @@ function tA(id){
 </div></div></div><div class="tip-box" style="background:#fff8f0;border-color:#C87941">
 <span class="tip-icon">📋</span>
 <p>Tabulka je tvůj nejlepší kamarád! Vypiš si hodnoty pro 1., 2., 3., 4. člen a pak hledej pravidlo. Bez tabulky se snadno spletěš.</p>
+</div><div class="ex-header" style="background:#fff8f022">
+  <div>
+    <div class="ex-num" style="color:#C87941">🖊 Příklad 4</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Sirky &mdash; stálý přírůstek obrazců</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#fff8f0;color:#C87941">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2020 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>1. obrazec je sestaven z 9 sirek, 2. ze 13 sirek. Každý další se zvětšuje podle téhož pravidla.</p>
+<p><ol class="task-list"></p>
+<p><li>O kolik sirek má 5. obrazec více než 3. obrazec?</li></p>
+<p><li>Z kolika sirek je sestaven 20. obrazec?</li></p>
+<p><li>Kolikátý obrazec je sestaven ze 129 sirek?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#fff8f022">
+  <div>
+    <div class="ex-num" style="color:#C87941">🖊 Příklad 5</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Puntíky ve čtvercích &mdash; vzorec n-tého obrazce</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#fff8f0;color:#C87941">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2021 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Obrazce jsou tvořeny puntíky ve čtvercích. 1. obrazec = 1 puntík. Strana 2. obrazce = 3 puntíky, každý další má o 2 puntíky více na straně.</p>
+<p><ol class="task-list"></p>
+<p><li>Kolik puntíků obsahuje strana hraničního čtverce 10. obrazce?</li></p>
+<p><li>O kolik se liší počty puntíků v 9. a 11. obrazci?</li></p>
+<p><li>U kolikátého obrazce se počty puntíků sousedních obrazců liší o 120?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#fff8f022">
+  <div>
+    <div class="ex-num" style="color:#C87941">🖊 Příklad 6</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Sirky &mdash; stálý přírůstek obrazců</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#fff8f0;color:#C87941">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2020 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>1. obrazec je sestaven z 9 sirek, 2. ze 13 sirek. Každý další se zvětšuje podle téhož pravidla.</p>
+<p><ol class="task-list"></p>
+<p><li>O kolik sirek má 5. obrazec více než 3. obrazec?</li></p>
+<p><li>Z kolika sirek je sestaven 20. obrazec?</li></p>
+<p><li>Kolikátý obrazec je sestaven ze 129 sirek?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#fff8f022">
+  <div>
+    <div class="ex-num" style="color:#C87941">🖊 Příklad 7</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Puntíky ve čtvercích &mdash; vzorec n-tého obrazce</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#fff8f0;color:#C87941">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2021 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Obrazce jsou tvořeny puntíky ve čtvercích. 1. obrazec = 1 puntík. Strana 2. obrazce = 3 puntíky, každý další má o 2 puntíky více na straně.</p>
+<p><ol class="task-list"></p>
+<p><li>Kolik puntíků obsahuje strana hraničního čtverce 10. obrazce?</li></p>
+<p><li>O kolik se liší počty puntíků v 9. a 11. obrazci?</li></p>
+<p><li>U kolikátého obrazce se počty puntíků sousedních obrazců liší o 120?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="tip-box" style="background:#fff8f0;border-color:#C87941">
+<span class="tip-icon">💡</span>
+<p>Spočítej vždy první rozdíly! Jsou-li stejné → stálý přírůstek. Různé? Spočítej 2. rozdíly.</p>
 </div>
 </div>
 </body>

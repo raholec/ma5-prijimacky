@@ -327,7 +327,13 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 <li><b>Sčítání a odčítání</b> — zleva doprava</li>
 </ol>
 </div>
-<div class="ex"><div class="lbl">Příklad: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)</div>
+<div class="ex"><div class="lbl">Jednoduchý příklad pro začátek</div>
+Výraz: <b>(3 + 5) × 2 − 4</b><br>
+1. Závorka: (3+5) = <b>8</b><br>
+2. Násobení: 8×2 = <b>16</b><br>
+3. Odčítání: 16−4 = <span class="hint-result">12</span>
+</div>
+<div class="ex"><div class="lbl">Náročnější příklad: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)</div>
 Závorky: (700 − 6×25) = 700−150 = <b>550</b> &nbsp;&nbsp; (10−7+2) = <b>5</b><br>
 Násobení/dělení: 5×120 = <b>600</b> &nbsp;&nbsp; 550÷5 = <b>110</b><br>
 Sčítání: 600 + 110 = <span class="hint-result">710</span>
@@ -370,6 +376,17 @@ Ověř: 49÷7=7, +3=10, ×2=<span class="hint-result">20 ✓</span>
 </div>
 <div class="ex"><div class="lbl">Příklad: (188−152)÷(1+<span class="fillin">?</span>) = 4+20÷4</div>
 Pravá strana: 4+5=9. Levá: 36÷(1+<span class="fillin">?</span>)=9 → 1+<span class="fillin">?</span>=4 → <span class="fillin">?</span>=<span class="hint-result">3</span>
+</div>
+<div class="ex"><div class="lbl">🆕 Typ: „zvětšené o svou polovinu" — krok za krokem</div>
+Zadání: <i>„Číslo zvětšené o svou polovinu se rovná 198."</i><br>
+Co to znamená: číslo + (číslo ÷ 2) = 198<br>
+Dvě poloviny + jedna polovina = <b>tři poloviny</b> celkem = 198<br>
+→ Jedna polovina = 198 ÷ 3 = <b>66</b><br>
+→ Celé číslo = 66 × 2 = <span class="hint-result">132</span><br>
+Ověř: 132 + 66 = 198 ✓
+<div style="margin-top:8px;padding:8px;background:#ffebee;border-radius:6px;font-size:13px">
+⛔ Záměna! „198 ÷ 2 = 99" je číslo <b>zmenšené</b> na polovinu — to je úplně jiná úloha!
+</div>
 </div>
 </div><div class="hint-block" style="background:#E8F8F5;border-color:#17A589">
 <h3>🧮 Magická tabulka — jak vyplnit krok za krokem</h3>
@@ -421,6 +438,10 @@ Máš-li v řádku 2 čísla, třetí = 12 − součet těch dvou.<br>
 Řádek 3 má 3 a 7 → třetí = 12 − 3 − 7 = <span class="hint-result">2</span> ✓<br>
 Řádek 2 má 4 a ... zbytek = 0 a 8 → 12 − 4 − 0 = 8 nebo 12 − 4 − 8 = 0.<br>
 Vyber tak, aby sloupce také vycházely!
+</div>
+<div class="ex"><div class="lbl">💡 Trik: vypiš všechny dvojice co dají 12 z čísel 0–8</div>
+Dvojice (a+b=12): 4+8, 5+7, 3+9✗(9 není v sadě)... Platné: (4,8), (5,7).<br>
+Trojice (a+b+c=12): 0+5+7, 1+4+7, 2+3+7, 1+3+8, 0+4+8, 2+4+6, 1+5+6, 3+4+5 — zkus každou!
 </div>
 <div class="ex"><div class="lbl">Krok 4: Ověř všechny sloupce a úhlopříčky</div>
 Správné řešení pro zadaná čísla 1, 5, 4, 3, 7:
@@ -489,6 +510,18 @@ Každou operaci obrátíš na opak (÷ ↔ ×, + ↔ −) a jdeš zprava doleva:
 </table>
 Pravidlo: <b>×↔÷</b> a <b>+↔−</b>. Nic jiného se nestane!
 </div>
+</div><div class="hint-block" style="background:#fff0f0;border-color:#C0392B">
+<h3>⚠️ Nejčastější chyby u výrazů a závorek</h3>
+
+<table class="htable">
+<tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
+<tr><td>🔴 Počítám zleva doprava bez ohledu na pravidla</td><td>Pořadí: 1. závorky, 2. násobení/dělení, 3. sčítání/odčítání</td></tr>
+<tr><td>🔴 Záporný výsledek v diagramu = chyba</td><td>−5 je platný výsledek! Pokračuj dál: −5+7=2 ✓</td></tr>
+<tr><td>🔴 Magická tabulka: začnu doplňovat bez výpočtu cíle</td><td>Nejdřív: 0+1+...+8=36, 36÷3=12 — každý řádek musí dát 12</td></tr>
+<tr><td>🔴 Při pozpátku: otoč operaci ale jdi stále dopředu</td><td>Otoč operaci A JDI ZPRAVA DOLEVA: od výsledku k začátku</td></tr>
+<tr><td>🔴 Závorka kolem celého výrazu = nový výsledek</td><td>Závorka kolem VŠEHO výsledek nezmění — nepočítej ji!</td></tr>
+<tr><td>🔴 „Zvětšené o polovinu" → dělím 198 ÷ 2 = 99</td><td>Zvětšené o polovinu = číslo + polovina = tři poloviny. 198 ÷ 3 = 66, číslo = 66×2 = <b>132</b>!</td></tr>
+</table>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#148F77">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
 <div class="q-num">Otázka 1</div>
@@ -507,51 +540,51 @@ Pravidlo: <b>×↔÷</b> a <b>+↔−</b>. Nic jiného se nestane!
 <div class="q-text">Diagram šipek: číslo x → ÷2 → +3 → ×5 → výsledek je 25. Jaké je číslo x?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>2</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>4</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>6</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>8</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#148F77">
 <div class="quiz-answers-title" style="color:#148F77">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a1_14540')" id="tg_a1_14540">
+<div class="ans-toggle" onclick="tA('a1_76029')" id="tg_a1_76029">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 1 — Kolik je výsledek: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)?</span>
 </div>
-<div class="ans-body" id="a1_14540">
+<div class="ans-body" id="a1_76029">
   <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
   <div class="ans-row-exp">Závorky: (700 − 6×25) = 700−150 = 550. (10−7+2) = 5. Pak: 5×120 = 600. 550÷5 = 110. Nakonec: 600+110 = 710.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a2_44845')" id="tg_a2_44845">
+<div class="ans-toggle" onclick="tA('a2_95444')" id="tg_a2_95444">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 2 — Jak závorkami změním výraz 9 × 8 − 6 ÷ 2 tak, aby výsledek byl 9?</span>
 </div>
-<div class="ans-body" id="a2_44845">
+<div class="ans-body" id="a2_95444">
   <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
   <div class="ans-row-exp">9 × (8 − 6) ÷ 2. Závorka: 8−6 = 2. Pak: 9×2 = 18. Pak: 18÷2 = 9. ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a3_44738')" id="tg_a3_44738">
+<div class="ans-toggle" onclick="tA('a3_21045')" id="tg_a3_21045">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 3 — Číslo vydělím 7, přičtu 3, zdvojnásobím a dostanu 20. Jaké je to číslo…</span>
 </div>
-<div class="ans-body" id="a3_44738">
+<div class="ans-body" id="a3_21045">
   <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
   <div class="ans-row-exp">Jdu pozpátku: 20 ÷ 2 = 10. Pak: 10 − 3 = 7. Pak: 7 × 7 = 49. Ověř: 49÷7 = 7, +3 = 10, ×2 = 20 ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a4_27172')" id="tg_a4_27172">
+<div class="ans-toggle" onclick="tA('a4_57789')" id="tg_a4_57789">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 4 — Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku …</span>
 </div>
-<div class="ans-body" id="a4_27172">
+<div class="ans-body" id="a4_57789">
   <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">Součet čísel 0+1+2+3+4+5+6+7+8 = 36. Jsou 3 řádky → každý řádek musí mít součet 36÷3 = 12.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a5_2820')" id="tg_a5_2820">
+<div class="ans-toggle" onclick="tA('a5_71763')" id="tg_a5_71763">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 5 — Diagram šipek: číslo x → ÷2 → +3 → ×5 → výsledek je 25. Jaké je číslo …</span>
 </div>
-<div class="ans-body" id="a5_2820">
+<div class="ans-body" id="a5_71763">
   <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>

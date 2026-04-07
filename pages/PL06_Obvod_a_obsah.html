@@ -439,7 +439,13 @@ Jdi prstem <b>PO VNĚJŠÍM OKRAJI</b> — jen oranžové strany se počítají 
 Příklad: šedý = 12, celkem = 24 → 12÷24 = <span class="hint-result">½ = polovina</span>
 </div>
 <div class="ex"><div class="lbl">Obdélník s obvodem 18 cm — systematicky všechny možnosti</div>
-a+b = 9. Zkus: (1,8)→8, (2,7)→14, (3,6)→18, <b>(4,5)→20 ← největší obsah!</b>
+<table class="htable" style="max-width:260px">
+<tr><th style="background:#515A5A;color:white">Strany a, b</th><th style="background:#515A5A;color:white">Obsah a×b</th></tr>
+<tr><td>1 cm, 8 cm</td><td>8 cm²</td></tr>
+<tr><td>2 cm, 7 cm</td><td>14 cm²</td></tr>
+<tr><td>3 cm, 6 cm</td><td>18 cm²</td></tr>
+<tr style="background:#d5f5e3"><td><b>4 cm, 5 cm</b></td><td><b>20 cm² ← největší!</b></td></tr>
+</table>
 </div>
 </div><div class="hint-block" style="background:#f5f5f5;border-color:#515A5A">
 <h3>📐 Pevný obvod → největší obsah a záhon</h3>
@@ -453,8 +459,21 @@ Ze všech obdélníků se stejným obvodem má <b>největší obsah ten, jehož 
 <li>39 ÷ 3 = 13 mezer na každé straně</li>
 <li>Na každé straně = 13 mezer + 1 rohová rostlina = <span class="hint-result">14 rostlin</span></li>
 </ol>
-(Rohová rostlina patří oběma stranám — proto +1)
+Proč +1? Na každé straně je 13 <em>mezer mezi rostlinami</em> = 14 rostlin (13 mezer + 2 rohové?). Ne! Každý ze 3 rohů patří dvěma stranám → nezapočítáme ho dvakrát:<br>
+<b>Počet rostlin na straně = počet mezer + 1 rohová</b> = 13+1 = 14.<br>
+Celkem: 3 strany × 14 − 3 rohové (které jsme počítali 2×) = 42−3 = <span class="hint-result">39 rostlin ✓</span>
 </div>
+</div><div class="hint-block" style="background:#fff0f0;border-color:#C0392B">
+<h3>⚠️ Nejčastější chyby při výpočtu obvodu a obsahu</h3>
+
+<table class="htable">
+<tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
+<tr><td>🔴 Zahrnu vnitřní dělicí čáru do obvodu</td><td>Do obvodu patří jen VNĚJŠÍ okraj — vnitřní čáry se NEpočítají!</td></tr>
+<tr><td>🔴 Pletám obvod (cm) a obsah (cm²)</td><td>Obvod = délka cesty okolo, obsah = plocha uvnitř. Jiné jednotky!</td></tr>
+<tr><td>🔴 U záhonu: rohové rostliny počítám dvakrát</td><td>Rohová rostlina patří oběma stranám — každý roh počítám jen jednou</td></tr>
+<tr><td>🔴 U trojúhelníku v síti: beru špatnou výšku</td><td>Výška musí být KOLMÁ na základnu — ne šikmá strana</td></tr>
+<tr><td>🔴 1 m² = 100 cm²</td><td>1 m² = 10 000 cm² (protože 100 cm × 100 cm = 10 000 cm²!)</td></tr>
+</table>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#515A5A">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
 <div class="q-num">Otázka 1</div>
@@ -473,51 +492,51 @@ Ze všech obdélníků se stejným obvodem má <b>největší obsah ten, jehož 
 <div class="q-text">Složený tvar je L-písmeno. Jak spočítám jeho obvod?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Sečtu délky všech stran — i těch vnitřních, které vznikly rozdělením</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Sečtu jen délky vnějšího okraje — vnitřní stěny nepočítám</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Vynásobím obvod obdélníku dvěma</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Odečtu obsah chybějícího rohu od obvodu celého obdélníku</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#515A5A">
 <div class="quiz-answers-title" style="color:#515A5A">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a1_33362')" id="tg_a1_33362">
+<div class="ans-toggle" onclick="tA('a1_88180')" id="tg_a1_88180">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 1 — Čtverec má stranu 7 cm. Jaký je jeho obvod a obsah?</span>
 </div>
-<div class="ans-body" id="a1_33362">
+<div class="ans-body" id="a1_88180">
   <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: A
   </div>
   <div class="ans-row-exp">Obvod čtverce = 4 × strana = 4 × 7 = 28 cm. Obsah čtverce = strana × strana = 7 × 7 = 49 cm². Pozor: obvod je v cm, obsah je v cm² — jsou to různé jednotky!</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a2_77225')" id="tg_a2_77225">
+<div class="ans-toggle" onclick="tA('a2_99145')" id="tg_a2_99145">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 2 — Obdélník s obvodem 18 cm. Které rozměry dají největší obsah?</span>
 </div>
-<div class="ans-body" id="a2_77225">
+<div class="ans-body" id="a2_99145">
   <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: D
   </div>
   <div class="ans-row-exp">Obvod 18 cm → a + b = 9. Obsah: (1,8) = 8, (2,7) = 14, (3,6) = 18, (4,5) = 20 cm². Největší obsah má ten obdélník, jehož strany jsou si nejbližší (čtverec by byl nejlepší, ale 4,5 nejde udělat čtvercem).</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a3_15975')" id="tg_a3_15975">
+<div class="ans-toggle" onclick="tA('a3_5095')" id="tg_a3_5095">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 3 — Tvar ve čtvercové síti má 12 čtverečků a celá síť má 24 čtverečků. Jak…</span>
 </div>
-<div class="ans-body" id="a3_15975">
+<div class="ans-body" id="a3_5095">
   <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">12 ÷ 24 = 1/2 = polovina. Šedý tvar zabírá přesně polovinu celé sítě.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a4_69843')" id="tg_a4_69843">
+<div class="ans-toggle" onclick="tA('a4_23429')" id="tg_a4_23429">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 4 — Tvar má 9 čtverečků. Z každého tvaru odebereš jeden čtverec aby byl sy…</span>
 </div>
-<div class="ans-body" id="a4_69843">
+<div class="ans-body" id="a4_23429">
   <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
   <div class="ans-row-exp">Aby byl tvar symetrický, každý čtverec musí mít svůj zrcadlový protějšek přes osu. Ten čtverec, který žádný protějšek nemá (je sám, bez páru), je ten navíc → ten odeberu.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a5_27475')" id="tg_a5_27475">
+<div class="ans-toggle" onclick="tA('a5_35984')" id="tg_a5_35984">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 5 — Složený tvar je L-písmeno. Jak spočítám jeho obvod?</span>
 </div>
-<div class="ans-body" id="a5_27475">
+<div class="ans-body" id="a5_35984">
   <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
@@ -723,6 +742,33 @@ Takže délka = _____</p>
 <p>8.1 Je obsah obdélníku ABCD 180 cm&sup2;?  A / N</p>
 <p>8.2 Je obvod tmavého obrazce 69 cm?  A / N</p>
 <p>8.3 Je obsah tmavého obrazce 90 cm&sup2;?  A / N</p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#f5f0ff22">
+  <div>
+    <div class="ex-num" style="color:#7F8C8D">🖊 Příklad 7</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Obdélník z čtverců čtyř velikostí — S, M, L, XL</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#f5f0ff;color:#7F8C8D">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2022 &middot; 2. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Obdélník je rozdělen na 12 čtverců čtyř různých velikostí (S, M, L a XL). Delší strana obdélníku měří 260 cm.</p>
+<p><ol class="task-list"></p>
+<p><li>Jaký je obvod čtverce velikosti L? Nápověda: zkus zjistit stranu nejmenšího čtverce S a od ní odvodit ostatní.</li></p>
+<p></ol></p>
 </div><div class="scratch">
 <div class="s-label">📝 Místo pro výpočet:</div>
 <div class="scratch-line"></div>

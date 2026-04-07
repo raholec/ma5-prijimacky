@@ -359,15 +359,17 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </div>
 <div class="ex"><div class="lbl">Krok 1: Z pohledu SHORA nakresli plán</div>
 Pohled shora = mapa sloupců. 2×2 = 4 sloupce (jako šachovnice 2×2):
-<table class="htable" style="max-width:180px;text-align:center">
-<tr><td>Sloupec A</td><td>Sloupec B</td></tr>
-<tr><td>Sloupec C</td><td>Sloupec D</td></tr>
+<table class="htable" style="max-width:220px;text-align:center">
+<tr><th style="background:#17A589;color:white">← vlevo</th><th style="background:#17A589;color:white">vpravo →</th></tr>
+<tr><td><b>A</b> přední-levý</td><td><b>B</b> přední-pravý</td></tr>
+<tr><td><b>C</b> zadní-levý</td><td><b>D</b> zadní-pravý</td></tr>
 </table>
+Pohled zepředu vidí jen <b>přední řadu</b> (A, B) — ale ukazuje výšku celého sloupce (max. z A a C, max. z B a D).
 </div>
 <div class="ex"><div class="lbl">Krok 2: Z pohledu ZEPŘEDU doplň výšky</div>
 Pohled zepředu: levá strana výška 3, pravá výška 1.<br>
-→ Sloupce A a C (levá strana) = výška <b>3</b><br>
-→ Sloupce B a D (pravá strana) = výška <b>1</b>
+→ Levý sloupec (A vpředu, C vzadu) → výška <b>3</b><br>
+→ Pravý sloupec (B vpředu, D vzadu) → výška <b>1</b>
 <table class="htable" style="max-width:180px;text-align:center">
 <tr><td><b>A = 3</b></td><td><b>B = 1</b></td></tr>
 <tr><td><b>C = 3</b></td><td><b>D = 1</b></td></tr>
@@ -438,6 +440,63 @@ Minimum (skryji 4× po 3): 36 − 12 = <span class="hint-result">24 teček</span
 <li>Tyčky na hranách = 12 × (n−1) &nbsp; <span style="color:#888">(krychle má 12 hran)</span></li>
 </ul>
 </div>
+</div><div class="hint-block" style="background:#e8faf5;border-color:#17A589">
+<h3>🔵 Diagram s kroužky — dosaď čísla do šipek</h3>
+
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Do prázdných kroužků doplňte čísla tak, aby byly všechny výpočty provedené ve směru šipek správné. Stejná písmena = stejné číslo."</i>
+</div>
+<div class="ex"><div class="lbl">Vzorový příklad (z 23n1)</div>
+Diagram: <span class="fillin">K</span> → ÷K → −6 → +K → výsledek <b>2</b><br>
+Zkus K=3: 3÷3=1, 1−6=−5... záporné číslo → K není 3<br>
+Zkus K=4: 4÷4=1, 1−6=−5... stále záporné → K není 4<br>
+Zkus K=3 jinak: podmínka je <b>÷K, −6, +K → 2</b><br>
+Zapíši jako rovnici: (K÷K) − 6 + K = 2 → 1 − 6 + K = 2 → K = <span class="hint-result">7</span><br>
+Ověř: 7÷7=1, 1−6=−5, −5+7 = <span class="hint-result">2 ✓</span>
+</div>
+<div class="ex"><div class="lbl">Postup — 3 kroky</div>
+<ol>
+<li>Přečti šipky zleva doprava — zapiš co se děje s číslem</li>
+<li>Začni od místa, kde <b>výsledek znáš</b> (číslo v kroužku na konci)</li>
+<li>Jdi <b>pozpátku</b> nebo zkus hodnoty systematicky (1, 2, 3, 4...)</li>
+</ol>
+</div>
+<div class="ex"><div class="lbl">Klíčový trik — stejná písmena</div>
+Pokud se v diagramu opakuje písmeno K, je to vždy <b>stejné číslo</b>.<br>
+Napiš si rovnici: (výsledek první operace s K) → další operace → výsledný kroužek<br>
+Pak rovnici vyřeš jako neznámé číslo.
+</div>
+</div><div class="hint-block" style="background:#e8faf5;border-color:#0E6655">
+<h3>🏷️ Stěny s čísly — součty viditelných stěn</h3>
+
+<div class="ex"><div class="lbl">Jak může zadání vypadat (21r1)</div>
+<i>„Na stavbu z 16 krychliček napíšeme čísla: stěny viditelné zepředu=1, zezadu=2, zprava=3, zleva=4, shora=5. Spočti součet všech zapsaných čísel z každé strany."</i>
+</div>
+<div class="ex"><div class="lbl">Krok 1: Pochop co „viditelná stěna" znamená</div>
+Každá krychlička má 6 stěn. Stěna je <b>viditelná</b>, pokud na ni není přiložená jiná krychlička.<br>
+Krajní krychlička v řadě → stěna na okraji = viditelná ✓<br>
+Krychlička uprostřed → stěny po stranách zakryté sousedy ✗
+</div>
+<div class="ex"><div class="lbl">Krok 2: Pro každou stranu spočti viditelné stěny</div>
+Příklad: stavba 4×4×1 (16 krychliček v jedné vrstvě):<br>
+→ Pohled shora: všech 16 stěn vidět → součet = 16×5 = <b>80</b><br>
+→ Pohled zepředu: 4 stěny v přední řadě → součet = 4×1 = <b>4</b><br>
+→ Pohled zprava: 4 stěny v pravém sloupci → součet = 4×3 = <b>12</b>
+</div>
+<div class="ex"><div class="lbl">Tip: Nakresli si plán shora</div>
+Zakresli si stavbu jako tabulku (pohled shora). Pro každý pohled projdi celý okraj a spočti kolik stěn je vidět. Dej si pozor na vícepatrové stavby — vyšší patra přidávají stěny shora!
+</div>
+</div><div class="hint-block" style="background:#fff0f0;border-color:#C0392B">
+<h3>⚠️ Nejčastější chyby u prostorových úloh</h3>
+
+<table class="htable">
+<tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
+<tr><td>🔴 Záměna pohledu ZPRAVA a ZEZADU</td><td>Zprava = pravý okraj každé řady (jak to vidíš z pravé strany)</td></tr>
+<tr><td>🔴 Pohled zepředu = výška všech sloupců</td><td>Pohled zepředu ukazuje jen <b>nejvyšší</b> sloupec v každé řadě!</td></tr>
+<tr><td>🔴 Při slepování: 1 spoj = 1 ztracená stěna</td><td>1 spoj = <b>2 ztracené stěny</b> (jedna z každé kostky)</td></tr>
+<tr><td>🔴 U diagramu: záporný výsledek → „to nefunguje"</td><td>Záporná čísla jsou povolena — třeba −5+7 = 2 je správně!</td></tr>
+<tr><td>🔴 U pyramidy: počítám vnější kostky jako skryté</td><td>Skrytá = ze ŽÁDNÉ strany ji nevidíš — na okraji/podložce vždy viditelná</td></tr>
+</table>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#17A589">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
 <div class="q-num">Otázka 1</div>
@@ -456,51 +515,51 @@ Minimum (skryji 4× po 3): 36 − 12 = <span class="hint-result">24 teček</span
 <div class="q-text">Pohled zprava na stavbu má šířku 3 sloupce a výšku 2. Co to znamená?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Stavba má 3 sloupce viditelných zprava</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Zepředu dozadu jsou 3 řady a maximální výška stavby jsou 2 kostky</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Stavba je 3 × 2 = 6 kostek celkem</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Pohled shora má 3×3 políčka</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#17A589">
 <div class="quiz-answers-title" style="color:#17A589">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a1_19808')" id="tg_a1_19808">
+<div class="ans-toggle" onclick="tA('a1_92127')" id="tg_a1_92127">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 1 — Díváš se na stavbu SHORA a vidíš plán 2×3 (2 řady, 3 sloupce). Co NEVÍ…</span>
 </div>
-<div class="ans-body" id="a1_19808">
+<div class="ans-body" id="a1_92127">
   <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">Pohled shora ti říká, kde jsou sloupce — jako mapa. Ale neřekne ti, kolik kostek je v každém sloupci (= výška). Tu zjistíš až z pohledu zepředu nebo zprava.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a2_88671')" id="tg_a2_88671">
+<div class="ans-toggle" onclick="tA('a2_34610')" id="tg_a2_34610">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 2 — Pyramida: 1. patro 5×5, 2. patro 4×4, 3. patro 3×3, 4. patro 2×2, 5. p…</span>
 </div>
-<div class="ans-body" id="a2_88671">
+<div class="ans-body" id="a2_34610">
   <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">2. patro má 4×4 = 16 kostek. Vnitřní 2×2 = 4 kostky jsou obklopeny ze všech stran → skryté. 3. patro má 3×3 = 9 kostek. Vnitřní 1×1 = 1 kostka je skrytá. Spodní patro se dotýká podložky, takže žádná není skrytá. Celkem: 4 + 1 = 5.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a3_12762')" id="tg_a3_12762">
+<div class="ans-toggle" onclick="tA('a3_46851')" id="tg_a3_46851">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 3 — Ze 3 kostek slepíme L-tvar (2 spoje). Kolik teček bude mít těleso, pok…</span>
 </div>
-<div class="ans-body" id="a3_12762">
+<div class="ans-body" id="a3_46851">
   <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">3 kostky × 12 teček = 36 celkem. Při každém slepení skryjeme 2 stěny — abychom ztratili co nejméně, skryjeme stěny s 1 tečkou. L-tvar má 2 spoje, každý skryje 2 stěny po 1 tečce = ztratíme 4 tečky. 36 − 4 = 32 teček.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a4_74327')" id="tg_a4_74327">
+<div class="ans-toggle" onclick="tA('a4_32246')" id="tg_a4_32246">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 4 — Filipův model: krychle 4×4×4 z kuliček. Kolik kuliček obsahuje?</span>
 </div>
-<div class="ans-body" id="a4_74327">
+<div class="ans-body" id="a4_32246">
   <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">Počet kuliček = n × n × n. Pro n = 4: 4 × 4 × 4 = 64 kuliček. (Číslo 144 je počet tyček — to je jiná otázka.)</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a5_99327')" id="tg_a5_99327">
+<div class="ans-toggle" onclick="tA('a5_69678')" id="tg_a5_69678">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 5 — Pohled zprava na stavbu má šířku 3 sloupce a výšku 2. Co to znamená?</span>
 </div>
-<div class="ans-body" id="a5_99327">
+<div class="ans-body" id="a5_69678">
   <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
@@ -719,6 +778,117 @@ function tA(id){
 </div><div class="scratch">
 <div class="s-label">📝 Místo pro výpočet:</div>
 <div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 4</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Stěny krychliček &mdash; součet čísel z pohledu</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2021 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Na podložce je stavba z 16 krychliček (čtverec 4×4 v jedné vrstvě). Každá viditelná stěna dostane číslo: zepředu=1, zezadu=2, zprava=3, zleva=4, shora=5.</p>
+<p><ol class="task-list"></p>
+<p><li>Jaký je součet všech čísel 5 (pohled shora)?</li></p>
+<p><li>Jaký je součet všech čísel 3 (pohled zprava)?</li></p>
+<p><li>O kolik se liší součet čísel 4 (pohled zleva) od součtu čísel 1 (pohled zepředu)?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 5</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Diagram s kroužky &mdash; doplň čísla do šipek</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2023 &middot; 1. náhradní termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>V každém diagramu se stejná písmena nahradí stejným kladným číslem. Doplň čísla do kroužků tak, aby výpočty ve směru šipek souhlasily.</p>
+<p><div style="margin:10px 0;padding:10px;background:#f8f9ff;border-radius:8px;font-size:14px"><b>Vzor:</b> K → ÷K → −6 → +K → výsledek 2 &nbsp;→&nbsp; K=8: 8÷8=1, 1−6=−5, −5+8=3 ✗ &nbsp; K=7: 7÷7=1, 1−6=−5, −5+7=2 ✓</div></p>
+<p><ol class="task-list"></p>
+<p><li>K → ÷3 → −K → +3 → výsledek 2. Jaké číslo je K?</li></p>
+<p><li>L → ÷L → −3 → +L → výsledek 14. Jaké číslo je L?</li></p>
+<p><li>M → ÷M → −24 → +M → výsledek 36. Jaké číslo je M?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 6</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Popis stavby tabulkou — výška sloupců</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2021 &middot; 2. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Stavbu popisuje tabulka — číslo = počet krychliček nad sebou ve sloupci. Tři čísla jsou zakryta kartičkami K, L, M.</p>
+<p><ol class="task-list"></p>
+<p><li>V 1. stavbě je celkem 24 krychliček. Jaké číslo je zakryto kartičkou K?</li></p>
+<p><li>Ve 2. stavbě se počet krychliček v 5. a 6. patře liší o 6. Jaké číslo skrývá L?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 7</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Velká krychle — Klára odebírá krychličky</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2021 &middot; 1. náhradní termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Velká krychle má 4 vrstvy po 16 krychličkách. Klára odebrala krychličky podle nákresu 1, Mirek odebral z Klářiny stavby podle nákresu 2, Nora odebírala z Mirkovy stavby.</p>
+<p><ol class="task-list"></p>
+<p><li>Kolik krychliček odebrala Klára, aby vytvořila svou stavbu?</li></p>
+<p><li>Kolik krychliček zbylo v Nořině stavbě?</li></p>
+<p></ol></p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
 <div class="scratch-line"></div>
 <div class="scratch-line"></div>
 <div class="scratch-line"></div>

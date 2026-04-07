@@ -31,126 +31,166 @@ body {
 }
 
 /* ── HEADER — BLACKPINK ── */
-@keyframes blink-pink {
-  0%, 100% { opacity: .55; }
-  50%       { opacity: .9; }
+@keyframes bp-glow {
+  0%,100% { opacity:.4; transform:scale(1); }
+  50%      { opacity:.75; transform:scale(1.04); }
 }
-@keyframes slide-in {
-  from { transform: translateY(-12px); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
+@keyframes bp-slide {
+  from { transform:translateY(-16px); opacity:0; }
+  to   { transform:translateY(0);     opacity:1; }
 }
+@keyframes bp-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
 header {
-  background: #0a0a0a;
-  color: var(--white);
-  padding: 48px 40px 44px;
+  background: #080808;
+  color: #fff;
+  padding: 0;
   position: relative;
   overflow: hidden;
-  border-bottom: 4px solid #ff0076;
+  border-bottom: 3px solid #ff0076;
 }
-/* Pink neon glow top-right */
-header::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 380px; height: 380px;
-  background: radial-gradient(circle, #ff0076 0%, transparent 70%);
-  opacity: .35;
-  animation: blink-pink 3s ease-in-out infinite;
-}
-/* Softer pink blob bottom-left */
-header::after {
-  content: '';
-  position: absolute;
-  bottom: -100px; left: -60px;
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, #cc0055 0%, transparent 65%);
-  opacity: .22;
-}
-header .deco-circle {
-  position: absolute;
-  top: 20px; left: 42%;
-  width: 180px; height: 180px;
-  background: radial-gradient(circle, #ff4da6 0%, transparent 70%);
-  opacity: .15;
-}
-/* Diamond pattern overlay */
-header .deco-diamond {
-  position: absolute;
-  bottom: 18px; right: 32px;
-  font-size: 72px;
-  line-height: 1;
-  opacity: .08;
-  letter-spacing: -4px;
-  user-select: none;
-}
-.header-inner { animation: slide-in .5s ease both; }
 
+/* full-width diagonal gradient band */
+header::before {
+  content:'';
+  position:absolute; inset:0;
+  background: linear-gradient(135deg,
+    #130008 0%, #0a0a0a 35%, #130010 65%, #0a0010 100%);
+  z-index:0;
+}
+/* animated pink blob top-right */
+header::after {
+  content:'';
+  position:absolute;
+  top:-120px; right:-80px;
+  width:500px; height:500px;
+  background: radial-gradient(circle, #ff0076 0%, transparent 65%);
+  opacity:.28;
+  animation: bp-glow 4s ease-in-out infinite;
+  z-index:0;
+}
+
+/* ── member cards strip ── */
+.bp-strip {
+  display:flex;
+  border-bottom:1px solid rgba(255,0,118,.25);
+  position:relative; z-index:1;
+}
+.bp-member {
+  flex:1;
+  padding:18px 20px 14px;
+  display:flex; flex-direction:column; align-items:center;
+  gap:6px;
+  border-right:1px solid rgba(255,255,255,.06);
+  position:relative;
+  overflow:hidden;
+  transition:background .25s;
+}
+.bp-member:last-child { border-right:none; }
+.bp-member::before {
+  content:'';
+  position:absolute; inset:0;
+  opacity:0;
+  transition:opacity .3s;
+}
+.bp-member:hover::before { opacity:1; }
+
+/* per-member accent colours */
+.bp-member[data-m="JISOO"]  { --mc:#ff4da6; }
+.bp-member[data-m="JENNIE"] { --mc:#ffd700; }
+.bp-member[data-m="ROSÉ"]   { --mc:#ff85c0; }
+.bp-member[data-m="LISA"]   { --mc:#c9f400; }
+
+.bp-member::before { background: radial-gradient(ellipse at 50% 100%, var(--mc) 0%, transparent 70%); }
+
+.bp-hand {
+  font-size:2rem;
+  filter:drop-shadow(0 0 8px var(--mc));
+  line-height:1;
+}
+.bp-name {
+  font-family:'Syne',sans-serif;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--mc);
+  text-shadow:0 0 12px var(--mc);
+}
+.bp-role {
+  font-size:.6rem;
+  color:rgba(255,255,255,.4);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* ── main header content ── */
 .header-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+  max-width:900px;
+  margin:0 auto;
+  padding:32px 40px 36px;
+  position:relative; z-index:1;
+  animation: bp-slide .5s ease both;
 }
 
 .header-badge {
-  display: inline-block;
-  background: #ff0076;
-  color: #ffffff;
-  font-family: 'Syne', sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 4px;
-  margin-bottom: 18px;
-  box-shadow: 0 0 12px #ff007699;
+  display:inline-block;
+  background: linear-gradient(90deg, #ff0076, #ff4da6, #ff0076);
+  background-size:200% auto;
+  animation:bp-shimmer 3s linear infinite;
+  color:#fff;
+  font-family:'Syne',sans-serif;
+  font-size:10px; font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  padding:5px 16px;
+  border-radius:3px;
+  margin-bottom:16px;
+  box-shadow:0 0 16px #ff007866;
 }
 
 h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 14px;
-  letter-spacing: -1px;
-  text-shadow: 0 0 30px #ff007888, 0 0 60px #ff007844;
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.4rem,4vw,2.4rem);
+  font-weight:800;
+  line-height:1.15;
+  margin-bottom:10px;
+  letter-spacing:-1px;
+  color:#fff;
+  text-shadow:0 0 24px #ff007844;
 }
 
 .header-sub {
-  font-size: 1.05rem;
-  color: rgba(255,200,220,.85);
-  max-width: 560px;
-  line-height: 1.65;
-  margin-bottom: 28px;
+  font-size:.95rem;
+  color:rgba(255,190,215,.75);
+  max-width:520px;
+  line-height:1.65;
+  margin-bottom:24px;
 }
 
 .header-stats {
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
 }
-
-.stat {
-  display: flex;
-  flex-direction: column;
-}
+.stat { display:flex; flex-direction:column; }
 .stat-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #ff4da6;
-  line-height: 1;
-  text-shadow: 0 0 16px #ff007866;
+  font-family:'Syne',sans-serif;
+  font-size:1.7rem; font-weight:800;
+  color:#ff4da6; line-height:1;
 }
 .stat-label {
-  font-size: 12px;
-  color: rgba(255,160,200,.7);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 4px;
+  font-size:11px;
+  color:rgba(255,255,255,.45);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:3px;
 }
 
+/* ── MAIN ── */
 /* ── MAIN ── */
 main {
   max-width: 960px;
@@ -382,39 +422,49 @@ footer a:hover { text-decoration: underline; }
 <body>
 
 <header>
-  <div class="deco-circle"></div>
-  <div class="deco-diamond">♦♦♦♦♦♦</div>
+  <!-- member strip -->
+  <div class="bp-strip">
+    <div class="bp-member" data-m="JISOO">
+      <div class="bp-hand">🌸</div>
+      <div class="bp-name">JISOO</div>
+      <div class="bp-role">Vocals</div>
+    </div>
+    <div class="bp-member" data-m="JENNIE">
+      <div class="bp-hand">💎</div>
+      <div class="bp-name">JENNIE</div>
+      <div class="bp-role">Rap &amp; Vocals</div>
+    </div>
+    <div class="bp-member" data-m="ROSÉ">
+      <div class="bp-hand">🌹</div>
+      <div class="bp-name">ROSÉ</div>
+      <div class="bp-role">Vocals</div>
+    </div>
+    <div class="bp-member" data-m="LISA">
+      <div class="bp-hand">💛</div>
+      <div class="bp-name">LISA</div>
+      <div class="bp-role">Rap &amp; Dance</div>
+    </div>
+  </div>
+  <!-- main content -->
   <div class="header-inner">
     <div class="header-badge">🖤 BLACKPINK IN YOUR AREA 🩷 · Matematika 5</div>
-    <h1>Přijímačky MA5<br>Příprava a procvičování</h1>
+    <h1>Přijímačky MA5 &mdash; příprava</h1>
     <p class="header-sub">
       Pracovní listy pro přípravu na přijímací zkoušky z matematiky na osmileté gymnázium.
-      Úlohy vycházejí ze zadání státních přijímaček 2023–2025.
+      Úlohy vycházejí ze zadání státních přijímaček <strong style="color:#ff85c0">2020–2025</strong>.
     </p>
     <div class="header-stats">
-      <div class="stat">
-        <span class="stat-num">8</span>
-        <span class="stat-label">Témat</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">50</span>
-        <span class="stat-label">Bodů celkem v testu</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">3</span>
-        <span class="stat-label">Ročníky zadání</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">10+</span>
-        <span class="stat-label">Termínů k procvičení</span>
-      </div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">Témat</span></div>
+      <div class="stat"><span class="stat-num">50</span><span class="stat-label">Bodů v testu</span></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Ročníků</span></div>
+      <div class="stat"><span class="stat-num">19</span><span class="stat-label">Termínů</span></div>
     </div>
   </div>
 </header>
 
 <main>
 
-  <!-- ══ SECTION 2: BODOVÉ OHODNOCENÍ ══ -->
+  <!-- ══ ROZCESTNÍK — TÉMATA PODLE BODŮ ══ -->
   <section>
     <h2 class="section-heading">🎯 Témata podle důležitosti — bodové ohodnocení</h2>
     <p class="section-sub">Seřazeno od nejdůležitějšího po méně bodované. Klikni na téma pro procvičení, nebo stáhni PDF k tisku.</p>
@@ -429,14 +479,12 @@ footer a:hover { text-decoration: underline; }
         </tr>
       </thead>
       <tbody>
-
+        
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#d4500a">1</span></td>
           <td>
-            <a class="topic-link" href="pages/PL05_Soustavy_podminek.html">
-              Soustavy podmínek
-            </a>
-            <div class="topic-desc" style="margin-top:4px">Úlohy 3–6 · tabulky, Vennův diagram, zlomky, slovní úlohy</div>
+            <a class="topic-link" href="pages/PL05_Soustavy_podminek.html">Soustavy podmínek</a>
+            <div class="topic-desc" style="margin-top:4px">Úlohy 3–6 · tabulky, Vennův diagram, zlomky, dvě neznámá, soutěž, penzion</div>
           </td>
           <td>
             <div class="score-bar-wrap">
@@ -446,20 +494,14 @@ footer a:hover { text-decoration: underline; }
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL05_Soustavy_podminek.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL05_Soustavy_podminek.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#555">2</span></td>
           <td>
-            <a class="topic-link" href="pages/PL07_Vyrazy_a_zavorky.html">
-              Výrazy a závorky
-            </a>
-            <div class="topic-desc" style="margin-top:4px">Úlohy 1–2 · pořadí operací, závorky, neznámé číslo, magická tabulka</div>
+            <a class="topic-link" href="pages/PL07_Vyrazy_a_zavorky.html">Výrazy a závorky</a>
+            <div class="topic-desc" style="margin-top:4px">Úlohy 1–2 · pořadí operací, závorky, rámečky, magická tabulka, diagram šipek</div>
           </td>
           <td>
             <div class="score-bar-wrap">
@@ -469,19 +511,13 @@ footer a:hover { text-decoration: underline; }
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL07_Vyrazy_a_zavorky.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL07_Vyrazy_a_zavorky.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#555">3</span></td>
           <td>
-            <a class="topic-link" href="pages/PL01_Geometricka_konstrukce.html">
-              Geometrická konstrukce
-            </a>
+            <a class="topic-link" href="pages/PL01_Geometricka_konstrukce.html">Geometrická konstrukce</a>
             <div class="topic-desc" style="margin-top:4px">Úloha 7 · kružítko, rovnostranný trojúhelník, osa úsečky, rovnoběžka přes bod</div>
           </td>
           <td>
@@ -492,20 +528,14 @@ footer a:hover { text-decoration: underline; }
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL01_Geometricka_konstrukce.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL01_Geometricka_konstrukce.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#555">4</span></td>
           <td>
-            <a class="topic-link" href="pages/PL03_Posloupnosti_a_vzory.html">
-              Posloupnosti a vzory
-            </a>
-            <div class="topic-desc" style="margin-top:4px">Úloha 14 · obrazce z trojúhelníků, aritmetické a geometrické řady</div>
+            <a class="topic-link" href="pages/PL03_Posloupnosti_a_vzory.html">Posloupnosti a vzory</a>
+            <div class="topic-desc" style="margin-top:4px">Úloha 14 · sirky, puntíky ve čtverci, obrazce z trojúhelníků, tmavé čtverečky</div>
           </td>
           <td>
             <div class="score-bar-wrap">
@@ -515,20 +545,14 @@ footer a:hover { text-decoration: underline; }
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL03_Posloupnosti_a_vzory.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL03_Posloupnosti_a_vzory.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#777">5</span></td>
           <td>
-            <a class="topic-link" href="pages/PL04_Grafy_pravdive_nepravdive.html">
-              Grafy — pravdivé / nepravdivé
-            </a>
-            <div class="topic-desc" style="margin-top:4px">Úlohy 11–12 · čtení grafů, ověřování tvrzení, zlomkové porovnání</div>
+            <a class="topic-link" href="pages/PL04_Grafy_pravdive_nepravdive.html">Grafy — pravdivé / nepravdivé</a>
+            <div class="topic-desc" style="margin-top:4px">Úlohy 11–12 · čtení grafů, ověřování tvrzení, zlomkové porovnání, mince</div>
           </td>
           <td>
             <div class="score-bar-wrap">
@@ -538,66 +562,48 @@ footer a:hover { text-decoration: underline; }
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL04_Grafy_pravdive_nepravdive.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL04_Grafy_pravdive_nepravdive.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#777">5</span></td>
           <td>
-            <a class="topic-link" href="pages/PL02_Prostorova_predstavivost.html">
-              Prostorová představivost
-            </a>
-            <div class="topic-desc" style="margin-top:4px">Úloha 13 · pohledy na tělesa, kostky s tečkami, Filipův model</div>
+            <a class="topic-link" href="pages/PL02_Prostorova_predstavivost.html">Prostorová představivost</a>
+            <div class="topic-desc" style="margin-top:4px">Úloha 13 · pohledy, kostky s tečkami, Filipův model, diagram s kroužky</div>
           </td>
           <td>
             <div class="score-bar-wrap">
-              <span class="score-num" style="color:#0E6655">4</span>
-              <div class="score-bar"><div class="score-fill" style="width:8%; background:#0E6655"></div></div>
+              <span class="score-num" style="color:#17A589">4</span>
+              <div class="score-bar"><div class="score-fill" style="width:8%; background:#17A589"></div></div>
               <span class="score-pct">8 %</span>
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL02_Prostorova_predstavivost.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL02_Prostorova_predstavivost.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#777">5</span></td>
           <td>
-            <a class="topic-link" href="pages/PL06_Obvod_a_obsah.html">
-              Obvod a obsah
-            </a>
+            <a class="topic-link" href="pages/PL06_Obvod_a_obsah.html">Obvod a obsah</a>
             <div class="topic-desc" style="margin-top:4px">Úlohy 8–10 · složené tvary, čtvercová síť, záhon, osová souměrnost</div>
           </td>
           <td>
             <div class="score-bar-wrap">
-              <span class="score-num" style="color:#515A5A">4</span>
-              <div class="score-bar"><div class="score-fill" style="width:8%; background:#515A5A"></div></div>
+              <span class="score-num" style="color:#7F8C8D">4</span>
+              <div class="score-bar"><div class="score-fill" style="width:8%; background:#7F8C8D"></div></div>
               <span class="score-pct">8 %</span>
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL06_Obvod_a_obsah.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL06_Obvod_a_obsah.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr>
           <td style="text-align:center"><span class="rank-badge" style="background:#777">5</span></td>
           <td>
-            <a class="topic-link" href="pages/PL08_Jednotky_a_prevody.html">
-              Jednotky a převody
-            </a>
-            <div class="topic-desc" style="margin-top:4px">Úlohy 1, 5–6 · délky, hmotnost, čas, rovnoměrné tempo</div>
+            <a class="topic-link" href="pages/PL08_Jednotky_a_prevody.html">Jednotky a převody</a>
+            <div class="topic-desc" style="margin-top:4px">Úlohy 1, 5–6 · délky, hmotnost, čas, zlomky jednotek, rovnoměrné tempo</div>
           </td>
           <td>
             <div class="score-bar-wrap">
@@ -607,240 +613,135 @@ footer a:hover { text-decoration: underline; }
             </div>
           </td>
           <td style="text-align:center">
-            <a class="pdf-btn" href="pdfs/PL08_Jednotky_a_prevody.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-              Stáhnout
-            </a>
+            <a class="pdf-btn" href="pdfs/PL08_Jednotky_a_prevody.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg> Stáhnout</a>
           </td>
         </tr>
-
         <tr class="total-row">
           <td></td>
           <td style="font-size:.95rem">Celkem v testu</td>
-          <td>
-            <div class="score-bar-wrap">
-              <span class="score-num">49–50</span>
-              <span class="score-pct" style="color:var(--ink3); font-size:.8rem">bodů</span>
-            </div>
-          </td>
+          <td><div class="score-bar-wrap"><span class="score-num">49–50</span><span class="score-pct" style="color:var(--ink3); font-size:.8rem">bodů</span></div></td>
           <td></td>
         </tr>
-
       </tbody>
     </table>
   </section>
 
-<!-- ══ SECTION 1: PŘEHLED PŘÍKLADŮ ══ -->
+  <!-- ══ PŘEHLED PŘÍKLADŮ Z ARCHIVŮ ══ -->
   <section>
-    <h2 class="section-heading">📂 Přehled příkladů z archivních zadání</h2>
-    <p class="section-sub">Téma a přehled konkrétních příkladů ze státních přijímaček 2023–2025, které toto téma testují.</p>
+    <h2 class="section-heading">📂 Přehled příkladů z archivních zadání 2020–2025</h2>
+    <p class="section-sub">Konkrétní úlohy ze státních přijímaček seřazené podle témat.</p>
 
     <table class="data-table">
       <thead>
         <tr>
-          <th style="width:34%">Téma</th>
-          <th>Příklady z archivních zadání (rok · termín · číslo úlohy)</th>
+          <th style="width:30%">Téma</th>
+          <th>Rok · termín · úloha</th>
         </tr>
       </thead>
       <tbody>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#C0392B"></span>
-              Výrazy a závorky
-            </div>
-            <div class="topic-desc">Pořadí operací, doplňování do rámečků, závorky, magická tabulka</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 1</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 1</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 1–2, 3</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 1–2</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#1E8449"></span>Soustavy podmínek <span style="color:#888;font-weight:400">(PL05)</span></div><div class="topic-desc">tabulky, Venn, součtový trojúhelník, dvě neznámá</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2020–2022 · každý termín · Úl. 3–6</span>
+            <span class="ex-chip">2023 · 1. řád. · Úl. 3–6 (Vennův diagram)</span>
+            <span class="ex-chip">2023 · ostatní termíny · Úl. 3–6</span>
+            <span class="ex-chip">2024 · 1. náh. · součtový trojúhelník</span>
+            <span class="ex-chip">2025 · 1. náh. · penzion/pokoje</span>
+            <span class="ex-chip">2025 · 1. řád. · dům/patra</span>
+            <span class="ex-chip">2025 · 2. náh. · soutěž/body</span>
+            <span class="ex-chip">2025 · 2. řád. · dvě neznámá čísla</span>
+          </div></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#1E8449"></span>
-              Soustavy podmínek
-            </div>
-            <div class="topic-desc">Tabulky, Vennův diagram, součtový trojúhelník, zlomky celku, slovní úlohy</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 3–5</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 3–6</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 3–6</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#C0392B"></span>Výrazy a závorky <span style="color:#888;font-weight:400">(PL07)</span></div><div class="topic-desc">rámečky, závorky, magická tabulka, diagram šipek</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2021 · 1. náh. · Úl. 2 (kroužky)</span>
+            <span class="ex-chip">2022 · 2. řád. · Úl. 10 (kroužky)</span>
+            <span class="ex-chip">2023 · 1. náh. · Úl. 13 (písmena/kroužky)</span>
+            <span class="ex-chip">2023 · 2. řád. · Úl. 13 (symboly)</span>
+            <span class="ex-chip">2024 · 1. + 2. náh. · Úl. 1 (rámečky)</span>
+            <span class="ex-chip">2025 · 1. řád. · Úl. 1 (rámečky) + Úl. 2.1 (mag. tabulka) + Úl. 2.2 (kroužky)</span>
+            <span class="ex-chip">2025 · 1. náh. · Úl. 2 (závorky)</span>
+            <span class="ex-chip">2025 · 2. řád. · Úl. 1 (neznámé číslo) + Úl. 2 (rámečky)</span>
+          </div></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#1A5276"></span>
-              Geometrická konstrukce
-            </div>
-            <div class="topic-desc">Rýsování kružítkem, rovnostranný trojúhelník, osa úsečky, rovnoběžka přes bod</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 7</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 7</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 7</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 7</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 7</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 7</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 7</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 7</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 7</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 7</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#1A5276"></span>Geometrická konstrukce <span style="color:#888;font-weight:400">(PL01)</span></div><div class="topic-desc">kružítko, rovnostranný trojúhelník, osa, rovnoběžka</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2020–2025 · každý termín · Úl. 7</span>
+            <span class="ex-chip">2023 · 2. náh. · čtverec ABCD + bod na přímce</span>
+            <span class="ex-chip">2025 · 1. řád. · obdélník ABCD na přímkách</span>
+            <span class="ex-chip">2025 · 2. náh. · rovnostranný trojúhelník KMS</span>
+          </div></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#A04000"></span>
-              Posloupnosti a vzory
-            </div>
-            <div class="topic-desc">Obrazce z trojúhelníků a čtverečků, aritmetické a geometrické řady, zpětný výpočet</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 14</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 14</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 14</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 14</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 14</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 14</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 14</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 14</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 14</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 14</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#A04000"></span>Posloupnosti a vzory <span style="color:#888;font-weight:400">(PL03)</span></div><div class="topic-desc">sirky, puntíky, obrazce z trojúhelníků, tmavé čtverečky</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2020 · 1. řád. · sirky (+4)</span>
+            <span class="ex-chip">2021 · 1. řád. · puntíky ve čtvercích (2n−1)²</span>
+            <span class="ex-chip">2021 · 2. náh. · šestiúhelníky ze trojúhelníků</span>
+            <span class="ex-chip">2022 · 1. řád. · pyramida ze čtverců</span>
+            <span class="ex-chip">2022 · 1. náh. · puntíky ve čtvercích</span>
+            <span class="ex-chip">2023 · 1. náh. · šedé/bílé čtverečky</span>
+            <span class="ex-chip">2023 · 1. řád. · tmavé čtverečky (základní/rozšířený)</span>
+            <span class="ex-chip">2023 · 2. náh. · obrazce z trojúhelníků/pásů</span>
+            <span class="ex-chip">2025 · 1. náh. · šestiúhelníky z trojúhelníků</span>
+            <span class="ex-chip">2025 · 2. řád. · tmavé čtverečky</span>
+          </div></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#6C3483"></span>
-              Grafy — pravdivé / nepravdivé
-            </div>
-            <div class="topic-desc">Čtení grafů, ověřování tvrzení, mince a koruny, kladné a záporné sloupce</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 8, 11–12</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#6C3483"></span>Grafy — pravdivé/nepravdivé <span style="color:#888;font-weight:400">(PL04)</span></div><div class="topic-desc">čtení grafů, tvrzení, zlomky, mince a koruny</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2020–2025 · každý termín · Úl. 11–12</span>
+            <span class="ex-chip">2023 · 1. řád. · Úl. 13 (skautské oddíly)</span>
+            <span class="ex-chip">2024 · 2. náh. · Úl. 13 (brigáda — ovoce)</span>
+            <span class="ex-chip">2025 · 1. řád. · turistický oddíl 2015–2018</span>
+            <span class="ex-chip">2025 · 2. řád. · kasička (Věra, Pavel, Tomáš)</span>
+          </div></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#0E6655"></span>
-              Prostorová představivost
-            </div>
-            <div class="topic-desc">Pohledy na tělesa, skryté kostky, kostky s tečkami, Filipův model</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 13</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 13</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 13</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 13</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 13</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 13</span>
-              <span class="ex-chip">2025 · 1. náhradní · Úl. 13</span>
-              <span class="ex-chip">2025 · 2. náhradní · Úl. 13</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#17A589"></span>Prostorová představivost <span style="color:#888;font-weight:400">(PL02)</span></div><div class="topic-desc">pohledy, kostky s tečkami, Filipův model, diagram kroužky</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2021 · 1. řád. · stěny s čísly (Václav, 16 kostiček)</span>
+            <span class="ex-chip">2021 · 1. náh. · velká krychle (Klára odebírá)</span>
+            <span class="ex-chip">2021 · 2. náh. · diagram s kroužky</span>
+            <span class="ex-chip">2022 · 1. řád. · provrtané kostky P/B/H</span>
+            <span class="ex-chip">2022 · 2. řád. + náh. · diagram s kroužky</span>
+            <span class="ex-chip">2023 · 1. náh. · diagram — písmena/kroužky</span>
+            <span class="ex-chip">2023 · 2. náh. · válce slepené — pohled</span>
+            <span class="ex-chip">2025 · 1. řád. · kostky s tečkami — max/min</span>
+            <span class="ex-chip">2025 · 2. náh. · pyramida z kostek (Jitka)</span>
+          </div></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#515A5A"></span>
-              Obvod a obsah
-            </div>
-            <div class="topic-desc">Složené tvary, čtvercová síť, záhon, osová souměrnost, pevný obvod</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 8–9</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 8–9</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 8–10</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 8–10</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#7F8C8D"></span>Obvod a obsah <span style="color:#888;font-weight:400">(PL06)</span></div><div class="topic-desc">složené tvary, čtvercová síť, záhon, osová souměrnost</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2020–2025 · každý termín · Úl. 8–10</span>
+            <span class="ex-chip">2022 · 2. řád. · Úl. 11 (obdélník ze 12 čtverců)</span>
+            <span class="ex-chip">2023 · 1. náh. · čtyřúhelník ze čtverců</span>
+            <span class="ex-chip">2025 · 1. náh. · záhon — rovnostranný trojúhelník</span>
+            <span class="ex-chip">2025 · 1. řád. · šestiúhelník/domeček</span>
+            <span class="ex-chip">2025 · 2. řád. · obdélníky, obvod 18 cm</span>
+          </div></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#784212"></span>
-              Jednotky a převody
-            </div>
-            <div class="topic-desc">Délky, hmotnost, čas, rovnoměrné tempo, smíchané jednotky</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 5–6</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 1, 6</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 5–6</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 5</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 1</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 1</span>
-              <span class="ex-chip">2025 · 1. náhradní · Úl. 1</span>
-              <span class="ex-chip">2025 · 2. náhradní · Úl. 1</span>
-            </div>
-          </td>
+          <td><div class="topic-name"><span class="topic-dot" style="background:#784212"></span>Jednotky a převody <span style="color:#888;font-weight:400">(PL08)</span></div><div class="topic-desc">délky, hmotnost, čas, zlomky jednotek, rovnoměrné tempo</div></td>
+          <td><div class="examples-list">
+            <span class="ex-chip">2020–2025 · každý termín · Úl. 5–6</span>
+            <span class="ex-chip">2024 · 2. náh. · Úl. 5 (1/3 hod − 1/6 hod; 1 m − 1/4 m)</span>
+            <span class="ex-chip">2025 · 1. náh. · vlak — tempo, lom→most</span>
+            <span class="ex-chip">2025 · 2. řád. · 18 m − 15 dm + ? cm = 20 m</span>
+          </div></td>
         </tr>
-
       </tbody>
     </table>
   </section>
 
-  </main>
+</main>
 
 <footer>
-  <p>Materiály vycházejí ze zadání státních přijímaček MA5 © CZVV 2023–2025 ·
-  Vytvořeno pro studijní účely · <a href="https://github.com/GITHUB_USERNAME/ma5-prijimacky">GitHub</a></p>
+  <p>Materiály vycházejí ze zadání státních přijímaček MA5 © CZVV 2020–2025 · Vytvořeno pro studijní účely</p>
+  <p style="margin-top:6px;font-size:.78rem;color:#bbb8b0">Verze 7. 4. 2026</p>
 </footer>
 
 </body>
