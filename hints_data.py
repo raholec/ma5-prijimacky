@@ -264,85 +264,146 @@ SVG_OSOVA = diag('''<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg
 HINTS_PL01 = [
 
 ("📖", "Jak číst zadání — 5 kroků před rýsováním", f"""
+<div class="ex"><div class="lbl">🍕 Příklad ze života — recept na pizzu</div>
+Představ si, že chceš upéct pizzu. Když si přečteš recept jen napůl, zjistíš až uprostřed pečení, že jsi zapomněl přidat sýr — a musíš začít znovu! Přesně stejně funguje geometrie: <b>kdo začne rýsovat dřív, než přečte celé zadání, skoro vždy musí začít znovu.</b><br>
+Zkušený řešitel nejprve celé zadání <b>pochopí</b>, pak si udělá <b>náčrt tužkou</b> a teprve pak bere do ruky kružítko.
+</div>
 <ol>
 <li>Přečti POMALU — <b>poprvé</b> jen pro pochopení, <b>podruhé</b> hledej podmínky</li>
-<li>Každou podmínku <b>podtrhni nebo zakroužkuj</b> přímo v zadání</li>
-<li>Nakresli si <b>hrubý náčrt od ruky</b> — jak by to mohlo vypadat</li>
-<li>Teprve pak rýsuj <b>pravítkem a kružítkem</b> přesně</li>
-<li>Na konci zkontroluj <b>každou podmínku zvlášť</b> — všechny musí platit!</li>
+<li>Každou podmínku <b>podtrhni nebo zakroužkuj</b> přímo v zadání — třeba: „bod S leží na ose úsečky KM" = jedna podmínka, podtrhni ji!</li>
+<li>Nakresli si <b>hrubý náčrt od ruky</b> — nemusí být přesný, jen aby sis představil/a, jak to bude vypadat</li>
+<li>Teprve pak rýsuj <b>pravítkem a kružítkem</b> přesně podle náčrtu</li>
+<li>Na konci zkontroluj <b>každou podmínku zvlášť</b> — projdi je jednu po druhé jako seznam úkolů: ✓ splněno, nebo ✗ chybí?</li>
 </ol>
-<div class="ex"><div class="lbl">Nejčastější chyba</div>
-Žáci začnou rýsovat dříve, než přečtou celé zadání. Pak zjistí, že poloha bodu nesedí. Vždy přečti celé zadání — teprve pak rýsuj!</div>""", "#e8f4ff", "#1A5276"),
+<div class="ex"><div class="lbl">⚠️ Nejčastější chyba</div>
+Žáci začnou rýsovat dříve, než přečtou celé zadání. Pak zjistí, že poloha bodu nesedí — a celý výkres jde do koše. <b>Pravidlo: 2 minuty čtení = 5 minut ušetřeného rýsování.</b> Přečti vždy celé zadání — teprve pak rýsuj!</div>""", "#e8f4ff", "#1A5276"),
 
 ("🔵", "Kružítko — rovnostranný trojúhelník krok za krokem", f"""
+<div class="ex"><div class="lbl">💡 Představ si kružítko jako provázek</div>
+Jeden konec provázku drží v bodě K, druhý koncem obkresluje kruh — výsledek jsou všechna místa, která jsou <b>přesně stejně daleko</b> od K.<br>
+Představ si to takto: K a M jsou dvě vesnice. Hledáš bod S, který je od K i od M vzdálený přesně tolik, kolik je vzdáleny K a M od sebe. Tím „provázkem" (= kružítkem nastaveným na vzdálenost KM) narýsuješ oblouk z K a oblouk z M — a bod S leží tam, kde se <b>oba oblouky kříží</b>!
+</div>
 {SVG_KRUZITKO}
 <div class="ex"><div class="lbl">Proč to funguje</div>
-Rovnostranný trojúhelník má KS = MS = KM. Kružnice z K zachytí všechny body ve vzdálenosti KM od K. Kružnice z M zachytí všechny body ve vzdálenosti KM od M. Bod S leží na obou → v jejich průsečíku.
+Rovnostranný trojúhelník má <b>všechny 3 strany stejně dlouhé</b>: KS = MS = KM. Kružítkem nastavíme přesně délku KM — a hledáme bod S, který je od obou bodů K i M vzdálený právě tolik. Takový bod leží přesně tam, kde se oba oblouky setkají.
 </div>
-<div class="ex"><div class="lbl">Postup krok za krokem</div>
+<div class="ex"><div class="lbl">Postup krok za krokem — příklad: KM = 6 cm</div>
 <ol>
-<li>Změř kružítkem délku KM (nastav poloměr přesně na KM)</li>
-<li>Z bodu K narýsuj kružnici s tímto poloměrem</li>
-<li>BEZ ZMĚNY poloměru narýsuj kružnici i z bodu M</li>
-<li>Průsečíky obou kružnic = možné polohy bodu S</li>
-<li>Bývají <b>dva průsečíky</b> = dvě řešení — obě nakresli!</li>
+<li><b>Narýsuj úsečku KM</b> — například délky 6 cm. Označ oba konce K a M.</li>
+<li><b>Nastav kružítko na délku KM:</b> přilož jeden hrot na K, druhý na M. Kružítko teď „pamatuje" délku 6 cm.</li>
+<li><b>Z bodu K</b> narýsuj oblouk — jeden nad úsečkou, jeden pod ní. Kružítkem NEPOHYBUJ!</li>
+<li><b>Z bodu M</b> (stále stejné nastavení!) narýsuj totéž — oblouk nad i pod úsečku.</li>
+<li><b>Kde se oblouky kříží</b>, tam jsou body S₁ (nad KM) a S₂ (pod KM). To jsou obě řešení!</li>
+<li><b>Zkontroluj pravítkem:</b> KS₁ = ? cm, MS₁ = ? cm — obojí musí být 6 cm. Funguje? ✓</li>
 </ol>
-</div>""", "#e8f4ff", "#2980B9"),
+<div style="margin-top:6px;font-size:0.97em;color:#555">💡 <i>Proč jsou 2 průsečíky? Protože oblouk z K a oblouk z M se mohou protnout na dvou místech — jako dva kruhy, které se navzájem překrývají. Obě místa jsou od K i M stejně daleko — obě jsou tedy správná řešení.</i></div>
+</div>
+<div class="ex" style="background:#fffbe6;border-left:3px solid #F39C12"><b>⚠️ Zlaté pravidlo kružítka:</b> Jakmile nastavíš poloměr na délku KM, kružítkem NESMÍŠ hýbat — ani o milimetr! Každá změna nastavení způsobí, že trojúhelník nebude rovnostranný a přijdeš o body.</div>""", "#e8f4ff", "#2980B9"),
+
+("🔺", "Kružítko — rovnoramenný trojúhelník krok za krokem", f"""
+<div class="ex"><div class="lbl">💡 Co je rovnoramenný trojúhelník</div>
+Rovnoramenný trojúhelník má <b>dvě stejně dlouhé strany</b> — říkáme jim <b>ramena</b>. Třetí strana je jiná délka — říkáme jí <b>základna</b>.<br>
+Příklad ze života: <b>střecha domku</b> — dvě šikmé strany jsou stejně dlouhé (ramena), spodní strana je základna. Nebo: <b>věšák na oblečení</b> — levé i pravé rameno jsou stejně dlouhé.
+</div>
+<div class="ex"><div class="lbl">Jak se liší od rovnostranného trojúhelníku</div>
+<table class="htable">
+<tr><th style="background:#1A5276;color:white">Typ</th><th style="background:#1A5276;color:white">Délky stran</th><th style="background:#1A5276;color:white">Nastavení kružítka</th></tr>
+<tr><td><b>Rovnostranný</b></td><td>KS = MS = KM (vše stejné)</td><td>Jednou — na délku KM</td></tr>
+<tr><td><b>Rovnoramenný</b></td><td>KS = MS = <i>a</i>, základna KM = <i>b</i> (a ≠ b)</td><td>Dvakrát — jinak na základnu, jinak na ramena</td></tr>
+</table>
+Klíčový rozdíl: u rovnoramenného trojúhelníku se kružítko nastavuje na <b>délku ramene</b> (ne základny).
+</div>
+<div class="ex"><div class="lbl">Postup krok za krokem — příklad: základna KM = 4 cm, ramena = 5 cm</div>
+<ol>
+<li><b>Narýsuj základnu KM</b> = 4 cm. Označ oba konce K a M.</li>
+<li><b>Nastav kružítko na délku ramene</b> = 5 cm (ne na délku KM!). Zkontroluj pravítkem.</li>
+<li><b>Z bodu K</b> narýsuj oblouk nad základnou. Kružítko NEPOHYBUJ!</li>
+<li><b>Z bodu M</b> (stále nastaveno na 5 cm) narýsuj oblouk nad základnou.</li>
+<li><b>Kde se oblouky kříží</b>, tam je bod S — vrchol trojúhelníku.</li>
+<li><b>Spoj K–S a M–S.</b> Zkontroluj pravítkem: KS = ? cm a MS = ? cm — obojí musí být 5 cm. ✓</li>
+</ol>
+</div>
+<div class="ex" style="background:#fffbe6;border-left:3px solid #F39C12"><b>⚠️ Nejčastější chyba:</b> Žáci nastaví kružítko na délku základny (KM) místo na délku ramene. Výsledek pak není rovnoramenný! Vždy si přečti: <i>„ramena délky a, základna b"</i> — kružítko nastavuj na <b>a</b>, ne na <b>b</b>.</div>""", "#e8f4ff", "#2980B9"),
 
 ("📏", "Osa úsečky — co to je a jak ji narýsovat", f"""
+<div class="ex"><div class="lbl">🍫 Příklad ze života — přelom tyčinky přesně napůl</div>
+Představ si, že chceš rozdělit čokoládovou tyčinku délky 10 cm <b>přesně napůl</b> a pak ji přeřezat <b>kolmo</b> (rovně, ne šikmo). Přesně to je osa úsečky!<br>
+Střed tyčinky = 5 cm od každého konce. Osa prochází tímto středem a jde <b>kolmo</b> na tyčinku — jako písmeno <b>T</b> položené na tyčince. Každý bod na ose je stejně daleko od obou konců (od A i od B).
+</div>
 {SVG_OSA}
-<div class="ex"><div class="lbl">Co je osa úsečky AB</div>
+<div class="ex"><div class="lbl">Co je osa úsečky AB — 3 vlastnosti</div>
 <ul>
-<li>Prochází přesně <b>středem</b> úsečky AB</li>
-<li>Je <b>kolmá</b> na úsečku AB (svírá 90°)</li>
-<li>Každý bod na ose je <b>stejně daleko od A i od B</b></li>
+<li>Prochází přesně <b>středem</b> úsečky AB (je na půl cesty mezi A a B)</li>
+<li>Je <b>kolmá</b> na úsečku AB — kříží ji pod pravým úhlem (90°), jako písmeno „T"</li>
+<li>Každý bod na ose je <b>stejně daleko od A i od B</b> — proto ji použijeme, kdykoli hledáme „střed" nebo „stejnou vzdálenost od dvou bodů"</li>
 </ul>
 </div>
-<div class="ex"><div class="lbl">Jak narýsovat kružítkem</div>
+<div class="ex"><div class="lbl">Jak narýsovat kružítkem — 3 kroky</div>
 <ol>
-<li>Nastav kružítko na poloměr <b>větší než polovina AB</b></li>
-<li>Z A narýsuj kružnici — ze stejným poloměrem narýsuj kružnici i z B</li>
-<li>Spoj oba průsečíky kružnic = to je osa úsečky</li>
-</ol>
-</div>""", "#e8f4ff", "#1A5276"),
-
-("📐", "Rovnoběžka přes bod a klíčové pojmy", f"""
-<div class="ex"><div class="lbl">Jak narýsovat rovnoběžku přes bod K s přímkou r</div>
-<ol>
-<li>Přilož pravítko těsně <b>podél přímky r</b></li>
-<li>Přilož trojúhelník k pravítku jako zarážku (aby se pravítko nesklouz.</li>
-<li>Posuň pravítko podél zarážky tak, aby procházelo bodem <b>K</b></li>
-<li>Narýsuj přímku — je rovnoběžná s r!</li>
+<li>Nastav kružítko na poloměr <b>větší než polovina AB</b> — přibližně na ¾ délky AB. Proč ne přesně na ½? Protože při r = ½ se oblouky z A a B dotknou pouze v jediném bodě (středu) a <b>nepřekříží se</b> — kolmici z nich nelze nakreslit. Čím větší poloměr, tím lépe viditelný průsečík!</li>
+<li>Z bodu A narýsuj oblouk nahoru i dolů — <b>beze změny poloměru</b> narýsuj stejné oblouky i z bodu B</li>
+<li>Spoj oba průsečíky oblouků rovnou čárou — tato přímka je osa úsečky!</li>
 </ol>
 </div>
-<table class="htable">
-<tr><th style="background:#1A5276;color:white">Pojem</th><th style="background:#1A5276;color:white">Co to je</th></tr>
-<tr><td><b>Rovnoběžky</b></td><td>Nikdy se neprotnou — jsou stále stejně daleko od sebe</td></tr>
-<tr><td><b>Kolmice</b></td><td>Svírají přesně pravý úhel (90°)</td></tr>
-<tr><td><b>Osa úsečky</b></td><td>Kolmice středem — každý bod je stejně daleko od obou konců</td></tr>
-<tr><td><b>Rovnostranný △</b></td><td>Všechny 3 strany stejně dlouhé</td></tr>
-<tr><td><b>Rovnoramenný △</b></td><td>2 strany stejně dlouhé (ramena), třetí jiná (základna)</td></tr>
-</table>""", "#e8f4ff", "#1A5276"),
+<div class="ex" style="background:#fffbe6;border-left:3px solid #F39C12"><b>💡 Tip:</b> Kružítko musíš nastavit na <b>stejný</b> poloměr pro bod A i pro bod B. Pokud ho omylem změníš, průsečíky nebudou správně a osa nebude procházet středem — zkontroluj, než začneš rýsovat druhý oblouk!</div>""", "#e8f4ff", "#1A5276"),
 
 ("🔍", "Proč bývají 2 řešení — a jak je systematicky najít", f"""
-<div class="ex"><div class="lbl">Kdy vznikají 2 řešení</div>
-<ul>
-<li>Bod může ležet na přímce <b>vlevo i vpravo</b> od jiného bodu</li>
-<li>Trojúhelník může být <b>nad i pod</b> zadanou přímkou</li>
-<li>Dvě kružnice se protínají ve <b>dvou bodech</b></li>
-</ul>
+<div class="ex"><div class="lbl">🌳 Příklad ze života — kde stojíš od stromu?</div>
+Představ si, že stojíš přesně <b>3 metry od stromu</b>. Kde přesně stojíš? Mohl bys stát vlevo od stromu (3 m), nebo vpravo (3 m), nebo před ním, nebo za ním — vlastně kdekoliv na kruhu o poloměru 3 m okolo stromu!<br>
+V geometrii je to stejné: <b>podmínka vzdálenosti neříká stranu</b> — říká jen „jak daleko". Proto téměř vždy vznikají <b>dvě místa</b> (jedno na každé straně), a obě jsou správná řešení.
 </div>
-<div class="ex"><div class="lbl">Systematický postup</div>
+<div class="ex"><div class="lbl">Kdy a proč vznikají 2 řešení</div>
+<ul>
+<li>Bod může ležet <b>vlevo i vpravo</b> od jiného bodu na přímce — dvě strany, dvě místa</li>
+<li>Trojúhelník může být <b>nad i pod</b> zadanou přímkou — jako zrcadlový obraz</li>
+<li>Dva oblouky (kružítkem) se kříží ve <b>dvou průsečících</b> — jeden nahoře, jeden dole</li>
+</ul>
+<div style="margin-top:6px;font-size:0.97em;color:#555">💡 <i>Proč to tak je? Geometrie nezná „vlevo" ani „vpravo" — zná jen vzdálenosti. Pokud zadání neřekne „bod leží NAD přímkou", pak může ležet i pod ní. Obě polohy splňují podmínku!</i></div>
+</div>
+<div class="ex"><div class="lbl">Systematický postup — 5 kroků</div>
 <ol>
-<li>Narýsuj první řešení přesně</li>
-<li>Zeptej se: „Může bod ležet i na druhé straně?"</li>
-<li>Pokud ano — narýsuj druhé řešení</li>
-<li>Obě řešení zkontroluj ve <b>všech podmínkách</b></li>
-<li>Zapiš závěr: „Nalezena 2 řešení" nebo „Nalezeno 1 řešení"</li>
+<li>Narýsuj <b>první řešení</b> přesně (třeba bod S₁ nad přímkou)</li>
+<li>Zeptej se nahlas: <b>„Může bod ležet i na druhé straně?"</b> — v 90 % případů ANO!</li>
+<li>Pokud ano — narýsuj <b>druhé řešení S₂</b> (zrcadlový obraz na druhé straně)</li>
+<li>Obě řešení zkontroluj <b>ve všech podmínkách</b> — splňují obě? Pak obě zapiš.</li>
+<li>Napiš závěr: <b>„Nalezena 2 řešení: S₁, S₂"</b> nebo <b>„Nalezeno 1 řešení: S₁"</b></li>
 </ol>
 </div>
-<div class="ex"><div class="lbl">Jak kontrolovat kružítkem</div>
-Nastav kružítko na délku KM. Bez změny přenes na KS — pasuje? Pak jsou stejně dlouhé.</div>""", "#e8f4ff", "#2980B9"),
+<div class="ex"><div class="lbl">Jak ověřit délku kružítkem</div>
+Nastav kružítko na délku KM (přilož hroty na K a M). Bez změny nastavení přenes na KS — hrot na K, tužka na S. <b>Pasuje hrot přesně na S?</b> Pak KS = KM. ✓ Pokud ne, bod S je na špatném místě.</div>
+<div class="ex" style="background:#fffbe6;border-left:3px solid #F39C12"><b>⚠️ Pozor na nejčastější chybu:</b> Žáci najdou jedno řešení a hned odevzdají. Za druhé řešení jsou body navíc — vždy se zeptej: „Existuje i druhé?"</div>""", "#e8f4ff", "#2980B9"),
+
+("📐", "Rovnoběžka přes bod — postup konstrukce", f"""
+<div class="ex"><div class="lbl">🚂 Příklad ze života — kolejnice</div>
+Koleje vlaku jsou <b>rovnoběžky</b> — vlevo i vpravo jsou stále stejně daleko od sebe a <b>nikdy se neprotnou</b> (ani za obzorem). Stožáry elektrického vedení jsou přibližně <b>kolmé</b> ke kolejím — kříží se s nimi pod pravým úhlem (jako písmeno „T").
+</div>
+<div class="ex"><div class="lbl">Jak narýsovat rovnoběžku přes bod K s přímkou r</div>
+<ol>
+<li>Přilož pravítko těsně <b>podél přímky r</b> (pravítko musí ležet přímo na r)</li>
+<li>Přilož trojúhelník k pravítku jako zarážku — <b>trojúhelník drží nehybně</b>, pravítko se opírá o jeho hranu</li>
+<li>Drž trojúhelník pevně a <b>posuň pravítko podél jeho hrany</b> (rovnoběžně!) tak, aby hrana pravítka prošla bodem <b>K</b></li>
+<li>Narýsuj přímku — je rovnoběžná s r! Vzdálenost od r se nezměnila, protože jsi posouval rovnoběžně.</li>
+</ol>
+<div style="margin-top:6px;font-size:0.97em;color:#555">💡 <i>Trojúhelník funguje jako kolej — pravítko po něm jede rovnoběžně stejně, jako vlak jede po kolejnici.</i></div>
+</div>
+<div class="ex" style="background:#fffbe6;border-left:3px solid #F39C12"><b>💡 Tip — rovnoběžka vs. kolmice:</b> Rovnoběžky = kamarádi kráčející vedle sebe, nikdy se netknou. Kolmice = cesta, která jinou cestu kříží přesně zpříma (pod 90°).</div>""", "#e8f4ff", "#1A5276"),
+
+("📋", "Klíčové pojmy geometrie — přehledová tabulka", f"""
+<table class="htable">
+<tr><th style="background:#1A5276;color:white">Pojem</th><th style="background:#1A5276;color:white">Co to je</th><th style="background:#1A5276;color:white">Příklad ze života</th></tr>
+<tr><td><b>Rovnoběžky</b></td><td>Nikdy se neprotnou — jsou stále stejně daleko od sebe</td><td>Kolejnice, okraje sešitu, pruhovaný svetr</td></tr>
+<tr><td><b>Kolmice</b></td><td>Svírají přesně pravý úhel (90°) — jako písmeno „T"</td><td>Zeď a podlaha, rohové okno, čtverec sešitu</td></tr>
+<tr><td><b>Osa úsečky</b></td><td>Kolmice středem — každý bod je stejně daleko od obou konců</td><td>Čára uprostřed fotbalového hřiště (stejně daleko od obou branek)</td></tr>
+<tr><td><b>Rovnostranný △</b></td><td>Všechny 3 strany stejně dlouhé</td><td>Trojúhelníkové dopravní značky, Toblerone</td></tr>
+<tr><td><b>Rovnoramenný △</b></td><td>2 ramena stejně dlouhá, základna jiná délka</td><td>Střecha domku, věšák na oblečení</td></tr>
+</table>
+<div class="ex"><div class="lbl">Jak nezmást rovnostranný a rovnoramenný</div>
+<ul>
+<li><b>Rovnostranný</b> = všechny 3 strany stejné (rovná se všem)</li>
+<li><b>Rovnoramenný</b> = 2 strany stejné, 1 jiná (rovná se dvěma)</li>
+</ul>
+Tip: rovnoramenný je „širší" skupina — každý rovnostranný trojúhelník je také rovnoramenný, ale ne naopak!
+</div>""", "#e8f4ff", "#1A5276"),
 
 ("⚠️", "Nejčastější chyby při rýsování", f"""
 <table class="htable">
@@ -351,7 +412,7 @@ Nastav kružítko na délku KM. Bez změny přenes na KS — pasuje? Pak jsou st
 <tr><td>🔴 Pro druhý oblouk změním nastavení kružítka</td><td>Kružítko NIKDY nepřenastavuješ — drž ho přesně stejně</td></tr>
 <tr><td>🔴 Narýsuji jen jedno řešení, ačkoliv existují dvě</td><td>Vždy se zeptej: „Může bod ležet i na druhé straně?"</td></tr>
 <tr><td>🔴 Zapomenu označit body písmeny (K, M, S...)</td><td>Bez popisků dostaneš 0 bodů — piš písmena hned</td></tr>
-<tr><td>🔴 Kružnice je čára, ne tečka — narýsuji jen část</td><td>Narýsuj celou kružnici (nebo aspoň přes místo průsečíku)</td></tr>
+<tr><td>🔴 Narýsuji oblouk příliš krátký — průsečík není jasně vidět</td><td>Narýsuj oblouk aspoň 3 cm na každou stranu průsečíku — plnou kružnici rýsovat nemusíš</td></tr>
 </table>
 <div class="ex" style="background:#fff8f8;border-left:3px solid #E74C3C"><b>Zlaté pravidlo:</b> Po narýsování projdi KAŽDOU podmínku ze zadání a zkontroluj, zda tvůj výkres splňuje všechny.</div>""", "#fff0f0", "#C0392B"),
 ]
