@@ -1313,5 +1313,126 @@ Na gramy: 3 kg = 3000 g. 1/5 kg = 200 g.<br>
 </table>""", "#fff0f0", "#C0392B"),
 ]
 
+# ══════════════════════════════════════════════════════════════════
+# PL09 — POMĚRY A ZLOMKY
+# ══════════════════════════════════════════════════════════════════
+HINTS_PL09 = [
+
+("⚖️", "Co je poměr — základ", f"""
+<div class="ex"><div class="lbl">Co poměr říká</div>
+Poměr 3:5 čteme „3 ku 5" — říká, že první je 3 díly a druhý 5 dílů.<br>
+Nezáleží na celkovém počtu — poměr popisuje <b>vztah</b> dvou čísel.
+</div>
+<div class="ex"><div class="lbl">Jak zjednodušit poměr</div>
+Obě čísla vydělíme stejným číslem (největším společným dělitelem):<br>
+{calc_row('6:4', '÷ 2', '3:2')} &nbsp;&nbsp; {calc_row('15:25', '÷ 5', '3:5')} &nbsp;&nbsp; {calc_row('12:8', '÷ 4', '3:2')}
+</div>
+<div class="ex"><div class="lbl">Poměr a zlomek — totéž!</div>
+Poměr 3:5 = zlomek 3/5 = „tři pětiny"<br>
+Poměr 1:4 = zlomek 1/4 = „čtvrtina"<br>
+Poměr 1:2 = zlomek 1/2 = „polovina"
+</div>
+<table class="htable">
+<tr><th style="background:#B7770D;color:white">Poměr</th><th style="background:#B7770D;color:white">Výpočet zlomku (z celku)</th><th style="background:#B7770D;color:white">Slovy</th></tr>
+<tr><td>1:2</td><td>÷ 2</td><td>polovina</td></tr>
+<tr><td>1:3</td><td>÷ 3</td><td>třetina</td></tr>
+<tr><td>1:4</td><td>÷ 4</td><td>čtvrtina</td></tr>
+<tr><td>1:5</td><td>÷ 5</td><td>pětina</td></tr>
+<tr><td>2:5</td><td>÷ 5 × 2</td><td>dvě pětiny</td></tr>
+</table>""", "#fffbf0", "#B7770D"),
+
+("📐", "Přímá úměrnost — výpočet bez rovnic", f"""
+<div class="ex"><div class="lbl">Jak může zadání vypadat (25r1 úloha 3)</div>
+<i>„Mirkovo kolo se otočilo 30×, tátovo 25× — urazili stejnou vzdálenost. Kolikrát se Mirkovo otočí, pokud tátovo 30×?"</i>
+</div>
+<div class="ex"><div class="lbl">Základní pravidlo přímé úměrnosti</div>
+Pokud jde čas 2× déle → vzdálenost 2× větší.<br>
+Pokud je rychlost 3× větší → za stejný čas ujede 3× dál.<br>
+<b>Stejný poměr, jiné hodnoty.</b>
+</div>
+<div class="ex"><div class="lbl">Metoda tabulky — vždy bezpečná</div>
+<table class="htable">
+<tr><th style="background:#B7770D;color:white">Mirkovo kolo</th><th style="background:#B7770D;color:white">Tátovo kolo</th></tr>
+<tr><td>30 otáček</td><td>25 otáček</td></tr>
+<tr><td>{fi('?')} otáček</td><td>30 otáček</td></tr>
+</table>
+Tátovo vzrostlo z 25 na 30 → násobíme 30÷25 = <b>6/5</b><br>
+Mirkovo: 30 × (6/5) = 30 × 6 ÷ 5 = 180 ÷ 5 = <span class="hint-result">36 otáček</span>
+</div>
+<div class="ex"><div class="lbl">Rychlý způsob: křížové násobení</div>
+Mirkovo × Tátovo2 = Tátovo × Mirkovo2<br>
+30 × 30 = 25 × {fi('?')} → 900 = 25 × {fi('?')} → {fi('?')} = 900 ÷ 25 = <span class="hint-result">36</span>
+</div>""", "#fffbf0", "#D4AC0D"),
+
+("🍕", "Zlomky a části celku — jak počítat", f"""
+<div class="ex"><div class="lbl">Jak může zadání vypadat (25r1 úloha 10)</div>
+<i>„Maminka rozdělila peníze. Janě dala pětinu celkové částky, Ivo dostal dvakrát více než Jana a zbylých 240 Kč dala Evě. Kolik celkem?"</i>
+</div>
+<div class="ex"><div class="lbl">Krok 1: Zjisti, z ČEHO se počítá zlomek (základ = celek)</div>
+„Pětina <b>celkové částky</b>" → základ = celková částka = {fi('C')}<br>
+Jana = C ÷ 5 = <b>1/5 C</b><br>
+Ivo = 2 × (C ÷ 5) = <b>2/5 C</b><br>
+Eva = 240 Kč (zbytek)
+</div>
+<div class="ex"><div class="lbl">Krok 2: Doplň do celku = 1</div>
+Jana + Ivo + Eva = celkem<br>
+1/5 C + 2/5 C + 240 = C<br>
+3/5 C + 240 = C → 240 = C − 3/5 C = 2/5 C<br>
+C = 240 × 5 ÷ 2 = <span class="hint-result">600 Kč</span>
+</div>
+<div class="ex"><div class="lbl">Trik: zbývající část × (celek/zbytek) = celek</div>
+Zbývá 2/5 → celku, tedy 240 = 2/5 celku → celku = 240 ÷ 2 × 5 = <span class="hint-result">600 Kč ✓</span>
+</div>""", "#fffbf0", "#B7770D"),
+
+("🔍", "Záludná slova — ne vše je co vypadá", f"""
+<table class="htable">
+<tr><th style="background:#B7770D;color:white">Slovo v zadání</th><th style="background:#B7770D;color:white">Výpočet</th><th style="background:#B7770D;color:white">Příklad (základ=60)</th></tr>
+<tr><td><b>dvakrát více</b></td><td>základ × 2</td><td>60 × 2 = <b>120</b></td></tr>
+<tr><td><b>o 2 více</b></td><td>základ + 2</td><td>60 + 2 = <b>62</b></td></tr>
+<tr><td><b>o třetinu více</b></td><td>základ + základ÷3</td><td>60 + 20 = <b>80</b></td></tr>
+<tr><td><b>třetina z</b></td><td>základ ÷ 3</td><td>60 ÷ 3 = <b>20</b></td></tr>
+<tr><td><b>o třetinu méně</b></td><td>základ − základ÷3</td><td>60 − 20 = <b>40</b></td></tr>
+<tr><td><b>třikrát méně</b> ⚠️</td><td>základ ÷ 3 (ne −3!)</td><td>60 ÷ 3 = <b>20</b></td></tr>
+</table>
+<div class="ex"><div class="lbl">Nejčastější záměna: dvakrát více vs. o dvě více</div>
+„Ivo dostal <b>dvakrát více</b> než Jana" → Ivo = 2 × Jana (ne Jana + 2!)<br>
+Pokud Jana = 80 Kč → Ivo = 2 × 80 = <span class="hint-result">160 Kč</span>
+</div>""", "#fffbf0", "#D4AC0D"),
+
+("➗", "Rozdělit v poměru — krok za krokem", f"""
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Maminka rozdělila 240 Kč mezi Jana a Ivo v poměru 1:2."</i>
+</div>
+<div class="ex"><div class="lbl">Postup</div>
+<ol>
+<li>Sečti díly: 1 + 2 = <b>3 díly</b> celkem</li>
+<li>Jeden díl: 240 ÷ 3 = <b>80 Kč</b></li>
+<li>Jana: 1 díl = <b>80 Kč</b></li>
+<li>Ivo: 2 díly = 2 × 80 = <b>160 Kč</b></li>
+<li>Ověř: 80 + 160 = 240 ✓</li>
+</ol>
+</div>
+<div class="ex"><div class="lbl">Obecný vzorec</div>
+Poměr a:b → celkem ÷ (a+b) = <b>1 díl</b><br>
+{calc_row('celkem', '÷ (a+b)', '1 díl')} → {calc_row('1 díl', '× a', 'část A')} a {calc_row('1 díl', '× b', 'část B')}
+</div>
+<div class="ex"><div class="lbl">Příklad: poměr kuliček (25r1 úloha 4)</div>
+Na váze: 1 velká (30g) + 2 malé (20g) na každou velkou, celkem 560g<br>
+Hledám: kolik velkých?<br>
+1 velká + 2 malé = 30 + 40 = <b>70g za skupinu</b><br>
+Počet skupin: 560 ÷ 70 = <b>8 skupin</b> → <span class="hint-result">8 velkých, 16 malých</span>
+</div>""", "#fffbf0", "#B7770D"),
+
+("⚠️", "Nejčastější chyby u poměrů a zlomků", f"""
+<table class="htable">
+<tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
+<tr><td>🔴 „Pětina celku" → dělím pětinou (×1/5) ale myslím ×5</td><td>Pětina = ÷5. Ověř: pětina ze 100 = 20, ne 500!</td></tr>
+<tr><td>🔴 „Dvakrát více" → přičítám 2 místo násobení 2</td><td>Dvakrát více = ×2. Třikrát více = ×3. „Více" = násobit!</td></tr>
+<tr><td>🔴 Zjednodušuji poměr: 6:4 = 3:2 — dělím jen jedno číslo</td><td>Vždy děl OBOJE čísla stejným číslem!</td></tr>
+<tr><td>🔴 U přímé úměrnosti: míchám čí hodnoty jsou čí</td><td>Vypiš tabulku: Mirkovo | Tátovo | řádek 1 a řádek 2</td></tr>
+<tr><td>🔴 „Zbývá 240 Kč" — myslím to je polovina celku</td><td>Zjisti, jaký zlomek zbývá (1 − součet ostatních dílů)</td></tr>
+</table>""", "#fff0f0", "#C0392B"),
+]
+
 # ══ QUIZ DATA (imported from quiz_backup.py) ══
 exec(open('/home/claude/quiz_backup.py', encoding='utf-8').read())

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PL09 &mdash; Poměry a zlomky</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
+       color: #222; background: #f5f5f5; padding: 16px; }
+
+/* --- PAGE WRAPPER --- */
+.page { background: white; max-width: 1024px; margin: 0 auto;
+        padding: 32px; border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+
+/* --- COVER BANNER --- */
+.cover { color: white; border-radius: 14px; padding: 26px 28px 22px;
+         margin-bottom: 22px; }
+.cover .num { font-size: 13px; opacity: .85; margin-bottom: 4px; font-weight: 600;
+              letter-spacing: 1px; text-transform: uppercase; }
+.cover h1 { font-size: 30px; font-weight: 800; margin-bottom: 6px; }
+.cover .sub { font-size: 15px; opacity: .9; margin-bottom: 10px; }
+.cover .pts { display: inline-block; background: rgba(255,255,255,.25);
+              border-radius: 20px; padding: 5px 16px; font-size: 13px; font-weight: 700; }
+
+/* ── BLACKPINK — cover & member card ── */
+.cover { border-bottom: 3px solid #ff0076; position: relative; overflow: hidden; }
+.cover::after { content: ''; position: absolute; top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, #ff007855 0%, transparent 70%);
+  pointer-events: none; }
+
+.member-card {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(0,0,0,.25); border: 1px solid rgba(255,0,118,.4);
+  border-radius: 12px; padding: 14px 18px; margin-top: 16px;
+}
+.member-avatar {
+  width: 60px; height: 60px; border-radius: 50%;
+  border: 2.5px solid #ff0076;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; background: rgba(0,0,0,.3); flex-shrink: 0;
+  box-shadow: 0 0 14px #ff007666;
+}
+.member-info .member-name {
+  font-size: 17px; font-weight: 800;
+  letter-spacing: .5px; text-shadow: 0 0 10px #ff007888;
+}
+.member-info .member-role {
+  font-size: 12px; color: rgba(255,255,255,.7);
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;
+}
+.member-info .member-quote {
+  font-size: 13px; color: rgba(255,255,255,.9);
+  margin-top: 6px; font-style: italic; line-height: 1.5;
+}
+
+.bp-back { display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 8px; color: #666; text-decoration: none;
+  font-size: 13px; font-weight: 600;
+  padding: 5px 13px; border: 1px solid #ddd;
+  border-radius: 20px; transition: all .2s; background: white; }
+.bp-back:hover { background: #ff0076; color: white; border-color: #ff0076; }
+
+/* --- HINTS SECTION --- */
+.hints-section { background: #fafafa; border-radius: 12px;
+                 border: 2px solid #e0e0e0; padding: 20px; margin-bottom: 26px; }
+.hints-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
+               text-transform: uppercase; margin-bottom: 16px; display: flex;
+               align-items: center; gap: 8px; }
+.hint-blocks { display: flex; flex-direction: column; gap: 16px; }
+.hint-block { border-radius: 10px; padding: 14px 16px; border-left: 5px solid; }
+.hint-block h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px;
+                 display: flex; align-items: center; gap: 8px;
+                 padding-bottom: 10px; border-bottom: 2px solid rgba(0,0,0,.1); }
+.hint-block p, .hint-block li { font-size: 14px; line-height: 1.75; color: #333; }
+.hint-block ul { padding-left: 0; list-style: none; }
+.hint-block ul li { padding: 5px 0 5px 20px; position: relative; }
+.hint-block ul li::before { content: "•"; position: absolute; left: 4px;
+                             color: #888; font-size: 16px; line-height: 1.5; }
+.hint-block ol { padding-left: 0; list-style: none; counter-reset: hint-steps; }
+.hint-block ol li { padding: 7px 0 7px 36px; position: relative;
+                    counter-increment: hint-steps; border-bottom: 1px solid rgba(0,0,0,.05); }
+.hint-block ol li:last-child { border-bottom: none; }
+.hint-block ol li::before { content: counter(hint-steps);
+                             position: absolute; left: 0; top: 7px;
+                             width: 24px; height: 24px; border-radius: 50%;
+                             background: rgba(0,0,0,.12); color: #333;
+                             font-size: 12px; font-weight: 800;
+                             display: flex; align-items: center; justify-content: center; }
+.hint-block .formula { background: rgba(0,0,0,.07); border-radius: 6px;
+                       padding: 6px 10px; font-family: monospace; font-size: 14px;
+                       margin: 6px 0; display: block; }
+.hint-block .ex { background: rgba(255,255,255,.85); border-radius: 8px;
+                  padding: 12px 14px; margin-top: 10px; font-size: 14px;
+                  border: 1px solid rgba(0,0,0,.12); }
+.hint-block .ex .lbl { font-weight: 800; font-size: 12px; text-transform: uppercase;
+                       letter-spacing: .5px; opacity: .7; margin-bottom: 6px; }
+
+/* Fill-in box — replaces □ */
+.fillin { display: inline-flex; align-items: center; justify-content: center;
+          min-width: 52px; height: 28px; background: #fffde7;
+          border: 2.5px dashed #f9a825; border-radius: 6px;
+          font-size: 13px; font-weight: 700; color: #e65100;
+          padding: 0 8px; margin: 0 3px; vertical-align: middle;
+          letter-spacing: .5px; }
+
+/* Hint diagram container */
+.hint-diagram { margin: 12px 0; text-align: center; }
+.hint-diagram svg { max-width: 100%; height: auto; }
+.hint-diagram .diagram-caption { font-size: 12px; color: #888;
+                                  font-style: italic; margin-top: 6px; }
+
+/* Hint result highlight */
+.hint-result { display: inline-block; background: rgba(0,0,0,.08);
+               border-radius: 6px; padding: 4px 12px; font-weight: 800;
+               font-size: 15px; margin: 4px 0; }
+
+/* Hint table — cleaner */
+.hint-block table.htable { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.hint-block table.htable th { padding: 9px 12px; text-align: center; font-size: 13px; font-weight: 700; }
+.hint-block table.htable td { padding: 8px 12px; text-align: center; border: 1px solid rgba(0,0,0,.1); }
+.hint-block table.htable .fill { background: #fffde7; font-style: italic; color: #e65100; }
+
+/* Hint step-box — for multi-step calculations */
+.hint-calc { background: rgba(0,0,0,.05); border-radius: 8px;
+             padding: 10px 14px; margin: 8px 0; font-family: monospace;
+             font-size: 14px; line-height: 2; }
+.hint-calc .step-arrow { color: #999; margin: 0 8px; }
+.hint-calc b { color: #1a1a1a; }
+
+/* --- DIVIDER --- */
+.divider { text-align: center; margin: 24px 0 20px; position: relative; }
+.divider::before { content:''; position:absolute; top:50%; left:0; right:0;
+                   height:2px; background:#e0e0e0; }
+.divider span { position: relative; background: white; padding: 0 14px;
+                font-weight: 800; font-size: 14px; letter-spacing: .5px;
+                text-transform: uppercase; color: #888; }
+
+/* --- EXAMPLE CARDS --- */
+.example { border-radius: 12px; margin-bottom: 22px; overflow: hidden;
+           border: 2px solid #e0e0e0; }
+.ex-header { padding: 12px 18px; display: flex; justify-content: space-between;
+             align-items: center; }
+.ex-header .ex-num { font-size: 13px; font-weight: 800; letter-spacing: .5px;
+                     text-transform: uppercase; }
+.ex-header .ex-source { font-size: 11px; opacity: .85; font-style: italic; }
+.ex-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px;
+            border-radius: 20px; font-size: 12px; font-weight: 700; }
+
+.ex-body { padding: 16px 18px; }
+
+/* Zadani */
+.zadani { background: #f8f9fa; border-radius: 8px; padding: 14px 16px;
+          margin-bottom: 14px; border-left: 5px solid #999; font-size: 14px;
+          line-height: 1.7; }
+.zadani strong { display: block; font-size: 12px; text-transform: uppercase;
+                 letter-spacing: .5px; color: #888; margin-bottom: 6px; }
+
+/* Exam image */
+.exam-img { margin: 16px 0; }
+.exam-img img { width: 100%; max-width: 100%; display: block; margin: 0 auto;
+                border-radius: 8px; border: 1px solid #ddd;
+                box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.exam-img .img-cap { font-size: 11px; color: #888; margin-top: 6px; font-style: italic; text-align:center; }
+
+/* SOLVED example steps */
+.steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.step { display: flex; gap: 12px; align-items: flex-start; }
+.step-num { width: 28px; height: 28px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-weight: 800;
+            font-size: 13px; flex-shrink: 0; color: white; }
+.step-content { flex: 1; padding: 8px 12px; border-radius: 8px;
+                font-size: 14px; line-height: 1.6; }
+.step-content .step-label { font-size: 11px; font-weight: 700; text-transform: uppercase;
+                             letter-spacing: .4px; opacity: .7; margin-bottom: 4px; }
+.step-content .calc { font-family: monospace; background: rgba(0,0,0,.06);
+                      border-radius: 5px; padding: 4px 8px; display: inline-block;
+                      margin: 3px 0; font-size: 14px; }
+
+.result-box { border-radius: 10px; padding: 12px 16px; display: flex;
+              align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+.result-box .r-icon { font-size: 22px; }
+
+/* HINT example */
+.hint-card { border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+.hint-card h4 { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                letter-spacing: .5px; margin-bottom: 8px; display: flex;
+                align-items: center; gap: 6px; }
+.hint-card p { font-size: 14px; line-height: 1.65; }
+.hint-step { display: flex; align-items: flex-start; gap: 8px; margin: 7px 0; }
+.hint-arrow { font-size: 16px; color: #999; flex-shrink: 0; margin-top: 2px; }
+.hint-text { font-size: 14px; line-height: 1.6; }
+.hint-blank { display: inline-block; border-bottom: 2px solid #bbb;
+              min-width: 70px; height: 22px; vertical-align: bottom; }
+
+/* Answer box */
+.answer-box { background: #fffde7; border-radius: 10px; padding: 14px 16px;
+              border: 2px dashed #f9a825; margin-top: 12px; }
+.answer-box .a-label { font-size: 12px; font-weight: 700; text-transform: uppercase;
+                       letter-spacing: .5px; color: #795548; margin-bottom: 8px; }
+.answer-line { border-bottom: 2px solid #ddd; height: 28px; margin: 6px 0; }
+
+/* Scratch space */
+.scratch { background: #fafafa; border-radius: 8px; padding: 10px;
+           margin: 10px 0; border: 1px dashed #ccc; }
+.scratch .s-label { font-size: 11px; color: #bbb; margin-bottom: 6px; }
+.scratch-line { border-bottom: 1px solid #eee; height: 26px; margin: 4px 0; }
+
+/* Solo example */
+.solo-badge { background: #e8f5e9; color: #1b5e20; }
+
+/* Tip box */
+.tip-box { border-radius: 10px; padding: 12px 16px; margin-top: 14px;
+           border-left: 5px solid; display: flex; gap: 10px; align-items: flex-start; }
+.tip-box .tip-icon { font-size: 20px; flex-shrink: 0; }
+.tip-box p { font-size: 13px; line-height: 1.6; }
+
+/* Visual calc demo */
+.calc-demo { background: #f3f4f6; border-radius: 10px; padding: 14px 16px;
+             margin: 10px 0; font-family: monospace; font-size: 14px; line-height: 2; }
+.calc-demo .hl { font-weight: 800; }
+.calc-demo .arrow { color: #999; }
+.calc-demo .note { font-family: sans-serif; font-size: 12px; color: #666;
+                   background: white; border-radius: 4px; padding: 2px 6px;
+                   margin-left: 6px; font-style: italic; }
+
+/* Comparison visual */
+.comp-visual { display: grid; gap: 8px; margin: 10px 0; }
+.comp-bar { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.comp-bar .label { min-width: 140px; font-weight: 600; }
+.bar-track { flex: 1; background: #e0e0e0; border-radius: 4px; height: 22px;
+             overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center;
+            padding-left: 8px; color: white; font-size: 12px; font-weight: 700; }
+
+/* Table in examples */
+.ex-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.ex-table th { padding: 8px 10px; text-align: center; font-size: 13px; }
+.ex-table td { padding: 8px 10px; text-align: center; border: 1px solid #e0e0e0; }
+.ex-table .fill { background: #fffde7; min-width: 50px; }
+
+
+/* --- QUIZ SECTION --- */
+.quiz-section { background: #f0f4ff; border-radius: 12px; border: 2px solid #c5cae9;
+                padding: 20px; margin-bottom: 26px; }
+.quiz-title { font-size: 15px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+              margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
+.quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
+          border-left: 5px solid #3949ab; }
+.quiz-chart { margin: 8px 0 4px; background: #f8faff; border-radius: 8px;
+              padding: 8px 12px; border: 1px solid #dde; overflow-x: auto; }
+.quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
+                 letter-spacing: .5px; margin-bottom: 6px; }
+.quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
+                   line-height: 1.5; }
+.quiz-options { display: flex; flex-direction: column; gap: 6px; }
+.quiz-opt { display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px;
+            border-radius: 8px; background: #f8f9fa; border: 1.5px solid #e0e0e0;
+            font-size: 14px; cursor: default; }
+.quiz-opt .opt-letter { font-weight: 800; color: #5c6bc0; min-width: 22px; flex-shrink: 0; }
+.quiz-answer { margin-top: 10px; padding: 10px 14px; border-radius: 8px;
+               background: #e8f5e9; border-left: 4px solid #43a047;
+               font-size: 13px; line-height: 1.6; color: #1b5e20; display: none; }
+.quiz-answer .ans-label { font-weight: 700; font-size: 12px; text-transform: uppercase;
+                           letter-spacing: .5px; margin-bottom: 4px; }
+.quiz-answer .ans-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+
+
+/* --- ANSWER KEY SECTION --- */
+.quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
+                        padding: 20px; margin-top: 14px; margin-bottom: 8px;
+                        background: #f8f9ff; }
+
+.quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
+                      text-transform: uppercase; margin-bottom: 14px; }
+.ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
+
+@media print {
+  body { background: white; padding: 0; font-size: 13px; }
+  .page { box-shadow: none; border-radius: 0; max-width: 100%; padding: 14px 20px; }
+  .example { break-inside: avoid; page-break-inside: avoid; }
+  .hints-section { break-inside: avoid; }
+  .hint-blocks { flex-direction: column; }
+  .exam-img { break-inside: avoid; }
+  .exam-img img { max-width: 100%; width: 100%; }
+  .steps { break-inside: avoid; }
+  .quiz-section { break-inside: avoid; }
+  .quiz-answers-section { break-inside: avoid; }
+
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+<div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
+<div class="cover" style="background:linear-gradient(135deg,#B7770Dee,#D4AC0Dcc,#1a0010)">
+  <div style="font-size:11px;opacity:.7;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:6px">🖤 BLACKPINK × Matematika 5 🩷</div>
+  <div class="num">📄 Pracovní list 09</div>
+  <h1>Poměry a zlomky</h1>
+  <div class="sub">Přímá úměrnost, části celku, záludná slova v zadání</div>
+  <div class="pts">⭐ Max. 2&ndash;4 bodů v testu</div>
+  <a href="../pdfs/PL09_Pomery_a_zlomky.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.15);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,0,118,.5);transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+      Stáhnout PDF k tisku
+    </a>
+  <div class="member-card">
+  <div class="member-avatar">💎</div>
+  <div class="member-info">
+    <div class="member-name" style="color:#ffd700">JENNIE</div>
+    <div class="member-role">Průvodkyně poměry</div>
+    <div class="member-quote">„Poměry jsou jako mix tracků — každý díl musí sedět přesně. Nepočítej od oka! 💎"</div>
+  </div>
+</div>
+</div><div class="hints-section">
+<div class="hints-title" style="color:#B7770D">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
+<div class="hint-blocks"><div class="hint-block" style="background:#fffbf0;border-color:#B7770D">
+<h3>⚖️ Co je poměr — základ</h3>
+
+<div class="ex"><div class="lbl">Co poměr říká</div>
+Poměr 3:5 čteme „3 ku 5" — říká, že první je 3 díly a druhý 5 dílů.<br>
+Nezáleží na celkovém počtu — poměr popisuje <b>vztah</b> dvou čísel.
+</div>
+<div class="ex"><div class="lbl">Jak zjednodušit poměr</div>
+Obě čísla vydělíme stejným číslem (největším společným dělitelem):<br>
+<div class="hint-calc"><b>6:4</b> <span class="step-arrow">→ ÷ 2 →</span> <b>3:2</b></div> &nbsp;&nbsp; <div class="hint-calc"><b>15:25</b> <span class="step-arrow">→ ÷ 5 →</span> <b>3:5</b></div> &nbsp;&nbsp; <div class="hint-calc"><b>12:8</b> <span class="step-arrow">→ ÷ 4 →</span> <b>3:2</b></div>
+</div>
+<div class="ex"><div class="lbl">Poměr a zlomek — totéž!</div>
+Poměr 3:5 = zlomek 3/5 = „tři pětiny"<br>
+Poměr 1:4 = zlomek 1/4 = „čtvrtina"<br>
+Poměr 1:2 = zlomek 1/2 = „polovina"
+</div>
+<table class="htable">
+<tr><th style="background:#B7770D;color:white">Poměr</th><th style="background:#B7770D;color:white">Výpočet zlomku (z celku)</th><th style="background:#B7770D;color:white">Slovy</th></tr>
+<tr><td>1:2</td><td>÷ 2</td><td>polovina</td></tr>
+<tr><td>1:3</td><td>÷ 3</td><td>třetina</td></tr>
+<tr><td>1:4</td><td>÷ 4</td><td>čtvrtina</td></tr>
+<tr><td>1:5</td><td>÷ 5</td><td>pětina</td></tr>
+<tr><td>2:5</td><td>÷ 5 × 2</td><td>dvě pětiny</td></tr>
+</table>
+</div><div class="hint-block" style="background:#fffbf0;border-color:#D4AC0D">
+<h3>📐 Přímá úměrnost — výpočet bez rovnic</h3>
+
+<div class="ex"><div class="lbl">Jak může zadání vypadat (25r1 úloha 3)</div>
+<i>„Mirkovo kolo se otočilo 30×, tátovo 25× — urazili stejnou vzdálenost. Kolikrát se Mirkovo otočí, pokud tátovo 30×?"</i>
+</div>
+<div class="ex"><div class="lbl">Základní pravidlo přímé úměrnosti</div>
+Pokud jde čas 2× déle → vzdálenost 2× větší.<br>
+Pokud je rychlost 3× větší → za stejný čas ujede 3× dál.<br>
+<b>Stejný poměr, jiné hodnoty.</b>
+</div>
+<div class="ex"><div class="lbl">Metoda tabulky — vždy bezpečná</div>
+<table class="htable">
+<tr><th style="background:#B7770D;color:white">Mirkovo kolo</th><th style="background:#B7770D;color:white">Tátovo kolo</th></tr>
+<tr><td>30 otáček</td><td>25 otáček</td></tr>
+<tr><td><span class="fillin">?</span> otáček</td><td>30 otáček</td></tr>
+</table>
+Tátovo vzrostlo z 25 na 30 → násobíme 30÷25 = <b>6/5</b><br>
+Mirkovo: 30 × (6/5) = 30 × 6 ÷ 5 = 180 ÷ 5 = <span class="hint-result">36 otáček</span>
+</div>
+<div class="ex"><div class="lbl">Rychlý způsob: křížové násobení</div>
+Mirkovo × Tátovo2 = Tátovo × Mirkovo2<br>
+30 × 30 = 25 × <span class="fillin">?</span> → 900 = 25 × <span class="fillin">?</span> → <span class="fillin">?</span> = 900 ÷ 25 = <span class="hint-result">36</span>
+</div>
+</div><div class="hint-block" style="background:#fffbf0;border-color:#B7770D">
+<h3>🍕 Zlomky a části celku — jak počítat</h3>
+
+<div class="ex"><div class="lbl">Jak může zadání vypadat (25r1 úloha 10)</div>
+<i>„Maminka rozdělila peníze. Janě dala pětinu celkové částky, Ivo dostal dvakrát více než Jana a zbylých 240 Kč dala Evě. Kolik celkem?"</i>
+</div>
+<div class="ex"><div class="lbl">Krok 1: Zjisti, z ČEHO se počítá zlomek (základ = celek)</div>
+„Pětina <b>celkové částky</b>" → základ = celková částka = <span class="fillin">C</span><br>
+Jana = C ÷ 5 = <b>1/5 C</b><br>
+Ivo = 2 × (C ÷ 5) = <b>2/5 C</b><br>
+Eva = 240 Kč (zbytek)
+</div>
+<div class="ex"><div class="lbl">Krok 2: Doplň do celku = 1</div>
+Jana + Ivo + Eva = celkem<br>
+1/5 C + 2/5 C + 240 = C<br>
+3/5 C + 240 = C → 240 = C − 3/5 C = 2/5 C<br>
+C = 240 × 5 ÷ 2 = <span class="hint-result">600 Kč</span>
+</div>
+<div class="ex"><div class="lbl">Trik: zbývající část × (celek/zbytek) = celek</div>
+Zbývá 2/5 → celku, tedy 240 = 2/5 celku → celku = 240 ÷ 2 × 5 = <span class="hint-result">600 Kč ✓</span>
+</div>
+</div><div class="hint-block" style="background:#fffbf0;border-color:#D4AC0D">
+<h3>🔍 Záludná slova — ne vše je co vypadá</h3>
+
+<table class="htable">
+<tr><th style="background:#B7770D;color:white">Slovo v zadání</th><th style="background:#B7770D;color:white">Výpočet</th><th style="background:#B7770D;color:white">Příklad (základ=60)</th></tr>
+<tr><td><b>dvakrát více</b></td><td>základ × 2</td><td>60 × 2 = <b>120</b></td></tr>
+<tr><td><b>o 2 více</b></td><td>základ + 2</td><td>60 + 2 = <b>62</b></td></tr>
+<tr><td><b>o třetinu více</b></td><td>základ + základ÷3</td><td>60 + 20 = <b>80</b></td></tr>
+<tr><td><b>třetina z</b></td><td>základ ÷ 3</td><td>60 ÷ 3 = <b>20</b></td></tr>
+<tr><td><b>o třetinu méně</b></td><td>základ − základ÷3</td><td>60 − 20 = <b>40</b></td></tr>
+<tr><td><b>třikrát méně</b> ⚠️</td><td>základ ÷ 3 (ne −3!)</td><td>60 ÷ 3 = <b>20</b></td></tr>
+</table>
+<div class="ex"><div class="lbl">Nejčastější záměna: dvakrát více vs. o dvě více</div>
+„Ivo dostal <b>dvakrát více</b> než Jana" → Ivo = 2 × Jana (ne Jana + 2!)<br>
+Pokud Jana = 80 Kč → Ivo = 2 × 80 = <span class="hint-result">160 Kč</span>
+</div>
+</div><div class="hint-block" style="background:#fffbf0;border-color:#B7770D">
+<h3>➗ Rozdělit v poměru — krok za krokem</h3>
+
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Maminka rozdělila 240 Kč mezi Jana a Ivo v poměru 1:2."</i>
+</div>
+<div class="ex"><div class="lbl">Postup</div>
+<ol>
+<li>Sečti díly: 1 + 2 = <b>3 díly</b> celkem</li>
+<li>Jeden díl: 240 ÷ 3 = <b>80 Kč</b></li>
+<li>Jana: 1 díl = <b>80 Kč</b></li>
+<li>Ivo: 2 díly = 2 × 80 = <b>160 Kč</b></li>
+<li>Ověř: 80 + 160 = 240 ✓</li>
+</ol>
+</div>
+<div class="ex"><div class="lbl">Obecný vzorec</div>
+Poměr a:b → celkem ÷ (a+b) = <b>1 díl</b><br>
+<div class="hint-calc"><b>celkem</b> <span class="step-arrow">→ ÷ (a+b) →</span> <b>1 díl</b></div> → <div class="hint-calc"><b>1 díl</b> <span class="step-arrow">→ × a →</span> <b>část A</b></div> a <div class="hint-calc"><b>1 díl</b> <span class="step-arrow">→ × b →</span> <b>část B</b></div>
+</div>
+<div class="ex"><div class="lbl">Příklad: poměr kuliček (25r1 úloha 4)</div>
+Na váze: 1 velká (30g) + 2 malé (20g) na každou velkou, celkem 560g<br>
+Hledám: kolik velkých?<br>
+1 velká + 2 malé = 30 + 40 = <b>70g za skupinu</b><br>
+Počet skupin: 560 ÷ 70 = <b>8 skupin</b> → <span class="hint-result">8 velkých, 16 malých</span>
+</div>
+</div><div class="hint-block" style="background:#fff0f0;border-color:#C0392B">
+<h3>⚠️ Nejčastější chyby u poměrů a zlomků</h3>
+
+<table class="htable">
+<tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
+<tr><td>🔴 „Pětina celku" → dělím pětinou (×1/5) ale myslím ×5</td><td>Pětina = ÷5. Ověř: pětina ze 100 = 20, ne 500!</td></tr>
+<tr><td>🔴 „Dvakrát více" → přičítám 2 místo násobení 2</td><td>Dvakrát více = ×2. Třikrát více = ×3. „Více" = násobit!</td></tr>
+<tr><td>🔴 Zjednodušuji poměr: 6:4 = 3:2 — dělím jen jedno číslo</td><td>Vždy děl OBOJE čísla stejným číslem!</td></tr>
+<tr><td>🔴 U přímé úměrnosti: míchám čí hodnoty jsou čí</td><td>Vypiš tabulku: Mirkovo | Tátovo | řádek 1 a řádek 2</td></tr>
+<tr><td>🔴 „Zbývá 240 Kč" — myslím to je polovina celku</td><td>Zjisti, jaký zlomek zbývá (1 − součet ostatních dílů)</td></tr>
+</table>
+</div></div></div><div class="quiz-section">
+<div class="quiz-title" style="color:#B7770D">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
+<div class="q-num">Otázka 1</div>
+<div class="q-text">Mirkovo kolo se otočilo 30× a tátovo 25× — ujeli stejnou vzdálenost. Kolikrát se otočí Mirkovo, pokud se tátovo otočí 30×?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>30×</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>33×</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>36×</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>25×</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 2</div>
+<div class="q-text">Jana dostala pětinu z 400 Kč. Ivo dostal dvakrát více než Jana. Kolik korun dostal Ivo?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>80 Kč</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>160 Kč</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>240 Kč</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>320 Kč</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 3</div>
+<div class="q-text">Velká kulička váží 30 g, malá 20 g. Na váze je dvojnásobný počet malých oproti velkým. Celkem 560 g. Kolik je velkých kuliček?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>7</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>8</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>10</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>12</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 4</div>
+<div class="q-text">Zjednodušte poměr 15:25.</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>1:2</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>3:5</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>3:4</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>5:3</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 5</div>
+<div class="q-text">Maminka rozdělila 360 Kč mezi Jana a Ivo v poměru 1:2. Kolik dostala Jana?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>90 Kč</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>120 Kč</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>180 Kč</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>240 Kč</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#B7770D">
+<div class="quiz-answers-title" style="color:#B7770D">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_09001')" id="tg_a1_09001">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Mirkovo kolo se otočilo 30× a tátovo 25× — ujeli stejnou vzdálenost…</span>
+</div>
+<div class="ans-body" id="a1_09001">
+  <div class="ans-row-correct" style="color:#B7770D;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Poměr Mirkovo:Tátovo = 30:25 = 6:5. Tátovo vzrostlo na 30, tedy × (30/25) = × 6/5. Mirkovo: 30 × 6 ÷ 5 = 36. Nebo křížem: 30 × 30 = 25 × ? → ? = 900 ÷ 25 = 36.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a2_09002')" id="tg_a2_09002">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — Jana dostala pětinu z 400 Kč. Ivo dostal dvakrát více než Jana…</span>
+</div>
+<div class="ans-body" id="a2_09002">
+  <div class="ans-row-correct" style="color:#B7770D;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Jana = 400 ÷ 5 = 80 Kč. Ivo = 2 × 80 = 160 Kč. Pozor: „dvakrát více" = ×2 (ne +2!).</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a3_09003')" id="tg_a3_09003">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — Velká kulička váží 30 g, malá 20 g. Na váze je dvojnásobný počet malý…</span>
+</div>
+<div class="ans-body" id="a3_09003">
+  <div class="ans-row-correct" style="color:#B7770D;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">1 velká + 2 malé = 30 + 2×20 = 30+40 = 70 g za skupinu. 560 ÷ 70 = 8 skupin → 8 velkých a 16 malých. Ověř: 8×30 + 16×20 = 240+320 = 560 ✓</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a4_09004')" id="tg_a4_09004">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Zjednodušte poměr 15:25.</span>
+</div>
+<div class="ans-body" id="a4_09004">
+  <div class="ans-row-correct" style="color:#B7770D;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">GCD(15,25) = 5. Obě čísla vydělíme 5: 15÷5 = 3, 25÷5 = 5. Poměr 3:5. Ověř: 3×5 = 15 ✓ a 5×5 = 25 ✓</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a5_09005')" id="tg_a5_09005">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Maminka rozdělila 360 Kč mezi Jana a Ivo v poměru 1:2. Kolik dostala…</span>
+</div>
+<div class="ans-body" id="a5_09005">
+  <div class="ans-row-correct" style="color:#B7770D;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Celkem dílů: 1+2 = 3. Jeden díl: 360 ÷ 3 = 120 Kč. Jana: 1 díl = 120 Kč. Ivo: 2 díly = 240 Kč. Ověř: 120+240 = 360 ✓</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#D4AC0D"><div class="ex-header" style="background:#FEF9E722">
+  <div>
+    <div class="ex-num" style="color:#B7770D">✅ Příklad 1</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Kola s různými průměry</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#FEF9E7;color:#B7770D">✅ Vzorový příklad</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#D4AC0D">
+<strong>📋 Zadání:</strong>
+<p>Mirkovo kolo se otočilo 30× a tátovo 25× — ujeli stejnou vzdálenost.</p>
+<p>3.1 Kolikrát se otočilo Mirkovo kolo, pokud se tátovo otočilo 30×?</p>
+<p>3.2 Tátovo vykonalo o 30 otáček méně než Mirkovo. Kolikrát se otočilo Mirkovo?</p>
+</div><div class="steps"><div class="step">
+  <div class="step-num" style="background:#B7770D">1</div>
+  <div class="step-content" style="background:#fffbf0">
+    <div class="step-label">Zjistím poměr (z první informace)</div>
+    Mirkovo : Tátovo = 30 : 25 = <span class='calc'>6 : 5</span><br>→ Mirkovo se otočí vždy 6/5× více než tátovo.
+  </div>
+</div><div class="step">
+  <div class="step-num" style="background:#D4AC0D">2</div>
+  <div class="step-content" style="background:#fffbf0">
+    <div class="step-label">3.1 — Tátovo = 30, hledám Mirkovo</div>
+    Mirkovo = 30 × 6 ÷ 5 = <span class='calc'>36 otáček</span><br>Nebo křížem: 30 × 30 = 25 × ? → ? = 900 ÷ 25 = 36
+  </div>
+</div><div class="step">
+  <div class="step-num" style="background:#B7770D">3</div>
+  <div class="step-content" style="background:#fffbf0">
+    <div class="step-label">3.2 — Rozdíl = 30, hledám Mirkovo</div>
+    Každou skupinu: Mirkovo = 6 dílů, Tátovo = 5 dílů → rozdíl = 1 díl<br>1 díl = 30 → Mirkovo = 6 × 30 = <span class='calc'>180 otáček</span>
+  </div>
+</div></div><div class="result-box" style="background:#FEF9E7;color:#B7770D">
+<span class="r-icon">✅</span>
+<span>3.1: Mirkovo = 36 otáček &nbsp;|&nbsp; 3.2: Mirkovo = 180 otáček</span>
+</div></div></div><div class="example" style="border-color:#D4AC0D"><div class="ex-header" style="background:#fffbf022">
+  <div>
+    <div class="ex-num" style="color:#B7770D">💡 Příklad 2</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Rozdělení peněz na části</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#fffbf0;color:#B7770D">💡 S nápovědou</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#D4AC0D">
+<strong>📋 Zadání:</strong>
+<p>Maminka rozdělila peníze mezi tři děti.</p>
+<p>Janě dala pětinu celkové částky.</p>
+<p>Ivo dostal dvakrát více peněz než Jana.</p>
+<p>Zbylých 240 korun dala Evě.</p>
+<p>Kolik korun celkem maminka rozdělila?</p>
+</div><div class="hint-card" style="background:#fffbf0;border:1px solid #D4AC0D33">
+<h4 style="color:#D4AC0D">🧮 Postup — vyplň mezery:</h4>
+
+<div class="hint-step"><span class="hint-arrow">1.</span><span class="hint-text">Jana = celkem ÷ 5 = <span class="hint-blank"></span> Kč</span></div>
+<div class="hint-step"><span class="hint-arrow">2.</span><span class="hint-text">Ivo = 2 × Jana = <span class="hint-blank"></span> Kč</span></div>
+<div class="hint-step"><span class="hint-arrow">3.</span><span class="hint-text">Jana + Ivo = <span class="hint-blank"></span>/5 celkové částky</span></div>
+<div class="hint-step"><span class="hint-arrow">4.</span><span class="hint-text">Eva = celkem − Jana − Ivo = <span class="hint-blank"></span>/5 celkové = 240 Kč</span></div>
+<div class="hint-step"><span class="hint-arrow">5.</span><span class="hint-text">Celkem = 240 × 5 ÷ <span class="hint-blank"></span> = <span class="hint-blank"></span> Kč</span></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Celková částka = _____ Kč</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="example" style="border-color:#ddd"><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 3</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Velká a malá kulička</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Velká kulička váží 30 g a malá kulička váží 20 g.</p>
+<p>Anička položila na prázdnou váhu určitý počet velkých kuliček a dvojnásobný počet malých kuliček.</p>
+<p>Váha ukázala celkovou hmotnost 560 g.</p>
+<p>4.1 Určete počet všech kuliček (malých i velkých) položených na váze.</p>
+<p>4.2 Určete v gramech celkovou hmotnost všech malých kuliček.</p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="example" style="border-color:#ddd"><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 4</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Závodníci na lyžích</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2021 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Závod absolvovalo 6 závodníků. První vyběhl v 9:20, další vybíhali v půlminutových intervalech.</p>
+<p>Závodník A skončil v 10:04:30, závodník B v 10:02:00.</p>
+<p>Který závodník byl rychlejší a o kolik sekund?</p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="example" style="border-color:#ddd"><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 5</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Farmář s kravami</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>Farmář měl 7 krav, každá nadojila 15 l mléka denně.</p>
+<p>Farmář 5 prodal, přikoupil nové krávy (každá 20 l/den).</p>
+<p>Celkové množství za 2 dny původních 7 krav = množství za 1 den nynějších.</p>
+<p>Kolik krav farmář přikoupil?</p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="tip-box" style="background:#fffbf0;border-color:#D4AC0D">
+<span class="tip-icon">💡</span>
+<p>Poměr vždy zapiš jako tabulku (A | B) a doplňuj do ní. Křížové násobení ověř zpětným dosazením!</p>
+</div>
+</div>
+</body>
+</html>

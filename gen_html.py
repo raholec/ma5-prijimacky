@@ -3,7 +3,7 @@
 """Generator barevnych HTML pracovnich listu pro pripravu na prijimacky - MA5"""
 import base64, os, sys
 sys.path.insert(0, '/home/claude')
-from hints_data import HINTS_PL01,HINTS_PL02,HINTS_PL03,HINTS_PL04,HINTS_PL05,HINTS_PL06,HINTS_PL07,HINTS_PL08,QUIZ_PL01,QUIZ_PL02,QUIZ_PL03,QUIZ_PL04,QUIZ_PL05,QUIZ_PL06,QUIZ_PL07,QUIZ_PL08
+from hints_data import HINTS_PL01,HINTS_PL02,HINTS_PL03,HINTS_PL04,HINTS_PL05,HINTS_PL06,HINTS_PL07,HINTS_PL08,HINTS_PL09,QUIZ_PL01,QUIZ_PL02,QUIZ_PL03,QUIZ_PL04,QUIZ_PL05,QUIZ_PL06,QUIZ_PL07,QUIZ_PL08,QUIZ_PL09
 
 OUTDIR = "/mnt/user-data/outputs"
 IMGDIR = "/tmp/cropped"
@@ -346,6 +346,9 @@ BP_MEMBERS = {
     8: {"name": "JISOO",  "emoji": "🌸", "color": "#ff80c0",
         "role": "Průvodkyně jednotkami",
         "quote": "Převody jednotek jsou jako překlad z korejštiny — vždy zkontroluj slovník! 🌸"},
+    9: {"name": "JENNIE", "emoji": "💎", "color": "#ffd700",
+        "role": "Průvodkyně poměry",
+        "quote": "Poměry jsou jako mix tracků — každý díl musí sedět přesně. Nepočítej od oka! 💎"},
 }
 
 def cover(num, title, sub, pts, c_dark, c_mid, pdf_name=""):
@@ -524,6 +527,71 @@ def tip(icon, text, bg, border):
 
 def divider(text):
     return f"""<div class="divider"><span>✏️ {text}</span></div>"""
+
+# ══════════════════════════════════════════════════════════════════════
+# PL09 &mdash; POMĚRY A ZLOMKY
+# ══════════════════════════════════════════════════════════════════════
+def pl09():
+    CD="#B7770D"; CM="#D4AC0D"; CL="#FEF9E7"
+    body = cover(9,"Poměry a zlomky","Přímá úměrnost, části celku, záludná slova v zadání","2&ndash;4",CD,CM, "PL09_Pomery_a_zlomky.pdf")
+
+    body += hints_start(CD)
+    body += build_hints(HINTS_PL09)
+    body += hints_end()
+
+    body += build_quiz(QUIZ_PL09, CD)
+    body += build_quiz_answers(QUIZ_PL09, CD)
+
+    body += divider("PŘÍKLADY K PROCVIČENÍ")
+
+    # EXAMPLE 1 — SOLVED
+    body += '<div class="example" style="border-color:#D4AC0D">'
+    body += ex_header(1,"Kola s různými průměry","2025 &middot; 1. řádný termín","#FEF9E7","#B7770D","✅ Vzorový příklad","✅")
+    body += '<div class="ex-body">'
+    body += zadani("Mirkovo kolo se otočilo 30× a tátovo 25× — ujeli stejnou vzdálenost.\n3.1 Kolikrát se otočilo Mirkovo kolo, pokud se tátovo otočilo 30×?\n3.2 Tátovo vykonalo o 30 otáček méně než Mirkovo. Kolikrát se otočilo Mirkovo?","#D4AC0D")
+    body += '<div class="steps">'
+    body += step(1,"Zjistím poměr (z první informace)","Mirkovo : Tátovo = 30 : 25 = <span class='calc'>6 : 5</span><br>→ Mirkovo se otočí vždy 6/5× více než tátovo.","#B7770D","#fffbf0")
+    body += step(2,"3.1 — Tátovo = 30, hledám Mirkovo","Mirkovo = 30 × 6 ÷ 5 = <span class='calc'>36 otáček</span><br>Nebo křížem: 30 × 30 = 25 × ? → ? = 900 ÷ 25 = 36","#D4AC0D","#fffbf0")
+    body += step(3,"3.2 — Rozdíl = 30, hledám Mirkovo","Každou skupinu: Mirkovo = 6 dílů, Tátovo = 5 dílů → rozdíl = 1 díl<br>1 díl = 30 → Mirkovo = 6 × 30 = <span class='calc'>180 otáček</span>","#B7770D","#fffbf0")
+    body += '</div>'
+    body += result("✅","3.1: Mirkovo = 36 otáček &nbsp;|&nbsp; 3.2: Mirkovo = 180 otáček","#FEF9E7","#B7770D")
+    body += '</div></div>'
+
+    # EXAMPLE 2 — WITH HINTS
+    body += '<div class="example" style="border-color:#D4AC0D">'
+    body += ex_header(2,"Rozdělení peněz na části","2025 &middot; 1. řádný termín","#fffbf0","#B7770D","💡 S nápovědou","💡")
+    body += '<div class="ex-body">'
+    body += zadani("Maminka rozdělila peníze mezi tři děti.\nJaně dala pětinu celkové částky.\nIvo dostal dvakrát více peněz než Jana.\nZbylých 240 korun dala Evě.\nKolik korun celkem maminka rozdělila?","#D4AC0D")
+    body += hint_card("🧮","Postup — vyplň mezery:","""
+<div class="hint-step"><span class="hint-arrow">1.</span><span class="hint-text">Jana = celkem ÷ 5 = <span class="hint-blank"></span> Kč</span></div>
+<div class="hint-step"><span class="hint-arrow">2.</span><span class="hint-text">Ivo = 2 × Jana = <span class="hint-blank"></span> Kč</span></div>
+<div class="hint-step"><span class="hint-arrow">3.</span><span class="hint-text">Jana + Ivo = <span class="hint-blank"></span>/5 celkové částky</span></div>
+<div class="hint-step"><span class="hint-arrow">4.</span><span class="hint-text">Eva = celkem − Jana − Ivo = <span class="hint-blank"></span>/5 celkové = 240 Kč</span></div>
+<div class="hint-step"><span class="hint-arrow">5.</span><span class="hint-text">Celkem = 240 × 5 ÷ <span class="hint-blank"></span> = <span class="hint-blank"></span> Kč</span></div>""","#fffbf0","#D4AC0D")
+    body += answer_box("Celková částka = _____ Kč")
+    body += '</div></div>'
+
+    # EXAMPLES 3–5 — SOLO
+    solos = [
+        ("3","Velká a malá kulička","2025 &middot; 1. řádný termín",
+         "Velká kulička váží 30 g a malá kulička váží 20 g.\nAnička položila na prázdnou váhu určitý počet velkých kuliček a dvojnásobný počet malých kuliček.\nVáha ukázala celkovou hmotnost 560 g.\n4.1 Určete počet všech kuliček (malých i velkých) položených na váze.\n4.2 Určete v gramech celkovou hmotnost všech malých kuliček."),
+        ("4","Závodníci na lyžích","2021 &middot; 1. řádný termín",
+         "Závod absolvovalo 6 závodníků. První vyběhl v 9:20, další vybíhali v půlminutových intervalech.\nZávodník A skončil v 10:04:30, závodník B v 10:02:00.\nKterý závodník byl rychlejší a o kolik sekund?"),
+        ("5","Farmář s kravami","2025 &middot; 1. řádný termín",
+         "Farmář měl 7 krav, každá nadojila 15 l mléka denně.\nFarmář 5 prodal, přikoupil nové krávy (každá 20 l/den).\nCelkové množství za 2 dny původních 7 krav = množství za 1 den nynějších.\nKolik krav farmář přikoupil?"),
+    ]
+    for num, title, src, zad in solos:
+        body += f'<div class="example" style="border-color:#ddd">'
+        body += ex_header(num, title, src, "#e8f5e9","#1E8449","🖊 Vyřeš sám/sama","🖊")
+        body += '<div class="ex-body">'
+        body += zadani(zad)
+        body += scratch(7)
+        body += answer_box()
+        body += '</div></div>'
+
+    body += tip("💡","Poměr vždy zapiš jako tabulku (A | B) a doplňuj do ní. Křížové násobení ověř zpětným dosazením!","#fffbf0","#D4AC0D")
+
+    return body
 
 # ══════════════════════════════════════════════════════════════════════
 # PL07 &mdash; VÝRAZY A ZÁVORKY (pišeme jako první - kratší, dobrý test)
@@ -1411,6 +1479,7 @@ SHEETS = [
     (6,"Obvod_a_obsah",          "515A5A","7F8C8D","F2F3F4","FFFFFF", pl06),
     (7,"Vyrazy_a_zavorky",       "C0392B","E74C3C","FDEDEC","FFFFFF", pl07),
     (8,"Jednotky_a_prevody",     "784212","A56A2A","FAE5D3","FFFFFF", pl08),
+    (9,"Pomery_a_zlomky",        "B7770D","D4AC0D","FEF9E7","FFFFFF", pl09),
 ]
 
 for num, name, cd, cm, cl, ct, fn in SHEETS:
