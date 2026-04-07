@@ -272,18 +272,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
                         padding: 20px; margin-top: 14px; margin-bottom: 8px;
                         background: #f8f9ff; }
+
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
-                      text-transform: uppercase; margin-bottom: 16px;
-                      display: flex; align-items: center; gap: 8px; }
-.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
-                overflow: hidden; border: 1px solid #c5cae9; }
-.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
-               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
-               text-transform: uppercase; letter-spacing: .4px; }
-.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
-.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+                      text-transform: uppercase; margin-bottom: 14px; }
 .ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
 
 @media print {
   body { background: white; padding: 0; font-size: 13px; }
@@ -301,6 +294,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </style>
 </head>
 <body>
+
 <div class="page">
 <div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
 <div class="cover" style="background:linear-gradient(135deg,#6C3483ee,#9B59B6cc,#1a0010)">
@@ -326,18 +320,26 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 <div class="hint-blocks"><div class="hint-block" style="background:#f9f0ff;border-color:#6C3483">
 <h3>📊 5 kroků jak číst graf — VŽDY stejně</h3>
 
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Graf znázorňuje kg vytříděného odpadu. Rozhodněte, která tvrzení jsou pravdivá (A) nebo nepravdivá (N)."</i>
+</div>
 <ol>
 <li>Přečti <b>název grafu</b> — co se měřilo a v jakých jednotkách?</li>
 <li>Přečti <b>svislou osu</b> — kolik je JEDEN dílek? Začíná od nuly?</li>
-<li>Přečti <b>legendu</b> — co znamenají barvy sloupců?</li>
-<li>Odečti hodnoty VŠECH sloupců a <b>zapiš do tabulky</b></li>
-<li>Až pak ověřuj tvrzení — jedno po druhém</li>
+<li>Přečti <b>legendu</b> — co znamenají barvy sloupců nebo čar?</li>
+<li>Odečti hodnoty VŠECH sloupců a <b>zapiš do tabulky tužkou</b> na papír!</li>
+<li>Až pak ověřuj tvrzení — jedno po druhém, pro každé spočítej konkrétní číslo</li>
 </ol>
-<div class="ex"><div class="lbl">Časté pasti při čtení grafu</div>
+<div class="ex"><div class="lbl">Jak odečíst hodnotu ze sloupce</div>
+Sloupec sahá po 6. dílek. Osa: 1 dílek = 10 kg.<br>
+<div class="hint-calc"><b>6 dílky</b> <span class="step-arrow">→ × 10 kg →</span> <b>60 kg</b></div> ← to je hodnota sloupce.
+</div>
+<div class="ex"><div class="lbl">⚠️ Nejčastější chyby</div>
 <ul>
-<li>Osa nemusí začínat od nuly! Vždy si ověř první hodnotu na ose.</li>
-<li>1 dílek nemusí být 1 nebo 10 — může to být 5, 20, 50...</li>
-<li>Záporné sloupce (dolů) = utraceno; kladné (nahoru) = ušetřeno</li>
+<li>Osa <b>nemusí začínat od nuly!</b> Vždy si ověř, kde osa začíná.</li>
+<li>1 dílek nemusí být 10 — může být 5, 20, 50, 100... vždy přečti.</li>
+<li>Záporné sloupce (dolů) = utraceno; kladné (nahoru) = ušetřeno.</li>
+<li>Graf s mincemi — hodnoty jsou počty mincí, ale tvrzení mluví o <b>korunách</b> → přepočítej!</li>
 </ul>
 </div>
 </div><div class="hint-block" style="background:#f9f0ff;border-color:#9B59B6">
@@ -425,37 +427,65 @@ Součet záporných: 150+300+400 = 850 Kč<br>
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Lukáš začínal se 600&nbsp;Kč. V únoru ušetřil +200&nbsp;Kč, v březnu utratil −150&nbsp;Kč. Kolik Kč mu zbývá?<div class="quiz-chart"><svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;display:block;margin:10px 0"><text x="260" y="20" font-size="14" fill="#333" font-family="sans-serif" text-anchor="middle" font-weight="bold">Lukášovy měsíční úspory/výdaje (Kč)</text><line x1="75" y1="270.0" x2="445" y2="270.0" stroke="#eee" stroke-width="1"/><text x="67" y="275.0" font-size="12" fill="#888" font-family="sans-serif" text-anchor="end">-150</text><line x1="75" y1="240.0" x2="445" y2="240.0" stroke="#eee" stroke-width="1"/><text x="67" y="245.0" font-size="12" fill="#888" font-family="sans-serif" text-anchor="end">-100</text><line x1="75" y1="210.0" x2="445" y2="210.0" stroke="#eee" stroke-width="1"/><text x="67" y="215.0" font-size="12" fill="#888" font-family="sans-serif" text-anchor="end">-50</text><line x1="75" y1="180.0" x2="445" y2="180.0" stroke="#bbb" stroke-width="2"/><text x="67" y="185.0" font-size="12" fill="#333" font-family="sans-serif" text-anchor="end" font-weight="bold">0</text><line x1="75" y1="150.0" x2="445" y2="150.0" stroke="#eee" stroke-width="1"/><text x="67" y="155.0" font-size="12" fill="#888" font-family="sans-serif" text-anchor="end">50</text><line x1="75" y1="120.0" x2="445" y2="120.0" stroke="#eee" stroke-width="1"/><text x="67" y="125.0" font-size="12" fill="#888" font-family="sans-serif" text-anchor="end">100</text><line x1="75" y1="90.0" x2="445" y2="90.0" stroke="#eee" stroke-width="1"/><text x="67" y="95.0" font-size="12" fill="#888" font-family="sans-serif" text-anchor="end">150</text><line x1="75" y1="60.0" x2="445" y2="60.0" stroke="#eee" stroke-width="1"/><text x="67" y="65.0" font-size="12" fill="#888" font-family="sans-serif" text-anchor="end">200</text><text x="15" y="36" font-size="12" fill="#888" font-family="sans-serif" text-anchor="start">Kč / měsíc</text><line x1="75" y1="32" x2="75" y2="292" stroke="#bbb" stroke-width="2"/><text x="130" y="310" font-size="13" fill="#444" font-family="sans-serif" text-anchor="middle" font-weight="bold">Leden</text><text x="130" y="200" font-size="11" fill="#aaa" font-family="sans-serif" text-anchor="middle">(žádná změna)</text><text x="240" y="310" font-size="13" fill="#444" font-family="sans-serif" text-anchor="middle" font-weight="bold">Únor</text><rect x="205" y="60.0" width="70" height="120.0" rx="6" fill="#27AE60" opacity="0.9"/><text x="240" y="50.0" font-size="14" fill="#27AE60" font-family="sans-serif" text-anchor="middle" font-weight="bold">+200 Kč</text><text x="240" y="34.0" font-size="12" fill="#27AE60" font-family="sans-serif" text-anchor="middle">ušetřil ↑</text><text x="350" y="310" font-size="13" fill="#444" font-family="sans-serif" text-anchor="middle" font-weight="bold">Březen</text><rect x="315" y="180" width="70" height="90.0" rx="6" fill="#E74C3C" opacity="0.9"/><text x="350" y="284.0" font-size="14" fill="#E74C3C" font-family="sans-serif" text-anchor="middle" font-weight="bold">-150 Kč</text><text x="350" y="300.0" font-size="12" fill="#E74C3C" font-family="sans-serif" text-anchor="middle">utratil ↓</text><rect x="461" y="60" width="49" height="165" rx="8" fill="#f8faff" opacity="1.0"/><rect x="461" y="60" width="49" height="165" rx="8" fill="none" stroke="#bcd" stroke-width="1.5"/><text x="471" y="82" font-size="13" fill="#888" font-family="sans-serif" text-anchor="start">Výpočet:</text><text x="471" y="104" font-size="12" fill="#888" font-family="sans-serif" text-anchor="start">Začátek:</text><text x="471" y="122" font-size="16" fill="#1A5276" font-family="sans-serif" text-anchor="start" font-weight="bold">600 Kč</text><line x1="471" y1="130" x2="500" y2="130" stroke="#ddd" stroke-width="1"/><text x="471" y="148" font-size="14" fill="#27AE60" font-family="sans-serif" text-anchor="start" font-weight="bold">+ 200 Kč</text><text x="471" y="170" font-size="14" fill="#E74C3C" font-family="sans-serif" text-anchor="start" font-weight="bold">− 150 Kč</text><line x1="471" y1="180" x2="500" y2="180" stroke="#aaa" stroke-width="1.5"/><text x="471" y="200" font-size="18" fill="#aaa" font-family="sans-serif" text-anchor="start" font-weight="bold">= ? Kč</text><rect x="75" y="318" width="14" height="14" rx="3" fill="#27AE60" opacity="0.9"/><text x="93" y="329" font-size="12" fill="#444" font-family="sans-serif" text-anchor="start">ušetřil (sloupec nahoru)</text><rect x="335" y="318" width="14" height="14" rx="3" fill="#E74C3C" opacity="0.9"/><text x="353" y="329" font-size="12" fill="#444" font-family="sans-serif" text-anchor="start">utratil (sloupec dolů)</text></svg></div></div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>350 Kč</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>600 Kč</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>650 Kč</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>750 Kč</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#6C3483">
-<div class="quiz-answers-title" style="color:#6C3483">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#6C3483">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Oddíl S vytřídil 90 kg papíru. Oddíl R vytřídil o třetinu méně než S. Kolik kg papíru vytřídil oddíl R?</div>
-<div class="ans-row-correct" style="color:#6C3483">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Třetina ze S = 90 ÷ 3 = 30 kg. R = S − třetina z S = 90 − 30 = 60 kg. Pozor: třetinu vždy počítám ze S (ze hodnoty se kterou srovnávám), ne z R!</div>
+<div class="quiz-answers-title" style="color:#6C3483">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_13929')" id="tg_a1_13929">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Oddíl S vytřídil 90 kg papíru. Oddíl R vytřídil o třetinu méně než S. …</span>
+</div>
+<div class="ans-body" id="a1_13929">
+  <div class="ans-row-correct" style="color:#6C3483;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Třetina ze S = 90 ÷ 3 = 30 kg. R = S − třetina z S = 90 − 30 = 60 kg. Pozor: třetinu vždy počítám ze S (ze hodnoty se kterou srovnávám), ne z R!</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#6C3483">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Na svislé ose grafu je 1 dílek = 10 osob a osa začíná od 20. Sloupec sahá po 4.&nbsp;dílek. Kolik osob to je?</div>
-<div class="ans-row-correct" style="color:#6C3483">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Osa začíná od 20, 1 dílek = 10. Čtvrtý dílek = 20 + 4×10 = 60 osob. Vždy si zkontroluj kde osa začíná — nemusí to být od nuly!</div>
+<div class="ans-toggle" onclick="tA('a2_870')" id="tg_a2_870">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — Na svislé ose grafu je 1 dílek = 10 osob a osa začíná od 20. Sloupec s…</span>
+</div>
+<div class="ans-body" id="a2_870">
+  <div class="ans-row-correct" style="color:#6C3483;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Osa začíná od 20, 1 dílek = 10. Čtvrtý dílek = 20 + 4×10 = 60 osob. Vždy si zkontroluj kde osa začíná — nemusí to být od nuly!</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#6C3483">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Tomáš vložil do kasičky v únoru 4 padesátikorunové mince. Kolik korun to celkem je?</div>
-<div class="ans-row-correct" style="color:#6C3483">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">4 mince × 50 Kč = 200 Kč. Grafy s kasičkou ukazují počty mincí — vždy přepočítej na koruny před tím, než začneš ověřovat tvrzení!</div>
+<div class="ans-toggle" onclick="tA('a3_43291')" id="tg_a3_43291">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — Tomáš vložil do kasičky v únoru 4 padesátikorunové mince. Kolik korun …</span>
+</div>
+<div class="ans-body" id="a3_43291">
+  <div class="ans-row-correct" style="color:#6C3483;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">4 mince × 50 Kč = 200 Kč. Grafy s kasičkou ukazují počty mincí — vždy přepočítej na koruny před tím, než začneš ověřovat tvrzení!</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#6C3483">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Tvrzení: <i>Počet žen se poprvé snížil v roce 2018.</i><br>Data: 2015 = 30, 2016 = 35, 2017 = 37, 2018 = 34. Je tvrzení pravdivé?</div>
-<div class="ans-row-correct" style="color:#6C3483">✅ Správná odpověď: <b>A</b></div>
-<div class="ans-row-exp">Kontroluji: 2015→2016 vzrostlo (30→35), 2016→2017 vzrostlo (35→37) — v obou případech se NESNÍŽILO. 2017→2018 kleslo (37→34) — toto je PRVNÍ snížení. Tvrzení je pravdivé.</div>
+<div class="ans-toggle" onclick="tA('a4_7050')" id="tg_a4_7050">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Tvrzení: Počet žen se poprvé snížil v roce 2018.Data: 2015 = 30, 2016 …</span>
+</div>
+<div class="ans-body" id="a4_7050">
+  <div class="ans-row-correct" style="color:#6C3483;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: A
+  </div>
+  <div class="ans-row-exp">Kontroluji: 2015→2016 vzrostlo (30→35), 2016→2017 vzrostlo (35→37) — v obou případech se NESNÍŽILO. 2017→2018 kleslo (37→34) — toto je PRVNÍ snížení. Tvrzení je pravdivé.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#6C3483">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Lukáš začínal se 600&nbsp;Kč. V únoru ušetřil +200&nbsp;Kč, v březnu utratil −150&nbsp;Kč. Kolik Kč mu zbývá?</div>
-<div class="ans-row-correct" style="color:#6C3483">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">600 + 200 − 150 = 650 Kč. Sloupec nahoru = přičítám (ušetřil). Sloupec dolů = odečítám (utratil).</div>
-</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#9B59B6"><div class="ex-header" style="background:#F4ECF722">
+<div class="ans-toggle" onclick="tA('a5_35593')" id="tg_a5_35593">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Lukáš začínal se 600&nbsp;Kč. V únoru ušetřil +200&nbsp;Kč, v březnu u…</span>
+</div>
+<div class="ans-body" id="a5_35593">
+  <div class="ans-row-correct" style="color:#6C3483;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">600 + 200 − 150 = 650 Kč. Sloupec nahoru = přičítám (ušetřil). Sloupec dolů = odečítám (utratil).</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#9B59B6"><div class="ex-header" style="background:#F4ECF722">
   <div>
     <div class="ex-num" style="color:#6C3483">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Turistický oddíl &mdash; muži a ženy 2015&ndash;2018</div>

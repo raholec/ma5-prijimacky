@@ -249,6 +249,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
               margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
 .quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
           border-left: 5px solid #3949ab; }
+.quiz-chart { margin: 8px 0 4px; background: #f8faff; border-radius: 8px;
+              padding: 8px 12px; border: 1px solid #dde; overflow-x: auto; }
 .quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
                  letter-spacing: .5px; margin-bottom: 6px; }
 .quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
@@ -270,18 +272,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
                         padding: 20px; margin-top: 14px; margin-bottom: 8px;
                         background: #f8f9ff; }
+
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
-                      text-transform: uppercase; margin-bottom: 16px;
-                      display: flex; align-items: center; gap: 8px; }
-.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
-                overflow: hidden; border: 1px solid #c5cae9; }
-.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
-               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
-               text-transform: uppercase; letter-spacing: .4px; }
-.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
-.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+                      text-transform: uppercase; margin-bottom: 14px; }
 .ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
 
 @media print {
   body { background: white; padding: 0; font-size: 13px; }
@@ -299,6 +294,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </style>
 </head>
 <body>
+
 <div class="page">
 <div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
 <div class="cover" style="background:linear-gradient(135deg,#1E8449ee,#27AE60cc,#1a0010)">
@@ -327,19 +323,34 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 <div class="ex"><div class="lbl">Kdy nakreslit tabulku</div>
 Kdykoli je v zadání více skupin nebo více vlastností — nakresli tabulku hned na začátku.
 </div>
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Dům má 3 patra a bydlí v něm 11 dětí. Ve 2. patře bydlí jen dívky. V 1.+2. patře dohromady 8 dětí. Ze všech chlapců bydlí mimo 3. patro jen 3."</i>
+</div>
+<div class="ex"><div class="lbl">Krok 1: Nakresli prázdnou tabulku</div>
 <table class="htable">
 <tr><th style="background:#1E8449;color:white">Patro</th><th style="background:#1E8449;color:white">Chlapci</th><th style="background:#1E8449;color:white">Dívky</th><th style="background:#1E8449;color:white">Celkem</th></tr>
 <tr><td>1.</td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td></tr>
-<tr><td>2.</td><td style="background:#fff3cd;color:#c0392b;font-weight:700">0 ← jen dívky!</td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td></tr>
+<tr><td>2.</td><td style="background:#fff3cd;font-weight:700">0 ← jen dívky!</td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td></tr>
 <tr><td>3.</td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td></tr>
 <tr><td><b>CELKEM</b></td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td><td><b>11</b></td></tr>
 </table>
-<div class="ex"><div class="lbl">Postup vyplňování</div>
-<ol>
-<li>Začni od políček, která <b>znáš přímo</b> ze zadání</li>
-<li>Dopočítej sousední políčka (součty řádků a sloupců musí sedět)</li>
-<li>Postupuj dokud není tabulka celá vyplněna</li>
-</ol>
+</div>
+<div class="ex"><div class="lbl">Krok 2: Doplň co znáš přímo ze zadání</div>
+<ul>
+<li>2. patro: chlapci = <b>0</b> (jen dívky)</li>
+<li>1.+2. patro celkem = <b>8</b> → 3. patro = 11−8 = <b>3 děti</b></li>
+<li>Chlapci mimo 3. patro = jen 3 → chlapci v 1.+2. = <b>3</b> → chlapci ve 2. = 0 → chlapci v 1. = <b>3</b></li>
+</ul>
+</div>
+<div class="ex"><div class="lbl">Krok 3: Dopočítej zbývající (řádky a sloupce musí sedět)</div>
+<table class="htable">
+<tr><th style="background:#1E8449;color:white">Patro</th><th style="background:#1E8449;color:white">Chlapci</th><th style="background:#1E8449;color:white">Dívky</th><th style="background:#1E8449;color:white">Celkem</th></tr>
+<tr><td>1.</td><td><b>3</b></td><td><b>?</b></td><td><b>?</b></td></tr>
+<tr><td>2.</td><td><b>0</b></td><td><b>?</b></td><td><b>?</b></td></tr>
+<tr><td>3.</td><td><b>?</b></td><td><b>?</b></td><td><b>3</b></td></tr>
+<tr><td>CELKEM</td><td><b>?</b></td><td><b>?</b></td><td><b>11</b></td></tr>
+</table>
+Doplňuj tak, aby každý řádek i sloupec dal správný součet!
 </div>
 </div><div class="hint-block" style="background:#eafaf1;border-color:#27AE60">
 <h3>🔵 Vennův diagram — průnik skupin</h3>
@@ -435,8 +446,10 @@ Kdykoli je v zadání více skupin nebo více vlastností — nakresli tabulku h
 Celkem = část ÷ X × Y<br>
 Příklad: ⅔ = 30 → celkem = 30 ÷ 2 × 3 = 45 ✓
 </div>
-<div class="ex"><div class="lbl">Příklad: Ondra+Pavel+Šárka = 750 Kč. 5×Šárka = 750÷3</div>
-<div class="hint-calc"><b>750÷3</b> <span class="step-arrow">→ = →</span> <b>250</b> <span class="step-arrow">→ ÷5 →</span> <b>Šárka = 50 Kč</b></div>
+<div class="ex"><div class="lbl">Příklad: Ondra, Pavel a Šárka mají dohromady 750 Kč. Ondra má 2× tolik co Šárka. Pavel má také 2× tolik co Šárka. Kolik má Šárka?</div>
+Označím Šárku jako <span class="fillin">?</span>. Ondra = 2×<span class="fillin">?</span>, Pavel = 2×<span class="fillin">?</span>.<br>
+<span class="fillin">?</span> + 2×<span class="fillin">?</span> + 2×<span class="fillin">?</span> = 5×<span class="fillin">?</span> = 750 Kč<br>
+<span class="fillin">?</span> = 750 ÷ 5 = <span class="hint-result">150 Kč</span>. Ondra = Pavel = 300 Kč. Ověř: 150+300+300 = 750 ✓
 </div>
 </div><div class="hint-block" style="background:#eafaf1;border-color:#1E8449">
 <h3>💡 Dosaď jednu podmínku do druhé</h3>
@@ -460,51 +473,79 @@ Příklad: ⅔ = 30 → celkem = 30 ÷ 2 × 3 = 45 ✓
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#1E8449">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
 <div class="q-num">Otázka 1</div>
-<div class="q-text">Kroužky SEN: sportovní navštěvuje 14 dětí, divadelní 12, robotický 6. Právě 2 kroužky navštěvují 8 dětí, všechny 3 navštěvují 3 děti. Kolik dětí je v klubu celkem?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>32 dětí</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>21 dětí</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>18 dětí</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>14 dětí</span></div></div></div><div class="quiz-q">
+<div class="q-text">Ve skupině 32 dětí: 20 dětí plave, 18 dětí hraje tenis. Právě 8 dětí dělá obojí. Kolik dětí plave, ale nehraje tenis?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>8</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>12</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>14</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>20</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 2</div>
-<div class="q-text">Ve 2. patře bydlí jen dívky. Celkem je v domě 11 dětí. Kolik chlapců bydlí ve 2. patře?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>0</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>3</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Nevím bez dalšího zadání</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Záleží na celkovém počtu dívek</span></div></div></div><div class="quiz-q">
+<div class="q-text">V součtovém trojúhelníku platí: v horní řadě je vlevo číslo 4, střední políčko druhé řady je 15, výsledné číslo dole je 42. Jaká čísla jsou v horní řadě na místech označených ?<div class="quiz-chart" style="text-align:center"><svg viewBox="0 0 320 175" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;display:inline-block"><line x1="92" y1="52" x2="105" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="118" y1="52" x2="105" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="182" y1="52" x2="195" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="208" y1="52" x2="195" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="137" y1="114" x2="150" y2="134" stroke="#bbb" stroke-width="1.5"/><line x1="227" y1="114" x2="182" y2="134" stroke="#bbb" stroke-width="1.5"/><rect x="28" y="10" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="60" y="37" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">4</text><rect x="118" y="10" width="64" height="42" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/><text x="150" y="37" font-size="18" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text><rect x="208" y="10" width="64" height="42" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/><text x="240" y="37" font-size="18" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text><rect x="73" y="72" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="105" y="99" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">15</text><rect x="163" y="72" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="195" y="99" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">?</text><rect x="118" y="134" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="150" y="161" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">42</text></svg></div></div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>?, ? = 11, 16</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>?, ? = 11, 15</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>?, ? = 13, 14</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>?, ? = 10, 17</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 3</div>
-<div class="q-text">Součtový trojúhelník: nahoře □ □ 8, dole je 44 a obě horní čísla jsou stejná. Jaké je to číslo?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>8</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>10</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>12</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>14</span></div></div></div><div class="quiz-q">
+<div class="q-text">V součtovém trojúhelníku jsou v horní řadě dvě stejná čísla A a třetí číslo 6. Výsledek dole je 30. Jaká hodnota má číslo A?<div class="quiz-chart" style="text-align:center"><svg viewBox="0 0 320 175" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;display:inline-block"><line x1="92" y1="52" x2="105" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="118" y1="52" x2="105" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="182" y1="52" x2="195" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="208" y1="52" x2="195" y2="72" stroke="#bbb" stroke-width="1.5"/><line x1="137" y1="114" x2="150" y2="134" stroke="#bbb" stroke-width="1.5"/><line x1="227" y1="114" x2="182" y2="134" stroke="#bbb" stroke-width="1.5"/><rect x="28" y="10" width="64" height="42" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/><text x="60" y="37" font-size="18" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">A</text><rect x="118" y="10" width="64" height="42" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/><text x="150" y="37" font-size="18" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">A</text><rect x="208" y="10" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="240" y="37" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">6</text><rect x="73" y="72" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="105" y="99" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">2A</text><rect x="163" y="72" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="195" y="99" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">A+6</text><rect x="118" y="134" width="64" height="42" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.8"/><text x="150" y="161" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">30</text></svg></div></div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>6</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>7</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>8</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>9</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 4</div>
-<div class="q-text">Třetina kuliček je žlutých (15), červených je 12, zbývající jsou modré. Kolik je modrých?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>15</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>18</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>20</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>27</span></div></div></div><div class="quiz-q">
+<div class="q-text">Čtvrtina všech bonbónů v krabičce je červených. Červených bonbónů je 12. Kolik bonbónů je v krabičce celkem?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>36</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>48</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>52</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>60</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 5</div>
-<div class="q-text">Jana koupila linkované a čtverečkované sešity. 2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí jako 3 linkované. Kolik stojí 1 čtverečkovaný sešit?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>36 Kč</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>45 Kč</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>54 Kč</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>60 Kč</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#1E8449">
-<div class="quiz-answers-title" style="color:#1E8449">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kroužky SEN: sportovní navštěvuje 14 dětí, divadelní 12, robotický 6. Právě 2 kroužky navštěvují 8 dětí, všechny 3 navštěvují 3 děti. Kolik dětí je v klubu celkem?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Součet kroužků: 14+12+6 = 32. Odečtu děti co se počítají víckrát: ty v právě 2 kroužcích jsou počítány 2× → odečtu je jednou: −8. Ty ve všech 3 kroužcích jsou počítány 3× → odečtu je dvakrát: −3×2 = −6. Celkem: 32 − 8 − 6 = 18 dětí.</div>
+<div class="q-text">Lucie je 3× starší než její bratr. Dohromady mají 24 let. Kolik let je Lucii?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>6 let</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>12 let</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>18 let</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>8 let</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#1E8449">
+<div class="quiz-answers-title" style="color:#1E8449">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_2163')" id="tg_a1_2163">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Ve skupině 32 dětí: 20 dětí plave, 18 dětí hraje tenis. Právě 8 dětí d…</span>
+</div>
+<div class="ans-body" id="a1_2163">
+  <div class="ans-row-correct" style="color:#1E8449;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Plave celkem 20. Z nich 8 dělá i tenis. Pouze plave: 20 − 8 = 12 dětí. Tip: nakresli si tabulku nebo Vennův diagram s plováním a tenisem.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Ve 2. patře bydlí jen dívky. Celkem je v domě 11 dětí. Kolik chlapců bydlí ve 2. patře?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>A</b></div>
-<div class="ans-row-exp">Podmínka říká: ve 2. patře bydlí JEN dívky. To přímo znamená, že žádný chlapec ve 2. patře nebydlí → chlapců ve 2. patře je 0. Nepotřebujeme žádné další počítání.</div>
+<div class="ans-toggle" onclick="tA('a2_60802')" id="tg_a2_60802">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — V součtovém trojúhelníku platí: v horní řadě je vlevo číslo 4, střední…</span>
+</div>
+<div class="ans-body" id="a2_60802">
+  <div class="ans-row-correct" style="color:#1E8449;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: A
+  </div>
+  <div class="ans-row-exp">Střed vlevo = horní_vlevo + horní_střed = 4 + ? = 15 → prostřední číslo = 11. Prostřední řádek vpravo = 11 + ? = ?. Výsledek dole = střed_vlevo + střed_vpravo = 15 + (11 + ?) = 42 → 11 + ? = 27 → ? = 16. Ověř: nahoře 4, 11, 16 → střed 15, 27 → dole 42 ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Součtový trojúhelník: nahoře □ □ 8, dole je 44 a obě horní čísla jsou stejná. Jaké je to číslo?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Označme obě stejná čísla jako A. Prostřední řádek: A+A = 2A (vlevo) a A+8 (vpravo). Dole: 2A + (A+8) = 44 → 3A + 8 = 44 → 3A = 36 → A = 12.</div>
+<div class="ans-toggle" onclick="tA('a3_47532')" id="tg_a3_47532">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — V součtovém trojúhelníku jsou v horní řadě dvě stejná čísla A a třetí …</span>
+</div>
+<div class="ans-body" id="a3_47532">
+  <div class="ans-row-correct" style="color:#1E8449;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Střed vlevo = A+A = 2A. Střed vpravo = A+6. Dole = 2A + (A+6) = 3A+6 = 30. Tedy 3A = 24 → A = 8. Ověř: nahoře 8,8,6 → střed 16, 14 → dole 30 ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Třetina kuliček je žlutých (15), červených je 12, zbývající jsou modré. Kolik je modrých?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Celkem = 15 ÷ 1 × 3 = 45 kuliček (třetina = 15 → celkem = 45). Modré = 45 − 15 − 12 = 18. Nebo jinak: žluté + červené + modré = 45 → modré = 45 − 15 − 12 = 18.</div>
+<div class="ans-toggle" onclick="tA('a4_60148')" id="tg_a4_60148">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Čtvrtina všech bonbónů v krabičce je červených. Červených bonbónů je 1…</span>
+</div>
+<div class="ans-body" id="a4_60148">
+  <div class="ans-row-correct" style="color:#1E8449;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Čtvrtina = 12. Celkem = 4 × 12 = 48. Vzorec: celkem = část ÷ zlomek = 12 ÷ (1/4) = 12 × 4 = 48.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jana koupila linkované a čtverečkované sešity. 2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí jako 3 linkované. Kolik stojí 1 čtverečkovaný sešit?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Nahradím 2 čtverečkované za 3 linkované: 2+3 = 5 linkovaných = 180 Kč → 1 linkovaný = 36 Kč. Dva čtverečkované = 3 × 36 = 108 Kč → 1 čtverečkovaný = 108 ÷ 2 = 54 Kč.</div>
-</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#27AE60"><div class="ex-header" style="background:#D5F5E322">
+<div class="ans-toggle" onclick="tA('a5_31244')" id="tg_a5_31244">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Lucie je 3× starší než její bratr. Dohromady mají 24 let. Kolik let je…</span>
+</div>
+<div class="ans-body" id="a5_31244">
+  <div class="ans-row-correct" style="color:#1E8449;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Bratr = B. Lucie = 3B. Dohromady: B + 3B = 4B = 24 → B = 6 (bratrovi je 6 let). Lucie = 3 × 6 = 18 let. Ověř: 6 + 18 = 24 ✓</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#27AE60"><div class="ex-header" style="background:#D5F5E322">
   <div>
     <div class="ex-num" style="color:#1E8449">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Martinovy kuličky</div>

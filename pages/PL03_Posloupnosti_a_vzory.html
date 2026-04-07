@@ -249,6 +249,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
               margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
 .quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
           border-left: 5px solid #3949ab; }
+.quiz-chart { margin: 8px 0 4px; background: #f8faff; border-radius: 8px;
+              padding: 8px 12px; border: 1px solid #dde; overflow-x: auto; }
 .quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
                  letter-spacing: .5px; margin-bottom: 6px; }
 .quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
@@ -270,18 +272,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
                         padding: 20px; margin-top: 14px; margin-bottom: 8px;
                         background: #f8f9ff; }
+
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
-                      text-transform: uppercase; margin-bottom: 16px;
-                      display: flex; align-items: center; gap: 8px; }
-.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
-                overflow: hidden; border: 1px solid #c5cae9; }
-.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
-               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
-               text-transform: uppercase; letter-spacing: .4px; }
-.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
-.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+                      text-transform: uppercase; margin-bottom: 14px; }
 .ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
 
 @media print {
   body { background: white; padding: 0; font-size: 13px; }
@@ -299,6 +294,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </style>
 </head>
 <body>
+
 <div class="page">
 <div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
 <div class="cover" style="background:linear-gradient(135deg,#A04000ee,#C87941cc,#1a0010)">
@@ -322,24 +318,33 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </div><div class="hints-section">
 <div class="hints-title" style="color:#A04000">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
 <div class="hint-blocks"><div class="hint-block" style="background:#fff8f0;border-color:#C87941">
-<h3>🔍 Jak rozpoznat typ posloupnosti</h3>
+<h3>🔍 Jak rozpoznat typ posloupnosti — krok za krokem</h3>
 
-<div class="ex"><div class="lbl">Postup: spočti rozdíly sousedních čísel</div>
-<ol>
-<li>Zapiš prvních 4–5 členů do tabulky</li>
-<li>Pod ně zapiš jejich rozdíly (2. − 1., 3. − 2., ...)</li>
-<li>Jsou rozdíly <b>stejné</b>? → přičítám stále stejné číslo</li>
-<li>Jsou rozdíly <b>různé</b> → spočti 2. rozdíly (rozdíly rozdílů)</li>
-<li>Jsou 2. rozdíly stejné? → rostoucí pásy (obrázky z trojúhelníků)</li>
-</ol>
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„V tabulce jsou čísla: 3, 7, 11, 15, 19, ... Doplňte 6. člen a zjistěte, kolik je 10. člen."</i>
+</div>
+<div class="ex"><div class="lbl">Krok 1: Spočti 1. rozdíly sousedních členů</div>
+Série: 3, 7, 11, 15, 19<br>
+Rozdíly: 7−3=<b>4</b>, 11−7=<b>4</b>, 15−11=<b>4</b>, 19−15=<b>4</b><br>
+→ Všechny stejné! Jde o <b>přičítání stále stejného čísla</b> (+4).
+</div>
+<div class="ex"><div class="lbl">Krok 2: Pokud 1. rozdíly nejsou stejné, spočti 2. rozdíly</div>
+Jiná série: 2, 6, 12, 20, 30<br>
+1. rozdíly: 4, 6, 8, 10 (rostou!)<br>
+2. rozdíly: 6−4=<b>2</b>, 8−6=<b>2</b>, 10−8=<b>2</b><br>
+→ 2. rozdíly jsou stejné → jde o <b>rostoucí pásy</b> (typicky obrázky z trojúhelníků).
 </div>
 <table class="htable">
-<tr><th style="background:#A04000;color:white">Typ</th><th style="background:#A04000;color:white">Příklad</th><th style="background:#A04000;color:white">Jak poznam</th></tr>
-<tr><td><b>Stálý přírůstek</b></td><td>5, 11, 17, 23 (+6 vždy)</td><td>1. rozdíly jsou stejné</td></tr>
-<tr><td><b>Stálý úbytek</b></td><td>52, 46, 40, 34 (−6 vždy)</td><td>1. rozdíly jsou stejné</td></tr>
-<tr><td><b>Násobení</b></td><td>2, 8, 32, 128 (×4 vždy)</td><td>každý = předchozí × 4</td></tr>
-<tr><td><b>Rostoucí pásy</b></td><td>6, 24, 54, 96</td><td>2. rozdíly jsou stejné</td></tr>
+<tr><th style="background:#A04000;color:white">Typ</th><th style="background:#A04000;color:white">Příklad</th><th style="background:#A04000;color:white">Poznám tak</th></tr>
+<tr><td><b>Stálý přírůstek</b></td><td>3, 7, 11, 15 (+4)</td><td>1. rozdíly jsou všechny stejné</td></tr>
+<tr><td><b>Stálý úbytek</b></td><td>40, 34, 28, 22 (−6)</td><td>1. rozdíly jsou stejné (záporné)</td></tr>
+<tr><td><b>Násobení</b></td><td>2, 6, 18, 54 (×3)</td><td>každý člen = předchozí × stejné číslo</td></tr>
+<tr><td><b>Rostoucí pásy</b></td><td>2, 6, 12, 20, 30</td><td>2. rozdíly jsou stejné</td></tr>
 </table>
+<div class="ex"><div class="lbl">Krok 3: Pokračuj v nalezené sérii</div>
+Série +4: 3, 7, 11, 15, 19, <span class="hint-result">23</span>, 27, 31, 35, <span class="hint-result">39</span><br>
+6. člen = 23, 10. člen = 3 + 9×4 = <span class="hint-result">39</span>
+</div>
 </div><div class="hint-block" style="background:#fff8f0;border-color:#A04000">
 <h3>➕ Stálý přírůstek nebo úbytek — jak počítat</h3>
 
@@ -422,37 +427,65 @@ Tmavých = (18+2) + 2×5 = 20+10 = <span class="hint-result">30 tmavých čtvere
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. pás = 21... Kolik šedých je v 5. pásu?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>30</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>33</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#C87941">
-<div class="quiz-answers-title" style="color:#C87941">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Posloupnost: 5, 11, 17, 23, 29... Jaká je 6. člen?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rozdíly jsou všechny +6 → přičítám vždy 6. Takže: 5, 11, 17, 23, 29, 35. Šestý člen je 35.</div>
+<div class="quiz-answers-title" style="color:#C87941">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_13643')" id="tg_a1_13643">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Posloupnost: 5, 11, 17, 23, 29... Jaká je 6. člen?</span>
+</div>
+<div class="ans-body" id="a1_13643">
+  <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Rozdíly jsou všechny +6 → přičítám vždy 6. Takže: 5, 11, 17, 23, 29, 35. Šestý člen je 35.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Cyklista jede 5 dní, celkem 200 km. Každý den ujede o 6 km méně než den předtím. Kolik km ujede první den?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Kdybych každý den jel stejně (□ km), bylo by to 5×□. Ale 2.–5. den jedu celkem o 6+12+18+24 = 60 km méně. Takže 5×□ − 60 = 200 → 5×□ = 260 → □ = 52 km. Zkontroluj: 52+46+40+34+28 = 200 ✓</div>
+<div class="ans-toggle" onclick="tA('a2_76653')" id="tg_a2_76653">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — Cyklista jede 5 dní, celkem 200 km. Každý den ujede o 6 km méně než de…</span>
+</div>
+<div class="ans-body" id="a2_76653">
+  <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Kdybych každý den jel stejně (□ km), bylo by to 5×□. Ale 2.–5. den jedu celkem o 6+12+18+24 = 60 km méně. Takže 5×□ − 60 = 200 → 5×□ = 260 → □ = 52 km. Zkontroluj: 52+46+40+34+28 = 200 ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Korálky: 1. skupina = 2, každá další je 4× větší. Kolik korálků je celkem ve 4 skupinách?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">1. = 2, 2. = 8, 3. = 32, 4. = 128. Celkem: 2 + 8 + 32 + 128 = 170 korálků.</div>
+<div class="ans-toggle" onclick="tA('a3_93273')" id="tg_a3_93273">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — Korálky: 1. skupina = 2, každá další je 4× větší. Kolik korálků je cel…</span>
+</div>
+<div class="ans-body" id="a3_93273">
+  <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">1. = 2, 2. = 8, 3. = 32, 4. = 128. Celkem: 2 + 8 + 32 + 128 = 170 korálků.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Základní obrazec má 5 řad a 18 sloupců světlých čtverečků. Kolik tmavých čtverečků bude v rozšířeném obrazci?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Tmavých = (šířka + 2) + 2 × výška = (18 + 2) + 2 × 5 = 20 + 10 = 30 tmavých čtverečků.</div>
+<div class="ans-toggle" onclick="tA('a4_84399')" id="tg_a4_84399">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Základní obrazec má 5 řad a 18 sloupců světlých čtverečků. Kolik tmavý…</span>
+</div>
+<div class="ans-body" id="a4_84399">
+  <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Tmavých = (šířka + 2) + 2 × výška = (18 + 2) + 2 × 5 = 20 + 10 = 30 tmavých čtverečků.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. pás = 21... Kolik šedých je v 5. pásu?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rozdíl mezi pásy je vždy +6. Takže: 3, 9, 15, 21, 27. Pátý pás má 27 šedých trojúhelníků.</div>
-</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#C87941"><div class="ex-header" style="background:#FDEBD022">
+<div class="ans-toggle" onclick="tA('a5_99803')" id="tg_a5_99803">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. …</span>
+</div>
+<div class="ans-body" id="a5_99803">
+  <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Rozdíl mezi pásy je vždy +6. Takže: 3, 9, 15, 21, 27. Pátý pás má 27 šedých trojúhelníků.</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#C87941"><div class="ex-header" style="background:#FDEBD022">
   <div>
     <div class="ex-num" style="color:#A04000">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Cyklista &mdash; klesající vzdálenosti</div>

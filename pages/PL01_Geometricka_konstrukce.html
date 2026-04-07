@@ -249,6 +249,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
               margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
 .quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
           border-left: 5px solid #3949ab; }
+.quiz-chart { margin: 8px 0 4px; background: #f8faff; border-radius: 8px;
+              padding: 8px 12px; border: 1px solid #dde; overflow-x: auto; }
 .quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
                  letter-spacing: .5px; margin-bottom: 6px; }
 .quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
@@ -270,18 +272,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
                         padding: 20px; margin-top: 14px; margin-bottom: 8px;
                         background: #f8f9ff; }
+
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
-                      text-transform: uppercase; margin-bottom: 16px;
-                      display: flex; align-items: center; gap: 8px; }
-.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
-                overflow: hidden; border: 1px solid #c5cae9; }
-.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
-               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
-               text-transform: uppercase; letter-spacing: .4px; }
-.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
-.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+                      text-transform: uppercase; margin-bottom: 14px; }
 .ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
 
 @media print {
   body { background: white; padding: 0; font-size: 13px; }
@@ -299,6 +294,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </style>
 </head>
 <body>
+
 <div class="page">
 <div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
 <div class="cover" style="background:linear-gradient(135deg,#1A5276ee,#2980B9cc,#1a0010)">
@@ -459,37 +455,65 @@ Nastav kružítko na délku KM. Bez změny přenes na KS — pasuje? Pak jsou st
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Jaký je rozdíl mezi rovnostranným a rovnoramenným trojúhelníkem?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Žádný, je to totéž</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Rovnostranný má všechny 3 strany stejně dlouhé, rovnoramenný má stejně dlouhé jen 2 strany</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Rovnoramenný má všechny 3 strany stejně dlouhé</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Rovnostranný má jen pravé úhly</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#2980B9">
-<div class="quiz-answers-title" style="color:#2980B9">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jak narýsuješ rovnostranný trojúhelník KMS, když znáš body K a M?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rovnostranný trojúhelník má KS = MS = KM. Proto z K i z M narýsuji kružnici s poloměrem rovným délce KM. Kde se obě kružnice protnou — tam je bod S. Průsečíky jsou zpravidla dva = 2 řešení.</div>
+<div class="quiz-answers-title" style="color:#2980B9">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_89403')" id="tg_a1_89403">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Jak narýsuješ rovnostranný trojúhelník KMS, když znáš body K a M?</span>
+</div>
+<div class="ans-body" id="a1_89403">
+  <div class="ans-row-correct" style="color:#2980B9;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Rovnostranný trojúhelník má KS = MS = KM. Proto z K i z M narýsuji kružnici s poloměrem rovným délce KM. Kde se obě kružnice protnou — tam je bod S. Průsečíky jsou zpravidla dva = 2 řešení.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Co je osa úsečky AB?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Osa úsečky AB je kolmice na AB, která prochází přesně středem AB. Každý bod na ose úsečky je stejně daleko od A i od B — proto ji používáme když hledáme body, které mají být stejně daleko od dvou míst.</div>
+<div class="ans-toggle" onclick="tA('a2_57826')" id="tg_a2_57826">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — Co je osa úsečky AB?</span>
+</div>
+<div class="ans-body" id="a2_57826">
+  <div class="ans-row-correct" style="color:#2980B9;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Osa úsečky AB je kolmice na AB, která prochází přesně středem AB. Každý bod na ose úsečky je stejně daleko od A i od B — proto ji používáme když hledáme body, které mají být stejně daleko od dvou míst.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Chceš narýsovat přímku rovnoběžnou s r procházející bodem K. Jak začneš?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Přiložím pravítko těsně podél přímky r. Pak — bez otáčení — ho posunu tak, aby procházelo bodem K. Narýsuji novou přímku. Takto dostanu přímku rovnoběžnou s r.</div>
+<div class="ans-toggle" onclick="tA('a3_686')" id="tg_a3_686">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — Chceš narýsovat přímku rovnoběžnou s r procházející bodem K. Jak začne…</span>
+</div>
+<div class="ans-body" id="a3_686">
+  <div class="ans-row-correct" style="color:#2980B9;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Přiložím pravítko těsně podél přímky r. Pak — bez otáčení — ho posunu tak, aby procházelo bodem K. Narýsuji novou přímku. Takto dostanu přímku rovnoběžnou s r.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kolik řešení bývá nejčastěji v úlohách kde hledáš bod na přímce?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Nejčastěji jsou 2 řešení — bod může být na přímce na obou stranách, nebo trojúhelník může být nad i pod přímkou. Ale někdy podmínky neumožní druhé řešení. Proto vždy systematicky otestuj: existuje i zrcadlové řešení?</div>
+<div class="ans-toggle" onclick="tA('a4_52256')" id="tg_a4_52256">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Kolik řešení bývá nejčastěji v úlohách kde hledáš bod na přímce?</span>
+</div>
+<div class="ans-body" id="a4_52256">
+  <div class="ans-row-correct" style="color:#2980B9;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Nejčastěji jsou 2 řešení — bod může být na přímce na obou stranách, nebo trojúhelník může být nad i pod přímkou. Ale někdy podmínky neumožní druhé řešení. Proto vždy systematicky otestuj: existuje i zrcadlové řešení?</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jaký je rozdíl mezi rovnostranným a rovnoramenným trojúhelníkem?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rovnostranný trojúhelník: KS = MS = KM — VŠECHNY tři strany jsou stejně dlouhé. Rovnoramenný trojúhelník: jen 2 strany jsou stejně dlouhé (říkáme jim ramena), třetí strana (základna) je jinak dlouhá.</div>
-</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#2980B9"><div class="ex-header" style="background:#D6EAF822">
+<div class="ans-toggle" onclick="tA('a5_54600')" id="tg_a5_54600">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Jaký je rozdíl mezi rovnostranným a rovnoramenným trojúhelníkem?</span>
+</div>
+<div class="ans-body" id="a5_54600">
+  <div class="ans-row-correct" style="color:#2980B9;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Rovnostranný trojúhelník: KS = MS = KM — VŠECHNY tři strany jsou stejně dlouhé. Rovnoramenný trojúhelník: jen 2 strany jsou stejně dlouhé (říkáme jim ramena), třetí strana (základna) je jinak dlouhá.</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#2980B9"><div class="ex-header" style="background:#D6EAF822">
   <div>
     <div class="ex-num" style="color:#1A5276">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Rovnostranný trojúhelník KMS</div>

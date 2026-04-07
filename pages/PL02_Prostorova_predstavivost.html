@@ -249,6 +249,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
               margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
 .quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
           border-left: 5px solid #3949ab; }
+.quiz-chart { margin: 8px 0 4px; background: #f8faff; border-radius: 8px;
+              padding: 8px 12px; border: 1px solid #dde; overflow-x: auto; }
 .quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
                  letter-spacing: .5px; margin-bottom: 6px; }
 .quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
@@ -270,18 +272,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
                         padding: 20px; margin-top: 14px; margin-bottom: 8px;
                         background: #f8f9ff; }
+
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
-                      text-transform: uppercase; margin-bottom: 16px;
-                      display: flex; align-items: center; gap: 8px; }
-.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
-                overflow: hidden; border: 1px solid #c5cae9; }
-.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
-               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
-               text-transform: uppercase; letter-spacing: .4px; }
-.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
-.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+                      text-transform: uppercase; margin-bottom: 14px; }
 .ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
 
 @media print {
   body { background: white; padding: 0; font-size: 13px; }
@@ -299,6 +294,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </style>
 </head>
 <body>
+
 <div class="page">
 <div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
 <div class="cover" style="background:linear-gradient(135deg,#0E6655ee,#17A589cc,#1a0010)">
@@ -356,19 +352,33 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 <tr><td>▶️ <b>Zprava</b></td><td>Hloubka + výška. Pravý okraj každé řady</td><td>Co je za prvním sloupcem</td></tr>
 </table>
 </div><div class="hint-block" style="background:#e8faf5;border-color:#17A589">
-<h3>🔢 Jak spočítat kostky ze dvou pohledů</h3>
+<h3>🔢 Jak spočítat kostky ze dvou pohledů — s příkladem</h3>
 
-<div class="ex"><div class="lbl">Postup krok za krokem</div>
-<ol>
-<li>Z pohledu SHORA nakresli si tabulku — každé políčko = jeden sloupec</li>
-<li>Z pohledu ZEPŘEDU doplň výšku každého sloupce do tabulky</li>
-<li>Z pohledu ZPRAVA ověř — souhlasí výšky?</li>
-<li>Každé políčko × výška = počet kostek ve sloupci</li>
-<li>Sečti všechna políčka dohromady</li>
-</ol>
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Stavba z kostek má pohled shora 2×2, pohled zepředu: levý sloupec výška 3, pravý výška 1. Kolik kostek stavba obsahuje?"</i>
 </div>
-<div class="ex"><div class="lbl">Příklad: plán 2×2, pohled zepředu: 3 | 1 (zleva)</div>
-Levý sloupec (výška 3): <span class="fillin">3</span> + <span class="fillin">3</span> = 6 kostek. Pravý (výška 1): <span class="fillin">1</span> + <span class="fillin">1</span> = 2. Celkem: <span class="hint-result">8 kostek</span>
+<div class="ex"><div class="lbl">Krok 1: Z pohledu SHORA nakresli plán</div>
+Pohled shora = mapa sloupců. 2×2 = 4 sloupce (jako šachovnice 2×2):
+<table class="htable" style="max-width:180px;text-align:center">
+<tr><td>Sloupec A</td><td>Sloupec B</td></tr>
+<tr><td>Sloupec C</td><td>Sloupec D</td></tr>
+</table>
+</div>
+<div class="ex"><div class="lbl">Krok 2: Z pohledu ZEPŘEDU doplň výšky</div>
+Pohled zepředu: levá strana výška 3, pravá výška 1.<br>
+→ Sloupce A a C (levá strana) = výška <b>3</b><br>
+→ Sloupce B a D (pravá strana) = výška <b>1</b>
+<table class="htable" style="max-width:180px;text-align:center">
+<tr><td><b>A = 3</b></td><td><b>B = 1</b></td></tr>
+<tr><td><b>C = 3</b></td><td><b>D = 1</b></td></tr>
+</table>
+</div>
+<div class="ex"><div class="lbl">Krok 3: Každý sloupec × výška = počet kostek</div>
+A: 3 kostek, B: 1 kostka, C: 3 kostky, D: 1 kostka<br>
+Celkem: 3+1+3+1 = <span class="hint-result">8 kostek</span>
+</div>
+<div class="ex"><div class="lbl">Klíčové pravidlo o pohledu zepředu</div>
+Pohled zepředu nikdy neukazuje, <b>kolik kostek je za sebou</b> — vidí jen <b>nejvyšší</b> v dané řadě. Proto potřebuješ pohled shora, abys věděl, kde jsou sloupce!
 </div>
 </div><div class="hint-block" style="background:#e8faf5;border-color:#0E6655">
 <h3>📦 Skryté kostky — pravidlo 6 stěn</h3>
@@ -445,37 +455,65 @@ Minimum (skryji 4× po 3): 36 − 12 = <span class="hint-result">24 teček</span
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Pohled zprava na stavbu má šířku 3 sloupce a výšku 2. Co to znamená?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Stavba má 3 sloupce viditelných zprava</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Zepředu dozadu jsou 3 řady a maximální výška stavby jsou 2 kostky</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Stavba je 3 × 2 = 6 kostek celkem</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Pohled shora má 3×3 políčka</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#17A589">
-<div class="quiz-answers-title" style="color:#17A589">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#17A589">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Díváš se na stavbu SHORA a vidíš plán 2×3 (2 řady, 3 sloupce). Co NEVÍŠ z tohoto pohledu?</div>
-<div class="ans-row-correct" style="color:#17A589">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Pohled shora ti říká, kde jsou sloupce — jako mapa. Ale neřekne ti, kolik kostek je v každém sloupci (= výška). Tu zjistíš až z pohledu zepředu nebo zprava.</div>
+<div class="quiz-answers-title" style="color:#17A589">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_19808')" id="tg_a1_19808">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Díváš se na stavbu SHORA a vidíš plán 2×3 (2 řady, 3 sloupce). Co NEVÍ…</span>
+</div>
+<div class="ans-body" id="a1_19808">
+  <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Pohled shora ti říká, kde jsou sloupce — jako mapa. Ale neřekne ti, kolik kostek je v každém sloupci (= výška). Tu zjistíš až z pohledu zepředu nebo zprava.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#17A589">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Pyramida: 1. patro 5×5, 2. patro 4×4, 3. patro 3×3, 4. patro 2×2, 5. patro 1×1. Kolik kostek je úplně skrytých (neviditelných ze žádné strany)?</div>
-<div class="ans-row-correct" style="color:#17A589">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">2. patro má 4×4 = 16 kostek. Vnitřní 2×2 = 4 kostky jsou obklopeny ze všech stran → skryté. 3. patro má 3×3 = 9 kostek. Vnitřní 1×1 = 1 kostka je skrytá. Spodní patro se dotýká podložky, takže žádná není skrytá. Celkem: 4 + 1 = 5.</div>
+<div class="ans-toggle" onclick="tA('a2_88671')" id="tg_a2_88671">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — Pyramida: 1. patro 5×5, 2. patro 4×4, 3. patro 3×3, 4. patro 2×2, 5. p…</span>
+</div>
+<div class="ans-body" id="a2_88671">
+  <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">2. patro má 4×4 = 16 kostek. Vnitřní 2×2 = 4 kostky jsou obklopeny ze všech stran → skryté. 3. patro má 3×3 = 9 kostek. Vnitřní 1×1 = 1 kostka je skrytá. Spodní patro se dotýká podložky, takže žádná není skrytá. Celkem: 4 + 1 = 5.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#17A589">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Ze 3 kostek slepíme L-tvar (2 spoje). Kolik teček bude mít těleso, pokud chceme NEJVÍCE teček?</div>
-<div class="ans-row-correct" style="color:#17A589">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">3 kostky × 12 teček = 36 celkem. Při každém slepení skryjeme 2 stěny — abychom ztratili co nejméně, skryjeme stěny s 1 tečkou. L-tvar má 2 spoje, každý skryje 2 stěny po 1 tečce = ztratíme 4 tečky. 36 − 4 = 32 teček.</div>
+<div class="ans-toggle" onclick="tA('a3_12762')" id="tg_a3_12762">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — Ze 3 kostek slepíme L-tvar (2 spoje). Kolik teček bude mít těleso, pok…</span>
+</div>
+<div class="ans-body" id="a3_12762">
+  <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">3 kostky × 12 teček = 36 celkem. Při každém slepení skryjeme 2 stěny — abychom ztratili co nejméně, skryjeme stěny s 1 tečkou. L-tvar má 2 spoje, každý skryje 2 stěny po 1 tečce = ztratíme 4 tečky. 36 − 4 = 32 teček.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#17A589">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Filipův model: krychle 4×4×4 z kuliček. Kolik kuliček obsahuje?</div>
-<div class="ans-row-correct" style="color:#17A589">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Počet kuliček = n × n × n. Pro n = 4: 4 × 4 × 4 = 64 kuliček. (Číslo 144 je počet tyček — to je jiná otázka.)</div>
+<div class="ans-toggle" onclick="tA('a4_74327')" id="tg_a4_74327">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Filipův model: krychle 4×4×4 z kuliček. Kolik kuliček obsahuje?</span>
+</div>
+<div class="ans-body" id="a4_74327">
+  <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Počet kuliček = n × n × n. Pro n = 4: 4 × 4 × 4 = 64 kuliček. (Číslo 144 je počet tyček — to je jiná otázka.)</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#17A589">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Pohled zprava na stavbu má šířku 3 sloupce a výšku 2. Co to znamená?</div>
-<div class="ans-row-correct" style="color:#17A589">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Šířka pohledu zprava = hloubka stavby = kolik řad je zepředu dozadu = 3 řady. Výška pohledu zprava = maximální výška stavby = 2 kostky. Celkový počet kostek z tohoto pohledu nevyčteš — nevíš kolik kostek je v každé řadě.</div>
-</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#17A589"><div class="ex-header" style="background:#D1F2EB22">
+<div class="ans-toggle" onclick="tA('a5_99327')" id="tg_a5_99327">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Pohled zprava na stavbu má šířku 3 sloupce a výšku 2. Co to znamená?</span>
+</div>
+<div class="ans-body" id="a5_99327">
+  <div class="ans-row-correct" style="color:#17A589;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Šířka pohledu zprava = hloubka stavby = kolik řad je zepředu dozadu = 3 řady. Výška pohledu zprava = maximální výška stavby = 2 kostky. Celkový počet kostek z tohoto pohledu nevyčteš — nevíš kolik kostek je v každé řadě.</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#17A589"><div class="ex-header" style="background:#D1F2EB22">
   <div>
     <div class="ex-num" style="color:#0E6655">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Kostky s tečkami &mdash; maximum a minimum</div>

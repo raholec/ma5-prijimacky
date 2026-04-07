@@ -249,6 +249,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
               margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
 .quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
           border-left: 5px solid #3949ab; }
+.quiz-chart { margin: 8px 0 4px; background: #f8faff; border-radius: 8px;
+              padding: 8px 12px; border: 1px solid #dde; overflow-x: auto; }
 .quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
                  letter-spacing: .5px; margin-bottom: 6px; }
 .quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
@@ -270,18 +272,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
                         padding: 20px; margin-top: 14px; margin-bottom: 8px;
                         background: #f8f9ff; }
+
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
-                      text-transform: uppercase; margin-bottom: 16px;
-                      display: flex; align-items: center; gap: 8px; }
-.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
-                overflow: hidden; border: 1px solid #c5cae9; }
-.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
-               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
-               text-transform: uppercase; letter-spacing: .4px; }
-.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
-.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+                      text-transform: uppercase; margin-bottom: 14px; }
 .ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
 
 @media print {
   body { background: white; padding: 0; font-size: 13px; }
@@ -299,6 +294,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </style>
 </head>
 <body>
+
 <div class="page">
 <div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
 <div class="cover" style="background:linear-gradient(135deg,#C0392Bee,#E74C3Ccc,#1a0010)">
@@ -376,72 +372,122 @@ Ověř: 49÷7=7, +3=10, ×2=<span class="hint-result">20 ✓</span>
 Pravá strana: 4+5=9. Levá: 36÷(1+<span class="fillin">?</span>)=9 → 1+<span class="fillin">?</span>=4 → <span class="fillin">?</span>=<span class="hint-result">3</span>
 </div>
 </div><div class="hint-block" style="background:#E8F8F5;border-color:#17A589">
-<h3>🧮 Magická tabulka a součtový trojúhelník</h3>
+<h3>🧮 Magická tabulka — jak vyplnit krok za krokem</h3>
 
 <div class="hint-diagram"><svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" style="max-width:260px">
   <rect x="30" y="20" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <!-- Row 1: 1, ?, 5  (zadáno 1 a 5, hledáme ?) -->
   <rect x="86" y="20" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
   <rect x="142" y="20" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
-  <text x="58" y="55" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">0</text>
+  <text x="58" y="55" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">1</text>
   <text x="114" y="55" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
-  <text x="170" y="55" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">2</text>
-  <rect x="30" y="76" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
-  <rect x="86" y="76" width="56" height="56" rx="6" fill="#D5F5E3" stroke="#27AE60" stroke-width="2.5"/>
-  <rect x="142" y="76" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
-  <text x="58" y="111" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">1</text>
-  <text x="114" y="111" font-size="22" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">4</text>
-  <text x="170" y="111" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">3</text>
-  <rect x="30" y="132" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
-  <rect x="86" y="132" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
-  <rect x="142" y="132" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
-  <text x="58" y="167" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
-  <text x="114" y="167" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">8</text>
-  <text x="170" y="167" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="170" y="55" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">5</text>
+  <!-- Row 2: ?, ?, ?  (střed odvozuješ v Kroku 2 — je to prostřední číslo ze sady!) -->
+  <rect x="30" y="76" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <rect x="86" y="76" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <rect x="142" y="76" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <text x="58" y="111" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="114" y="111" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="170" y="111" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <!-- Row 3: 3, ?, 7  (zadáno 3 a 7, hledáme ?) -->
+  <rect x="30" y="132" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <rect x="86" y="132" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <rect x="142" y="132" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="58" y="167" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">3</text>
+  <text x="114" y="167" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="170" y="167" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">7</text>
+  <!-- Row sum labels -->
   <text x="210" y="52" font-size="13" font-weight="bold" fill="#27AE60" font-family="sans-serif">= 12</text>
   <text x="210" y="108" font-size="13" font-weight="bold" fill="#27AE60" font-family="sans-serif">= 12</text>
   <text x="210" y="164" font-size="13" font-weight="bold" fill="#27AE60" font-family="sans-serif">= 12</text>
-</svg><div class="diagram-caption">Magická tabulka — čísla 0–8, každý řádek i sloupec dává součet 12</div></div>
-<div class="ex"><div class="lbl">Jak vyplnit magickou tabulku s čísly 0–8</div>
-<ol>
-<li>Součet 0+1+2+...+8 = 36. Jsou 3 řádky → každý = <span class="hint-result">36÷3 = 12</span></li>
-<li>Prostřední políčko = 36÷9 = <span class="hint-result">4</span> (vždy střed!)</li>
-<li>Doplňuj zbývající tak, aby každý řádek i sloupec dal 12</li>
-</ol>
+</svg><div class="diagram-caption">Magická tabulka — zadaná čísla (modrá) a políčka k doplnění (oranžová ?). Střed zjistíš v Kroku 2!</div></div>
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Doplňte do prázdných políček čísla 0–8 (každé právě jednou) tak, aby součet každého řádku i každého sloupce byl stejný."</i><br>
+V obrázku výše jsou <b>zadána</b> čísla 1, 5, 3, 7 — zbývá doplnit 5 chybějících čísel (včetně středu!)
 </div>
-<div class="hint-diagram"><svg viewBox="0 0 440 95" xmlns="http://www.w3.org/2000/svg" style="max-width:440px">
-  <rect x="5" y="22" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
-  <text x="33" y="49" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">x</text>
-  <rect x="70" y="28" width="48" height="32" rx="6" fill="#FDF3E7" stroke="#E67E22" stroke-width="1.5"/>
-  <text x="94" y="49" font-size="13" fill="#784212" font-family="sans-serif" text-anchor="middle">÷ 3</text>
-  <line x1="61" y1="44" x2="70" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
-  <rect x="127" y="22" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
-  <text x="155" y="49" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">9</text>
-  <rect x="192" y="28" width="48" height="32" rx="6" fill="#FDF3E7" stroke="#E67E22" stroke-width="1.5"/>
-  <text x="216" y="49" font-size="13" fill="#784212" font-family="sans-serif" text-anchor="middle">− 6</text>
-  <line x1="183" y1="44" x2="192" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
-  <rect x="249" y="22" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
-  <text x="277" y="49" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">3</text>
-  <rect x="314" y="28" width="48" height="32" rx="6" fill="#FDF3E7" stroke="#E67E22" stroke-width="1.5"/>
-  <text x="338" y="49" font-size="13" fill="#784212" font-family="sans-serif" text-anchor="middle">× 12</text>
-  <line x1="305" y1="44" x2="314" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
-  <rect x="371" y="22" width="62" height="44" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2.5"/>
-  <text x="402" y="49" font-size="18" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">28</text>
-  <line x1="362" y1="44" x2="371" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
-  <text x="220" y="85" font-size="11" fill="#888" font-family="sans-serif" text-anchor="middle">Pozpátku: 28+8=36 → ÷12=3 → +6=9 → ×3 → x=27</text>
-</svg><div class="diagram-caption">Diagram šipek — jdi pozpátku od výsledku a každou operaci otoč</div></div>
+<div class="ex"><div class="lbl">Krok 1: Zjisti, kolik musí dávat každý řádek</div>
+Sečti všechna čísla: 0+1+2+3+4+5+6+7+8 = <b>36</b><br>
+Tabulka má 3 řádky → každý řádek musí dát: 36 ÷ 3 = <span class="hint-result">12</span>
+</div>
+<div class="ex"><div class="lbl">Krok 2: Střed tabulky — proč je to vždy 4?</div>
+Seřaď čísla od nejmenšího po největší: 0, 1, 2, 3, <b>4</b>, 5, 6, 7, 8<br>
+Číslo uprostřed tohoto seznamu (5. z 9) je <b>4</b>.<br>
+A prostřední políčko tabulky musí být právě toto střední číslo — jinak by řádky a sloupce nevyšly.<br>
+→ <b>Jednoduché pravidlo:</b> střed = prostřední číslo ze sady (vždy!)
+</div>
+<div class="ex"><div class="lbl">Krok 3: Doplňuj řádek po řádku — „12 minus ostatní"</div>
+Máš-li v řádku 2 čísla, třetí = 12 − součet těch dvou.<br>
+Řádek 1 má 1 a 5 → třetí = 12 − 1 − 5 = <span class="hint-result">6</span> ✓<br>
+Řádek 3 má 3 a 7 → třetí = 12 − 3 − 7 = <span class="hint-result">2</span> ✓<br>
+Řádek 2 má 4 a ... zbytek = 0 a 8 → 12 − 4 − 0 = 8 nebo 12 − 4 − 8 = 0.<br>
+Vyber tak, aby sloupce také vycházely!
+</div>
+<div class="ex"><div class="lbl">Krok 4: Ověř všechny sloupce a úhlopříčky</div>
+Správné řešení pro zadaná čísla 1, 5, 4, 3, 7:
+<table class="htable" style="max-width:300px;text-align:center">
+<tr><th style="background:#1A5276;color:white">řádek 1</th><td><b>1</b></td><td><b>6</b></td><td><b>5</b></td><td style="color:#27AE60;font-weight:700">=12 ✓</td></tr>
+<tr><th style="background:#1A5276;color:white">řádek 2</th><td><b>8</b></td><td><b>4</b></td><td><b>0</b></td><td style="color:#27AE60;font-weight:700">=12 ✓</td></tr>
+<tr><th style="background:#1A5276;color:white">řádek 3</th><td><b>3</b></td><td><b>2</b></td><td><b>7</b></td><td style="color:#27AE60;font-weight:700">=12 ✓</td></tr>
+<tr><td></td><td style="color:#27AE60;font-weight:700">=12✓</td><td style="color:#27AE60;font-weight:700">=12✓</td><td style="color:#27AE60;font-weight:700">=12✓</td><td></td></tr>
+</table>
+Úhlopříčky: 1+4+7 = <b>12 ✓</b> &nbsp;&nbsp; 5+4+3 = <b>12 ✓</b>
+</div>
 </div><div class="hint-block" style="background:#E8F8F5;border-color:#148F77">
-<h3>✅ Kontrola — vždy dosaď zpět!</h3>
+<h3>➡️ Diagram šipek — jdi vždy pozpátku</h3>
 
-<div class="ex"><div class="lbl">Proč je kontrola nutná</div>
-Při výpočtu pozpátku se snadno spleteme v pořadí operací. Jedinou zárukou je dosadit výsledek zpět do původního zadání a ověřit, že rovnice platí.
+<div class="hint-diagram"><svg viewBox="0 0 460 110" xmlns="http://www.w3.org/2000/svg" style="max-width:460px">
+  <!-- Box: x (vstupní číslo) -->
+  <rect x="5" y="18" width="56" height="44" rx="8" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <text x="33" y="38" font-size="11" fill="#888" font-family="sans-serif" text-anchor="middle">vstup</text>
+  <text x="33" y="55" font-size="20" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">x</text>
+  <!-- Op: ÷2 -->
+  <rect x="72" y="24" width="48" height="32" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="96" y="45" font-size="14" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">÷ 2</text>
+  <line x1="61" y1="40" x2="72" y2="40" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- Box: ? (výsledek po ÷2) -->
+  <rect x="131" y="18" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="159" y="38" font-size="11" fill="#888" font-family="sans-serif" text-anchor="middle">po ÷2</text>
+  <text x="159" y="55" font-size="20" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">?</text>
+  <!-- Op: +3 -->
+  <rect x="198" y="24" width="48" height="32" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="222" y="45" font-size="14" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">+ 3</text>
+  <line x1="187" y1="40" x2="198" y2="40" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- Box: ? (výsledek po +3) -->
+  <rect x="257" y="18" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="285" y="38" font-size="11" fill="#888" font-family="sans-serif" text-anchor="middle">po +3</text>
+  <text x="285" y="55" font-size="20" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">?</text>
+  <!-- Op: ×5 -->
+  <rect x="324" y="24" width="48" height="32" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="348" y="45" font-size="14" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">× 5</text>
+  <line x1="313" y1="40" x2="324" y2="40" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- Box: 25 (výsledek) -->
+  <rect x="383" y="18" width="66" height="44" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2.5"/>
+  <text x="416" y="38" font-size="11" fill="#888" font-family="sans-serif" text-anchor="middle">výsledek</text>
+  <text x="416" y="55" font-size="20" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">25</text>
+  <line x1="373" y1="40" x2="383" y2="40" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- Caption: backward path -->
+  <text x="230" y="85" font-size="11" fill="#555" font-family="sans-serif" text-anchor="middle">Pozpátku: 25 ÷5 = 5 → 5−3 = 2 → 2×2 = 4 → x = 4</text>
+  <text x="230" y="100" font-size="11" fill="#27AE60" font-family="sans-serif" text-anchor="middle">Ověř dopředu: 4 ÷2 = 2, 2+3 = 5, 5×5 = 25 ✓</text>
+</svg><div class="diagram-caption">Diagram šipek — neznámé číslo x prochází třemi operacemi a dá výsledek 25</div></div>
+<div class="ex"><div class="lbl">Co diagram říká</div>
+Neznámé číslo <b>x</b> prochází třemi operacemi a výsledek je <b>25</b>.<br>
+Operace v pořadí: nejprve ÷2, pak +3, nakonec ×5.
 </div>
-<div class="ex"><div class="lbl">Jak najít všechny různé výsledky při různých závoркách</div>
-<ol>
-<li>Vyzkoušej závorku začínající na každém možném místě</li>
-<li>Ke každé závorce spočítej výsledek a zapiš ho</li>
-<li>Spočítej kolik je <b>různých</b> hodnot (stejné se počítají jen jednou!)</li>
-<li>Závorka kolem celého výrazu = stejný výsledek jako bez závorky → to nepočítáme!</li>
-</ol>
+<div class="ex"><div class="lbl">Jak najít x — jdi POZPÁTKU od výsledku</div>
+Každou operaci obrátíš na opak (÷ ↔ ×, + ↔ −) a jdeš zprava doleva:<br>
+<div class="hint-calc"><b>25</b> <span class="step-arrow">→ ÷5 →</span> <b>5</b> <span class="step-arrow">→ −3 →</span> <b>2</b> <span class="step-arrow">→ ×2 →</span> <b>x = 4</b></div>
+</div>
+<div class="ex"><div class="lbl">Ověření dopředu (vždy zkontroluj!)</div>
+4 ÷ 2 = <b>2</b> &nbsp;→&nbsp; 2 + 3 = <b>5</b> &nbsp;→&nbsp; 5 × 5 = <span class="hint-result">25 ✓</span>
+</div>
+<div class="ex"><div class="lbl">Tabulka: jak otočit operace</div>
+<table class="htable">
+<tr><th style="background:#148F77;color:white">Operace v diagramu</th><th style="background:#148F77;color:white">Otočím na (pozpátku)</th></tr>
+<tr><td>× 5 (vynásobím 5)</td><td>÷ 5 (vydělím 5)</td></tr>
+<tr><td>+ 3 (přičtu 3)</td><td>− 3 (odečtu 3)</td></tr>
+<tr><td>÷ 2 (vydělím 2)</td><td>× 2 (vynásobím 2)</td></tr>
+</table>
+Pravidlo: <b>×↔÷</b> a <b>+↔−</b>. Nic jiného se nestane!
 </div>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#148F77">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
@@ -458,39 +504,67 @@ Při výpočtu pozpátku se snadno spleteme v pořadí operací. Jedinou záruko
 <div class="q-text">Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku a sloupce?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>9</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>10</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>12</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>15</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 5</div>
-<div class="q-text">Diagram šipek: číslo x → ÷3 → −6 → ×12 → −8 → výsledek je 28. Jaké je číslo x?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>18</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>36</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#148F77">
-<div class="quiz-answers-title" style="color:#148F77">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kolik je výsledek: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Závorky: (700 − 6×25) = 700−150 = 550. (10−7+2) = 5. Pak: 5×120 = 600. 550÷5 = 110. Nakonec: 600+110 = 710.</div>
+<div class="q-text">Diagram šipek: číslo x → ÷2 → +3 → ×5 → výsledek je 25. Jaké je číslo x?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>2</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>4</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>6</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>8</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#148F77">
+<div class="quiz-answers-title" style="color:#148F77">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_14540')" id="tg_a1_14540">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Kolik je výsledek: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)?</span>
+</div>
+<div class="ans-body" id="a1_14540">
+  <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Závorky: (700 − 6×25) = 700−150 = 550. (10−7+2) = 5. Pak: 5×120 = 600. 550÷5 = 110. Nakonec: 600+110 = 710.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jak závorkami změním výraz 9 × 8 − 6 ÷ 2 tak, aby výsledek byl 9?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">9 × (8 − 6) ÷ 2. Závorka: 8−6 = 2. Pak: 9×2 = 18. Pak: 18÷2 = 9. ✓</div>
+<div class="ans-toggle" onclick="tA('a2_44845')" id="tg_a2_44845">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — Jak závorkami změním výraz 9 × 8 − 6 ÷ 2 tak, aby výsledek byl 9?</span>
+</div>
+<div class="ans-body" id="a2_44845">
+  <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">9 × (8 − 6) ÷ 2. Závorka: 8−6 = 2. Pak: 9×2 = 18. Pak: 18÷2 = 9. ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Číslo vydělím 7, přičtu 3, zdvojnásobím a dostanu 20. Jaké je to číslo?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Jdu pozpátku: 20 ÷ 2 = 10. Pak: 10 − 3 = 7. Pak: 7 × 7 = 49. Ověř: 49÷7 = 7, +3 = 10, ×2 = 20 ✓</div>
+<div class="ans-toggle" onclick="tA('a3_44738')" id="tg_a3_44738">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — Číslo vydělím 7, přičtu 3, zdvojnásobím a dostanu 20. Jaké je to číslo…</span>
+</div>
+<div class="ans-body" id="a3_44738">
+  <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Jdu pozpátku: 20 ÷ 2 = 10. Pak: 10 − 3 = 7. Pak: 7 × 7 = 49. Ověř: 49÷7 = 7, +3 = 10, ×2 = 20 ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku a sloupce?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Součet čísel 0+1+2+3+4+5+6+7+8 = 36. Jsou 3 řádky → každý řádek musí mít součet 36÷3 = 12.</div>
+<div class="ans-toggle" onclick="tA('a4_27172')" id="tg_a4_27172">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku …</span>
+</div>
+<div class="ans-body" id="a4_27172">
+  <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">Součet čísel 0+1+2+3+4+5+6+7+8 = 36. Jsou 3 řádky → každý řádek musí mít součet 36÷3 = 12.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Diagram šipek: číslo x → ÷3 → −6 → ×12 → −8 → výsledek je 28. Jaké je číslo x?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Jdu pozpátku od 28: 28+8 = 36. 36÷12 = 3. 3+6 = 9. 9×3 = 27. Takže x = 27. Ověř: 27÷3=9, 9−6=3, 3×12=36, 36−8=28 ✓</div>
-</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#E74C3C"><div class="ex-header" style="background:#FDEDEC22">
+<div class="ans-toggle" onclick="tA('a5_2820')" id="tg_a5_2820">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Diagram šipek: číslo x → ÷2 → +3 → ×5 → výsledek je 25. Jaké je číslo …</span>
+</div>
+<div class="ans-body" id="a5_2820">
+  <div class="ans-row-correct" style="color:#148F77;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Jdu pozpátku od 25: 25÷5 = 5. Pak: 5−3 = 2. Pak: 2×2 = 4. Takže x = 4. Ověř dopředu: 4÷2=2, 2+3=5, 5×5=25 ✓</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#E74C3C"><div class="ex-header" style="background:#FDEDEC22">
   <div>
     <div class="ex-num" style="color:#C0392B">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Vypočti výraz krok za krokem</div>

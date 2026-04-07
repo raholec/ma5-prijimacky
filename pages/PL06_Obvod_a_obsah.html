@@ -249,6 +249,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
               margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
 .quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
           border-left: 5px solid #3949ab; }
+.quiz-chart { margin: 8px 0 4px; background: #f8faff; border-radius: 8px;
+              padding: 8px 12px; border: 1px solid #dde; overflow-x: auto; }
 .quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
                  letter-spacing: .5px; margin-bottom: 6px; }
 .quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
@@ -270,18 +272,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
                         padding: 20px; margin-top: 14px; margin-bottom: 8px;
                         background: #f8f9ff; }
+
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
-                      text-transform: uppercase; margin-bottom: 16px;
-                      display: flex; align-items: center; gap: 8px; }
-.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
-                overflow: hidden; border: 1px solid #c5cae9; }
-.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
-               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
-               text-transform: uppercase; letter-spacing: .4px; }
-.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
-.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+                      text-transform: uppercase; margin-bottom: 14px; }
 .ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+.ans-row-exp { font-size: 13px; line-height: 1.6; color: #333; }
 
 @media print {
   body { background: white; padding: 0; font-size: 13px; }
@@ -299,6 +294,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </style>
 </head>
 <body>
+
 <div class="page">
 <div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
 <div class="cover" style="background:linear-gradient(135deg,#515A5Aee,#7F8C8Dcc,#1a0010)">
@@ -337,24 +333,61 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 <tr><td><b>Trojúhelník</b></td><td>a + b + c</td><td>základna × výška ÷ 2</td></tr>
 </table>
 </div><div class="hint-block" style="background:#f5f5f5;border-color:#7F8C8D">
-<h3>🔲 Složené tvary — dvě metody</h3>
+<h3>🔲 Složené tvary — dvě metody s příkladem</h3>
 
-<div class="ex"><div class="lbl">Metoda 1: ROZDĚLIT a sečíst</div>
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Vypočtěte obsah a obvod tvaru v čtvercové síti, kde 1 čtverec = 1 cm²."</i>
+</div>
+<div class="hint-diagram"><svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" style="max-width:380px">
+  <defs><style>
+    .sq{{fill:#D5EAF7;stroke:#2980B9;stroke-width:1.5}}
+    .missing{{fill:#f5f5f5;stroke:#ccc;stroke-width:1;stroke-dasharray:4,3}}
+    .dim{{font-size:12px;fill:#555;font-family:sans-serif;text-anchor:middle}}
+    .cut{{fill:#FDEDEC;stroke:#E74C3C;stroke-width:1.5;stroke-dasharray:4,3}}
+  </style></defs>
+  <!-- Full 8×5 L-shape (unit=20px): columns 0-7, rows 0-4 -->
+  <!-- Left half: all 5 rows, columns 0-3 (4 cols wide) -->
+  <!-- Right half: only rows 2-4 (bottom 3 rows), columns 4-7 (but H said 4×2 so cols 4-7, rows 3-4) -->
+  <!-- Actually: L = 8 wide, 5 tall, missing top-right 4×3 -->
+  <!-- Left block 4×5 -->
+  <rect x="20" y="20" width="80" height="100" class="sq"/>
+  <!-- Right-bottom block 4×2 -->
+  <rect x="100" y="80" width="80" height="40" class="sq"/>
+  <!-- Missing top-right 4×3 (dashed) -->
+  <rect x="100" y="20" width="80" height="60" class="missing"/>
+  <!-- Cut line (division) -->
+  <line x1="100" y1="20" x2="100" y2="120" stroke="#E74C3C" stroke-width="2" stroke-dasharray="6,4"/>
+  <!-- Dimension labels -->
+  <text x="60" y="15" class="dim" fill="#2980B9" font-weight="bold">4 cm</text>
+  <text x="140" y="15" class="dim" fill="#C0392B">4 cm (chybí)</text>
+  <text x="14" y="72" class="dim" font-size="11" fill="#2980B9" transform="rotate(-90,14,72)">5 cm</text>
+  <text x="188" y="104" class="dim" font-size="11" fill="#2980B9" transform="rotate(-90,188,104)">2 cm</text>
+  <text x="60" y="138" class="dim" fill="#27AE60" font-weight="bold">4 × 5 = 20</text>
+  <text x="140" y="108" class="dim" fill="#27AE60" font-weight="bold">4 × 2 = 8</text>
+  <text x="140" y="53" class="dim" fill="#C0392B">odebráno: 4×3=12</text>
+
+  <!-- Method labels -->
+  <text x="60" y="160" class="dim" fill="#27AE60" font-weight="bold">Metoda 1: 20+8 = 28 cm²</text>
+  <text x="60" y="178" class="dim" fill="#2980B9">Metoda 2: 8×5−4×3 = 40−12 = 28 cm²</text>
+</svg><div class="diagram-caption">L-tvar: 8 cm wide, 5 cm tall, chybějící roh 4×3 — obě metody dají 28 cm²</div></div>
+<div class="ex"><div class="lbl">Metoda 1: ROZDĚLIT červenou čarou</div>
 <ol>
-<li>Nakresli čáru která rozdělí tvar na jednoduché části</li>
-<li>Spočítej obsah každé části zvlášť</li>
-<li>Sečti všechny obsahy dohromady</li>
+<li>Svislá červená čára rozdělí tvar na dvě části</li>
+<li>Levý obdélník: 4 × 5 = <b>20 cm²</b></li>
+<li>Pravý obdélník: 4 × 2 = <b>8 cm²</b></li>
+<li>Obsah celkem: 20 + 8 = <span class="hint-result">28 cm²</span></li>
 </ol>
 </div>
-<div class="ex"><div class="lbl">Metoda 2: RÁMEČEK minus rohy</div>
+<div class="ex"><div class="lbl">Metoda 2: RÁMEČEK (8×5) minus chybějící roh (4×3)</div>
 <ol>
-<li>Nakresli obdélník kolem celého tvaru</li>
-<li>Spočítej obsah celého obdélníku</li>
-<li>Odečti části, které do tvaru nepatří</li>
+<li>Celý obdélník: 8 × 5 = <b>40 cm²</b></li>
+<li>Chybějící roh (přerušovaně): 4 × 3 = <b>12 cm²</b></li>
+<li>Obsah: 40 − 12 = <span class="hint-result">28 cm²</span> ✓</li>
 </ol>
 </div>
-<div class="ex"><div class="lbl">⚠️ Obvod složeného tvaru — nejčastější chyba</div>
-Jdi prstem PO VNĚJŠÍM OKRAJI dokola. Vnitřní stěny (kde jsi tvar rozdělil) se do obvodu <b>NEPOČÍTAJÍ</b>!
+<div class="ex"><div class="lbl">⚠️ Obvod — nejčastější chyba</div>
+Jdi prstem <b>PO VNĚJŠÍM OKRAJI</b> — jen oranžové strany se počítají do obvodu!<br>
+Červená dělicí čára se <b>NEPOČÍTÁ</b> — je to jen pomyslná čára pro výpočet, ne skutečná strana tvaru.
 </div>
 </div><div class="hint-block" style="background:#f5f5f5;border-color:#515A5A">
 <h3>♟️ Osová souměrnost — jak poznat a opravit</h3>
@@ -439,37 +472,65 @@ Ze všech obdélníků se stejným obvodem má <b>největší obsah ten, jehož 
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Složený tvar je L-písmeno. Jak spočítám jeho obvod?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Sečtu délky všech stran — i těch vnitřních, které vznikly rozdělením</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Sečtu jen délky vnějšího okraje — vnitřní stěny nepočítám</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Vynásobím obvod obdélníku dvěma</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Odečtu obsah chybějícího rohu od obvodu celého obdélníku</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#515A5A">
-<div class="quiz-answers-title" style="color:#515A5A">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#515A5A">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Čtverec má stranu 7 cm. Jaký je jeho obvod a obsah?</div>
-<div class="ans-row-correct" style="color:#515A5A">✅ Správná odpověď: <b>A</b></div>
-<div class="ans-row-exp">Obvod čtverce = 4 × strana = 4 × 7 = 28 cm. Obsah čtverce = strana × strana = 7 × 7 = 49 cm². Pozor: obvod je v cm, obsah je v cm² — jsou to různé jednotky!</div>
+<div class="quiz-answers-title" style="color:#515A5A">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
+<div class="ans-toggle" onclick="tA('a1_33362')" id="tg_a1_33362">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 1 — Čtverec má stranu 7 cm. Jaký je jeho obvod a obsah?</span>
+</div>
+<div class="ans-body" id="a1_33362">
+  <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: A
+  </div>
+  <div class="ans-row-exp">Obvod čtverce = 4 × strana = 4 × 7 = 28 cm. Obsah čtverce = strana × strana = 7 × 7 = 49 cm². Pozor: obvod je v cm, obsah je v cm² — jsou to různé jednotky!</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#515A5A">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Obdélník s obvodem 18 cm. Které rozměry dají největší obsah?</div>
-<div class="ans-row-correct" style="color:#515A5A">✅ Správná odpověď: <b>D</b></div>
-<div class="ans-row-exp">Obvod 18 cm → a + b = 9. Obsah: (1,8) = 8, (2,7) = 14, (3,6) = 18, (4,5) = 20 cm². Největší obsah má ten obdélník, jehož strany jsou si nejbližší (čtverec by byl nejlepší, ale 4,5 nejde udělat čtvercem).</div>
+<div class="ans-toggle" onclick="tA('a2_77225')" id="tg_a2_77225">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 2 — Obdélník s obvodem 18 cm. Které rozměry dají největší obsah?</span>
+</div>
+<div class="ans-body" id="a2_77225">
+  <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: D
+  </div>
+  <div class="ans-row-exp">Obvod 18 cm → a + b = 9. Obsah: (1,8) = 8, (2,7) = 14, (3,6) = 18, (4,5) = 20 cm². Největší obsah má ten obdélník, jehož strany jsou si nejbližší (čtverec by byl nejlepší, ale 4,5 nejde udělat čtvercem).</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#515A5A">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Tvar ve čtvercové síti má 12 čtverečků a celá síť má 24 čtverečků. Jakou část sítě tvar zabírá?</div>
-<div class="ans-row-correct" style="color:#515A5A">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">12 ÷ 24 = 1/2 = polovina. Šedý tvar zabírá přesně polovinu celé sítě.</div>
+<div class="ans-toggle" onclick="tA('a3_15975')" id="tg_a3_15975">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 3 — Tvar ve čtvercové síti má 12 čtverečků a celá síť má 24 čtverečků. Jak…</span>
+</div>
+<div class="ans-body" id="a3_15975">
+  <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: C
+  </div>
+  <div class="ans-row-exp">12 ÷ 24 = 1/2 = polovina. Šedý tvar zabírá přesně polovinu celé sítě.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#515A5A">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Tvar má 9 čtverečků. Z každého tvaru odebereš jeden čtverec aby byl symetrický. Který čtverec odebereš?</div>
-<div class="ans-row-correct" style="color:#515A5A">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Aby byl tvar symetrický, každý čtverec musí mít svůj zrcadlový protějšek přes osu. Ten čtverec, který žádný protějšek nemá (je sám, bez páru), je ten navíc → ten odeberu.</div>
+<div class="ans-toggle" onclick="tA('a4_69843')" id="tg_a4_69843">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 4 — Tvar má 9 čtverečků. Z každého tvaru odebereš jeden čtverec aby byl sy…</span>
+</div>
+<div class="ans-body" id="a4_69843">
+  <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Aby byl tvar symetrický, každý čtverec musí mít svůj zrcadlový protějšek přes osu. Ten čtverec, který žádný protějšek nemá (je sám, bez páru), je ten navíc → ten odeberu.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#515A5A">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Složený tvar je L-písmeno. Jak spočítám jeho obvod?</div>
-<div class="ans-row-correct" style="color:#515A5A">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Obvod = cesta prstem po vnějším okraji dokola. Vnitřní stěny (ty které vznikly, když jsme tvar pomyslně rozdělili) se do obvodu NEPOČÍTAJÍ.</div>
-</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#7F8C8D"><div class="ex-header" style="background:#F2F3F422">
+<div class="ans-toggle" onclick="tA('a5_27475')" id="tg_a5_27475">
+  <span class="toggle-icon">▶</span>
+  <span class="toggle-label">Otázka 5 — Složený tvar je L-písmeno. Jak spočítám jeho obvod?</span>
+</div>
+<div class="ans-body" id="a5_27475">
+  <div class="ans-row-correct" style="color:#515A5A;font-size:15px;font-weight:700;margin-bottom:6px">
+    ✅ Správná odpověď: B
+  </div>
+  <div class="ans-row-exp">Obvod = cesta prstem po vnějším okraji dokola. Vnitřní stěny (ty které vznikly, když jsme tvar pomyslně rozdělili) se do obvodu NEPOČÍTAJÍ.</div>
+</div></div></div>
+<script>
+function tA(id){
+  var b=document.getElementById(id);
+  var t=document.getElementById("tg_"+id);
+  b.classList.toggle("open");
+  t.classList.toggle("open");
+}
+</script><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#7F8C8D"><div class="ex-header" style="background:#F2F3F422">
   <div>
     <div class="ex-num" style="color:#515A5A">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Obdélníky ze čtverečků &mdash; obvod 18 cm</div>
