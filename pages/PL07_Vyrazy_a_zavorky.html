@@ -30,19 +30,66 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .hints-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                text-transform: uppercase; margin-bottom: 16px; display: flex;
                align-items: center; gap: 8px; }
-.hint-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hint-blocks { display: flex; flex-direction: column; gap: 16px; }
 .hint-block { border-radius: 10px; padding: 14px 16px; border-left: 5px solid; }
-.hint-block h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px;
-                 display: flex; align-items: center; gap: 6px; }
-.hint-block p, .hint-block li { font-size: 14px; line-height: 1.7; color: #333; }
-.hint-block ul, .hint-block ol { padding-left: 18px; }
+.hint-block h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px;
+                 display: flex; align-items: center; gap: 8px;
+                 padding-bottom: 10px; border-bottom: 2px solid rgba(0,0,0,.1); }
+.hint-block p, .hint-block li { font-size: 14px; line-height: 1.75; color: #333; }
+.hint-block ul { padding-left: 0; list-style: none; }
+.hint-block ul li { padding: 5px 0 5px 20px; position: relative; }
+.hint-block ul li::before { content: "•"; position: absolute; left: 4px;
+                             color: #888; font-size: 16px; line-height: 1.5; }
+.hint-block ol { padding-left: 0; list-style: none; counter-reset: hint-steps; }
+.hint-block ol li { padding: 7px 0 7px 36px; position: relative;
+                    counter-increment: hint-steps; border-bottom: 1px solid rgba(0,0,0,.05); }
+.hint-block ol li:last-child { border-bottom: none; }
+.hint-block ol li::before { content: counter(hint-steps);
+                             position: absolute; left: 0; top: 7px;
+                             width: 24px; height: 24px; border-radius: 50%;
+                             background: rgba(0,0,0,.12); color: #333;
+                             font-size: 12px; font-weight: 800;
+                             display: flex; align-items: center; justify-content: center; }
 .hint-block .formula { background: rgba(0,0,0,.07); border-radius: 6px;
                        padding: 6px 10px; font-family: monospace; font-size: 14px;
                        margin: 6px 0; display: block; }
-.hint-block .ex { background: rgba(255,255,255,.8); border-radius: 6px;
-                  padding: 10px 13px; margin-top: 8px; font-size: 14px; border: 1px solid rgba(0,0,0,.1); }
-.hint-block .ex .lbl { font-weight: 700; font-size: 12px; text-transform: uppercase;
-                       letter-spacing: .5px; opacity: .7; margin-bottom: 4px; }
+.hint-block .ex { background: rgba(255,255,255,.85); border-radius: 8px;
+                  padding: 12px 14px; margin-top: 10px; font-size: 14px;
+                  border: 1px solid rgba(0,0,0,.12); }
+.hint-block .ex .lbl { font-weight: 800; font-size: 12px; text-transform: uppercase;
+                       letter-spacing: .5px; opacity: .7; margin-bottom: 6px; }
+
+/* Fill-in box — replaces □ */
+.fillin { display: inline-flex; align-items: center; justify-content: center;
+          min-width: 52px; height: 28px; background: #fffde7;
+          border: 2.5px dashed #f9a825; border-radius: 6px;
+          font-size: 13px; font-weight: 700; color: #e65100;
+          padding: 0 8px; margin: 0 3px; vertical-align: middle;
+          letter-spacing: .5px; }
+
+/* Hint diagram container */
+.hint-diagram { margin: 12px 0; text-align: center; }
+.hint-diagram svg { max-width: 100%; height: auto; }
+.hint-diagram .diagram-caption { font-size: 12px; color: #888;
+                                  font-style: italic; margin-top: 6px; }
+
+/* Hint result highlight */
+.hint-result { display: inline-block; background: rgba(0,0,0,.08);
+               border-radius: 6px; padding: 4px 12px; font-weight: 800;
+               font-size: 15px; margin: 4px 0; }
+
+/* Hint table — cleaner */
+.hint-block table.htable { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.hint-block table.htable th { padding: 9px 12px; text-align: center; font-size: 13px; font-weight: 700; }
+.hint-block table.htable td { padding: 8px 12px; text-align: center; border: 1px solid rgba(0,0,0,.1); }
+.hint-block table.htable .fill { background: #fffde7; font-style: italic; color: #e65100; }
+
+/* Hint step-box — for multi-step calculations */
+.hint-calc { background: rgba(0,0,0,.05); border-radius: 8px;
+             padding: 10px 14px; margin: 8px 0; font-family: monospace;
+             font-size: 14px; line-height: 2; }
+.hint-calc .step-arrow { color: #999; margin: 0 8px; }
+.hint-calc b { color: #1a1a1a; }
 
 /* --- DIVIDER --- */
 .divider { text-align: center; margin: 24px 0 20px; position: relative; }
@@ -182,8 +229,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 
 /* --- ANSWER KEY SECTION --- */
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
-                        padding: 20px; margin-top: 30px;
-                        background: #f8f9ff; page-break-before: always; }
+                        padding: 20px; margin-top: 14px; margin-bottom: 8px;
+                        background: #f8f9ff; }
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                       text-transform: uppercase; margin-bottom: 16px;
                       display: flex; align-items: center; gap: 8px; }
@@ -202,7 +249,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   .page { box-shadow: none; border-radius: 0; max-width: 100%; padding: 14px 20px; }
   .example { break-inside: avoid; page-break-inside: avoid; }
   .hints-section { break-inside: avoid; }
-  .hint-blocks { grid-template-columns: 1fr 1fr; }
+  .hint-blocks { flex-direction: column; }
   .exam-img { break-inside: avoid; }
   .exam-img img { max-width: 100%; width: 100%; }
   .steps { break-inside: avoid; }
@@ -219,76 +266,133 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   <h1>Výrazy a závorky</h1>
   <div class="sub">Pořadí operací, hledání neznámého čísla, závorky</div>
   <div class="pts">⭐ Max. 3&ndash;4 bodů v testu</div>
+  <a href="../pdfs/PL07_Vyrazy_a_zavorky.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.2);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.4);transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+      Stáhnout PDF k tisku
+    </a>
 </div><div class="hints-section">
 <div class="hints-title" style="color:#C0392B">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
 <div class="hint-blocks"><div class="hint-block" style="background:#E8F8F5;border-color:#148F77">
 <h3>🔢 Pořadí operací — ZÁKON nade vše</h3>
 
-<p>V matematice platí pevné pořadí: <b>závorky → násobení a dělení → sčítání a odčítání</b></p>
-<div class="ex"><div class="lbl">Příklad: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)</div>
-Krok 1 — závorky: (700 − 6×25) = 700 − 150 = 550. &nbsp; (10−7+2) = 5<br>
-Krok 2 — násobení a dělení: 5×120 = 600. &nbsp; 550÷5 = 110<br>
-Krok 3 — sčítání: 600 + 110 = <b>710</b>
+<div class="ex"><div class="lbl">Pevné pořadí — vždy stejné</div>
+<ol>
+<li><b>Závorky</b> — vždy jako první, zevnitř ven</li>
+<li><b>Násobení a dělení</b> — zleva doprava</li>
+<li><b>Sčítání a odčítání</b> — zleva doprava</li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad: (5 + 5 × 29) − 4 × (176 ÷ 8 − 8 × 2)</div>
-Závorky: 5+5×29 = 5+145 = 150. &nbsp; 176÷8=22, 8×2=16, 22−16=6 → 4×6=24<br>
-Výsledek: 150 − 24 = <b>126</b>
+<div class="ex"><div class="lbl">Příklad: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)</div>
+Závorky: (700 − 6×25) = 700−150 = <b>550</b> &nbsp;&nbsp; (10−7+2) = <b>5</b><br>
+Násobení/dělení: 5×120 = <b>600</b> &nbsp;&nbsp; 550÷5 = <b>110</b><br>
+Sčítání: 600 + 110 = <span class="hint-result">710</span>
+</div>
+<div class="ex"><div class="lbl">Příklad: (5 + 5 × 29) − 4 × (176 ÷ 8 − 8 × 2)</div>
+Závorky: 5+5×29 = 5+145 = 150 &nbsp;&nbsp; 176÷8=22, 8×2=16, 22−16=6 → 4×6=24<br>
+Výsledek: 150 − 24 = <span class="hint-result">126</span>
 </div>
 </div><div class="hint-block" style="background:#E8F8F5;border-color:#17A589">
-<h3>🔄 Závorky mění vše — jak je systematicky vyzkoušet</h3>
+<h3>🔄 Závorky mění vše — jak je vyzkoušet</h3>
 
-<div class="ex"><div class="lbl">Závorka mění pořadí — co je uvnitř se spočítá DŘÍV.</div>
-Bez závorky: 9 × 8 − 6 ÷ 2 = 72 − 3 = 69<br>
-(9 × 8 − 6) ÷ 2 = 66 ÷ 2 = <b>33</b><br>
-9 × (8 − 6) ÷ 2 = 9 × 2 ÷ 2 = <b>9</b><br>
-9 × (8 − 6 ÷ 2) = 9 × 5 = <b>45</b>
+<div class="ex"><div class="lbl">Závorka mění pořadí — co je uvnitř se počítá DŘÍV</div>
+Výraz: 9 × 8 − 6 ÷ 2 = 72−3 = <b>69</b> (bez závorek)
+<table class="htable" style="margin-top:8px">
+<tr><th style="background:#148F77;color:white">Se závorkou</th><th style="background:#148F77;color:white">Výpočet</th><th style="background:#148F77;color:white">Výsledek</th></tr>
+<tr><td>(9 × 8 − 6) ÷ 2</td><td>66 ÷ 2</td><td><b>33</b></td></tr>
+<tr><td>9 × (8 − 6) ÷ 2</td><td>9 × 2 ÷ 2</td><td><b>9</b></td></tr>
+<tr><td>9 × (8 − 6 ÷ 2)</td><td>9 × 5</td><td><b>45</b></td></tr>
+</table>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Jak vyzkoušet VŠECHNY možnosti:</div>
-Máš 4 čísla → závorka může začínat u 1., 2. nebo 3. čísla.<br>
-Závorka kolem celého výrazu dá stejný výsledek jako bez závorky → to se nepočítá.<br>
-Zapiš každý výsledek — kolik je RŮZNÝCH hodnot?
+<div class="ex"><div class="lbl">Jak vyzkoušet VŠECHNA místa pro závorku</div>
+U 4 čísel: závorka může začínat u 1., 2. nebo 3. čísla.<br>
+Závorka kolem celého výrazu = stejný výsledek jako bez závorky → nevede k novému výsledku!
 </div>
 </div><div class="hint-block" style="background:#E8F8F5;border-color:#148F77">
 <h3>□ Neznámé číslo — jdi pozpátku</h3>
 
-<div class="ex"><div class="lbl">Postup: přečti zadání, otoč každou operaci</div>
-„Vydělím 7, přičtu 3, zdvojnásobím → dostanu 20."<br>
-Zpět: 20 ÷ 2 = 10. Zpět: 10 − 3 = 7. Zpět: 7 × 7 = <b>49</b><br>
-Ověř: 49 ÷ 7 = 7, + 3 = 10, × 2 = 20 ✓
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Tabulka: jak otočit operaci</div>
-<table class="ex-table" style="width:100%">
-<tr><th style="background:#148F77;color:white">Dopředu</th><th style="background:#148F77;color:white">Pozpátku</th></tr>
-<tr><td>+5 (přičtu 5)</td><td>−5 (odečtu 5)</td></tr>
-<tr><td>−6 (odečtu 6)</td><td>+6 (přičtu 6)</td></tr>
-<tr><td>×3 (vynásobím 3)</td><td>÷3 (vydělím 3)</td></tr>
-<tr><td>÷4 (vydělím 4)</td><td>×4 (vynásobím 4)</td></tr>
+<div class="ex"><div class="lbl">Tabulka: jak otočit každou operaci</div>
+<table class="htable">
+<tr><th style="background:#148F77;color:white">Operace dopředu</th><th style="background:#148F77;color:white">Pozpátku (otoč!)</th></tr>
+<tr><td>+ 5 (přičtu 5)</td><td>− 5 (odečtu 5)</td></tr>
+<tr><td>− 6 (odečtu 6)</td><td>+ 6 (přičtu 6)</td></tr>
+<tr><td>× 3 (vynásobím 3)</td><td>÷ 3 (vydělím 3)</td></tr>
+<tr><td>÷ 4 (vydělím 4)</td><td>× 4 (vynásobím 4)</td></tr>
 </table>
+</div>
+<div class="ex"><div class="lbl">Příklad: vydělím 7, přičtu 3, zdvojnásobím → dostanu 20</div>
+<div class="hint-calc"><b>20</b> <span class="step-arrow">→ ÷2 →</span> <b>10</b> <span class="step-arrow">→ −3 →</span> <b>7</b> <span class="step-arrow">→ ×7 →</span> <b>49</b></div><br>
+Ověř: 49÷7=7, +3=10, ×2=<span class="hint-result">20 ✓</span>
+</div>
+<div class="ex"><div class="lbl">Příklad: (188−152)÷(1+<span class="fillin">?</span>) = 4+20÷4</div>
+Pravá strana: 4+5=9. Levá: 36÷(1+<span class="fillin">?</span>)=9 → 1+<span class="fillin">?</span>=4 → <span class="fillin">?</span>=<span class="hint-result">3</span>
 </div>
 </div><div class="hint-block" style="background:#E8F8F5;border-color:#17A589">
 <h3>🧮 Magická tabulka a součtový trojúhelník</h3>
 
-<div class="ex"><div class="lbl">Magická tabulka (25r1): doplň čísla 0–8, součet každého řádku i sloupce musí být stejný</div>
-Součet 0+1+2+...+8 = 36. Jsou 3 řádky → každý řádek musí dát 36÷3 = <b>12</b>.<br>
-Prostřední políčko: součet celé tabulky ÷ 3 ÷ 3 = 36÷9 = <b>4</b> (vždy střed).
+<div class="hint-diagram"><svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" style="max-width:260px">
+  <rect x="30" y="20" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <rect x="86" y="20" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <rect x="142" y="20" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="58" y="55" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">0</text>
+  <text x="114" y="55" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="170" y="55" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">2</text>
+  <rect x="30" y="76" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <rect x="86" y="76" width="56" height="56" rx="6" fill="#D5F5E3" stroke="#27AE60" stroke-width="2.5"/>
+  <rect x="142" y="76" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <text x="58" y="111" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">1</text>
+  <text x="114" y="111" font-size="22" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">4</text>
+  <text x="170" y="111" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">3</text>
+  <rect x="30" y="132" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <rect x="86" y="132" width="56" height="56" rx="6" fill="#EAF2FF" stroke="#2980B9" stroke-width="1.5"/>
+  <rect x="142" y="132" width="56" height="56" rx="6" fill="#FDEBD0" stroke="#E67E22" stroke-width="2.5"/>
+  <text x="58" y="167" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="114" y="167" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">8</text>
+  <text x="170" y="167" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="210" y="52" font-size="13" font-weight="bold" fill="#27AE60" font-family="sans-serif">= 12</text>
+  <text x="210" y="108" font-size="13" font-weight="bold" fill="#27AE60" font-family="sans-serif">= 12</text>
+  <text x="210" y="164" font-size="13" font-weight="bold" fill="#27AE60" font-family="sans-serif">= 12</text>
+</svg><div class="diagram-caption">Magická tabulka — čísla 0–8, každý řádek i sloupec dává součet 12</div></div>
+<div class="ex"><div class="lbl">Jak vyplnit magickou tabulku s čísly 0–8</div>
+<ol>
+<li>Součet 0+1+2+...+8 = 36. Jsou 3 řádky → každý = <span class="hint-result">36÷3 = 12</span></li>
+<li>Prostřední políčko = 36÷9 = <span class="hint-result">4</span> (vždy střed!)</li>
+<li>Doplňuj zbývající tak, aby každý řádek i sloupec dal 12</li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Součtový trojúhelník: součet dvou sousedních čísel = číslo pod nimi</div>
-Jdi dolů: levé + pravé = spodní. Jdi nahoru pozpátku: spodní − jedno = druhé.
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Diagram šipek (24n2): x → ÷3 → −6 → ×12 → −8 → výsledek 28</div>
-Pozpátku od 28: 28+8=36, 36÷12=3, 3+6=9, 9×3=<b>x=27</b><br>
-Ověř: 27÷3=9, 9−6=3, 3×12=36, 36−8=28 ✓
-</div>
+<div class="hint-diagram"><svg viewBox="0 0 440 95" xmlns="http://www.w3.org/2000/svg" style="max-width:440px">
+  <rect x="5" y="22" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
+  <text x="33" y="49" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">x</text>
+  <rect x="70" y="28" width="48" height="32" rx="6" fill="#FDF3E7" stroke="#E67E22" stroke-width="1.5"/>
+  <text x="94" y="49" font-size="13" fill="#784212" font-family="sans-serif" text-anchor="middle">÷ 3</text>
+  <line x1="61" y1="44" x2="70" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="127" y="22" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
+  <text x="155" y="49" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">9</text>
+  <rect x="192" y="28" width="48" height="32" rx="6" fill="#FDF3E7" stroke="#E67E22" stroke-width="1.5"/>
+  <text x="216" y="49" font-size="13" fill="#784212" font-family="sans-serif" text-anchor="middle">− 6</text>
+  <line x1="183" y1="44" x2="192" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="249" y="22" width="56" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
+  <text x="277" y="49" font-size="18" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">3</text>
+  <rect x="314" y="28" width="48" height="32" rx="6" fill="#FDF3E7" stroke="#E67E22" stroke-width="1.5"/>
+  <text x="338" y="49" font-size="13" fill="#784212" font-family="sans-serif" text-anchor="middle">× 12</text>
+  <line x1="305" y1="44" x2="314" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="371" y="22" width="62" height="44" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2.5"/>
+  <text x="402" y="49" font-size="18" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">28</text>
+  <line x1="362" y1="44" x2="371" y2="44" stroke="#bbb" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="220" y="85" font-size="11" fill="#888" font-family="sans-serif" text-anchor="middle">Pozpátku: 28+8=36 → ÷12=3 → +6=9 → ×3 → x=27</text>
+</svg><div class="diagram-caption">Diagram šipek — jdi pozpátku od výsledku a každou operaci otoč</div></div>
 </div><div class="hint-block" style="background:#E8F8F5;border-color:#148F77">
 <h3>✅ Kontrola — vždy dosaď zpět!</h3>
 
-<div class="ex"><div class="lbl">Proč kontrolovat?</div>
-Při výpočtu pozpátku se snadno spletete v pořadí operací. Jedinou zárukou je dosadit výsledek zpět do původního zadání a ověřit.
+<div class="ex"><div class="lbl">Proč je kontrola nutná</div>
+Při výpočtu pozpátku se snadno spleteme v pořadí operací. Jedinou zárukou je dosadit výsledek zpět do původního zadání a ověřit, že rovnice platí.
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad z přijímaček: (188 − 152) ÷ (1 + □) = 4 + 20 ÷ 4</div>
-Pravá strana: 4 + 5 = 9.<br>
-Levá strana: 36 ÷ (1 + □) = 9 → 1 + □ = 4 → □ = <b>3</b><br>
-Ověř: 36 ÷ (1+3) = 36 ÷ 4 = 9 = 4+5 ✓
+<div class="ex"><div class="lbl">Jak najít všechny různé výsledky při různých závoркách</div>
+<ol>
+<li>Vyzkoušej závorku začínající na každém možném místě</li>
+<li>Ke každé závorce spočítej výsledek a zapiš ho</li>
+<li>Spočítej kolik je <b>různých</b> hodnot (stejné se počítají jen jednou!)</li>
+<li>Závorka kolem celého výrazu = stejný výsledek jako bez závorky → to nepočítáme!</li>
+</ol>
 </div>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#148F77">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
@@ -306,7 +410,38 @@ Ověř: 36 ÷ (1+3) = 36 ÷ 4 = 9 = 4+5 ✓
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>9</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>10</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>12</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>15</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Diagram šipek: číslo x → ÷3 → −6 → ×12 → −8 → výsledek je 28. Jaké je číslo x?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>18</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>36</span></div></div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#E74C3C"><div class="ex-header" style="background:#FDEDEC22">
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>18</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>36</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#148F77">
+<div class="quiz-answers-title" style="color:#148F77">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 1</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Kolik je výsledek: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Závorky: (700 − 6×25) = 700−150 = 550. (10−7+2) = 5. Pak: 5×120 = 600. 550÷5 = 110. Nakonec: 600+110 = 710.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 2</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Jak závorkami změním výraz 9 × 8 − 6 ÷ 2 tak, aby výsledek byl 9?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">9 × (8 − 6) ÷ 2. Závorka: 8−6 = 2. Pak: 9×2 = 18. Pak: 18÷2 = 9. ✓</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 3</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Číslo vydělím 7, přičtu 3, zdvojnásobím a dostanu 20. Jaké je to číslo?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Jdu pozpátku: 20 ÷ 2 = 10. Pak: 10 − 3 = 7. Pak: 7 × 7 = 49. Ověř: 49÷7 = 7, +3 = 10, ×2 = 20 ✓</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 4</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku a sloupce?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Součet čísel 0+1+2+3+4+5+6+7+8 = 36. Jsou 3 řádky → každý řádek musí mít součet 36÷3 = 12.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 5</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Diagram šipek: číslo x → ÷3 → −6 → ×12 → −8 → výsledek je 28. Jaké je číslo x?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Jdu pozpátku od 28: 28+8 = 36. 36÷12 = 3. 3+6 = 9. 9×3 = 27. Takže x = 27. Ověř: 27÷3=9, 9−6=3, 3×12=36, 36−8=28 ✓</div>
+</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#E74C3C"><div class="ex-header" style="background:#FDEDEC22">
   <div>
     <div class="ex-num" style="color:#C0392B">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Vypočti výraz krok za krokem</div>
@@ -477,38 +612,7 @@ Ověř: 36 ÷ (1+3) = 36 ÷ 4 = 9 = 4+5 ✓
 </div></div></div><div class="tip-box" style="background:#fff5f5;border-color:#E74C3C">
 <span class="tip-icon">💡</span>
 <p>Nezkoušej počítat v hlavě! Piš VŠECHNY mezivýsledky. Jedna malá chyba na začátku = špatná odpověď na konci.</p>
-</div><div class="quiz-answers-section" style="border-color:#148F77">
-<div class="quiz-answers-title" style="color:#148F77">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kolik je výsledek: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Závorky: (700 − 6×25) = 700−150 = 550. (10−7+2) = 5. Pak: 5×120 = 600. 550÷5 = 110. Nakonec: 600+110 = 710.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jak závorkami změním výraz 9 × 8 − 6 ÷ 2 tak, aby výsledek byl 9?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">9 × (8 − 6) ÷ 2. Závorka: 8−6 = 2. Pak: 9×2 = 18. Pak: 18÷2 = 9. ✓</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Číslo vydělím 7, přičtu 3, zdvojnásobím a dostanu 20. Jaké je to číslo?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Jdu pozpátku: 20 ÷ 2 = 10. Pak: 10 − 3 = 7. Pak: 7 × 7 = 49. Ověř: 49÷7 = 7, +3 = 10, ×2 = 20 ✓</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku a sloupce?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Součet čísel 0+1+2+3+4+5+6+7+8 = 36. Jsou 3 řádky → každý řádek musí mít součet 36÷3 = 12.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#148F77">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Diagram šipek: číslo x → ÷3 → −6 → ×12 → −8 → výsledek je 28. Jaké je číslo x?</div>
-<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Jdu pozpátku od 28: 28+8 = 36. 36÷12 = 3. 3+6 = 9. 9×3 = 27. Takže x = 27. Ověř: 27÷3=9, 9−6=3, 3×12=36, 36−8=28 ✓</div>
-</div></div></div>
+</div>
 </div>
 </body>
 </html>

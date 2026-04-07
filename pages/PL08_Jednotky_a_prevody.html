@@ -30,19 +30,66 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .hints-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                text-transform: uppercase; margin-bottom: 16px; display: flex;
                align-items: center; gap: 8px; }
-.hint-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hint-blocks { display: flex; flex-direction: column; gap: 16px; }
 .hint-block { border-radius: 10px; padding: 14px 16px; border-left: 5px solid; }
-.hint-block h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px;
-                 display: flex; align-items: center; gap: 6px; }
-.hint-block p, .hint-block li { font-size: 14px; line-height: 1.7; color: #333; }
-.hint-block ul, .hint-block ol { padding-left: 18px; }
+.hint-block h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px;
+                 display: flex; align-items: center; gap: 8px;
+                 padding-bottom: 10px; border-bottom: 2px solid rgba(0,0,0,.1); }
+.hint-block p, .hint-block li { font-size: 14px; line-height: 1.75; color: #333; }
+.hint-block ul { padding-left: 0; list-style: none; }
+.hint-block ul li { padding: 5px 0 5px 20px; position: relative; }
+.hint-block ul li::before { content: "•"; position: absolute; left: 4px;
+                             color: #888; font-size: 16px; line-height: 1.5; }
+.hint-block ol { padding-left: 0; list-style: none; counter-reset: hint-steps; }
+.hint-block ol li { padding: 7px 0 7px 36px; position: relative;
+                    counter-increment: hint-steps; border-bottom: 1px solid rgba(0,0,0,.05); }
+.hint-block ol li:last-child { border-bottom: none; }
+.hint-block ol li::before { content: counter(hint-steps);
+                             position: absolute; left: 0; top: 7px;
+                             width: 24px; height: 24px; border-radius: 50%;
+                             background: rgba(0,0,0,.12); color: #333;
+                             font-size: 12px; font-weight: 800;
+                             display: flex; align-items: center; justify-content: center; }
 .hint-block .formula { background: rgba(0,0,0,.07); border-radius: 6px;
                        padding: 6px 10px; font-family: monospace; font-size: 14px;
                        margin: 6px 0; display: block; }
-.hint-block .ex { background: rgba(255,255,255,.8); border-radius: 6px;
-                  padding: 10px 13px; margin-top: 8px; font-size: 14px; border: 1px solid rgba(0,0,0,.1); }
-.hint-block .ex .lbl { font-weight: 700; font-size: 12px; text-transform: uppercase;
-                       letter-spacing: .5px; opacity: .7; margin-bottom: 4px; }
+.hint-block .ex { background: rgba(255,255,255,.85); border-radius: 8px;
+                  padding: 12px 14px; margin-top: 10px; font-size: 14px;
+                  border: 1px solid rgba(0,0,0,.12); }
+.hint-block .ex .lbl { font-weight: 800; font-size: 12px; text-transform: uppercase;
+                       letter-spacing: .5px; opacity: .7; margin-bottom: 6px; }
+
+/* Fill-in box — replaces □ */
+.fillin { display: inline-flex; align-items: center; justify-content: center;
+          min-width: 52px; height: 28px; background: #fffde7;
+          border: 2.5px dashed #f9a825; border-radius: 6px;
+          font-size: 13px; font-weight: 700; color: #e65100;
+          padding: 0 8px; margin: 0 3px; vertical-align: middle;
+          letter-spacing: .5px; }
+
+/* Hint diagram container */
+.hint-diagram { margin: 12px 0; text-align: center; }
+.hint-diagram svg { max-width: 100%; height: auto; }
+.hint-diagram .diagram-caption { font-size: 12px; color: #888;
+                                  font-style: italic; margin-top: 6px; }
+
+/* Hint result highlight */
+.hint-result { display: inline-block; background: rgba(0,0,0,.08);
+               border-radius: 6px; padding: 4px 12px; font-weight: 800;
+               font-size: 15px; margin: 4px 0; }
+
+/* Hint table — cleaner */
+.hint-block table.htable { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.hint-block table.htable th { padding: 9px 12px; text-align: center; font-size: 13px; font-weight: 700; }
+.hint-block table.htable td { padding: 8px 12px; text-align: center; border: 1px solid rgba(0,0,0,.1); }
+.hint-block table.htable .fill { background: #fffde7; font-style: italic; color: #e65100; }
+
+/* Hint step-box — for multi-step calculations */
+.hint-calc { background: rgba(0,0,0,.05); border-radius: 8px;
+             padding: 10px 14px; margin: 8px 0; font-family: monospace;
+             font-size: 14px; line-height: 2; }
+.hint-calc .step-arrow { color: #999; margin: 0 8px; }
+.hint-calc b { color: #1a1a1a; }
 
 /* --- DIVIDER --- */
 .divider { text-align: center; margin: 24px 0 20px; position: relative; }
@@ -182,8 +229,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 
 /* --- ANSWER KEY SECTION --- */
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
-                        padding: 20px; margin-top: 30px;
-                        background: #f8f9ff; page-break-before: always; }
+                        padding: 20px; margin-top: 14px; margin-bottom: 8px;
+                        background: #f8f9ff; }
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                       text-transform: uppercase; margin-bottom: 16px;
                       display: flex; align-items: center; gap: 8px; }
@@ -202,7 +249,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   .page { box-shadow: none; border-radius: 0; max-width: 100%; padding: 14px 20px; }
   .example { break-inside: avoid; page-break-inside: avoid; }
   .hints-section { break-inside: avoid; }
-  .hint-blocks { grid-template-columns: 1fr 1fr; }
+  .hint-blocks { flex-direction: column; }
   .exam-img { break-inside: avoid; }
   .exam-img img { max-width: 100%; width: 100%; }
   .steps { break-inside: avoid; }
@@ -219,34 +266,61 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   <h1>Jednotky a převody</h1>
   <div class="sub">Délky, hmotnost, čas &mdash; jak převádět a počítat</div>
   <div class="pts">⭐ Max. 3 bodů v testu</div>
+  <a href="../pdfs/PL08_Jednotky_a_prevody.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.2);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.4);transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+      Stáhnout PDF k tisku
+    </a>
 </div><div class="hints-section">
 <div class="hints-title" style="color:#784212">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
 <div class="hint-blocks"><div class="hint-block" style="background:#fdf5ec;border-color:#784212">
 <h3>📏 Žebřík délkových jednotek — nahoře VELKÉ, dole MALÉ</h3>
 
-<div style="text-align:center;font-size:15px;padding:10px 0;line-height:2.8;background:#fff8f0;border-radius:8px;margin-bottom:8px">
-<b style="color:#784212">km</b>
-<span style="color:#A56A2A;margin:0 8px;font-size:12px">× 1000</span>
-<b style="color:#784212">m</b>
-<span style="color:#A56A2A;margin:0 8px;font-size:12px">× 10</span>
-<b style="color:#784212">dm</b>
-<span style="color:#A56A2A;margin:0 8px;font-size:12px">× 10</span>
-<b style="color:#784212">cm</b>
-<span style="color:#A56A2A;margin:0 8px;font-size:12px">× 10</span>
-<b style="color:#784212">mm</b>
-</div>
-<p style="text-align:center;font-size:12px;color:#888;margin:0 0 8px">Doleva (na menší) = násobíš &nbsp;|&nbsp; Doprava (na větší) = dělíš</p>
-<div class="ex"><div class="lbl">Příklady:</div>
-3 m = 300 cm = 3000 mm<br>
-2 m 4 cm 2 mm → v mm: 2×1000 + 4×10 + 2 = <b>2 042 mm</b><br>
-52 cm 6 mm → v mm: 52×10 + 6 = <b>526 mm</b>
+<div class="hint-diagram"><svg viewBox="0 0 430 130" xmlns="http://www.w3.org/2000/svg" style="max-width:430px">
+  <rect x="8" y="50" width="414" height="32" rx="16" fill="#FDF3E7" stroke="#E8D5B0" stroke-width="1.5"/>
+  <text x="42" y="72" font-size="17" font-weight="800" fill="#784212" font-family="sans-serif" text-anchor="middle">km</text>
+  <text x="134" y="72" font-size="17" font-weight="800" fill="#784212" font-family="sans-serif" text-anchor="middle">m</text>
+  <text x="226" y="72" font-size="17" font-weight="800" fill="#784212" font-family="sans-serif" text-anchor="middle">dm</text>
+  <text x="318" y="72" font-size="17" font-weight="800" fill="#784212" font-family="sans-serif" text-anchor="middle">cm</text>
+  <text x="400" y="72" font-size="17" font-weight="800" fill="#784212" font-family="sans-serif" text-anchor="middle">mm</text>
+  <text x="88" y="34" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">× 1000</text>
+  <text x="180" y="34" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">× 10</text>
+  <text x="272" y="34" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">× 10</text>
+  <text x="360" y="34" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">× 10</text>
+  <path d="M66,46 Q88,26 110,46" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M158,46 Q180,26 202,46" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M250,46 Q272,26 294,46" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M342,46 Q360,26 380,46" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="88" y="108" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">÷ 1000</text>
+  <text x="180" y="108" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">÷ 10</text>
+  <text x="272" y="108" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">÷ 10</text>
+  <text x="360" y="108" font-size="12" fill="#A56A2A" font-family="sans-serif" text-anchor="middle">÷ 10</text>
+  <path d="M110,86 Q88,106 66,86" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M202,86 Q180,106 158,86" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M294,86 Q272,106 250,86" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M380,86 Q360,106 342,86" fill="none" stroke="#A56A2A" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="8" y="34" font-size="10" fill="#888" font-family="sans-serif">na menší →</text>
+  <text x="8" y="108" font-size="10" fill="#888" font-family="sans-serif">na větší →</text>
+</svg><div class="diagram-caption">Žebřík délkových jednotek: doleva násobíš (menší), doprava dělíš (větší)</div></div>
+<table class="htable">
+<tr><th style="background:#784212;color:white">Z</th><th style="background:#784212;color:white">Na</th><th style="background:#784212;color:white">Násobíš</th><th style="background:#784212;color:white">Příklad</th></tr>
+<tr><td>m</td><td>cm</td><td>× 100</td><td>3 m = 300 cm</td></tr>
+<tr><td>m</td><td>mm</td><td>× 1000</td><td>2,5 m = 2 500 mm</td></tr>
+<tr><td>cm</td><td>mm</td><td>× 10</td><td>52 cm = 520 mm</td></tr>
+<tr><td>km</td><td>m</td><td>× 1000</td><td>7 km = 7 000 m</td></tr>
+</table>
+<div class="ex"><div class="lbl">Smíchané — vždy přepočítej na jednu jednotku</div>
+2 m 4 cm 2 mm → v mm: <div class="hint-calc"><b>2×1000</b> <span class="step-arrow">→ =2000 →</span> <b>+</b> <span class="step-arrow">→ 4×10=40 →</span> <b>+</b> <span class="step-arrow">→ 2 →</span> <b>= 2 042 mm</b></div>
 </div>
 </div><div class="hint-block" style="background:#fdf5ec;border-color:#A56A2A">
 <h3>⚖️⏱️ Hmotnost a čas — zlomky jsou zrádné!</h3>
 
-<table class="ex-table" style="width:100%">
+<div class="ex"><div class="lbl">Zlaté pravidlo: čas nebo hmotnost ÷ jmenovatel zlomku</div>
+1/4 hodiny = 60 ÷ 4 = <span class="hint-result">15 min</span> (NE 25 — to by bylo 1/4 ze 100!)<br>
+1/3 hodiny = 60 ÷ 3 = <span class="hint-result">20 min</span> (NE 30!)
+</div>
+<table class="htable">
 <tr><th style="background:#784212;color:white">Zlomek</th>
-<th style="background:#784212;color:white">Z 1 kilogramu (1000 g)</th>
+<th style="background:#784212;color:white">Z 1 kg (1000 g)</th>
 <th style="background:#784212;color:white">Z 1 hodiny (60 min)</th></tr>
 <tr><td><b>1/2</b></td><td>500 g</td><td>30 min</td></tr>
 <tr><td><b>1/3</b></td><td>333 g</td><td><b>20 min</b></td></tr>
@@ -254,51 +328,51 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 <tr><td><b>1/5</b></td><td>200 g</td><td>12 min</td></tr>
 <tr><td><b>1/6</b></td><td>167 g</td><td><b>10 min</b></td></tr>
 </table>
-<div class="ex" style="margin-top:6px"><div class="lbl">Pravidlo: čas ÷ jmenovatel</div>
-1/4 hodiny = 60 ÷ 4 = <b>15 minut</b> (ne 25!) &nbsp;&nbsp; 1/3 hodiny = 60 ÷ 3 = <b>20 minut</b> (ne 30!)
-</div>
 </div><div class="hint-block" style="background:#fdf5ec;border-color:#784212">
 <h3>🚂 Rovnoměrné tempo — poměr je vždy stejný</h3>
 
-<p>Jedeš-li pořád stejnou rychlostí: <b>2× více času = 2× více km</b>. Vždy!</p>
-<div class="ex"><div class="lbl">Postup:</div>
-1. Zjisti základní tempo: za kolik minut = kolik km<br>
-2. Kolikrát je hledaná vzdálenost větší? → Přesně tolikrát vynásob čas.
+<div class="ex"><div class="lbl">Zlaté pravidlo</div>
+Stále stejná rychlost: <b>2× více času = 2× více km</b>. Vždy!
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad vlak: za 8 min = 7 km. Za 40 minut = ?</div>
-40 = 5 × 8 → vzdálenost = 5 × 7 = <b>35 km</b>
+<div class="ex"><div class="lbl">Postup</div>
+<ol>
+<li>Zjisti základní tempo: za kolik minut = kolik km</li>
+<li>Kolikrát je hledaná vzdálenost větší? → přesně tolikrát vynásob čas</li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad Katka: do školy jede 2× déle než ze školy. Celkem 33 minut.</div>
-Ze školy = □. Do školy = 2×□. Celkem: □ + 2×□ = 3×□ = 33 → □ = <b>11 minut ze školy</b>, 22 minut do školy.
+<div class="ex"><div class="lbl">Příklad: za 8 min = 7 km. Za 40 minut = ?</div>
+<div class="hint-calc"><b>40÷8</b> <span class="step-arrow">→ = 5× →</span> <b>5×7</b> <span class="step-arrow">→ = 35 km →</span></div>
+</div>
+<div class="ex"><div class="lbl">Příklad: Katka jede do školy 2× déle. Celkem 33 minut.</div>
+Ze školy = <span class="fillin">?</span>. Do školy = 2×<span class="fillin">?</span>. Dohromady: 3×<span class="fillin">?</span> = 33 → <span class="fillin">?</span> = <span class="hint-result">11 min ze školy</span>, 22 min do školy.
 </div>
 </div><div class="hint-block" style="background:#fdf5ec;border-color:#A56A2A">
 <h3>🔧 Smíchané jednotky — 4 kroky</h3>
 
-<ol style="padding-left:18px;line-height:2.1">
-<li>Vypiš všechny jednotky ze zadání</li>
-<li>Zvol si <b>jednu</b> — obvykle tu nejmenší</li>
-<li>Převeď na ni <b>KAŽDÉ</b> číslo — žádné nevynechej!</li>
-<li>Počítej. Výsledek převeď zpět pokud je potřeba.</li>
+<ol>
+<li><b>Vypiš</b> všechny jednotky ze zadání</li>
+<li><b>Zvol</b> jednu — obvykle tu nejmenší v zadání</li>
+<li><b>Převeď</b> na ni KAŽDÉ číslo ze zadání — žádné nevynechej!</li>
+<li><b>Počítej</b> a výsledek převeď zpět pokud je potřeba</li>
 </ol>
-<div class="ex"><div class="lbl">Příklad: 18 m − 15 dm + □ cm = 20 m</div>
-Převeď na cm: 18 m = 1800 cm. 15 dm = 150 cm. 20 m = 2000 cm.<br>
-1800 − 150 + □ = 2000 → □ = 2000 − 1650 = <b>350 cm</b>
+<div class="ex"><div class="lbl">Příklad: 18 m − 15 dm + <span class="fillin">?</span> cm = 20 m</div>
+Na cm: 18 m = <b>1800 cm</b>. 15 dm = <b>150 cm</b>. 20 m = <b>2000 cm</b>.<br>
+1800 − 150 + <span class="fillin">?</span> = 2000 → <span class="fillin">?</span> = 2000−1650 = <span class="hint-result">350 cm</span>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad: 4 × □ g − 3 kg = 1/5 kg</div>
-Převeď na gramy: 3 kg = 3000 g. 1/5 kg = 200 g.<br>
-4 × □ − 3000 = 200 → 4 × □ = 3200 → □ = <b>800 g</b>
+<div class="ex"><div class="lbl">Příklad: 4 × <span class="fillin">?</span> g − 3 kg = 1/5 kg</div>
+Na gramy: 3 kg = 3000 g. 1/5 kg = 200 g.<br>
+4×<span class="fillin">?</span> = 3000+200 = 3200 → <span class="fillin">?</span> = <span class="hint-result">800 g</span>
 </div>
 </div><div class="hint-block" style="background:#fdf5ec;border-color:#784212">
 <h3>⚠️ Zákeřné pasti — přečti si před každým příkladem!</h3>
 
-<table class="ex-table" style="width:100%">
-<tr><th style="background:#784212;color:white">Past</th>
-<th style="background:#784212;color:white">Správně</th></tr>
-<tr><td>1 m² = ? cm²</td><td><b>10 000 cm²</b> (100 × 100), ne 100 cm²!</td></tr>
-<tr><td>7:43 + 22 minut</td><td><b>8:05</b> — 43+22 = 65 min = 1 hod 5 min</td></tr>
-<tr><td>2 m 4 cm převeď na mm</td><td>2000 + 40 = <b>2 040 mm</b> (ne 204!)</td></tr>
-<tr><td>1/4 hodiny = ?</td><td><b>15 min</b> (ne 25 min — to by bylo 1/4 ze 100!)</td></tr>
-<tr><td>cesta tam 2× déle, celkem 33 min</td><td>kratší = 33 ÷ 3 = <b>11 min</b></td></tr>
+<table class="htable">
+<tr><th style="background:#784212;color:white">Past</th><th style="background:#784212;color:white">Špatně ✗</th><th style="background:#784212;color:white">Správně ✓</th></tr>
+<tr><td>1 m² = ? cm²</td><td>100 cm²</td><td><b>10 000 cm²</b> (100×100!)</td></tr>
+<tr><td>7:43 + 22 minut</td><td>7:65</td><td><b>8:05</b> (43+22=65 min = 1 hod 5 min)</td></tr>
+<tr><td>2 m 4 cm → mm</td><td>204 mm</td><td><b>2 040 mm</b> (2000+40)</td></tr>
+<tr><td>1/4 hodiny = ?</td><td>25 min</td><td><b>15 min</b> (60÷4)</td></tr>
+<tr><td>cesta 2× déle, celkem 33 min</td><td>33÷2</td><td>33÷3 = <b>11 min</b></td></tr>
 </table>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#784212">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
@@ -316,7 +390,38 @@ Převeď na gramy: 3 kg = 3000 g. 1/5 kg = 200 g.<br>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>150 cm</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>200 cm</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>350 cm</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>500 cm</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Katka jede do školy 2× déle než ze školy. Celkem stráví jízdou 33 minut. Jak dlouhá je cesta ze školy?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>8 minut</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>11 minut</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>16 minut</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>22 minut</span></div></div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#A56A2A"><div class="ex-header" style="background:#FAE5D322">
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>8 minut</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>11 minut</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>16 minut</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>22 minut</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#784212">
+<div class="quiz-answers-title" style="color:#784212">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#784212">Otázka 1</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Kolik milimetrů je 2 m 4 cm 2 mm?</div>
+<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">2 m = 2 000 mm. 4 cm = 40 mm. 2 mm = 2 mm. Celkem: 2 000 + 40 + 2 = 2 042 mm. Pozor: 2 m 4 cm neznamená 24 cm — jsou to dvě různé jednotky!</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#784212">Otázka 2</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Kolik minut je 1/4 hodiny?</div>
+<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">1 hodina = 60 minut. Čtvrtina hodiny = 60 ÷ 4 = 15 minut. Pozor: 25 minut by byla čtvrtina ze 100 — ale to není hodina!</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#784212">Otázka 3</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Vlak jede stále stejnou rychlostí. Za 8 minut ujede 7 km. Jak daleko dojede za 40 minut?</div>
+<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">40 minut = 5 × 8 minut. Pokud za 8 min = 7 km, pak za 40 min = 5 × 7 = 35 km. Tempo je stále stejné, takže čas a vzdálenost jsou ve stejném poměru.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#784212">Otázka 4</div>
+<div class="ans-row-content">
+<div class="ans-row-q">18 m − 15 dm + □ cm = 20 m. Jaké je □?</div>
+<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Převeď vše na cm: 18 m = 1 800 cm. 15 dm = 150 cm. 20 m = 2 000 cm. Rovnice: 1 800 − 150 + □ = 2 000 → □ = 2 000 − 1 650 = 350 cm.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#784212">Otázka 5</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Katka jede do školy 2× déle než ze školy. Celkem stráví jízdou 33 minut. Jak dlouhá je cesta ze školy?</div>
+<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Cesta ze školy = □ minut. Cesta do školy = 2 × □ minut. Celkem: □ + 2×□ = 3×□ = 33 minut → □ = 33 ÷ 3 = 11 minut. Cesta do školy = 2×11 = 22 minut.</div>
+</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#A56A2A"><div class="ex-header" style="background:#FAE5D322">
   <div>
     <div class="ex-num" style="color:#784212">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Vzdálenost vlaku od lomu k mostu</div>
@@ -515,38 +620,7 @@ Převeď na gramy: 3 kg = 3000 g. 1/5 kg = 200 g.<br>
 </div></div></div><div class="tip-box" style="background:#fdf5ec;border-color:#A56A2A">
 <span class="tip-icon">⏰</span>
 <p>Vždy nejdřív převeď VŠE na jednu jednotku, a teprve pak počítej. Smíchané jednotky způsobují chyby!</p>
-</div><div class="quiz-answers-section" style="border-color:#784212">
-<div class="quiz-answers-title" style="color:#784212">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#784212">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kolik milimetrů je 2 m 4 cm 2 mm?</div>
-<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">2 m = 2 000 mm. 4 cm = 40 mm. 2 mm = 2 mm. Celkem: 2 000 + 40 + 2 = 2 042 mm. Pozor: 2 m 4 cm neznamená 24 cm — jsou to dvě různé jednotky!</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#784212">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kolik minut je 1/4 hodiny?</div>
-<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">1 hodina = 60 minut. Čtvrtina hodiny = 60 ÷ 4 = 15 minut. Pozor: 25 minut by byla čtvrtina ze 100 — ale to není hodina!</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#784212">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Vlak jede stále stejnou rychlostí. Za 8 minut ujede 7 km. Jak daleko dojede za 40 minut?</div>
-<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">40 minut = 5 × 8 minut. Pokud za 8 min = 7 km, pak za 40 min = 5 × 7 = 35 km. Tempo je stále stejné, takže čas a vzdálenost jsou ve stejném poměru.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#784212">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">18 m − 15 dm + □ cm = 20 m. Jaké je □?</div>
-<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Převeď vše na cm: 18 m = 1 800 cm. 15 dm = 150 cm. 20 m = 2 000 cm. Rovnice: 1 800 − 150 + □ = 2 000 → □ = 2 000 − 1 650 = 350 cm.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#784212">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Katka jede do školy 2× déle než ze školy. Celkem stráví jízdou 33 minut. Jak dlouhá je cesta ze školy?</div>
-<div class="ans-row-correct" style="color:#784212">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Cesta ze školy = □ minut. Cesta do školy = 2 × □ minut. Celkem: □ + 2×□ = 3×□ = 33 minut → □ = 33 ÷ 3 = 11 minut. Cesta do školy = 2×11 = 22 minut.</div>
-</div></div></div>
+</div>
 </div>
 </body>
 </html>

@@ -30,19 +30,66 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .hints-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                text-transform: uppercase; margin-bottom: 16px; display: flex;
                align-items: center; gap: 8px; }
-.hint-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hint-blocks { display: flex; flex-direction: column; gap: 16px; }
 .hint-block { border-radius: 10px; padding: 14px 16px; border-left: 5px solid; }
-.hint-block h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px;
-                 display: flex; align-items: center; gap: 6px; }
-.hint-block p, .hint-block li { font-size: 14px; line-height: 1.7; color: #333; }
-.hint-block ul, .hint-block ol { padding-left: 18px; }
+.hint-block h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px;
+                 display: flex; align-items: center; gap: 8px;
+                 padding-bottom: 10px; border-bottom: 2px solid rgba(0,0,0,.1); }
+.hint-block p, .hint-block li { font-size: 14px; line-height: 1.75; color: #333; }
+.hint-block ul { padding-left: 0; list-style: none; }
+.hint-block ul li { padding: 5px 0 5px 20px; position: relative; }
+.hint-block ul li::before { content: "•"; position: absolute; left: 4px;
+                             color: #888; font-size: 16px; line-height: 1.5; }
+.hint-block ol { padding-left: 0; list-style: none; counter-reset: hint-steps; }
+.hint-block ol li { padding: 7px 0 7px 36px; position: relative;
+                    counter-increment: hint-steps; border-bottom: 1px solid rgba(0,0,0,.05); }
+.hint-block ol li:last-child { border-bottom: none; }
+.hint-block ol li::before { content: counter(hint-steps);
+                             position: absolute; left: 0; top: 7px;
+                             width: 24px; height: 24px; border-radius: 50%;
+                             background: rgba(0,0,0,.12); color: #333;
+                             font-size: 12px; font-weight: 800;
+                             display: flex; align-items: center; justify-content: center; }
 .hint-block .formula { background: rgba(0,0,0,.07); border-radius: 6px;
                        padding: 6px 10px; font-family: monospace; font-size: 14px;
                        margin: 6px 0; display: block; }
-.hint-block .ex { background: rgba(255,255,255,.8); border-radius: 6px;
-                  padding: 10px 13px; margin-top: 8px; font-size: 14px; border: 1px solid rgba(0,0,0,.1); }
-.hint-block .ex .lbl { font-weight: 700; font-size: 12px; text-transform: uppercase;
-                       letter-spacing: .5px; opacity: .7; margin-bottom: 4px; }
+.hint-block .ex { background: rgba(255,255,255,.85); border-radius: 8px;
+                  padding: 12px 14px; margin-top: 10px; font-size: 14px;
+                  border: 1px solid rgba(0,0,0,.12); }
+.hint-block .ex .lbl { font-weight: 800; font-size: 12px; text-transform: uppercase;
+                       letter-spacing: .5px; opacity: .7; margin-bottom: 6px; }
+
+/* Fill-in box — replaces □ */
+.fillin { display: inline-flex; align-items: center; justify-content: center;
+          min-width: 52px; height: 28px; background: #fffde7;
+          border: 2.5px dashed #f9a825; border-radius: 6px;
+          font-size: 13px; font-weight: 700; color: #e65100;
+          padding: 0 8px; margin: 0 3px; vertical-align: middle;
+          letter-spacing: .5px; }
+
+/* Hint diagram container */
+.hint-diagram { margin: 12px 0; text-align: center; }
+.hint-diagram svg { max-width: 100%; height: auto; }
+.hint-diagram .diagram-caption { font-size: 12px; color: #888;
+                                  font-style: italic; margin-top: 6px; }
+
+/* Hint result highlight */
+.hint-result { display: inline-block; background: rgba(0,0,0,.08);
+               border-radius: 6px; padding: 4px 12px; font-weight: 800;
+               font-size: 15px; margin: 4px 0; }
+
+/* Hint table — cleaner */
+.hint-block table.htable { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.hint-block table.htable th { padding: 9px 12px; text-align: center; font-size: 13px; font-weight: 700; }
+.hint-block table.htable td { padding: 8px 12px; text-align: center; border: 1px solid rgba(0,0,0,.1); }
+.hint-block table.htable .fill { background: #fffde7; font-style: italic; color: #e65100; }
+
+/* Hint step-box — for multi-step calculations */
+.hint-calc { background: rgba(0,0,0,.05); border-radius: 8px;
+             padding: 10px 14px; margin: 8px 0; font-family: monospace;
+             font-size: 14px; line-height: 2; }
+.hint-calc .step-arrow { color: #999; margin: 0 8px; }
+.hint-calc b { color: #1a1a1a; }
 
 /* --- DIVIDER --- */
 .divider { text-align: center; margin: 24px 0 20px; position: relative; }
@@ -182,8 +229,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 
 /* --- ANSWER KEY SECTION --- */
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
-                        padding: 20px; margin-top: 30px;
-                        background: #f8f9ff; page-break-before: always; }
+                        padding: 20px; margin-top: 14px; margin-bottom: 8px;
+                        background: #f8f9ff; }
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                       text-transform: uppercase; margin-bottom: 16px;
                       display: flex; align-items: center; gap: 8px; }
@@ -202,7 +249,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   .page { box-shadow: none; border-radius: 0; max-width: 100%; padding: 14px 20px; }
   .example { break-inside: avoid; page-break-inside: avoid; }
   .hints-section { break-inside: avoid; }
-  .hint-blocks { grid-template-columns: 1fr 1fr; }
+  .hint-blocks { flex-direction: column; }
   .exam-img { break-inside: avoid; }
   .exam-img img { max-width: 100%; width: 100%; }
   .steps { break-inside: avoid; }
@@ -219,79 +266,125 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   <h1>Geometrická konstrukce</h1>
   <div class="sub">Rýsování trojúhelníků, čtverců a obdélníků &mdash; vždy najdi všechna řešení!</div>
   <div class="pts">⭐ Max. 6 bodů v testu</div>
+  <a href="../pdfs/PL01_Geometricka_konstrukce.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.2);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.4);transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+      Stáhnout PDF k tisku
+    </a>
 </div><div class="hints-section">
 <div class="hints-title" style="color:#1A5276">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
 <div class="hint-blocks"><div class="hint-block" style="background:#e8f4ff;border-color:#1A5276">
-<h3>📖 Přečti zadání 3× — teprve pak rýsuj</h3>
+<h3>📖 Jak číst zadání — 5 kroků před rýsováním</h3>
 
-<ol style="padding-left:18px;line-height:2.1">
-<li>Přečti pomalu — <b>poprvé</b> pro pochopení, <b>podruhé</b> pro podmínky</li>
-<li>Každou podmínku si <b>vyznač</b> — podtrhni nebo zakroužkuj</li>
-<li>Nakresli si <b>náčrt od ruky</b> — jak zhruba musí výsledek vypadat</li>
-<li>Teprve pak rýsuj <b>pravítkem a kružítkem</b></li>
-<li>Na konci zkontroluj <b>každou podmínku</b> — všechny splněny?</li>
+<ol>
+<li>Přečti POMALU — <b>poprvé</b> jen pro pochopení, <b>podruhé</b> hledej podmínky</li>
+<li>Každou podmínku <b>podtrhni nebo zakroužkuj</b> přímo v zadání</li>
+<li>Nakresli si <b>hrubý náčrt od ruky</b> — jak by to mohlo vypadat</li>
+<li>Teprve pak rýsuj <b>pravítkem a kružítkem</b> přesně</li>
+<li>Na konci zkontroluj <b>každou podmínku zvlášť</b> — všechny musí platit!</li>
 </ol>
+<div class="ex"><div class="lbl">Nejčastější chyba</div>
+Žáci začnou rýsovat dříve, než přečtou celé zadání. Pak zjistí, že poloha bodu nesedí. Vždy přečti celé zadání — teprve pak rýsuj!</div>
 </div><div class="hint-block" style="background:#e8f4ff;border-color:#2980B9">
-<h3>🔵 Kružítko — 4 základní úlohy</h3>
+<h3>🔵 Kružítko — rovnostranný trojúhelník krok za krokem</h3>
 
-<div class="ex"><div class="lbl">1. Rovnostranný trojúhelník KMS ze dvou bodů K a M:</div>
-Všechny 3 strany jsou stejně dlouhé (KS = MS = KM).<br>
-Z K narýsuj kružnici s poloměrem = KM, z M taky. <b>Průsečíky</b> obou kružnic jsou bod S.
+<div class="hint-diagram"><svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg" style="max-width:380px">
+  <line x1="80" y1="165" x2="280" y2="165" stroke="#1A5276" stroke-width="2.5"/>
+  <circle cx="80" cy="165" r="115" fill="none" stroke="#2980B9" stroke-width="1.8" stroke-dasharray="6,4"/>
+  <circle cx="280" cy="165" r="115" fill="none" stroke="#C0392B" stroke-width="1.8" stroke-dasharray="6,4"/>
+  <circle cx="180" cy="66" r="6" fill="#27AE60"/>
+  <line x1="80" y1="165" x2="180" y2="66" stroke="#27AE60" stroke-width="1.8"/>
+  <line x1="280" y1="165" x2="180" y2="66" stroke="#27AE60" stroke-width="1.8"/>
+  <circle cx="80" cy="165" r="6" fill="#1A5276"/>
+  <circle cx="280" cy="165" r="6" fill="#1A5276"/>
+  <text x="64" y="184" font-size="16" font-weight="bold" fill="#1A5276" font-family="sans-serif">K</text>
+  <text x="280" y="184" font-size="16" font-weight="bold" fill="#1A5276" font-family="sans-serif">M</text>
+  <text x="170" y="56" font-size="16" font-weight="bold" fill="#27AE60" font-family="sans-serif">S</text>
+  <text x="8" y="55" font-size="12" fill="#2980B9" font-family="sans-serif">kružnice z K</text>
+  <text x="258" y="55" font-size="12" fill="#C0392B" font-family="sans-serif">kružnice z M</text>
+  <text x="130" y="200" font-size="12" fill="#555" font-family="sans-serif">KM = KS = MS (rovnostranný!)</text>
+</svg><div class="diagram-caption">Rovnostranný trojúhelník KMS — průsečík dvou kružnic</div></div>
+<div class="ex"><div class="lbl">Proč to funguje</div>
+Rovnostranný trojúhelník má KS = MS = KM. Kružnice z K zachytí všechny body ve vzdálenosti KM od K. Kružnice z M zachytí všechny body ve vzdálenosti KM od M. Bod S leží na obou → v jejich průsečíku.
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">2. Přenesení délky na jiné místo:</div>
-Nastav kružítko na délku AB → z bodu P narýsuj kružnici. Na ní leží body ve stejné vzdálenosti od P jako B od A.
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">3. Osa úsečky AB (= kolmice procházející středem):</div>
-Z A i B kružnice <b>se stejným poloměrem</b> (větším než polovina AB). Průsečíky dají osu.
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">4. Střed úsečky — jak ho najít:</div>
-Narýsuj osu úsečky. Tam kde osa kříží úsečku = střed.
+<div class="ex"><div class="lbl">Postup krok za krokem</div>
+<ol>
+<li>Změř kružítkem délku KM (nastav poloměr přesně na KM)</li>
+<li>Z bodu K narýsuj kružnici s tímto poloměrem</li>
+<li>BEZ ZMĚNY poloměru narýsuj kružnici i z bodu M</li>
+<li>Průsečíky obou kružnic = možné polohy bodu S</li>
+<li>Bývají <b>dva průsečíky</b> = dvě řešení — obě nakresli!</li>
+</ol>
 </div>
 </div><div class="hint-block" style="background:#e8f4ff;border-color:#1A5276">
-<h3>📏 Rovnoběžná přímka přes bod — jak ji narýsovat</h3>
+<h3>📏 Osa úsečky — co to je a jak ji narýsovat</h3>
 
-<p>Chceš narýsovat přímku <b>p</b> rovnoběžnou se zadanou přímkou <b>r</b> procházející bodem <b>K</b>.</p>
-<div class="ex"><div class="lbl">Postup:</div>
-1. Přilož pravítko těsně podél přímky r<br>
-2. Přilož trojúhelník nebo druhé pravítko k prvnímu jako zarážku<br>
-3. Posuň pravítko podél zarážky tak, aby procházelo bodem K<br>
-4. Narýsuj přímku p
+<div class="hint-diagram"><svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" style="max-width:320px">
+  <line x1="40" y1="110" x2="280" y2="110" stroke="#1A5276" stroke-width="3"/>
+  <circle cx="40" cy="110" r="5" fill="#1A5276"/>
+  <circle cx="280" cy="110" r="5" fill="#1A5276"/>
+  <text x="28" y="130" font-size="15" font-weight="bold" fill="#1A5276" font-family="sans-serif">A</text>
+  <text x="278" y="130" font-size="15" font-weight="bold" fill="#1A5276" font-family="sans-serif">B</text>
+  <circle cx="160" cy="110" r="4" fill="#E74C3C"/>
+  <line x1="160" y1="15" x2="160" y2="160" stroke="#E74C3C" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <rect x="160" y="98" width="14" height="14" fill="none" stroke="#E74C3C" stroke-width="1.5"/>
+  <text x="80" y="95" font-size="12" fill="#2980B9" font-family="sans-serif">stejně daleko</text>
+  <text x="170" y="95" font-size="12" fill="#2980B9" font-family="sans-serif">stejně daleko</text>
+  <text x="128" y="175" font-size="12" fill="#E74C3C" font-family="sans-serif">osa úsečky AB</text>
+</svg><div class="diagram-caption">Osa úsečky AB — kolmice procházející středem</div></div>
+<div class="ex"><div class="lbl">Co je osa úsečky AB</div>
+<ul>
+<li>Prochází přesně <b>středem</b> úsečky AB</li>
+<li>Je <b>kolmá</b> na úsečku AB (svírá 90°)</li>
+<li>Každý bod na ose je <b>stejně daleko od A i od B</b></li>
+</ul>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Jak ověřit že jsou rovnoběžné:</div>
-Přiložíš pravítko k r — pak ho bez otáčení posuneš na p — pravítko musí lehnout přesně na p.<br>
-Nebo: dvě přímky jsou rovnoběžné, pokud jsou na každém místě <b>stejně daleko od sebe</b>.
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad z přijímaček (2025 r2): Obdélník KLMN — strana KL musí být rovnoběžná s přímkou r</div>
-Z K narýsuj rovnoběžku s r → na ní si zvol bod L → z L kolmici dolů → z K kolmici dolů...
+<div class="ex"><div class="lbl">Jak narýsovat kružítkem</div>
+<ol>
+<li>Nastav kružítko na poloměr <b>větší než polovina AB</b></li>
+<li>Z A narýsuj kružnici — ze stejným poloměrem narýsuj kružnici i z B</li>
+<li>Spoj oba průsečíky kružnic = to je osa úsečky</li>
+</ol>
 </div>
 </div><div class="hint-block" style="background:#e8f4ff;border-color:#1A5276">
-<h3>📐 Pojmy — taháková tabulka</h3>
+<h3>📐 Rovnoběžka přes bod a klíčové pojmy</h3>
 
-<table class="ex-table" style="width:100%">
+<div class="ex"><div class="lbl">Jak narýsovat rovnoběžku přes bod K s přímkou r</div>
+<ol>
+<li>Přilož pravítko těsně <b>podél přímky r</b></li>
+<li>Přilož trojúhelník k pravítku jako zarážku (aby se pravítko nesklouz.</li>
+<li>Posuň pravítko podél zarážky tak, aby procházelo bodem <b>K</b></li>
+<li>Narýsuj přímku — je rovnoběžná s r!</li>
+</ol>
+</div>
+<table class="htable">
 <tr><th style="background:#1A5276;color:white">Pojem</th><th style="background:#1A5276;color:white">Co to je</th></tr>
-<tr><td><b>Přímka</b></td><td>Prochází celou rovinou — bez začátku a konce</td></tr>
-<tr><td><b>Úsečka AB</b></td><td>Část přímky se dvěma konci — měříme délku</td></tr>
 <tr><td><b>Rovnoběžky</b></td><td>Nikdy se neprotnou — jsou stále stejně daleko od sebe</td></tr>
 <tr><td><b>Kolmice</b></td><td>Svírají přesně pravý úhel (90°)</td></tr>
-<tr><td><b>Osa úsečky</b></td><td>Kolmice procházející středem — každý bod na ní je stejně daleko od obou konců</td></tr>
+<tr><td><b>Osa úsečky</b></td><td>Kolmice středem — každý bod je stejně daleko od obou konců</td></tr>
 <tr><td><b>Rovnostranný △</b></td><td>Všechny 3 strany stejně dlouhé</td></tr>
-<tr><td><b>Rovnoramenný △</b></td><td>Právě 2 strany stejně dlouhé — třetí (základna) je jiná</td></tr>
+<tr><td><b>Rovnoramenný △</b></td><td>2 strany stejně dlouhé (ramena), třetí jiná (základna)</td></tr>
 </table>
 </div><div class="hint-block" style="background:#e8f4ff;border-color:#2980B9">
-<h3>🔍 Proč bývají 2 řešení a jak je najít</h3>
+<h3>🔍 Proč bývají 2 řešení — a jak je systematicky najít</h3>
 
-<p>Zadání říká <b>„Najdi VŠECHNA řešení"</b> — může jich být 1, 2 nebo výjimečně více.</p>
-<div class="ex"><div class="lbl">Kdy vznikají 2 řešení:</div>
-• Bod může být na přímce vlevo i vpravo od jiného bodu<br>
-• Trojúhelník může být nad i pod přímkou<br>
-• Dvě kružnice se protínají ve dvou bodech
+<div class="ex"><div class="lbl">Kdy vznikají 2 řešení</div>
+<ul>
+<li>Bod může ležet na přímce <b>vlevo i vpravo</b> od jiného bodu</li>
+<li>Trojúhelník může být <b>nad i pod</b> zadanou přímkou</li>
+<li>Dvě kružnice se protínají ve <b>dvou bodech</b></li>
+</ul>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Jak na to — systematicky:</div>
-1. Narýsuj první řešení pečlivě<br>
-2. Zeptej se: „Může bod ležet i na druhé straně?" nebo „Může obrazec být i zrcadlově?"<br>
-3. Pokud ano — narýsuj druhé řešení<br>
-4. Zkontroluj obě — musí splňovat VŠECHNY podmínky ze zadání
+<div class="ex"><div class="lbl">Systematický postup</div>
+<ol>
+<li>Narýsuj první řešení přesně</li>
+<li>Zeptej se: „Může bod ležet i na druhé straně?"</li>
+<li>Pokud ano — narýsuj druhé řešení</li>
+<li>Obě řešení zkontroluj ve <b>všech podmínkách</b></li>
+<li>Zapiš závěr: „Nalezena 2 řešení" nebo „Nalezeno 1 řešení"</li>
+</ol>
 </div>
+<div class="ex"><div class="lbl">Jak kontrolovat kružítkem</div>
+Nastav kružítko na délku KM. Bez změny přenes na KS — pasuje? Pak jsou stejně dlouhé.</div>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#2980B9">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
 <div class="q-num">Otázka 1</div>
@@ -308,7 +401,38 @@ Z K narýsuj rovnoběžku s r → na ní si zvol bod L → z L kolmici dolů →
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Vždy právě 1</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Vždy právě 2</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Zpravidla 2, ale může být 1 nebo výjimečně více</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Záleží na délce kružítka</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Jaký je rozdíl mezi rovnostranným a rovnoramenným trojúhelníkem?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Žádný, je to totéž</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Rovnostranný má všechny 3 strany stejně dlouhé, rovnoramenný má stejně dlouhé jen 2 strany</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Rovnoramenný má všechny 3 strany stejně dlouhé</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Rovnostranný má jen pravé úhly</span></div></div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#2980B9"><div class="ex-header" style="background:#D6EAF822">
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>Žádný, je to totéž</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>Rovnostranný má všechny 3 strany stejně dlouhé, rovnoramenný má stejně dlouhé jen 2 strany</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>Rovnoramenný má všechny 3 strany stejně dlouhé</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>Rovnostranný má jen pravé úhly</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#2980B9">
+<div class="quiz-answers-title" style="color:#2980B9">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#2980B9">Otázka 1</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Jak narýsuješ rovnostranný trojúhelník KMS, když znáš body K a M?</div>
+<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Rovnostranný trojúhelník má KS = MS = KM. Proto z K i z M narýsuji kružnici s poloměrem rovným délce KM. Kde se obě kružnice protnou — tam je bod S. Průsečíky jsou zpravidla dva = 2 řešení.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#2980B9">Otázka 2</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Co je osa úsečky AB?</div>
+<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Osa úsečky AB je kolmice na AB, která prochází přesně středem AB. Každý bod na ose úsečky je stejně daleko od A i od B — proto ji používáme když hledáme body, které mají být stejně daleko od dvou míst.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#2980B9">Otázka 3</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Chceš narýsovat přímku rovnoběžnou s r procházející bodem K. Jak začneš?</div>
+<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Přiložím pravítko těsně podél přímky r. Pak — bez otáčení — ho posunu tak, aby procházelo bodem K. Narýsuji novou přímku. Takto dostanu přímku rovnoběžnou s r.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#2980B9">Otázka 4</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Kolik řešení bývá nejčastěji v úlohách kde hledáš bod na přímce?</div>
+<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Nejčastěji jsou 2 řešení — bod může být na přímce na obou stranách, nebo trojúhelník může být nad i pod přímkou. Ale někdy podmínky neumožní druhé řešení. Proto vždy systematicky otestuj: existuje i zrcadlové řešení?</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#2980B9">Otázka 5</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Jaký je rozdíl mezi rovnostranným a rovnoramenným trojúhelníkem?</div>
+<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Rovnostranný trojúhelník: KS = MS = KM — VŠECHNY tři strany jsou stejně dlouhé. Rovnoramenný trojúhelník: jen 2 strany jsou stejně dlouhé (říkáme jim ramena), třetí strana (základna) je jinak dlouhá.</div>
+</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#2980B9"><div class="ex-header" style="background:#D6EAF822">
   <div>
     <div class="ex-num" style="color:#1A5276">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Rovnostranný trojúhelník KMS</div>
@@ -462,38 +586,7 @@ Z K narýsuj rovnoběžku s r → na ní si zvol bod L → z L kolmici dolů →
 </div><div style="height:240px;background:#f8f9fa;border:1px dashed #ccc;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:10px 0;color:#999;font-style:italic">Prostor pro rýsování (použij pravítko a kružítko)</div></div></div><div class="tip-box" style="background:#e8f4ff;border-color:#2980B9">
 <span class="tip-icon">✅</span>
 <p>Vždy zkontroluj každé řešení: splňuje VŠECHNY podmínky ze zadání? Prochází strana bodem R? Leží bod na přímce?</p>
-</div><div class="quiz-answers-section" style="border-color:#2980B9">
-<div class="quiz-answers-title" style="color:#2980B9">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jak narýsuješ rovnostranný trojúhelník KMS, když znáš body K a M?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rovnostranný trojúhelník má KS = MS = KM. Proto z K i z M narýsuji kružnici s poloměrem rovným délce KM. Kde se obě kružnice protnou — tam je bod S. Průsečíky jsou zpravidla dva = 2 řešení.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Co je osa úsečky AB?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Osa úsečky AB je kolmice na AB, která prochází přesně středem AB. Každý bod na ose úsečky je stejně daleko od A i od B — proto ji používáme když hledáme body, které mají být stejně daleko od dvou míst.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Chceš narýsovat přímku rovnoběžnou s r procházející bodem K. Jak začneš?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Přiložím pravítko těsně podél přímky r. Pak — bez otáčení — ho posunu tak, aby procházelo bodem K. Narýsuji novou přímku. Takto dostanu přímku rovnoběžnou s r.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kolik řešení bývá nejčastěji v úlohách kde hledáš bod na přímce?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Nejčastěji jsou 2 řešení — bod může být na přímce na obou stranách, nebo trojúhelník může být nad i pod přímkou. Ale někdy podmínky neumožní druhé řešení. Proto vždy systematicky otestuj: existuje i zrcadlové řešení?</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#2980B9">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jaký je rozdíl mezi rovnostranným a rovnoramenným trojúhelníkem?</div>
-<div class="ans-row-correct" style="color:#2980B9">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rovnostranný trojúhelník: KS = MS = KM — VŠECHNY tři strany jsou stejně dlouhé. Rovnoramenný trojúhelník: jen 2 strany jsou stejně dlouhé (říkáme jim ramena), třetí strana (základna) je jinak dlouhá.</div>
-</div></div></div>
+</div>
 </div>
 </body>
 </html>

@@ -30,19 +30,66 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .hints-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                text-transform: uppercase; margin-bottom: 16px; display: flex;
                align-items: center; gap: 8px; }
-.hint-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hint-blocks { display: flex; flex-direction: column; gap: 16px; }
 .hint-block { border-radius: 10px; padding: 14px 16px; border-left: 5px solid; }
-.hint-block h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px;
-                 display: flex; align-items: center; gap: 6px; }
-.hint-block p, .hint-block li { font-size: 14px; line-height: 1.7; color: #333; }
-.hint-block ul, .hint-block ol { padding-left: 18px; }
+.hint-block h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px;
+                 display: flex; align-items: center; gap: 8px;
+                 padding-bottom: 10px; border-bottom: 2px solid rgba(0,0,0,.1); }
+.hint-block p, .hint-block li { font-size: 14px; line-height: 1.75; color: #333; }
+.hint-block ul { padding-left: 0; list-style: none; }
+.hint-block ul li { padding: 5px 0 5px 20px; position: relative; }
+.hint-block ul li::before { content: "•"; position: absolute; left: 4px;
+                             color: #888; font-size: 16px; line-height: 1.5; }
+.hint-block ol { padding-left: 0; list-style: none; counter-reset: hint-steps; }
+.hint-block ol li { padding: 7px 0 7px 36px; position: relative;
+                    counter-increment: hint-steps; border-bottom: 1px solid rgba(0,0,0,.05); }
+.hint-block ol li:last-child { border-bottom: none; }
+.hint-block ol li::before { content: counter(hint-steps);
+                             position: absolute; left: 0; top: 7px;
+                             width: 24px; height: 24px; border-radius: 50%;
+                             background: rgba(0,0,0,.12); color: #333;
+                             font-size: 12px; font-weight: 800;
+                             display: flex; align-items: center; justify-content: center; }
 .hint-block .formula { background: rgba(0,0,0,.07); border-radius: 6px;
                        padding: 6px 10px; font-family: monospace; font-size: 14px;
                        margin: 6px 0; display: block; }
-.hint-block .ex { background: rgba(255,255,255,.8); border-radius: 6px;
-                  padding: 10px 13px; margin-top: 8px; font-size: 14px; border: 1px solid rgba(0,0,0,.1); }
-.hint-block .ex .lbl { font-weight: 700; font-size: 12px; text-transform: uppercase;
-                       letter-spacing: .5px; opacity: .7; margin-bottom: 4px; }
+.hint-block .ex { background: rgba(255,255,255,.85); border-radius: 8px;
+                  padding: 12px 14px; margin-top: 10px; font-size: 14px;
+                  border: 1px solid rgba(0,0,0,.12); }
+.hint-block .ex .lbl { font-weight: 800; font-size: 12px; text-transform: uppercase;
+                       letter-spacing: .5px; opacity: .7; margin-bottom: 6px; }
+
+/* Fill-in box — replaces □ */
+.fillin { display: inline-flex; align-items: center; justify-content: center;
+          min-width: 52px; height: 28px; background: #fffde7;
+          border: 2.5px dashed #f9a825; border-radius: 6px;
+          font-size: 13px; font-weight: 700; color: #e65100;
+          padding: 0 8px; margin: 0 3px; vertical-align: middle;
+          letter-spacing: .5px; }
+
+/* Hint diagram container */
+.hint-diagram { margin: 12px 0; text-align: center; }
+.hint-diagram svg { max-width: 100%; height: auto; }
+.hint-diagram .diagram-caption { font-size: 12px; color: #888;
+                                  font-style: italic; margin-top: 6px; }
+
+/* Hint result highlight */
+.hint-result { display: inline-block; background: rgba(0,0,0,.08);
+               border-radius: 6px; padding: 4px 12px; font-weight: 800;
+               font-size: 15px; margin: 4px 0; }
+
+/* Hint table — cleaner */
+.hint-block table.htable { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.hint-block table.htable th { padding: 9px 12px; text-align: center; font-size: 13px; font-weight: 700; }
+.hint-block table.htable td { padding: 8px 12px; text-align: center; border: 1px solid rgba(0,0,0,.1); }
+.hint-block table.htable .fill { background: #fffde7; font-style: italic; color: #e65100; }
+
+/* Hint step-box — for multi-step calculations */
+.hint-calc { background: rgba(0,0,0,.05); border-radius: 8px;
+             padding: 10px 14px; margin: 8px 0; font-family: monospace;
+             font-size: 14px; line-height: 2; }
+.hint-calc .step-arrow { color: #999; margin: 0 8px; }
+.hint-calc b { color: #1a1a1a; }
 
 /* --- DIVIDER --- */
 .divider { text-align: center; margin: 24px 0 20px; position: relative; }
@@ -182,8 +229,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 
 /* --- ANSWER KEY SECTION --- */
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
-                        padding: 20px; margin-top: 30px;
-                        background: #f8f9ff; page-break-before: always; }
+                        padding: 20px; margin-top: 14px; margin-bottom: 8px;
+                        background: #f8f9ff; }
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                       text-transform: uppercase; margin-bottom: 16px;
                       display: flex; align-items: center; gap: 8px; }
@@ -202,7 +249,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   .page { box-shadow: none; border-radius: 0; max-width: 100%; padding: 14px 20px; }
   .example { break-inside: avoid; page-break-inside: avoid; }
   .hints-section { break-inside: avoid; }
-  .hint-blocks { grid-template-columns: 1fr 1fr; }
+  .hint-blocks { flex-direction: column; }
   .exam-img { break-inside: avoid; }
   .exam-img img { max-width: 100%; width: 100%; }
   .steps { break-inside: avoid; }
@@ -219,79 +266,147 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   <h1>Soustavy podmínek</h1>
   <div class="sub">Slovní úlohy: tabulka, krok za krokem, ověření</div>
   <div class="pts">⭐ Max. 3&ndash;5 bodů v testu</div>
+  <a href="../pdfs/PL05_Soustavy_podminek.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.2);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.4);transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+      Stáhnout PDF k tisku
+    </a>
 </div><div class="hints-section">
 <div class="hints-title" style="color:#1E8449">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
 <div class="hint-blocks"><div class="hint-block" style="background:#eafaf1;border-color:#1E8449">
 <h3>📋 Tabulka = záchrana — VŽDY ji nakresli</h3>
 
-<p>Kdykoli je v zadání víc skupin nebo víc vlastností: nakresli tabulku!</p>
-<table class="ex-table" style="width:100%;font-size:13px">
-<tr><th style="background:#1E8449;color:white">Patro</th>
-<th style="background:#1E8449;color:white">Chlapci</th>
-<th style="background:#1E8449;color:white">Dívky</th>
-<th style="background:#1E8449;color:white">Celkem</th></tr>
-<tr><td>1.</td><td class="fill">?</td><td class="fill">?</td><td class="fill">?</td></tr>
-<tr><td>2.</td><td style="background:#ffe">0 (jen dívky!)</td><td class="fill">?</td><td class="fill">?</td></tr>
-<tr><td>3.</td><td class="fill">?</td><td class="fill">?</td><td class="fill">?</td></tr>
-<tr><td><b>CELKEM</b></td><td class="fill">?</td><td class="fill">?</td><td><b>11</b></td></tr>
+<div class="ex"><div class="lbl">Kdy nakreslit tabulku</div>
+Kdykoli je v zadání více skupin nebo více vlastností — nakresli tabulku hned na začátku.
+</div>
+<table class="htable">
+<tr><th style="background:#1E8449;color:white">Patro</th><th style="background:#1E8449;color:white">Chlapci</th><th style="background:#1E8449;color:white">Dívky</th><th style="background:#1E8449;color:white">Celkem</th></tr>
+<tr><td>1.</td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td></tr>
+<tr><td>2.</td><td style="background:#fff3cd;color:#c0392b;font-weight:700">0 ← jen dívky!</td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td></tr>
+<tr><td>3.</td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td></tr>
+<tr><td><b>CELKEM</b></td><td class="fill"><span class="fillin">?</span></td><td class="fill"><span class="fillin">?</span></td><td><b>11</b></td></tr>
 </table>
-<p style="margin-top:6px">Začni od políček, která <b>znáš</b> — pak postupně vyplňuj zbývající.</p>
+<div class="ex"><div class="lbl">Postup vyplňování</div>
+<ol>
+<li>Začni od políček, která <b>znáš přímo</b> ze zadání</li>
+<li>Dopočítej sousední políčka (součty řádků a sloupců musí sedět)</li>
+<li>Postupuj dokud není tabulka celá vyplněna</li>
+</ol>
+</div>
 </div><div class="hint-block" style="background:#eafaf1;border-color:#27AE60">
 <h3>🔵 Vennův diagram — průnik skupin</h3>
 
-<div class="ex"><div class="lbl">Příklad z přijímaček (23r1): Kroužky SEN — sportovní 14 dětí, divadelní 12, robotický 6.</div>
-3 děti navštěvují všechny 3 kroužky. 8 dětí navštěvuje právě 2 kroužky.
+<div class="hint-diagram"><svg viewBox="0 0 380 230" xmlns="http://www.w3.org/2000/svg" style="max-width:380px">
+  <circle cx="155" cy="95" r="75" fill="#D6EAF8" fill-opacity=".75" stroke="#2980B9" stroke-width="2"/>
+  <circle cx="225" cy="95" r="75" fill="#D5F5E3" fill-opacity=".75" stroke="#27AE60" stroke-width="2"/>
+  <circle cx="190" cy="155" r="75" fill="#FDEBD0" fill-opacity=".75" stroke="#E67E22" stroke-width="2"/>
+  <text x="100" y="70" font-size="13" font-weight="bold" fill="#1A5276" font-family="sans-serif">Sport 14</text>
+  <text x="240" y="70" font-size="13" font-weight="bold" fill="#145A32" font-family="sans-serif">Div. 12</text>
+  <text x="165" y="215" font-size="13" font-weight="bold" fill="#784212" font-family="sans-serif">Roboti 6</text>
+  <text x="178" y="93" font-size="12" fill="#333" font-family="sans-serif" text-anchor="middle">8 dětí</text>
+  <text x="178" y="107" font-size="11" fill="#555" font-family="sans-serif" text-anchor="middle">(právě 2 kr.)</text>
+  <text x="190" y="133" font-size="13" font-weight="bold" fill="#922B21" font-family="sans-serif" text-anchor="middle">3</text>
+  <text x="190" y="147" font-size="11" fill="#922B21" font-family="sans-serif" text-anchor="middle">(všechny 3)</text>
+</svg><div class="diagram-caption">Vennův diagram — kroužky SEN (23r1): celkem 18 dětí</div></div>
+<div class="ex"><div class="lbl">Jak spočítat celkový počet — krok za krokem</div>
+<ol>
+<li>Sečti všechny kroužky: 14+12+6 = 32 (ale průniky jsou počítány víckrát!)</li>
+<li>Odečti děti v právě 2 kroužcích jednou: 32−8 = 24</li>
+<li>Odečti děti ve všech 3 kroužcích dvakrát: 24−2×3 = 24−6 = <span class="hint-result">18 dětí</span></li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Jak spočítat celkový počet:</div>
-Součet všech kroužků = 14 + 12 + 6 = 32<br>
-Ale děti v PRÁVĚ 2 kroužcích se počítají 2× → odečtu je jednou: −8<br>
-Děti ve VŠECH 3 kroužcích se počítají 3× → odečtu je dvakrát: −2×3 = −6<br>
-Celkem: 32 − 8 − 6 = <b>18 dětí</b>
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Kolik dětí navštěvuje POUZE jeden kroužek:</div>
-18 celkem − 8 (právě dva) − 3 (všechny tři) = <b>7 dětí</b>
+<div class="ex"><div class="lbl">Kolik navštěvuje POUZE jeden kroužek</div>
+18 celkem − 8 (právě dva kroužky) − 3 (všechny tři) = <span class="hint-result">7 dětí</span>
 </div>
 </div><div class="hint-block" style="background:#eafaf1;border-color:#1E8449">
-<h3>🔺 Součtový trojúhelník a diagram šipek</h3>
+<h3>🔺 Součtový trojúhelník — krok za krokem</h3>
 
-<div class="ex"><div class="lbl">Součtový trojúhelník: součet dvou čísel vedle sebe = číslo pod nimi</div>
-Nahoře: □ □ □. Prostřední řádek: □ □. Dole: □.<br>
-Začni od toho co znáš a postupuj dolů (nebo nahoru pozpátku).
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad (24n1): nahoře jsou dvě stejná čísla a 8, dole číslo 44</div>
-Označme stejná čísla jako A. Pak: A+A = 2A (levý prostřední) a A+8 (pravý prostřední).<br>
-2A + (A+8) = 44 → 3A + 8 = 44 → 3A = 36 → A = <b>12</b>
-</div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Diagram šipek: x → ÷3 → −6 → ×12 → výsledek</div>
-Postup: jdi POZPÁTKU od výsledku. Každou operaci otoč:<br>
-÷3 se stane ×3, −6 se stane +6, ×12 se stane ÷12
+<div class="hint-diagram"><svg viewBox="0 0 340 185" xmlns="http://www.w3.org/2000/svg" style="max-width:340px">
+  <rect x="20" y="15" width="58" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
+  <rect x="141" y="15" width="58" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
+  <rect x="262" y="15" width="58" height="44" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
+  <text x="49" y="44" font-size="20" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">A</text>
+  <text x="170" y="44" font-size="20" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">B</text>
+  <text x="291" y="44" font-size="20" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">C</text>
+  <text x="111" y="42" font-size="14" fill="#888" font-family="sans-serif">+</text>
+  <text x="232" y="42" font-size="14" fill="#888" font-family="sans-serif">+</text>
+  <line x1="78" y1="59" x2="111" y2="95" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="141" y1="59" x2="108" y2="95" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="199" y1="59" x2="232" y2="95" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="262" y1="59" x2="229" y2="95" stroke="#aaa" stroke-width="1.5"/>
+  <rect x="80" y="95" width="66" height="44" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <rect x="194" y="95" width="66" height="44" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <text x="113" y="124" font-size="16" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">A+B</text>
+  <text x="227" y="124" font-size="16" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">B+C</text>
+  <text x="168" y="122" font-size="14" fill="#888" font-family="sans-serif">+</text>
+  <line x1="146" y1="139" x2="163" y2="165" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="194" y1="139" x2="177" y2="165" stroke="#aaa" stroke-width="1.5"/>
+  <rect x="140" y="155" width="80" height="44" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/>
+  <text x="180" y="184" font-size="16" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">A+2B+C</text>
+</svg><div class="diagram-caption">Součtový trojúhelník — součet dvou sousedních = číslo pod nimi</div></div>
+<div class="hint-diagram"><svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
+  <rect x="10" y="10" width="66" height="48" rx="8" fill="#FDEDEC" stroke="#E74C3C" stroke-width="2.5"/>
+  <rect x="117" y="10" width="66" height="48" rx="8" fill="#FDEDEC" stroke="#E74C3C" stroke-width="2.5"/>
+  <rect x="224" y="10" width="66" height="48" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
+  <text x="43" y="41" font-size="22" font-weight="bold" fill="#C0392B" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="150" y="41" font-size="22" font-weight="bold" fill="#C0392B" font-family="sans-serif" text-anchor="middle">?</text>
+  <text x="257" y="41" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">8</text>
+  <line x1="76" y1="58" x2="103" y2="88" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="117" y1="58" x2="90" y2="88" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="183" y1="58" x2="210" y2="88" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="224" y1="58" x2="197" y2="88" stroke="#aaa" stroke-width="1.5"/>
+  <rect x="63" y="88" width="66" height="48" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <rect x="171" y="88" width="66" height="48" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <text x="96" y="119" font-size="18" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">2?</text>
+  <text x="204" y="119" font-size="18" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">?+8</text>
+  <line x1="129" y1="136" x2="150" y2="158" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="171" y1="136" x2="150" y2="158" stroke="#aaa" stroke-width="1.5"/>
+  <rect x="117" y="152" width="66" height="48" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/>
+  <text x="150" y="183" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">44</text>
+</svg><div class="diagram-caption">Příklad: obě ? jsou stejná → 3? + 8 = 44 → ? = 12</div></div>
+<div class="ex"><div class="lbl">Jak řešit: obě ? jsou stejná čísla, výsledek = 44</div>
+<ol>
+<li>Označím hledané číslo jako <span class="fillin">A</span></li>
+<li>Prostřední řádek: vlevo = <span class="fillin">A</span>+<span class="fillin">A</span> = 2<span class="fillin">A</span>, vpravo = <span class="fillin">A</span>+8</li>
+<li>Dole: 2<span class="fillin">A</span> + (<span class="fillin">A</span>+8) = 3<span class="fillin">A</span>+8 = 44</li>
+<li>3<span class="fillin">A</span> = 36 → <span class="fillin">A</span> = <span class="hint-result">12</span></li>
+<li>Ověř: nahoře 12, 12, 8 → prostřední: 24, 20 → dole: 44 ✓</li>
+</ol>
 </div>
 </div><div class="hint-block" style="background:#eafaf1;border-color:#27AE60">
 <h3>🔢 Zlomky celku — krok za krokem</h3>
 
-<div class="ex"><div class="lbl">Znám část, hledám celek:</div>
-„Třetina je žlutých, 12 červených, zbytek modrý. Modrých je 18."<br>
-Červené + modré = 30. Žluté jsou třetina → červené + modré jsou dvě třetiny.<br>
-Dvě třetiny = 30 → celá třetina = 15 → celkem = <b>45 kuliček</b>
+<div class="ex"><div class="lbl">Příklad: třetina žlutých, 12 červených, zbytek modrý. Modrých = 18.</div>
+<ol>
+<li>Červené + modré = 12+18 = 30</li>
+<li>Žluté jsou třetina → červené+modré jsou <b>dvě třetiny</b> ze všech</li>
+<li>Dvě třetiny = 30 → jedna třetina = 15 → celkem = <span class="hint-result">45 kuliček</span></li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Obecně: pokud víš, že část = X dílů z Y dílů celku:</div>
+<div class="ex"><div class="lbl">Obecný vzorec: část = X z Y dílů celku</div>
 Celkem = část ÷ X × Y<br>
-Dvě třetiny = 30 → celkem = 30 ÷ 2 × 3 = 45
+Příklad: ⅔ = 30 → celkem = 30 ÷ 2 × 3 = 45 ✓
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad: sourozenci Ondra, Pavel, Šárka ušetřili 750 Kč. 5×Šárka = 750÷3</div>
-750÷3 = 250. Šárka = 250÷5 = <b>50 Kč</b>. Ondra a Pavel celkem = 750 − 50 = 700 Kč.
+<div class="ex"><div class="lbl">Příklad: Ondra+Pavel+Šárka = 750 Kč. 5×Šárka = 750÷3</div>
+<div class="hint-calc"><b>750÷3</b> <span class="step-arrow">→ = →</span> <b>250</b> <span class="step-arrow">→ ÷5 →</span> <b>Šárka = 50 Kč</b></div>
 </div>
 </div><div class="hint-block" style="background:#eafaf1;border-color:#1E8449">
-<h3>💡 Cena za kus — dosazení jedné podmínky do druhé</h3>
+<h3>💡 Dosaď jednu podmínku do druhé</h3>
 
-<div class="ex"><div class="lbl">Příklad (23r1): 2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované = 3 linkované.</div>
-Nahradím „2 čtverečkované" za „3 linkované":<br>
-2 linkované + 3 linkované = 5 linkovaných = 180 Kč → 1 linkovaný = 36 Kč<br>
-1 čtverečkovaný = (3 × 36) ÷ 2 = 108 ÷ 2 = <b>54 Kč</b>
+<div class="ex"><div class="lbl">Příklad (Jana a sešity, 23r1)</div>
+2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí jako 3 linkované.
+<ol>
+<li>Z 2. podmínky: 2 čtverečkované = 3 linkované</li>
+<li>Dosadím do 1.: 2 linkované + 3 linkované = 5 linkovaných = 180 Kč</li>
+<li>1 linkovaný = <span class="hint-result">36 Kč</span></li>
+<li>1 čtverečkovaný = 3×36÷2 = <span class="hint-result">54 Kč</span></li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad: dvě čísla, součet = 150, druhé = polovina prvního</div>
-Druhé = první ÷ 2. Takže: první + první÷2 = 150.<br>
-To je 1,5 × první = 150 → první = 150 ÷ 1,5 = <b>100</b>. Druhé = 50. Ověř: 100+50 = 150 ✓
+<div class="ex"><div class="lbl">Příklad: dvě čísla, součet = 150, druhé = polovina prvního</div>
+<ol>
+<li>Druhé = první÷2</li>
+<li>první + první÷2 = 1,5 × první = 150</li>
+<li>První = 150÷1,5 = <span class="hint-result">100</span>. Druhé = 50. Ověř: 100+50 = 150 ✓</li>
+</ol>
 </div>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#1E8449">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
@@ -309,7 +424,38 @@ To je 1,5 × první = 150 → první = 150 ÷ 1,5 = <b>100</b>. Druhé = 50. Ov�
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>15</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>18</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>20</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>27</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Jana koupila linkované a čtverečkované sešity. 2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí jako 3 linkované. Kolik stojí 1 čtverečkovaný sešit?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>36 Kč</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>45 Kč</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>54 Kč</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>60 Kč</span></div></div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#27AE60"><div class="ex-header" style="background:#D5F5E322">
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>36 Kč</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>45 Kč</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>54 Kč</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>60 Kč</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#1E8449">
+<div class="quiz-answers-title" style="color:#1E8449">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#1E8449">Otázka 1</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Kroužky SEN: sportovní navštěvuje 14 dětí, divadelní 12, robotický 6. Právě 2 kroužky navštěvují 8 dětí, všechny 3 navštěvují 3 děti. Kolik dětí je v klubu celkem?</div>
+<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Součet kroužků: 14+12+6 = 32. Odečtu děti co se počítají víckrát: ty v právě 2 kroužcích jsou počítány 2× → odečtu je jednou: −8. Ty ve všech 3 kroužcích jsou počítány 3× → odečtu je dvakrát: −3×2 = −6. Celkem: 32 − 8 − 6 = 18 dětí.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#1E8449">Otázka 2</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Ve 2. patře bydlí jen dívky. Celkem je v domě 11 dětí. Kolik chlapců bydlí ve 2. patře?</div>
+<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>A</b></div>
+<div class="ans-row-exp">Podmínka říká: ve 2. patře bydlí JEN dívky. To přímo znamená, že žádný chlapec ve 2. patře nebydlí → chlapců ve 2. patře je 0. Nepotřebujeme žádné další počítání.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#1E8449">Otázka 3</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Součtový trojúhelník: nahoře □ □ 8, dole je 44 a obě horní čísla jsou stejná. Jaké je to číslo?</div>
+<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Označme obě stejná čísla jako A. Prostřední řádek: A+A = 2A (vlevo) a A+8 (vpravo). Dole: 2A + (A+8) = 44 → 3A + 8 = 44 → 3A = 36 → A = 12.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#1E8449">Otázka 4</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Třetina kuliček je žlutých (15), červených je 12, zbývající jsou modré. Kolik je modrých?</div>
+<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Celkem = 15 ÷ 1 × 3 = 45 kuliček (třetina = 15 → celkem = 45). Modré = 45 − 15 − 12 = 18. Nebo jinak: žluté + červené + modré = 45 → modré = 45 − 15 − 12 = 18.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#1E8449">Otázka 5</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Jana koupila linkované a čtverečkované sešity. 2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí jako 3 linkované. Kolik stojí 1 čtverečkovaný sešit?</div>
+<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Nahradím 2 čtverečkované za 3 linkované: 2+3 = 5 linkovaných = 180 Kč → 1 linkovaný = 36 Kč. Dva čtverečkované = 3 × 36 = 108 Kč → 1 čtverečkovaný = 108 ÷ 2 = 54 Kč.</div>
+</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#27AE60"><div class="ex-header" style="background:#D5F5E322">
   <div>
     <div class="ex-num" style="color:#1E8449">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Martinovy kuličky</div>
@@ -518,38 +664,7 @@ To je 1,5 × první = 150 → první = 150 ÷ 1,5 = <b>100</b>. Druhé = 50. Ov�
 </div></div></div><div class="tip-box" style="background:#eafaf1;border-color:#27AE60">
 <span class="tip-icon">✅</span>
 <p>Vždy na konci OVĚŘ: dosad výsledky zpátky do KAŽDÉ podmínky v zadání. Sedí vše? Pak máš správně!</p>
-</div><div class="quiz-answers-section" style="border-color:#1E8449">
-<div class="quiz-answers-title" style="color:#1E8449">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Kroužky SEN: sportovní navštěvuje 14 dětí, divadelní 12, robotický 6. Právě 2 kroužky navštěvují 8 dětí, všechny 3 navštěvují 3 děti. Kolik dětí je v klubu celkem?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Součet kroužků: 14+12+6 = 32. Odečtu děti co se počítají víckrát: ty v právě 2 kroužcích jsou počítány 2× → odečtu je jednou: −8. Ty ve všech 3 kroužcích jsou počítány 3× → odečtu je dvakrát: −3×2 = −6. Celkem: 32 − 8 − 6 = 18 dětí.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Ve 2. patře bydlí jen dívky. Celkem je v domě 11 dětí. Kolik chlapců bydlí ve 2. patře?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>A</b></div>
-<div class="ans-row-exp">Podmínka říká: ve 2. patře bydlí JEN dívky. To přímo znamená, že žádný chlapec ve 2. patře nebydlí → chlapců ve 2. patře je 0. Nepotřebujeme žádné další počítání.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Součtový trojúhelník: nahoře □ □ 8, dole je 44 a obě horní čísla jsou stejná. Jaké je to číslo?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Označme obě stejná čísla jako A. Prostřední řádek: A+A = 2A (vlevo) a A+8 (vpravo). Dole: 2A + (A+8) = 44 → 3A + 8 = 44 → 3A = 36 → A = 12.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Třetina kuliček je žlutých (15), červených je 12, zbývající jsou modré. Kolik je modrých?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Celkem = 15 ÷ 1 × 3 = 45 kuliček (třetina = 15 → celkem = 45). Modré = 45 − 15 − 12 = 18. Nebo jinak: žluté + červené + modré = 45 → modré = 45 − 15 − 12 = 18.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#1E8449">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Jana koupila linkované a čtverečkované sešity. 2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí jako 3 linkované. Kolik stojí 1 čtverečkovaný sešit?</div>
-<div class="ans-row-correct" style="color:#1E8449">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Nahradím 2 čtverečkované za 3 linkované: 2+3 = 5 linkovaných = 180 Kč → 1 linkovaný = 36 Kč. Dva čtverečkované = 3 × 36 = 108 Kč → 1 čtverečkovaný = 108 ÷ 2 = 54 Kč.</div>
-</div></div></div>
+</div>
 </div>
 </body>
 </html>

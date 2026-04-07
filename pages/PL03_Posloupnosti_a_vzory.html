@@ -30,19 +30,66 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .hints-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                text-transform: uppercase; margin-bottom: 16px; display: flex;
                align-items: center; gap: 8px; }
-.hint-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hint-blocks { display: flex; flex-direction: column; gap: 16px; }
 .hint-block { border-radius: 10px; padding: 14px 16px; border-left: 5px solid; }
-.hint-block h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px;
-                 display: flex; align-items: center; gap: 6px; }
-.hint-block p, .hint-block li { font-size: 14px; line-height: 1.7; color: #333; }
-.hint-block ul, .hint-block ol { padding-left: 18px; }
+.hint-block h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px;
+                 display: flex; align-items: center; gap: 8px;
+                 padding-bottom: 10px; border-bottom: 2px solid rgba(0,0,0,.1); }
+.hint-block p, .hint-block li { font-size: 14px; line-height: 1.75; color: #333; }
+.hint-block ul { padding-left: 0; list-style: none; }
+.hint-block ul li { padding: 5px 0 5px 20px; position: relative; }
+.hint-block ul li::before { content: "•"; position: absolute; left: 4px;
+                             color: #888; font-size: 16px; line-height: 1.5; }
+.hint-block ol { padding-left: 0; list-style: none; counter-reset: hint-steps; }
+.hint-block ol li { padding: 7px 0 7px 36px; position: relative;
+                    counter-increment: hint-steps; border-bottom: 1px solid rgba(0,0,0,.05); }
+.hint-block ol li:last-child { border-bottom: none; }
+.hint-block ol li::before { content: counter(hint-steps);
+                             position: absolute; left: 0; top: 7px;
+                             width: 24px; height: 24px; border-radius: 50%;
+                             background: rgba(0,0,0,.12); color: #333;
+                             font-size: 12px; font-weight: 800;
+                             display: flex; align-items: center; justify-content: center; }
 .hint-block .formula { background: rgba(0,0,0,.07); border-radius: 6px;
                        padding: 6px 10px; font-family: monospace; font-size: 14px;
                        margin: 6px 0; display: block; }
-.hint-block .ex { background: rgba(255,255,255,.8); border-radius: 6px;
-                  padding: 10px 13px; margin-top: 8px; font-size: 14px; border: 1px solid rgba(0,0,0,.1); }
-.hint-block .ex .lbl { font-weight: 700; font-size: 12px; text-transform: uppercase;
-                       letter-spacing: .5px; opacity: .7; margin-bottom: 4px; }
+.hint-block .ex { background: rgba(255,255,255,.85); border-radius: 8px;
+                  padding: 12px 14px; margin-top: 10px; font-size: 14px;
+                  border: 1px solid rgba(0,0,0,.12); }
+.hint-block .ex .lbl { font-weight: 800; font-size: 12px; text-transform: uppercase;
+                       letter-spacing: .5px; opacity: .7; margin-bottom: 6px; }
+
+/* Fill-in box — replaces □ */
+.fillin { display: inline-flex; align-items: center; justify-content: center;
+          min-width: 52px; height: 28px; background: #fffde7;
+          border: 2.5px dashed #f9a825; border-radius: 6px;
+          font-size: 13px; font-weight: 700; color: #e65100;
+          padding: 0 8px; margin: 0 3px; vertical-align: middle;
+          letter-spacing: .5px; }
+
+/* Hint diagram container */
+.hint-diagram { margin: 12px 0; text-align: center; }
+.hint-diagram svg { max-width: 100%; height: auto; }
+.hint-diagram .diagram-caption { font-size: 12px; color: #888;
+                                  font-style: italic; margin-top: 6px; }
+
+/* Hint result highlight */
+.hint-result { display: inline-block; background: rgba(0,0,0,.08);
+               border-radius: 6px; padding: 4px 12px; font-weight: 800;
+               font-size: 15px; margin: 4px 0; }
+
+/* Hint table — cleaner */
+.hint-block table.htable { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.hint-block table.htable th { padding: 9px 12px; text-align: center; font-size: 13px; font-weight: 700; }
+.hint-block table.htable td { padding: 8px 12px; text-align: center; border: 1px solid rgba(0,0,0,.1); }
+.hint-block table.htable .fill { background: #fffde7; font-style: italic; color: #e65100; }
+
+/* Hint step-box — for multi-step calculations */
+.hint-calc { background: rgba(0,0,0,.05); border-radius: 8px;
+             padding: 10px 14px; margin: 8px 0; font-family: monospace;
+             font-size: 14px; line-height: 2; }
+.hint-calc .step-arrow { color: #999; margin: 0 8px; }
+.hint-calc b { color: #1a1a1a; }
 
 /* --- DIVIDER --- */
 .divider { text-align: center; margin: 24px 0 20px; position: relative; }
@@ -182,8 +229,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 
 /* --- ANSWER KEY SECTION --- */
 .quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
-                        padding: 20px; margin-top: 30px;
-                        background: #f8f9ff; page-break-before: always; }
+                        padding: 20px; margin-top: 14px; margin-bottom: 8px;
+                        background: #f8f9ff; }
 .quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
                       text-transform: uppercase; margin-bottom: 16px;
                       display: flex; align-items: center; gap: 8px; }
@@ -202,7 +249,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   .page { box-shadow: none; border-radius: 0; max-width: 100%; padding: 14px 20px; }
   .example { break-inside: avoid; page-break-inside: avoid; }
   .hints-section { break-inside: avoid; }
-  .hint-blocks { grid-template-columns: 1fr 1fr; }
+  .hint-blocks { flex-direction: column; }
   .exam-img { break-inside: avoid; }
   .exam-img img { max-width: 100%; width: 100%; }
   .steps { break-inside: avoid; }
@@ -219,77 +266,95 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
   <h1>Posloupnosti a vzory</h1>
   <div class="sub">Rady čísel, obrazce, pravidla a N-tý člen</div>
   <div class="pts">⭐ Max. 4&ndash;6 bodů v testu</div>
+  <a href="../pdfs/PL03_Posloupnosti_a_vzory.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.2);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.4);transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+      Stáhnout PDF k tisku
+    </a>
 </div><div class="hints-section">
 <div class="hints-title" style="color:#A04000">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
 <div class="hint-blocks"><div class="hint-block" style="background:#fff8f0;border-color:#C87941">
-<h3>🔍 Nejdřív rozpoznej — jaký TYP posloupnosti je to?</h3>
+<h3>🔍 Jak rozpoznat typ posloupnosti</h3>
 
-<table class="ex-table" style="width:100%">
-<tr><th style="background:#A04000;color:white">Typ</th><th style="background:#A04000;color:white">Jak poznám</th><th style="background:#A04000;color:white">Příklad</th></tr>
-<tr><td><b>Stejný přírůstek</b></td><td>Rozdíly jsou všechny stejné</td><td>5, 11, 17, 23 (+6 vždy)</td></tr>
-<tr><td><b>Klesající přírůstek</b></td><td>Přičítám méně a méně</td><td>52, 46, 40, 34 (−6 vždy)</td></tr>
-<tr><td><b>Násobení</b></td><td>Každý člen je X-krát větší</td><td>2, 8, 32, 128 (×4 vždy)</td></tr>
-<tr><td><b>Rostoucí přírůstek</b></td><td>Rozdíly rostou, ale 2. rozdíly jsou stejné</td><td>6, 24, 54, 96 (rozdíly: +18, +30, +42)</td></tr>
-</table>
-<div class="ex" style="margin-top:6px"><div class="lbl">Postup vždy:</div>
-1. Spočti rozdíly sousedních čísel → Jsou stejné? → Typ 1 nebo 2<br>
-2. Podívej se na podíly → Vychází stejné číslo? → Typ 3<br>
-3. Spočti 2. rozdíly (rozdíly rozdílů) → Stejné? → Typ 4
+<div class="ex"><div class="lbl">Postup: spočti rozdíly sousedních čísel</div>
+<ol>
+<li>Zapiš prvních 4–5 členů do tabulky</li>
+<li>Pod ně zapiš jejich rozdíly (2. − 1., 3. − 2., ...)</li>
+<li>Jsou rozdíly <b>stejné</b>? → přičítám stále stejné číslo</li>
+<li>Jsou rozdíly <b>různé</b> → spočti 2. rozdíly (rozdíly rozdílů)</li>
+<li>Jsou 2. rozdíly stejné? → rostoucí pásy (obrázky z trojúhelníků)</li>
+</ol>
 </div>
+<table class="htable">
+<tr><th style="background:#A04000;color:white">Typ</th><th style="background:#A04000;color:white">Příklad</th><th style="background:#A04000;color:white">Jak poznam</th></tr>
+<tr><td><b>Stálý přírůstek</b></td><td>5, 11, 17, 23 (+6 vždy)</td><td>1. rozdíly jsou stejné</td></tr>
+<tr><td><b>Stálý úbytek</b></td><td>52, 46, 40, 34 (−6 vždy)</td><td>1. rozdíly jsou stejné</td></tr>
+<tr><td><b>Násobení</b></td><td>2, 8, 32, 128 (×4 vždy)</td><td>každý = předchozí × 4</td></tr>
+<tr><td><b>Rostoucí pásy</b></td><td>6, 24, 54, 96</td><td>2. rozdíly jsou stejné</td></tr>
+</table>
 </div><div class="hint-block" style="background:#fff8f0;border-color:#A04000">
-<h3>➕ Stejný přírůstek — jak počítat</h3>
+<h3>➕ Stálý přírůstek nebo úbytek — jak počítat</h3>
 
 <div class="ex"><div class="lbl">Příklad: cyklista jede 5 dní, celkem 200 km, každý den o 6 km méně</div>
-Kdybych každý den jel stejně jako 1. den (□ km), bylo by to 5×□ km.<br>
-Ale 2. den jedu o 6 méně, 3. o 12, 4. o 18, 5. o 24 méně.<br>
-Celkem ujede o 6+12+18+24 = 60 km méně.<br>
-Takže: 5×□ − 60 = 200 → 5×□ = 260 → 1. den = <b>52 km</b>
+<ol>
+<li>Označím 1. den jako <span class="fillin">?</span> km</li>
+<li>2. den = <span class="fillin">?</span>−6, 3. den = <span class="fillin">?</span>−12, 4. den = <span class="fillin">?</span>−18, 5. den = <span class="fillin">?</span>−24</li>
+<li>Součet: 5×<span class="fillin">?</span> − (0+6+12+18+24) = 200</li>
+<li>5×<span class="fillin">?</span> − 60 = 200 → 5×<span class="fillin">?</span> = 260 → 1. den = <span class="hint-result">52 km</span></li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Trik pro rychlý součet:</div>
-Součet = počet čísel × (první + poslední) ÷ 2<br>
-Ověř: 5 × (52 + 28) ÷ 2 = 5 × 40 = <b>200 ✓</b>
+<div class="ex"><div class="lbl">Rychlý součet: (první + poslední) × počet ÷ 2</div>
+Ověř: (52 + 28) × 5 ÷ 2 = 80 × 5 ÷ 2 = <span class="hint-result">200 ✓</span>
 </div>
 </div><div class="hint-block" style="background:#fff8f0;border-color:#C87941">
 <h3>✖️ Násobení — každý člen je X-krát větší</h3>
 
-<div class="ex"><div class="lbl">Příklad: korálky — 1. skupina nejmenší, každá další 4× větší. 3. skupina má 32 korálků.</div>
-Jdi pozpátku: 3. = 32 → 2. = 32 ÷ 4 = 8 → 1. = 8 ÷ 4 = <b>2</b><br>
-Jdi dopředu: 4. = 32 × 4 = <b>128</b><br>
-Celkem = 2 + 8 + 32 + 128 = <b>170 korálků</b>
+<div class="ex"><div class="lbl">Příklad: 1. skupina = 2, každá další je 4× větší, 3. skupina = 32</div>
+<ol>
+<li>Zkontroluj: 2×4 = 8 ✓, 8×4 = 32 ✓ → správně, jde o násobení 4</li>
+<li>Jdu dopředu: 4. skupina = 32×4 = <span class="hint-result">128</span></li>
+<li>Celkem 4 skupiny: 2+8+32+128 = <span class="hint-result">170 korálků</span></li>
+</ol>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Kolik černých korálků je ve 4. skupině? (vzor: 4 černé, 1 bílý střídají se)</div>
-4. skupina = 128 korálků. Pětice (4 černé + 1 bílá) se opakuje.<br>
-128 ÷ 5 = 25 celých pětic, zbytek 3. → 25×4 + 3 = <b>103 černých</b>
+<div class="ex"><div class="lbl">Jak jít pozpátku (když znám pozdější člen)</div>
+Znám 3. člen = 32, každý je 4× větší.<div class="hint-calc"><b>32</b> <span class="step-arrow">→ ÷4 →</span> <b>8</b> <span class="step-arrow">→ ÷4 →</span> <b>2</b></div>
 </div>
 </div><div class="hint-block" style="background:#fff8f0;border-color:#A04000">
 <h3>🔷 Obrázky z trojúhelníků — tabulka je klíč</h3>
 
-<p>Vždy vyplň tabulku pro prvních 4–5 obrázků a hledej pravidlo v rozdílech:</p>
-<table class="ex-table" style="width:100%">
+<div class="ex"><div class="lbl">Jak vyplnit tabulku</div>
+<ol>
+<li>Nakresli nebo spočítej první 2–3 obrázky</li>
+<li>Zapiš počty do tabulky</li>
+<li>Spočti rozdíly → a 2. rozdíly</li>
+</ol>
+</div>
+<table class="htable">
 <tr><th style="background:#A04000;color:white">Obrázek</th>
 <th style="background:#A04000;color:white">1.</th><th style="background:#A04000;color:white">2.</th>
 <th style="background:#A04000;color:white">3.</th><th style="background:#A04000;color:white">4.</th>
 <th style="background:#A04000;color:white">5.</th></tr>
 <tr><td>Celkem △</td><td>6</td><td>24</td><td>54</td><td>96</td><td>150</td></tr>
-<tr><td>Přidaný pás</td><td>—</td><td>18</td><td>30</td><td>42</td><td>54</td></tr>
+<tr><td>Přidaný pás</td><td>—</td><td>+18</td><td>+30</td><td>+42</td><td>+54</td></tr>
 <tr><td>Šedých v pásu</td><td>3</td><td>9</td><td>15</td><td>21</td><td>27</td></tr>
+<tr><td>2. rozdíl pásu</td><td>—</td><td>—</td><td>+12</td><td>+12</td><td>+12</td></tr>
 </table>
-<div class="ex" style="margin-top:6px">
-Přidaný pás roste o 12 vždy. Šedých v pásu roste o 6 vždy.<br>
-Celkový počet šedých = součet šedých ze všech pásů dohromady.
+<div class="ex"><div class="lbl">Co z toho plyne</div>
+<ul>
+<li>Šedých v pásu roste vždy o 6 → 6. pás = 27+6 = <b>33 šedých</b></li>
+<li>Celkový počet šedých = součet všech pásů</li>
+</ul>
 </div>
 </div><div class="hint-block" style="background:#fff8f0;border-color:#C87941">
-<h3>🔄 Tmavé čtverečky — jak spočítat rozšířený obrazec</h3>
+<h3>🔄 Tmavé čtverečky — rozšířený obrazec</h3>
 
-<div class="ex"><div class="lbl">Základní obrazec: světlé čtverečky uvnitř, tmavé na okraji</div>
-Rozšířený = přidej 1 tmavý řádek nahoře + 1 tmavý sloupec vlevo + 1 vpravo.<br>
-<b>Tmavých = (šířka + 2) + 2 × výška</b>
+<div class="ex"><div class="lbl">Vzorec pro počet tmavých čtverečků</div>
+<b>Tmavých = (šířka světlé části + 2) + 2 × výška světlé části</b>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Příklad: základní 2 řady × 3 sloupce světlých</div>
-Tmavých = (3 + 2) + 2 × 2 = 5 + 4 = <b>9 tmavých čtverečků ✓</b>
+<div class="ex"><div class="lbl">Příklad: světlá část je 5 řad × 18 sloupců</div>
+Tmavých = (18+2) + 2×5 = 20+10 = <span class="hint-result">30 tmavých čtverečků</span>
 </div>
-<div class="ex" style="margin-top:6px"><div class="lbl">Jak najít šířku: základní má 5 řad, přidáme 30 tmavých</div>
-Tmavých = (šířka + 2) + 2×5 = šířka + 12 = 30 → šířka = <b>18 sloupců</b>
+<div class="ex"><div class="lbl">Jak najít šířku: přidáme 30 tmavých, základní má 5 řad</div>
+(šířka+2) + 2×5 = 30 → šířka+12 = 30 → šířka = <span class="hint-result">18 sloupců</span>
 </div>
 </div></div></div><div class="quiz-section">
 <div class="quiz-title" style="color:#C87941">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
@@ -307,7 +372,38 @@ Tmavých = (šířka + 2) + 2×5 = šířka + 12 = 30 → šířka = <b>18 sloup
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>18</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>28</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>30</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>38</span></div></div></div><div class="quiz-q">
 <div class="q-num">Otázka 5</div>
 <div class="q-text">Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. pás = 21... Kolik šedých je v 5. pásu?</div>
-<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>30</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>33</span></div></div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#C87941"><div class="ex-header" style="background:#FDEBD022">
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>30</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>33</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#C87941">
+<div class="quiz-answers-title" style="color:#C87941">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#C87941">Otázka 1</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Posloupnost: 5, 11, 17, 23, 29... Jaká je 6. člen?</div>
+<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Rozdíly jsou všechny +6 → přičítám vždy 6. Takže: 5, 11, 17, 23, 29, 35. Šestý člen je 35.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#C87941">Otázka 2</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Cyklista jede 5 dní, celkem 200 km. Každý den ujede o 6 km méně než den předtím. Kolik km ujede první den?</div>
+<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Kdybych každý den jel stejně (□ km), bylo by to 5×□. Ale 2.–5. den jedu celkem o 6+12+18+24 = 60 km méně. Takže 5×□ − 60 = 200 → 5×□ = 260 → □ = 52 km. Zkontroluj: 52+46+40+34+28 = 200 ✓</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#C87941">Otázka 3</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Korálky: 1. skupina = 2, každá další je 4× větší. Kolik korálků je celkem ve 4 skupinách?</div>
+<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">1. = 2, 2. = 8, 3. = 32, 4. = 128. Celkem: 2 + 8 + 32 + 128 = 170 korálků.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#C87941">Otázka 4</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Základní obrazec má 5 řad a 18 sloupců světlých čtverečků. Kolik tmavých čtverečků bude v rozšířeném obrazci?</div>
+<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Tmavých = (šířka + 2) + 2 × výška = (18 + 2) + 2 × 5 = 20 + 10 = 30 tmavých čtverečků.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#C87941">Otázka 5</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. pás = 21... Kolik šedých je v 5. pásu?</div>
+<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Rozdíl mezi pásy je vždy +6. Takže: 3, 9, 15, 21, 27. Pátý pás má 27 šedých trojúhelníků.</div>
+</div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#C87941"><div class="ex-header" style="background:#FDEBD022">
   <div>
     <div class="ex-num" style="color:#A04000">✅ Příklad 1</div>
     <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Cyklista &mdash; klesající vzdálenosti</div>
@@ -517,38 +613,7 @@ Tmavých = (šířka + 2) + 2×5 = šířka + 12 = 30 → šířka = <b>18 sloup
 </div></div></div><div class="tip-box" style="background:#fff8f0;border-color:#C87941">
 <span class="tip-icon">📋</span>
 <p>Tabulka je tvůj nejlepší kamarád! Vypiš si hodnoty pro 1., 2., 3., 4. člen a pak hledej pravidlo. Bez tabulky se snadno spletěš.</p>
-</div><div class="quiz-answers-section" style="border-color:#C87941">
-<div class="quiz-answers-title" style="color:#C87941">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 1</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Posloupnost: 5, 11, 17, 23, 29... Jaká je 6. člen?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rozdíly jsou všechny +6 → přičítám vždy 6. Takže: 5, 11, 17, 23, 29, 35. Šestý člen je 35.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 2</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Cyklista jede 5 dní, celkem 200 km. Každý den ujede o 6 km méně než den předtím. Kolik km ujede první den?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Kdybych každý den jel stejně (□ km), bylo by to 5×□. Ale 2.–5. den jedu celkem o 6+12+18+24 = 60 km méně. Takže 5×□ − 60 = 200 → 5×□ = 260 → □ = 52 km. Zkontroluj: 52+46+40+34+28 = 200 ✓</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 3</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Korálky: 1. skupina = 2, každá další je 4× větší. Kolik korálků je celkem ve 4 skupinách?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">1. = 2, 2. = 8, 3. = 32, 4. = 128. Celkem: 2 + 8 + 32 + 128 = 170 korálků.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 4</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Základní obrazec má 5 řad a 18 sloupců světlých čtverečků. Kolik tmavých čtverečků bude v rozšířeném obrazci?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>C</b></div>
-<div class="ans-row-exp">Tmavých = (šířka + 2) + 2 × výška = (18 + 2) + 2 × 5 = 20 + 10 = 30 tmavých čtverečků.</div>
-</div></div><div class="quiz-ans-row">
-<div class="ans-row-num" style="background:#C87941">Otázka 5</div>
-<div class="ans-row-content">
-<div class="ans-row-q">Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. pás = 21... Kolik šedých je v 5. pásu?</div>
-<div class="ans-row-correct" style="color:#C87941">✅ Správná odpověď: <b>B</b></div>
-<div class="ans-row-exp">Rozdíl mezi pásy je vždy +6. Takže: 3, 9, 15, 21, 27. Pátý pás má 27 šedých trojúhelníků.</div>
-</div></div></div>
+</div>
 </div>
 </body>
 </html>
