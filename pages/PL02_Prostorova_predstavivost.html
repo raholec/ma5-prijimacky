@@ -24,6 +24,45 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 .cover .pts { display: inline-block; background: rgba(255,255,255,.25);
               border-radius: 20px; padding: 5px 16px; font-size: 13px; font-weight: 700; }
 
+/* ── BLACKPINK — cover & member card ── */
+.cover { border-bottom: 3px solid #ff0076; position: relative; overflow: hidden; }
+.cover::after { content: ''; position: absolute; top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, #ff007855 0%, transparent 70%);
+  pointer-events: none; }
+
+.member-card {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(0,0,0,.25); border: 1px solid rgba(255,0,118,.4);
+  border-radius: 12px; padding: 14px 18px; margin-top: 16px;
+}
+.member-avatar {
+  width: 60px; height: 60px; border-radius: 50%;
+  border: 2.5px solid #ff0076;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; background: rgba(0,0,0,.3); flex-shrink: 0;
+  box-shadow: 0 0 14px #ff007666;
+}
+.member-info .member-name {
+  font-size: 17px; font-weight: 800;
+  letter-spacing: .5px; text-shadow: 0 0 10px #ff007888;
+}
+.member-info .member-role {
+  font-size: 12px; color: rgba(255,255,255,.7);
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;
+}
+.member-info .member-quote {
+  font-size: 13px; color: rgba(255,255,255,.9);
+  margin-top: 6px; font-style: italic; line-height: 1.5;
+}
+
+.bp-back { display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 8px; color: #666; text-decoration: none;
+  font-size: 13px; font-weight: 600;
+  padding: 5px 13px; border: 1px solid #ddd;
+  border-radius: 20px; transition: all .2s; background: white; }
+.bp-back:hover { background: #ff0076; color: white; border-color: #ff0076; }
+
 /* --- HINTS SECTION --- */
 .hints-section { background: #fafafa; border-radius: 12px;
                  border: 2px solid #e0e0e0; padding: 20px; margin-bottom: 26px; }
@@ -261,15 +300,25 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
 </head>
 <body>
 <div class="page">
-<div class="cover" style="background:linear-gradient(135deg,#0E6655,#17A589)">
+<div style="margin-bottom:8px"><a href="../index.html" class="bp-back">← zpět na přehled</a></div>
+<div class="cover" style="background:linear-gradient(135deg,#0E6655ee,#17A589cc,#1a0010)">
+  <div style="font-size:11px;opacity:.7;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:6px">🖤 BLACKPINK × Matematika 5 🩷</div>
   <div class="num">📄 Pracovní list 02</div>
   <h1>Prostorová představivost</h1>
   <div class="sub">Pohledy na tělesa, počítání kostek, přiřazení A&ndash;F</div>
   <div class="pts">⭐ Max. 5&ndash;6 bodů v testu</div>
-  <a href="../pdfs/PL02_Prostorova_predstavivost.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.2);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.4);transition:background .2s">
+  <a href="../pdfs/PL02_Prostorova_predstavivost.pdf" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:rgba(255,255,255,.15);color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;border:1.5px solid rgba(255,0,118,.5);transition:background .2s">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
       Stáhnout PDF k tisku
     </a>
+  <div class="member-card">
+  <div class="member-avatar">💛</div>
+  <div class="member-info">
+    <div class="member-name" style="color:#ffd700">LISA</div>
+    <div class="member-role">Průvodkyně prostorem</div>
+    <div class="member-quote">„Prostorová představivost je jako tanec — musíš vidět celý pohyb najednou. You can do it! 🎵"</div>
+  </div>
+</div>
 </div><div class="hints-section">
 <div class="hints-title" style="color:#0E6655">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
 <div class="hint-blocks"><div class="hint-block" style="background:#e8faf5;border-color:#0E6655">

@@ -30,32 +30,60 @@ body {
   min-height: 100vh;
 }
 
-/* ── HEADER ── */
+/* ── HEADER — BLACKPINK ── */
+@keyframes blink-pink {
+  0%, 100% { opacity: .55; }
+  50%       { opacity: .9; }
+}
+@keyframes slide-in {
+  from { transform: translateY(-12px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
 header {
-  background: var(--ink);
+  background: #0a0a0a;
   color: var(--white);
-  padding: 48px 40px 40px;
+  padding: 48px 40px 44px;
   position: relative;
   overflow: hidden;
+  border-bottom: 4px solid #ff0076;
 }
+/* Pink neon glow top-right */
 header::before {
   content: '';
   position: absolute;
-  top: -60px; right: -60px;
-  width: 300px; height: 300px;
-  background: var(--accent);
-  border-radius: 50%;
-  opacity: .12;
+  top: -80px; right: -80px;
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, #ff0076 0%, transparent 70%);
+  opacity: .35;
+  animation: blink-pink 3s ease-in-out infinite;
 }
+/* Softer pink blob bottom-left */
 header::after {
   content: '';
   position: absolute;
-  bottom: -80px; left: 200px;
-  width: 200px; height: 200px;
-  background: var(--accent2);
-  border-radius: 50%;
+  bottom: -100px; left: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, #cc0055 0%, transparent 65%);
+  opacity: .22;
+}
+header .deco-circle {
+  position: absolute;
+  top: 20px; left: 42%;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, #ff4da6 0%, transparent 70%);
   opacity: .15;
 }
+/* Diamond pattern overlay */
+header .deco-diamond {
+  position: absolute;
+  bottom: 18px; right: 32px;
+  font-size: 72px;
+  line-height: 1;
+  opacity: .08;
+  letter-spacing: -4px;
+  user-select: none;
+}
+.header-inner { animation: slide-in .5s ease both; }
 
 .header-inner {
   max-width: 900px;
@@ -66,16 +94,17 @@ header::after {
 
 .header-badge {
   display: inline-block;
-  background: var(--accent);
-  color: white;
+  background: #ff0076;
+  color: #ffffff;
   font-family: 'Syne', sans-serif;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 5px 14px;
   border-radius: 4px;
   margin-bottom: 18px;
+  box-shadow: 0 0 12px #ff007699;
 }
 
 h1 {
@@ -85,11 +114,12 @@ h1 {
   line-height: 1.1;
   margin-bottom: 14px;
   letter-spacing: -1px;
+  text-shadow: 0 0 30px #ff007888, 0 0 60px #ff007844;
 }
 
 .header-sub {
   font-size: 1.05rem;
-  color: rgba(255,255,255,.7);
+  color: rgba(255,200,220,.85);
   max-width: 560px;
   line-height: 1.65;
   margin-bottom: 28px;
@@ -109,12 +139,13 @@ h1 {
   font-family: 'Syne', sans-serif;
   font-size: 2rem;
   font-weight: 800;
-  color: var(--accent);
+  color: #ff4da6;
   line-height: 1;
+  text-shadow: 0 0 16px #ff007866;
 }
 .stat-label {
   font-size: 12px;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,160,200,.7);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 4px;
@@ -351,8 +382,10 @@ footer a:hover { text-decoration: underline; }
 <body>
 
 <header>
+  <div class="deco-circle"></div>
+  <div class="deco-diamond">♦♦♦♦♦♦</div>
   <div class="header-inner">
-    <div class="header-badge">Matematika 5 · Osmileté gymnázium</div>
+    <div class="header-badge">🖤 BLACKPINK IN YOUR AREA 🩷 · Matematika 5</div>
     <h1>Přijímačky MA5<br>Příprava a procvičování</h1>
     <p class="header-sub">
       Pracovní listy pro přípravu na přijímací zkoušky z matematiky na osmileté gymnázium.
@@ -380,212 +413,6 @@ footer a:hover { text-decoration: underline; }
 </header>
 
 <main>
-
-  <!-- ══ SECTION 1: PŘEHLED PŘÍKLADŮ ══ -->
-  <section>
-    <h2 class="section-heading">📂 Přehled příkladů z archivních zadání</h2>
-    <p class="section-sub">Téma a přehled konkrétních příkladů ze státních přijímaček 2023–2025, které toto téma testují.</p>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th style="width:34%">Téma</th>
-          <th>Příklady z archivních zadání (rok · termín · číslo úlohy)</th>
-        </tr>
-      </thead>
-      <tbody>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#C0392B"></span>
-              Výrazy a závorky
-            </div>
-            <div class="topic-desc">Pořadí operací, doplňování do rámečků, závorky, magická tabulka</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 1</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 1</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 1–2</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 1–2, 3</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 1–2</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 1–2</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#1E8449"></span>
-              Soustavy podmínek
-            </div>
-            <div class="topic-desc">Tabulky, Vennův diagram, součtový trojúhelník, zlomky celku, slovní úlohy</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 3–5</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 3–6</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 3–6</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 3–6</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 3–6</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#1A5276"></span>
-              Geometrická konstrukce
-            </div>
-            <div class="topic-desc">Rýsování kružítkem, rovnostranný trojúhelník, osa úsečky, rovnoběžka přes bod</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 7</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 7</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 7</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 7</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 7</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 7</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 7</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 7</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 7</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 7</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#A04000"></span>
-              Posloupnosti a vzory
-            </div>
-            <div class="topic-desc">Obrazce z trojúhelníků a čtverečků, aritmetické a geometrické řady, zpětný výpočet</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 14</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 14</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 14</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 14</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 14</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 14</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 14</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 14</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 14</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 14</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#6C3483"></span>
-              Grafy — pravdivé / nepravdivé
-            </div>
-            <div class="topic-desc">Čtení grafů, ověřování tvrzení, mince a koruny, kladné a záporné sloupce</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 11–12</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 8, 11–12</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#0E6655"></span>
-              Prostorová představivost
-            </div>
-            <div class="topic-desc">Pohledy na tělesa, skryté kostky, kostky s tečkami, Filipův model</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 13</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 11–12</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 13</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 13</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 13</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 13</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 13</span>
-              <span class="ex-chip">2025 · 1. náhradní · Úl. 13</span>
-              <span class="ex-chip">2025 · 2. náhradní · Úl. 13</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#515A5A"></span>
-              Obvod a obsah
-            </div>
-            <div class="topic-desc">Složené tvary, čtvercová síť, záhon, osová souměrnost, pevný obvod</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 8–9</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2023 · 1. náhradní · Úl. 8–9</span>
-              <span class="ex-chip">2023 · 2. náhradní · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 2. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 1. náhradní · Úl. 8–10</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 8–10</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 8–10</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 8–10</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="topic-name">
-              <span class="topic-dot" style="background:#784212"></span>
-              Jednotky a převody
-            </div>
-            <div class="topic-desc">Délky, hmotnost, čas, rovnoměrné tempo, smíchané jednotky</div>
-          </td>
-          <td>
-            <div class="examples-list">
-              <span class="ex-chip">2023 · 1. řádný · Úl. 5–6</span>
-              <span class="ex-chip">2023 · 2. řádný · Úl. 1, 6</span>
-              <span class="ex-chip">2024 · 1. řádný · Úl. 5–6</span>
-              <span class="ex-chip">2024 · 2. náhradní · Úl. 5</span>
-              <span class="ex-chip">2025 · 1. řádný · Úl. 1</span>
-              <span class="ex-chip">2025 · 2. řádný · Úl. 1</span>
-              <span class="ex-chip">2025 · 1. náhradní · Úl. 1</span>
-              <span class="ex-chip">2025 · 2. náhradní · Úl. 1</span>
-            </div>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
-  </section>
 
   <!-- ══ SECTION 2: BODOVÉ OHODNOCENÍ ══ -->
   <section>
@@ -803,7 +630,213 @@ footer a:hover { text-decoration: underline; }
     </table>
   </section>
 
-</main>
+<!-- ══ SECTION 1: PŘEHLED PŘÍKLADŮ ══ -->
+  <section>
+    <h2 class="section-heading">📂 Přehled příkladů z archivních zadání</h2>
+    <p class="section-sub">Téma a přehled konkrétních příkladů ze státních přijímaček 2023–2025, které toto téma testují.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:34%">Téma</th>
+          <th>Příklady z archivních zadání (rok · termín · číslo úlohy)</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#C0392B"></span>
+              Výrazy a závorky
+            </div>
+            <div class="topic-desc">Pořadí operací, doplňování do rámečků, závorky, magická tabulka</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 1</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 1–2</span>
+              <span class="ex-chip">2023 · 1. náhradní · Úl. 1</span>
+              <span class="ex-chip">2023 · 2. náhradní · Úl. 1–2</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 1–2</span>
+              <span class="ex-chip">2024 · 2. řádný · Úl. 1–2</span>
+              <span class="ex-chip">2024 · 1. náhradní · Úl. 1–2</span>
+              <span class="ex-chip">2024 · 2. náhradní · Úl. 1–2, 3</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 1–2</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 1–2</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#1E8449"></span>
+              Soustavy podmínek
+            </div>
+            <div class="topic-desc">Tabulky, Vennův diagram, součtový trojúhelník, zlomky celku, slovní úlohy</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 3–6</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 3–6</span>
+              <span class="ex-chip">2023 · 1. náhradní · Úl. 3–5</span>
+              <span class="ex-chip">2023 · 2. náhradní · Úl. 3–6</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 3–6</span>
+              <span class="ex-chip">2024 · 2. řádný · Úl. 3–6</span>
+              <span class="ex-chip">2024 · 1. náhradní · Úl. 3–6</span>
+              <span class="ex-chip">2024 · 2. náhradní · Úl. 3–6</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 3–6</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 3–6</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#1A5276"></span>
+              Geometrická konstrukce
+            </div>
+            <div class="topic-desc">Rýsování kružítkem, rovnostranný trojúhelník, osa úsečky, rovnoběžka přes bod</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 7</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 7</span>
+              <span class="ex-chip">2023 · 1. náhradní · Úl. 7</span>
+              <span class="ex-chip">2023 · 2. náhradní · Úl. 7</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 7</span>
+              <span class="ex-chip">2024 · 2. řádný · Úl. 7</span>
+              <span class="ex-chip">2024 · 1. náhradní · Úl. 7</span>
+              <span class="ex-chip">2024 · 2. náhradní · Úl. 7</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 7</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 7</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#A04000"></span>
+              Posloupnosti a vzory
+            </div>
+            <div class="topic-desc">Obrazce z trojúhelníků a čtverečků, aritmetické a geometrické řady, zpětný výpočet</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 14</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 14</span>
+              <span class="ex-chip">2023 · 1. náhradní · Úl. 14</span>
+              <span class="ex-chip">2023 · 2. náhradní · Úl. 14</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 14</span>
+              <span class="ex-chip">2024 · 2. řádný · Úl. 14</span>
+              <span class="ex-chip">2024 · 1. náhradní · Úl. 14</span>
+              <span class="ex-chip">2024 · 2. náhradní · Úl. 14</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 14</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 14</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#6C3483"></span>
+              Grafy — pravdivé / nepravdivé
+            </div>
+            <div class="topic-desc">Čtení grafů, ověřování tvrzení, mince a koruny, kladné a záporné sloupce</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 11–12</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 11–12</span>
+              <span class="ex-chip">2023 · 1. náhradní · Úl. 11–12</span>
+              <span class="ex-chip">2023 · 2. náhradní · Úl. 11–12</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 11–12</span>
+              <span class="ex-chip">2024 · 1. náhradní · Úl. 11–12</span>
+              <span class="ex-chip">2024 · 2. náhradní · Úl. 11–12</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 11–12</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 8, 11–12</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#0E6655"></span>
+              Prostorová představivost
+            </div>
+            <div class="topic-desc">Pohledy na tělesa, skryté kostky, kostky s tečkami, Filipův model</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 13</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 11–12</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 13</span>
+              <span class="ex-chip">2024 · 2. řádný · Úl. 13</span>
+              <span class="ex-chip">2024 · 1. náhradní · Úl. 13</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 13</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 13</span>
+              <span class="ex-chip">2025 · 1. náhradní · Úl. 13</span>
+              <span class="ex-chip">2025 · 2. náhradní · Úl. 13</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#515A5A"></span>
+              Obvod a obsah
+            </div>
+            <div class="topic-desc">Složené tvary, čtvercová síť, záhon, osová souměrnost, pevný obvod</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 8–9</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 8–10</span>
+              <span class="ex-chip">2023 · 1. náhradní · Úl. 8–9</span>
+              <span class="ex-chip">2023 · 2. náhradní · Úl. 8–10</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 8–10</span>
+              <span class="ex-chip">2024 · 2. řádný · Úl. 8–10</span>
+              <span class="ex-chip">2024 · 1. náhradní · Úl. 8–10</span>
+              <span class="ex-chip">2024 · 2. náhradní · Úl. 8–10</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 8–10</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 8–10</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic-name">
+              <span class="topic-dot" style="background:#784212"></span>
+              Jednotky a převody
+            </div>
+            <div class="topic-desc">Délky, hmotnost, čas, rovnoměrné tempo, smíchané jednotky</div>
+          </td>
+          <td>
+            <div class="examples-list">
+              <span class="ex-chip">2023 · 1. řádný · Úl. 5–6</span>
+              <span class="ex-chip">2023 · 2. řádný · Úl. 1, 6</span>
+              <span class="ex-chip">2024 · 1. řádný · Úl. 5–6</span>
+              <span class="ex-chip">2024 · 2. náhradní · Úl. 5</span>
+              <span class="ex-chip">2025 · 1. řádný · Úl. 1</span>
+              <span class="ex-chip">2025 · 2. řádný · Úl. 1</span>
+              <span class="ex-chip">2025 · 1. náhradní · Úl. 1</span>
+              <span class="ex-chip">2025 · 2. náhradní · Úl. 1</span>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+  </main>
 
 <footer>
   <p>Materiály vycházejí ze zadání státních přijímaček MA5 © CZVV 2023–2025 ·
