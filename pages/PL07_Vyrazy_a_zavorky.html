@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PL07 &mdash; PL07 &mdash; Vyrazy a zavorky</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
+       color: #222; background: #f5f5f5; padding: 16px; }
+
+/* --- PAGE WRAPPER --- */
+.page { background: white; max-width: 800px; margin: 0 auto;
+        padding: 28px; border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+
+/* --- COVER BANNER --- */
+.cover { color: white; border-radius: 14px; padding: 26px 28px 22px;
+         margin-bottom: 22px; }
+.cover .num { font-size: 13px; opacity: .85; margin-bottom: 4px; font-weight: 600;
+              letter-spacing: 1px; text-transform: uppercase; }
+.cover h1 { font-size: 30px; font-weight: 800; margin-bottom: 6px; }
+.cover .sub { font-size: 15px; opacity: .9; margin-bottom: 10px; }
+.cover .pts { display: inline-block; background: rgba(255,255,255,.25);
+              border-radius: 20px; padding: 5px 16px; font-size: 13px; font-weight: 700; }
+
+/* --- HINTS SECTION --- */
+.hints-section { background: #fafafa; border-radius: 12px;
+                 border: 2px solid #e0e0e0; padding: 20px; margin-bottom: 26px; }
+.hints-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
+               text-transform: uppercase; margin-bottom: 16px; display: flex;
+               align-items: center; gap: 8px; }
+.hint-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.hint-block { border-radius: 10px; padding: 14px 16px; border-left: 5px solid; }
+.hint-block h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px;
+                 display: flex; align-items: center; gap: 6px; }
+.hint-block p, .hint-block li { font-size: 14px; line-height: 1.7; color: #333; }
+.hint-block ul, .hint-block ol { padding-left: 18px; }
+.hint-block .formula { background: rgba(0,0,0,.07); border-radius: 6px;
+                       padding: 6px 10px; font-family: monospace; font-size: 14px;
+                       margin: 6px 0; display: block; }
+.hint-block .ex { background: rgba(255,255,255,.8); border-radius: 6px;
+                  padding: 10px 13px; margin-top: 8px; font-size: 14px; border: 1px solid rgba(0,0,0,.1); }
+.hint-block .ex .lbl { font-weight: 700; font-size: 12px; text-transform: uppercase;
+                       letter-spacing: .5px; opacity: .7; margin-bottom: 4px; }
+
+/* --- DIVIDER --- */
+.divider { text-align: center; margin: 24px 0 20px; position: relative; }
+.divider::before { content:''; position:absolute; top:50%; left:0; right:0;
+                   height:2px; background:#e0e0e0; }
+.divider span { position: relative; background: white; padding: 0 14px;
+                font-weight: 800; font-size: 14px; letter-spacing: .5px;
+                text-transform: uppercase; color: #888; }
+
+/* --- EXAMPLE CARDS --- */
+.example { border-radius: 12px; margin-bottom: 22px; overflow: hidden;
+           border: 2px solid #e0e0e0; }
+.ex-header { padding: 12px 18px; display: flex; justify-content: space-between;
+             align-items: center; }
+.ex-header .ex-num { font-size: 13px; font-weight: 800; letter-spacing: .5px;
+                     text-transform: uppercase; }
+.ex-header .ex-source { font-size: 11px; opacity: .85; font-style: italic; }
+.ex-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px;
+            border-radius: 20px; font-size: 12px; font-weight: 700; }
+
+.ex-body { padding: 16px 18px; }
+
+/* Zadani */
+.zadani { background: #f8f9fa; border-radius: 8px; padding: 14px 16px;
+          margin-bottom: 14px; border-left: 5px solid #999; font-size: 14px;
+          line-height: 1.7; }
+.zadani strong { display: block; font-size: 12px; text-transform: uppercase;
+                 letter-spacing: .5px; color: #888; margin-bottom: 6px; }
+
+/* Exam image */
+.exam-img { margin: 16px 0; }
+.exam-img img { width: 100%; max-width: 100%; display: block; margin: 0 auto;
+                border-radius: 8px; border: 1px solid #ddd;
+                box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.exam-img .img-cap { font-size: 11px; color: #888; margin-top: 6px; font-style: italic; text-align:center; }
+
+/* SOLVED example steps */
+.steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.step { display: flex; gap: 12px; align-items: flex-start; }
+.step-num { width: 28px; height: 28px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-weight: 800;
+            font-size: 13px; flex-shrink: 0; color: white; }
+.step-content { flex: 1; padding: 8px 12px; border-radius: 8px;
+                font-size: 14px; line-height: 1.6; }
+.step-content .step-label { font-size: 11px; font-weight: 700; text-transform: uppercase;
+                             letter-spacing: .4px; opacity: .7; margin-bottom: 4px; }
+.step-content .calc { font-family: monospace; background: rgba(0,0,0,.06);
+                      border-radius: 5px; padding: 4px 8px; display: inline-block;
+                      margin: 3px 0; font-size: 14px; }
+
+.result-box { border-radius: 10px; padding: 12px 16px; display: flex;
+              align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+.result-box .r-icon { font-size: 22px; }
+
+/* HINT example */
+.hint-card { border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+.hint-card h4 { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                letter-spacing: .5px; margin-bottom: 8px; display: flex;
+                align-items: center; gap: 6px; }
+.hint-card p { font-size: 14px; line-height: 1.65; }
+.hint-step { display: flex; align-items: flex-start; gap: 8px; margin: 7px 0; }
+.hint-arrow { font-size: 16px; color: #999; flex-shrink: 0; margin-top: 2px; }
+.hint-text { font-size: 14px; line-height: 1.6; }
+.hint-blank { display: inline-block; border-bottom: 2px solid #bbb;
+              min-width: 70px; height: 22px; vertical-align: bottom; }
+
+/* Answer box */
+.answer-box { background: #fffde7; border-radius: 10px; padding: 14px 16px;
+              border: 2px dashed #f9a825; margin-top: 12px; }
+.answer-box .a-label { font-size: 12px; font-weight: 700; text-transform: uppercase;
+                       letter-spacing: .5px; color: #795548; margin-bottom: 8px; }
+.answer-line { border-bottom: 2px solid #ddd; height: 28px; margin: 6px 0; }
+
+/* Scratch space */
+.scratch { background: #fafafa; border-radius: 8px; padding: 10px;
+           margin: 10px 0; border: 1px dashed #ccc; }
+.scratch .s-label { font-size: 11px; color: #bbb; margin-bottom: 6px; }
+.scratch-line { border-bottom: 1px solid #eee; height: 26px; margin: 4px 0; }
+
+/* Solo example */
+.solo-badge { background: #e8f5e9; color: #1b5e20; }
+
+/* Tip box */
+.tip-box { border-radius: 10px; padding: 12px 16px; margin-top: 14px;
+           border-left: 5px solid; display: flex; gap: 10px; align-items: flex-start; }
+.tip-box .tip-icon { font-size: 20px; flex-shrink: 0; }
+.tip-box p { font-size: 13px; line-height: 1.6; }
+
+/* Visual calc demo */
+.calc-demo { background: #f3f4f6; border-radius: 10px; padding: 14px 16px;
+             margin: 10px 0; font-family: monospace; font-size: 14px; line-height: 2; }
+.calc-demo .hl { font-weight: 800; }
+.calc-demo .arrow { color: #999; }
+.calc-demo .note { font-family: sans-serif; font-size: 12px; color: #666;
+                   background: white; border-radius: 4px; padding: 2px 6px;
+                   margin-left: 6px; font-style: italic; }
+
+/* Comparison visual */
+.comp-visual { display: grid; gap: 8px; margin: 10px 0; }
+.comp-bar { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.comp-bar .label { min-width: 140px; font-weight: 600; }
+.bar-track { flex: 1; background: #e0e0e0; border-radius: 4px; height: 22px;
+             overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center;
+            padding-left: 8px; color: white; font-size: 12px; font-weight: 700; }
+
+/* Table in examples */
+.ex-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.ex-table th { padding: 8px 10px; text-align: center; font-size: 13px; }
+.ex-table td { padding: 8px 10px; text-align: center; border: 1px solid #e0e0e0; }
+.ex-table .fill { background: #fffde7; min-width: 50px; }
+
+
+/* --- QUIZ SECTION --- */
+.quiz-section { background: #f0f4ff; border-radius: 12px; border: 2px solid #c5cae9;
+                padding: 20px; margin-bottom: 26px; }
+.quiz-title { font-size: 15px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+              margin-bottom: 16px; color: #283593; display: flex; align-items: center; gap: 8px; }
+.quiz-q { background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
+          border-left: 5px solid #3949ab; }
+.quiz-q .q-num { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5c6bc0;
+                 letter-spacing: .5px; margin-bottom: 6px; }
+.quiz-q .q-text { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 10px;
+                   line-height: 1.5; }
+.quiz-options { display: flex; flex-direction: column; gap: 6px; }
+.quiz-opt { display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px;
+            border-radius: 8px; background: #f8f9fa; border: 1.5px solid #e0e0e0;
+            font-size: 14px; cursor: default; }
+.quiz-opt .opt-letter { font-weight: 800; color: #5c6bc0; min-width: 22px; flex-shrink: 0; }
+.quiz-answer { margin-top: 10px; padding: 10px 14px; border-radius: 8px;
+               background: #e8f5e9; border-left: 4px solid #43a047;
+               font-size: 13px; line-height: 1.6; color: #1b5e20; display: none; }
+.quiz-answer .ans-label { font-weight: 700; font-size: 12px; text-transform: uppercase;
+                           letter-spacing: .5px; margin-bottom: 4px; }
+.quiz-answer .ans-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+
+
+/* --- ANSWER KEY SECTION --- */
+.quiz-answers-section { border-radius: 12px; border: 2px solid #3949ab;
+                        padding: 20px; margin-top: 30px;
+                        background: #f8f9ff; page-break-before: always; }
+.quiz-answers-title { font-size: 15px; font-weight: 800; letter-spacing: .5px;
+                      text-transform: uppercase; margin-bottom: 16px;
+                      display: flex; align-items: center; gap: 8px; }
+.quiz-ans-row { display: flex; gap: 0; margin-bottom: 12px; border-radius: 8px;
+                overflow: hidden; border: 1px solid #c5cae9; }
+.ans-row-num { padding: 10px 14px; color: white; font-weight: 800; font-size: 12px;
+               min-width: 90px; display: flex; align-items: flex-start; flex-shrink: 0;
+               text-transform: uppercase; letter-spacing: .4px; }
+.ans-row-content { padding: 10px 14px; flex: 1; background: white; }
+.ans-row-q { font-size: 13px; color: #555; margin-bottom: 4px; font-style: italic; }
+.ans-row-correct { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.ans-row-exp { font-size: 13px; line-height: 1.55; color: #333; }
+
+@media print {
+  body { background: white; padding: 0; font-size: 13px; }
+  .page { box-shadow: none; border-radius: 0; max-width: 100%; padding: 12px 16px; }
+  .example { break-inside: avoid; page-break-inside: avoid; }
+  .hints-section { break-inside: avoid; }
+  .hint-blocks { grid-template-columns: 1fr 1fr; }
+  .exam-img { break-inside: avoid; }
+  .exam-img img { max-width: 100%; width: 100%; }
+  .steps { break-inside: avoid; }
+  .quiz-section { break-inside: avoid; }
+  .quiz-answers-section { break-inside: avoid; }
+
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="cover" style="background:linear-gradient(135deg,#C0392B,#E74C3C)">
+  <div class="num">📄 Pracovní list 07</div>
+  <h1>Výrazy a závorky</h1>
+  <div class="sub">Pořadí operací, hledání neznámého čísla, závorky</div>
+  <div class="pts">⭐ Max. 3&ndash;4 bodů v testu</div>
+</div><div class="hints-section">
+<div class="hints-title" style="color:#C0392B">💡 Pravidla a tipy &mdash; přečti si před každým řešením!</div>
+<div class="hint-blocks"><div class="hint-block" style="background:#E8F8F5;border-color:#148F77">
+<h3>🔢 Pořadí operací — ZÁKON nade vše</h3>
+
+<p>V matematice platí pevné pořadí: <b>závorky → násobení a dělení → sčítání a odčítání</b></p>
+<div class="ex"><div class="lbl">Příklad: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)</div>
+Krok 1 — závorky: (700 − 6×25) = 700 − 150 = 550. &nbsp; (10−7+2) = 5<br>
+Krok 2 — násobení a dělení: 5×120 = 600. &nbsp; 550÷5 = 110<br>
+Krok 3 — sčítání: 600 + 110 = <b>710</b>
+</div>
+<div class="ex" style="margin-top:6px"><div class="lbl">Příklad: (5 + 5 × 29) − 4 × (176 ÷ 8 − 8 × 2)</div>
+Závorky: 5+5×29 = 5+145 = 150. &nbsp; 176÷8=22, 8×2=16, 22−16=6 → 4×6=24<br>
+Výsledek: 150 − 24 = <b>126</b>
+</div>
+</div><div class="hint-block" style="background:#E8F8F5;border-color:#17A589">
+<h3>🔄 Závorky mění vše — jak je systematicky vyzkoušet</h3>
+
+<div class="ex"><div class="lbl">Závorka mění pořadí — co je uvnitř se spočítá DŘÍV.</div>
+Bez závorky: 9 × 8 − 6 ÷ 2 = 72 − 3 = 69<br>
+(9 × 8 − 6) ÷ 2 = 66 ÷ 2 = <b>33</b><br>
+9 × (8 − 6) ÷ 2 = 9 × 2 ÷ 2 = <b>9</b><br>
+9 × (8 − 6 ÷ 2) = 9 × 5 = <b>45</b>
+</div>
+<div class="ex" style="margin-top:6px"><div class="lbl">Jak vyzkoušet VŠECHNY možnosti:</div>
+Máš 4 čísla → závorka může začínat u 1., 2. nebo 3. čísla.<br>
+Závorka kolem celého výrazu dá stejný výsledek jako bez závorky → to se nepočítá.<br>
+Zapiš každý výsledek — kolik je RŮZNÝCH hodnot?
+</div>
+</div><div class="hint-block" style="background:#E8F8F5;border-color:#148F77">
+<h3>□ Neznámé číslo — jdi pozpátku</h3>
+
+<div class="ex"><div class="lbl">Postup: přečti zadání, otoč každou operaci</div>
+„Vydělím 7, přičtu 3, zdvojnásobím → dostanu 20."<br>
+Zpět: 20 ÷ 2 = 10. Zpět: 10 − 3 = 7. Zpět: 7 × 7 = <b>49</b><br>
+Ověř: 49 ÷ 7 = 7, + 3 = 10, × 2 = 20 ✓
+</div>
+<div class="ex" style="margin-top:6px"><div class="lbl">Tabulka: jak otočit operaci</div>
+<table class="ex-table" style="width:100%">
+<tr><th style="background:#148F77;color:white">Dopředu</th><th style="background:#148F77;color:white">Pozpátku</th></tr>
+<tr><td>+5 (přičtu 5)</td><td>−5 (odečtu 5)</td></tr>
+<tr><td>−6 (odečtu 6)</td><td>+6 (přičtu 6)</td></tr>
+<tr><td>×3 (vynásobím 3)</td><td>÷3 (vydělím 3)</td></tr>
+<tr><td>÷4 (vydělím 4)</td><td>×4 (vynásobím 4)</td></tr>
+</table>
+</div>
+</div><div class="hint-block" style="background:#E8F8F5;border-color:#17A589">
+<h3>🧮 Magická tabulka a součtový trojúhelník</h3>
+
+<div class="ex"><div class="lbl">Magická tabulka (25r1): doplň čísla 0–8, součet každého řádku i sloupce musí být stejný</div>
+Součet 0+1+2+...+8 = 36. Jsou 3 řádky → každý řádek musí dát 36÷3 = <b>12</b>.<br>
+Prostřední políčko: součet celé tabulky ÷ 3 ÷ 3 = 36÷9 = <b>4</b> (vždy střed).
+</div>
+<div class="ex" style="margin-top:6px"><div class="lbl">Součtový trojúhelník: součet dvou sousedních čísel = číslo pod nimi</div>
+Jdi dolů: levé + pravé = spodní. Jdi nahoru pozpátku: spodní − jedno = druhé.
+</div>
+<div class="ex" style="margin-top:6px"><div class="lbl">Diagram šipek (24n2): x → ÷3 → −6 → ×12 → −8 → výsledek 28</div>
+Pozpátku od 28: 28+8=36, 36÷12=3, 3+6=9, 9×3=<b>x=27</b><br>
+Ověř: 27÷3=9, 9−6=3, 3×12=36, 36−8=28 ✓
+</div>
+</div><div class="hint-block" style="background:#E8F8F5;border-color:#148F77">
+<h3>✅ Kontrola — vždy dosaď zpět!</h3>
+
+<div class="ex"><div class="lbl">Proč kontrolovat?</div>
+Při výpočtu pozpátku se snadno spletete v pořadí operací. Jedinou zárukou je dosadit výsledek zpět do původního zadání a ověřit.
+</div>
+<div class="ex" style="margin-top:6px"><div class="lbl">Příklad z přijímaček: (188 − 152) ÷ (1 + □) = 4 + 20 ÷ 4</div>
+Pravá strana: 4 + 5 = 9.<br>
+Levá strana: 36 ÷ (1 + □) = 9 → 1 + □ = 4 → □ = <b>3</b><br>
+Ověř: 36 ÷ (1+3) = 36 ÷ 4 = 9 = 4+5 ✓
+</div>
+</div></div></div><div class="quiz-section">
+<div class="quiz-title" style="color:#148F77">🧩 Procvičení základních principů — zakroužkuj správnou odpověď</div><div class="quiz-q">
+<div class="q-num">Otázka 1</div>
+<div class="q-text">Kolik je výsledek: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>600</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>710</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>720</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>810</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 2</div>
+<div class="q-text">Jak závorkami změním výraz 9 × 8 − 6 ÷ 2 tak, aby výsledek byl 9?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>(9 × 8 − 6) ÷ 2 = 33</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>9 × (8 − 6) ÷ 2 = 9</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>9 × (8 − 6 ÷ 2) = 45</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>(9 × 8 − 6 ÷ 2) = 69</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 3</div>
+<div class="q-text">Číslo vydělím 7, přičtu 3, zdvojnásobím a dostanu 20. Jaké je to číslo?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>44</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>49</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>56</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>35</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 4</div>
+<div class="q-text">Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku a sloupce?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>9</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>10</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>12</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>15</span></div></div></div><div class="quiz-q">
+<div class="q-num">Otázka 5</div>
+<div class="q-text">Diagram šipek: číslo x → ÷3 → −6 → ×12 → −8 → výsledek je 28. Jaké je číslo x?</div>
+<div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>18</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>36</span></div></div></div></div><div class="divider"><span>✏️ PŘÍKLADY K PROCVIČENÍ</span></div><div class="example" style="border-color:#E74C3C"><div class="ex-header" style="background:#FDEDEC22">
+  <div>
+    <div class="ex-num" style="color:#C0392B">✅ Příklad 1</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Vypočti výraz krok za krokem</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#FDEDEC;color:#C0392B">✅ Vzorový příklad &mdash; vše vyřešeno</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#E74C3C">
+<strong>📋 Zadání:</strong>
+<p>Doplň číslo do rámečku, aby platila rovnost:</p>
+<p>1.1 &nbsp; &#9633; &divide; 11 = (5 + 5 &middot; 20) &minus; 101</p>
+</div><div class="steps"><div class="step">
+  <div class="step-num" style="background:#E74C3C">1</div>
+  <div class="step-content" style="background:#fff0ef">
+    <div class="step-label">Nejdřív závorka &mdash; počítám uvnitř</div>
+    Násobení je před sčítáním: <span class='calc'>5 &middot; 20 = 100</span><br>Pak: <span class='calc'>5 + 100 = 105</span>
+  </div>
+</div><div class="step">
+  <div class="step-num" style="background:#C0392B">2</div>
+  <div class="step-content" style="background:#fff0ef">
+    <div class="step-label">Pak odčítám</div>
+    <span class='calc'>105 &minus; 101 = 4</span><br>Pravá strana = <b>4</b>
+  </div>
+</div><div class="step">
+  <div class="step-num" style="background:#922B21">3</div>
+  <div class="step-content" style="background:#fff0ef">
+    <div class="step-label">Hledám &#9633; pozpátku</div>
+    Vím, že &#9633; &divide; 11 = 4<br>Pozpátku: 4 &times; 11 = <span class='calc' style='font-size:16px;font-weight:800'>44</span>
+  </div>
+</div><div class="step">
+  <div class="step-num" style="background:#922B21">4</div>
+  <div class="step-content" style="background:#fff0ef">
+    <div class="step-label">Ověřím dosazenĺm</div>
+    <span class='calc'>44 &divide; 11 = 4</span> a <span class='calc'>(5 + 5&middot;20) &minus; 101 = 4</span> &#10003;
+  </div>
+</div></div><div class="result-box" style="background:#FDEDEC;color:#922B21">
+<span class="r-icon">✅</span>
+<span>Odpověď: &#9633; = 44</span>
+</div></div></div><div class="example" style="border-color:#E74C3C"><div class="ex-header" style="background:#fff0ef22">
+  <div>
+    <div class="ex-num" style="color:#C0392B">💡 Příklad 2</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Doplň číslo do rámečku</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#fff0ef;color:#C0392B">💡 S nápovědou</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#E74C3C">
+<strong>📋 Zadání:</strong>
+<p>1.2 &nbsp; (188 &minus; 152) &divide; (1 + &#9633;) = 4 + 20 &divide; 4</p>
+</div><div class="hint-card" style="background:#fff5f5;border:1px solid #E74C3C33">
+<h4 style="color:#E74C3C">➡️ Postup &mdash; vyplň mezery:</h4>
+
+<div class="hint-step"><span class="hint-arrow">1.</span><span class="hint-text">Pravá strana: nejdřív dělení: 20 &divide; 4 = <span class="hint-blank"></span>, pak: 4 + <span class="hint-blank"></span> = <span class="hint-blank"></span></span></div>
+<div class="hint-step"><span class="hint-arrow">2.</span><span class="hint-text">Levá strana: závorka: 188 &minus; 152 = <span class="hint-blank"></span></span></div>
+<div class="hint-step"><span class="hint-arrow">3.</span><span class="hint-text">Teď: <span class="hint-blank"></span> &divide; (1 + &#9633;) = <span class="hint-blank"></span> &rarr; (1 + &#9633;) = <span class="hint-blank"></span> &divide; <span class="hint-blank"></span> = <span class="hint-blank"></span></span></div>
+<div class="hint-step"><span class="hint-arrow">4.</span><span class="hint-text">Tedy &#9633; = <span class="hint-blank"></span> &minus; 1 = <span class="hint-blank"></span></span></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ &#9633; = _____ (ověř dosazením!)</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="example" style="border-color:#E74C3C"><div class="ex-header" style="background:#fff0ef22">
+  <div>
+    <div class="ex-num" style="color:#C0392B">💡 Příklad 3</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Hledej neznámé číslo pozpátku</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#fff0ef;color:#C0392B">💡 S nápovědou</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 2. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#E74C3C">
+<strong>📋 Zadání:</strong>
+<p>Neznámé číslo vydělím 7, přičtu 3 a výsledek zdvojnásobím &mdash; dostanu 20. Jaké je neznámé číslo?</p>
+</div><div class="hint-card" style="background:#fff5f5;border:1px solid #C0392B33">
+<h4 style="color:#C0392B">⬅️ Jdi pozpátku od výsledku 20:</h4>
+
+<div class="calc-demo">
+  Výsledek: <span class="hl">20</span><br>
+  &divide; 2 (opak zdvojnásobení): 20 &divide; 2 = <span class="hint-blank" style="display:inline-block;width:40px;border-bottom:2px solid #ccc"></span><br>
+  &minus; 3 (opak přičtení 3): &nbsp;&nbsp;<span class="hint-blank" style="display:inline-block;width:40px;border-bottom:2px solid #ccc"></span> &minus; 3 = <span class="hint-blank" style="display:inline-block;width:40px;border-bottom:2px solid #ccc"></span><br>
+  &times; 7 (opak dělení 7): &nbsp;&nbsp;&nbsp;&nbsp;<span class="hint-blank" style="display:inline-block;width:40px;border-bottom:2px solid #ccc"></span> &times; 7 = <span class="hint-blank" style="display:inline-block;width:40px;border-bottom:2px solid #ccc"></span> ← to je neznámé číslo!
+</div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Neznámé číslo = _____</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="example" style="border-color:#ddd"><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 4</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Vypočti výrazy</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2023 &middot; 1. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>1.1 &nbsp; 5 &middot; 120 + (700 &minus; 6 &middot; 25) &divide; (10 &minus; 7 + 2) = ?</p>
+<p>1.2 &nbsp; (5 + 5 &middot; 29) &minus; 4 &middot; (176 &divide; 8 &minus; 8 &middot; 2) = ?</p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="example" style="border-color:#ddd"><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 5</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Slovní úloha &mdash; součet a rozdíl</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2025 &middot; 2. řádný termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>1.1 Součet dvou čísel je 109 a jejich rozdíl je 13. Jaká jsou obě čísla?</p>
+<p>1.2 Neznámé číslo zvětšené o svou POLOVINU se rovná 198. Jaké je číslo?</p>
+<p>1.3 Součet dvou neznámých čísel je 109 a jejich rozdíl je 13. Urči obě čísla.</p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="example" style="border-color:#ddd"><div class="ex-header" style="background:#e8f5e922">
+  <div>
+    <div class="ex-num" style="color:#1E8449">🖊 Příklad 6</div>
+    <div style="font-size:14px;font-weight:700;color:#222;margin-top:2px">Vypočti</div>
+  </div>
+  <div>
+    <div class="ex-badge" style="background:#e8f5e9;color:#1E8449">🖊 Vyřeš sám/sama</div>
+    <div class="ex-source" style="margin-top:4px;text-align:right">2024 &middot; 2. náhradní termín</div>
+  </div>
+</div><div class="ex-body"><div class="zadani" style="border-color:#999">
+<strong>📋 Zadání:</strong>
+<p>2.1 &nbsp; (510 &divide; 34) &minus; (8 + 56 &divide; 8) = ?</p>
+<p>2.2 &nbsp; 10 &middot; 100 &minus; (100 &minus; 6 &middot; 14) &divide; 2 = ?</p>
+<p>2.3 &nbsp; 72 &divide; 4 + 8 &minus; 10 &divide; 1 + 1 = ?</p>
+</div><div class="scratch">
+<div class="s-label">📝 Místo pro výpočet:</div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+<div class="scratch-line"></div>
+</div><div class="answer-box">
+<div class="a-label">✏️ Moje odpověď:</div>
+<div class="answer-line"></div>
+<div class="answer-line"></div>
+</div></div></div><div class="tip-box" style="background:#fff5f5;border-color:#E74C3C">
+<span class="tip-icon">💡</span>
+<p>Nezkoušej počítat v hlavě! Piš VŠECHNY mezivýsledky. Jedna malá chyba na začátku = špatná odpověď na konci.</p>
+</div><div class="quiz-answers-section" style="border-color:#148F77">
+<div class="quiz-answers-title" style="color:#148F77">✅ Odpovědi ke kvízu</div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 1</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Kolik je výsledek: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Závorky: (700 − 6×25) = 700−150 = 550. (10−7+2) = 5. Pak: 5×120 = 600. 550÷5 = 110. Nakonec: 600+110 = 710.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 2</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Jak závorkami změním výraz 9 × 8 − 6 ÷ 2 tak, aby výsledek byl 9?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">9 × (8 − 6) ÷ 2. Závorka: 8−6 = 2. Pak: 9×2 = 18. Pak: 18÷2 = 9. ✓</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 3</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Číslo vydělím 7, přičtu 3, zdvojnásobím a dostanu 20. Jaké je to číslo?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>B</b></div>
+<div class="ans-row-exp">Jdu pozpátku: 20 ÷ 2 = 10. Pak: 10 − 3 = 7. Pak: 7 × 7 = 49. Ověř: 49÷7 = 7, +3 = 10, ×2 = 20 ✓</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 4</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Tabulka 3×3 obsahuje čísla 0 až 8. Jaký musí být součet každého řádku a sloupce?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Součet čísel 0+1+2+3+4+5+6+7+8 = 36. Jsou 3 řádky → každý řádek musí mít součet 36÷3 = 12.</div>
+</div></div><div class="quiz-ans-row">
+<div class="ans-row-num" style="background:#148F77">Otázka 5</div>
+<div class="ans-row-content">
+<div class="ans-row-q">Diagram šipek: číslo x → ÷3 → −6 → ×12 → −8 → výsledek je 28. Jaké je číslo x?</div>
+<div class="ans-row-correct" style="color:#148F77">✅ Správná odpověď: <b>C</b></div>
+<div class="ans-row-exp">Jdu pozpátku od 28: 28+8 = 36. 36÷12 = 3. 3+6 = 9. 9×3 = 27. Takže x = 27. Ověř: 27÷3=9, 9−6=3, 3×12=36, 36−8=28 ✓</div>
+</div></div></div>
+</div>
+</body>
+</html>
