@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Průvodce typem úloh — MA5 · 1. řádný termín 2023</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; color: #222; background: #f4f4f2; padding: 16px; }
+a { color: #1a5276; }
+
+.page { background: white; max-width: 860px; margin: 0 auto; padding: 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+
+/* COVER */
+.cover { background: linear-gradient(135deg,#2d6a4f 0%,#52b788 100%); color: white; border-radius: 12px; padding: 26px 30px 20px; margin-bottom: 28px; }
+.cover-meta { font-size: 11px; opacity: .8; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; }
+.cover-title { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+.cover-sub { font-size: 13px; opacity: .9; line-height: 1.6; }
+.cover-badge { display: inline-block; margin-top: 14px; background: rgba(255,255,255,.25); border-radius: 20px; padding: 5px 16px; font-size: 12px; font-weight: 700; letter-spacing: .5px; }
+
+.back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; font-size: 13px; color: #555; text-decoration: none; border: 1px solid #ddd; padding: 5px 12px; border-radius: 20px; }
+.back-link:hover { background: #f0f0f0; }
+
+/* INTRO */
+.intro { background: #f0faf4; border: 1.5px solid #52b788; border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; line-height: 1.7; color: #1a4731; }
+.intro strong { font-size: 13px; text-transform: uppercase; letter-spacing: .5px; display: block; margin-bottom: 6px; color: #2d6a4f; }
+
+/* CARD */
+.card { border-radius: 10px; border: 1.5px solid #e0e0e0; margin-bottom: 20px; overflow: hidden; }
+.card-header { display: flex; align-items: center; gap: 14px; padding: 12px 18px; background: #f8f8f6; border-bottom: 1px solid #e0e0e0; }
+.card-icon { font-size: 22px; flex-shrink: 0; }
+.card-title { font-size: 15px; font-weight: 800; color: #1a3a5c; }
+.card-tasks { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-top: 2px; }
+.card-body { padding: 14px 18px; display: flex; flex-direction: column; gap: 12px; }
+
+/* BLOCKS INSIDE CARD */
+.block { font-size: 14px; line-height: 1.65; }
+.block-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: #2d6a4f; margin-bottom: 4px; }
+.block-warn { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: #c0392b; margin-bottom: 4px; }
+
+/* STEPS MINI */
+.steps-mini { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+.step-mini { display: flex; gap: 10px; align-items: flex-start; }
+.step-mini-n { background: #2d6a4f; color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+.step-mini-text { font-size: 13px; line-height: 1.55; flex: 1; }
+
+/* WARNING BOX */
+.warn { background: #fff3cd; border: 1px solid #f9a825; border-radius: 7px; padding: 8px 12px; font-size: 13px; line-height: 1.55; color: #7d4e00; }
+.warn::before { content: "⚠️ "; font-style: normal; }
+
+/* EXAMPLE */
+.example { background: #eaf4ff; border: 1px solid #aad4f5; border-radius: 7px; padding: 8px 12px; font-size: 13px; line-height: 1.6; color: #1a3a5c; }
+.example::before { content: "💡 Příklad: "; font-weight: 700; }
+
+/* KEY IDEA */
+.key { background: #f0faf4; border-left: 4px solid #52b788; padding: 8px 12px; font-size: 13px; line-height: 1.6; border-radius: 0 7px 7px 0; }
+
+/* TASKS MAP */
+.tasks-map { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.tm-chip { font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 20px; border: 1.5px solid #ccc; color: #444; }
+.tm-chip span { margin-right: 4px; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .page { padding: 14px; }
+  .card-header { flex-direction: row; }
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .page { box-shadow: none; padding: 16px; }
+  .back-link { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <a href="../index.html" class="back-link">← zpět na přehled</a>
+
+  <div class="cover">
+    <div class="cover-meta">🖤 BLACKPINK × MATIKA 🩷 · Průvodce typy úloh</div>
+    <div class="cover-title">Průvodce typy úloh — MA5 · 1. řádný termín 2023</div>
+    <div class="cover-sub">Žádné výsledky — jen principy a postupy. Přečti si před začátkem testu.</div>
+    <div class="cover-badge">📖 Čtecí čas: ~10 minut</div>
+  </div>
+
+  <div class="intro">
+    <strong>🌿 Jak tento průvodce použít</strong>
+    Každá karta odpovídá jednomu nebo více typům úloh, které tě v testu čekají. Přečti ji, vzpomeň si na princip, a teprve pak otevři test. Průvodce neprozrazuje výsledky — jen ti připomíná, <em>jak přemýšlet</em>.
+  </div>
+
+  <!-- MAPA ÚLOH -->
+  <div class="tasks-map">
+    <div class="tm-chip"><span>Ú1</span> závorky</div>
+    <div class="tm-chip"><span>Ú2</span> zlomky &amp; součin</div>
+    <div class="tm-chip"><span>Ú3</span> hierarchie</div>
+    <div class="tm-chip"><span>Ú4</span> poměry &amp; ceny</div>
+    <div class="tm-chip"><span>Ú5</span> Venn</div>
+    <div class="tm-chip"><span>Ú6</span> dílky</div>
+    <div class="tm-chip"><span>Ú7</span> konstrukce</div>
+    <div class="tm-chip"><span>Ú8</span> rozměry tvaru</div>
+    <div class="tm-chip"><span>Ú9</span> ceny &amp; třetiny</div>
+    <div class="tm-chip"><span>Ú10</span> mince</div>
+    <div class="tm-chip"><span>Ú11–12</span> objem &amp; NSN</div>
+    <div class="tm-chip"><span>Ú13</span> graf</div>
+    <div class="tm-chip"><span>Ú14</span> mřížka &amp; vzorec</div>
+  </div>
+
+
+  <!-- ══ KARTA 1 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔢</div>
+      <div>
+        <div class="card-title">Závorky a pořadí operací</div>
+        <div class="card-tasks">Úloha 1</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Pravidlo</div>
+        Závorky → násobení a dělení → sčítání a odčítání. Uvnitř závorek platí totéž pravidlo znovu.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Najdi závorky zevnitř ven a spočítej je první.</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Proveď všechna násobení a dělení zleva doprava.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Pak sčítání a odčítání.</div></div>
+      </div>
+      <div class="warn">Násobení platí PŘED sčítáním i bez závorek. Závorka to jen zdůrazní nebo změní pořadí.</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 2 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🍰</div>
+      <div>
+        <div class="card-title">Zlomky a části celku</div>
+        <div class="card-tasks">Úloha 2.1</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Pravidlo</div>
+        Čtvrtina = ÷ 4; třetina = ÷ 3; polovina = ÷ 2. Porovnáváš dvě různé zlomkové části dvou různých čísel — spočítej každou zvlášť, pak urči, co je větší a o kolik.
+      </div>
+      <div class="example">Čtvrtina z 20 = 5; třetina z 9 = 3. Jsou to různá čísla! Liší se o 5 − 3 = 2.</div>
+      <div class="warn">Nespočítej čtvrtinu a třetinu ze stejného čísla — každá je z jiného.</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 3 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">⚖️</div>
+      <div>
+        <div class="card-title">Efekt změn na součin</div>
+        <div class="card-tasks">Úloha 2.2</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Klíčová myšlenka</div>
+        Nemusíš znát konkrétní čísla. Zvětšení jednoho čísla k-krát a zmenšení druhého l-krát změní celý součin faktorem k ÷ l. Vezmi si jako pomůcku jakákoliv dvě čísla se správným součinem.
+      </div>
+      <div class="key">Celkový efekt = násobit všechny faktory změn dohromady. Pokud je jich víc na každé straně, pronásob každou skupinu zvlášť a pak vyděl.</div>
+      <div class="warn">Žáci hledají „ta správná" dvě čísla a vzdají se. Stačí vzít 1 × (součin) — výsledek vyjde vždy stejně!</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 4 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🌳</div>
+      <div>
+        <div class="card-title">Stromová hierarchie — kdo koho řídí</div>
+        <div class="card-tasks">Úloha 3</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Pravidlo</div>
+        Nakresli si tabulku nebo strom: na každé úrovni počty × počet podřízených = počty na další úrovni.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Zjisti počet osob na každé úrovni (násobení dolů po stromě).</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">„Kdo vydal rozkaz?" = všechny úrovně, které mají podřízené.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">„Kdo dostal rozkaz?" = všechny úrovně, které mají nadřízeného.</div></div>
+      </div>
+      <div class="warn">Vrchol stromu vydal, ale nedostal. Listy stromu dostaly, ale nevydaly. Nepřeskakuj úroveň!</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 5 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🛍️</div>
+      <div>
+        <div class="card-title">Poměry, záměna a ceny ze dvou podmínek</div>
+        <div class="card-tasks">Úloha 4</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Skupinky (poměr)</div>
+        „Je jich 3× více" → na každý menší připadají 3 větší = skupinka velikosti 4. Celkový počet ÷ 4 = počet skupinek.
+      </div>
+      <div class="block">
+        <div class="block-label">Záměna (ceny)</div>
+        „2 A stojí stejně jako 3 B" → v jakékoliv rovnici smíš 2 A nahradit 3 B (jako stejně těžká závaží). Pak ti zbyde jen jeden druh zboží a snadno dopočítáš.
+      </div>
+      <div class="block">
+        <div class="block-label">Peněženka (dvě situace)</div>
+        „Chtěla koupit N kusů, chybělo X; koupila M kusů, zbylo Y." → rozdíl v počtu (N−M) kusů stojí (X + Y) Kč. Cena 1 kusu = (X+Y) ÷ (N−M).
+      </div>
+      <div class="warn">Při záměně: závaží (2A ↔ 3B) smíš vyměnit, protože jsou stejně těžká — ne proto, že si to přeješ. Vždy zkontroluj, že podmínka to říká.</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 6 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">⭕</div>
+      <div>
+        <div class="card-title">Překrývající se skupiny — Vennův diagram</div>
+        <div class="card-tasks">Úloha 5</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Klíčová myšlenka</div>
+        Když sečteš záznamy ze všech skupin, osoby ve více skupinách jsou počítány vícekrát. Výsledný součet zápisů = 1 × (jen v 1 skupině) + 2 × (právě ve 2) + 3 × (ve všech 3).
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Sečti záznamy ze všech skupin (může to být víc než počet osob).</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Odečti příspěvek těch ve 3 skupinách (každý přispěl 3× → přičti jen 3× jejich počet).</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Odečti příspěvek těch ve 2 skupinách (každý přispěl 2×).</div></div>
+        <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Co zbyde = příspěvek jednoskupinových = jejich počet.</div></div>
+        <div class="step-mini"><div class="step-mini-n">5</div><div class="step-mini-text">Celkem = jednoskupinoví + dvouSkupinoví + tříSkupinoví.</div></div>
+      </div>
+      <div class="warn">Součet zápisů ≠ celkový počet osob. Správný počet je vždy menší nebo roven součtu zápisů.</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 7 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🍕</div>
+      <div>
+        <div class="card-title">Dílkový přístup — rozděl celek na rovné části</div>
+        <div class="card-tasks">Úloha 6, Úloha 9</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Kdy použít</div>
+        Když je celek rozdělen na části popsané zlomky (polovina, třetina, šestina…) a jedna konkrétní část má známou hodnotu.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Najdi nejmenší počet dílků, aby vše vyšlo celé. (Polovina + třetina z poloviny = 3 dílky + 1 dílek → celkem 6 dílků.)</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Přiřaď každé části počet dílků.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Z KNOWN hodnoty urči cenu 1 dílku.</div></div>
+        <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Dopočítej ostatní: počet dílků × cena 1 dílku.</div></div>
+      </div>
+      <div class="example">Víme, že 2 dílky = 300 Kč → 1 dílek = 150 Kč → celek (6 dílků) = 900 Kč.</div>
+      <div class="warn">„Třetina z toho, co dostal první" ≠ „třetina z celku". Vždy si ujasni, třetina z ČEHO.</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 8 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📐</div>
+      <div>
+        <div class="card-title">Geometrická konstrukce</div>
+        <div class="card-tasks">Úloha 7</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Pravidlo</div>
+        Podmínky čti v pořadí: nejdřív zjisti, co je pevně dáno (bod, přímka), pak co z toho plyne (rovnoběžnost, délka strany), a teprve pak konstruuj.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">„Strana AC ∥ přímce b" → veď přes C přímku rovnoběžnou s b; průsečík s přímkou a je bod A.</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">„|AB| = |AC|" → narýsuj kružnici se středem A a poloměrem |AC|; průsečíky s druhou přímkou jsou možné polohy B.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Hledej VŠECHNA řešení — kružnice protíná přímku ve dvou bodech = dvě řešení.</div></div>
+      </div>
+      <div class="warn">„Najděte všechna řešení" — zpravidla jsou 2 (vlevo i vpravo, nebo nahoře i dole). Nenakresli jen jedno!</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 9 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔷</div>
+      <div>
+        <div class="card-title">Odvozování rozměrů složeného tvaru</div>
+        <div class="card-tasks">Úloha 8</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Postup</div>
+        Tvar je popsán slovně — musíš si ho „přeložit" do rozměrů bez Pythagorovy věty ani odmocnin.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Urči stranu čtverců: nejkratší strana polygonu = strana 1 čtverce.</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Nejdelší strana = N čtverců v řadě → zjistíš, kolik čtverců je vedle sebe.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Rovnostranný trojúhelník nebo obdélník „sedí na" čtvercích → jeho rozměry jsou násobky strany čtverce.</div></div>
+        <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Teprve pak počítej obvody. Ověřuj, zda výsledek odpovídá tvrzení (A/N).</div></div>
+      </div>
+      <div class="key">Odhad bez odmocnin: třetí strana trojúhelníku (přepona) je kratší než součet obou dalších stran. Stačí na odhadnutí „méně / více než X".</div>
+      <div class="warn">Rovnostranný trojúhelník nemusí mít stranu rovnou nejkratší straně polygonu — může sedět na více čtvercích!</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 10 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🪙</div>
+      <div>
+        <div class="card-title">Mince s vyrovnanou hodnotou</div>
+        <div class="card-tasks">Úloha 10</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Klíčová myšlenka</div>
+        Pokud celková hodnota jednoho druhu mincí = celková hodnota druhého druhu, pak jsou skupiny vzájemně v poměru daném jejich hodnotami.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Zjisti, kolikrát musí být jeden druh hojnější, aby vyrovnal hodnotu druhého (menší hodnota = musí jich být víc).</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Složíš skupinky: 1 dražší + N levnějších = skupinka o (1+N) mincích.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Celkový počet ÷ velikost skupinky = počet skupinek → dopočítáš oba druhy.</div></div>
+      </div>
+      <div class="example">Desítka = 2 × pětka → 1 desítka + 2 pětky = skupinka 3 mincí. 78 ÷ 3 = 26 skupinek.</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 11 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📦</div>
+      <div>
+        <div class="card-title">Stavebnicové dílky — objem a nejmenší krychle</div>
+        <div class="card-tasks">Úloha 11 a 12</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Počet dílků do zadaného kvádru</div>
+        Objem kvádru ÷ objem 1 dílku = počet dílků. (Vždy zkontroluj, že rozměry fyzicky „sedí" — dílky se nesmí řezat.)
+      </div>
+      <div class="block">
+        <div class="block-label">Nejmenší krychle</div>
+        Strana krychle musí být dělitelná každým rozměrem dílku. Hledáš nejmenší společný násobek (NSN) všech rozměrů dílku.
+        <div class="steps-mini" style="margin-top:6px">
+          <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Vypiš násobky každého rozměru: 6 → 6, 12, 18… ; 4 → 4, 8, 12…</div></div>
+          <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Najdi nejmenší číslo, které je v obou seznamech → NSN = strana krychle.</div></div>
+          <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Počet dílků = objem krychle ÷ objem dílku.</div></div>
+        </div>
+      </div>
+      <div class="warn">Nestačí jen objem! Dílky musí fyzicky „do sebe zapadat" — NSN zajistí, že se nijak nekrájí.</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 12 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📊</div>
+      <div>
+        <div class="card-title">Čtení z grafu a porovnání</div>
+        <div class="card-tasks">Úloha 13</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Postup</div>
+        Graf ti dává čísla — ty je musíš správně odečíst a pak porovnat.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Odečti přesně hodnoty ze sloupců (ne od oka — hledej, na které čáře mřížky sloupec končí).</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Spočítej součty/rozdíly dle zadání (může být součet dvou skupin vs. třetí).</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Zjisti, čím je rozdíl z referenčního čísla: rozdíl ÷ referenční číslo = 1/4? 1/3? 1/2?</div></div>
+        <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Spáruj se správnou možností (o čtvrtinu / o třetinu / o polovinu…).</div></div>
+      </div>
+      <div class="key">„O čtvrtinu méně než S" → referenční číslo je S (větší). Rozdíl musí být čtvrtina z S. „O čtvrtinu více než R" → referenční číslo je R (menší).</div>
+      <div class="warn">Záleží, čím dělíš: „o třetinu více než R" = rozdíl ÷ R = 1/3. Ne rozdíl ÷ (R+S+T). Referenční je vždy to číslo ZA „než".</div>
+    </div>
+  </div>
+
+
+  <!-- ══ KARTA 13 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔲</div>
+      <div>
+        <div class="card-title">Mřížkové obrazce — odvozování vzorce a počítání řešení</div>
+        <div class="card-tasks">Úloha 14</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="block">
+        <div class="block-label">Vzorec pro počet tmavých čtverečků</div>
+        Rozšíření přidá: horní řadu + levý sloupec + pravý sloupec. Horní řada je o 2 širší než základní obrazec (přibydou rohové čtverečky). Čtverečky doleva a doprava mají výšku pouze základního obrazce (ne rozšířeného).
+      </div>
+      <div class="key">Tmavé = (šířka základu + 2) + výška základu + výška základu = šířka + 2 × výška + 2</div>
+      <div class="block">
+        <div class="block-label">Počítání všech řešení (14.3)</div>
+        Máš vzorec a zadaný počet tmavých → vyjádři jednu proměnnou pomocí druhé. Pak zjisti, pro která celá čísla platí podmínka (oba rozměry ≥ 1). Systematicky vyjmenuj nebo vypočítej počet platných hodnot.
+      </div>
+      <div class="steps-mini">
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Z podmínky (tmavé = N) vyjádři: šířka = N − 2 × výška − 2.</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Podmínka: šířka ≥ 1 → zjisti největší přípustnou výšku.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Výška může být 1, 2, 3, ..., MAX → celkový počet = MAX.</div></div>
+      </div>
+      <div class="warn">Největší výška může vyjít jako desetinné číslo — vždy zaokrouhli DOLŮ (hledáš celé řady).</div>
+    </div>
+  </div>
+
+
+  <!-- ZÁVĚR -->
+  <div style="background:#f0faf4;border-radius:10px;padding:16px 20px;margin-top:4px;font-size:14px;line-height:1.7;color:#1a4731;border:1.5px solid #52b788">
+    <strong style="font-size:13px;text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:8px;color:#2d6a4f">🌿 Před začátkem testu</strong>
+    <ul style="padding-left:20px">
+      <li>Pročti si zadání každé úlohy celé, než začneš počítat.</li>
+      <li>U uzavřených úloh (výběr A–E) si vždy ověř výsledek — čísla jsou blízko u sebe záměrně.</li>
+      <li>Pokud se zaseknete, přeskočte a vraťte se — body jsou za každou úlohu zvlášť.</li>
+      <li>Výsledky si vždy ověřte dosazením zpět do podmínky.</li>
+    </ul>
+  </div>
+
+</div><!-- .page -->
+</body>
+</html>
