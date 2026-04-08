@@ -1601,4 +1601,5 @@ Počet skupin: 560 ÷ 70 = <b>8 skupin</b> → <span class="hint-result">8 velk�
 ]
 
 # ══ QUIZ DATA (imported from quiz_backup.py) ══
-exec(open('/home/claude/quiz_backup.py', encoding='utf-8').read())
+import os as _os
+exec(open(_os.path.join(_os.path.dirname(__file__) or '.', 'quiz_backup.py'), encoding='utf-8').read())

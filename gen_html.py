@@ -5,7 +5,7 @@ import base64, os, sys
 sys.path.insert(0, '/home/claude')
 from hints_data import HINTS_PL01,HINTS_PL02,HINTS_PL03,HINTS_PL04,HINTS_PL05,HINTS_PL06,HINTS_PL07,HINTS_PL08,HINTS_PL09,QUIZ_PL01,QUIZ_PL02,QUIZ_PL03,QUIZ_PL04,QUIZ_PL05,QUIZ_PL06,QUIZ_PL07,QUIZ_PL08,QUIZ_PL09
 
-OUTDIR = "/mnt/user-data/outputs"
+OUTDIR = os.path.join(os.path.dirname(__file__) or ".", "docs", "pages")
 IMGDIR = "/tmp/cropped"
 
 def img64(name):
@@ -128,6 +128,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px;
                font-size: 15px; margin: 4px 0; }
 
 /* Hint table — cleaner */
+.hint-block { overflow-x: auto; }
 .hint-block table.htable { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
 .hint-block table.htable th { padding: 9px 12px; text-align: center; font-size: 13px; font-weight: 700; }
 .hint-block table.htable td { padding: 8px 12px; text-align: center; border: 1px solid rgba(0,0,0,.1); }
@@ -470,7 +471,13 @@ def ex_header(num, title, source, badge_bg, badge_color, badge_text, badge_icon)
 
 def zadani(text, border_color="#999"):
     lines = text.strip().split('\n')
-    html = '\n'.join(f'<p>{l.strip()}</p>' for l in lines if l.strip())
+    parts = []
+    for l in lines:
+        l = l.strip()
+        if not l:
+            continue
+        parts.append(l if l.startswith('<') else f'<p>{l}</p>')
+    html = '\n'.join(parts)
     return f"""<div class="zadani" style="border-color:{border_color}">
 <strong>📋 Zadání:</strong>
 {html}
@@ -970,7 +977,14 @@ def pl05():
 
     body += ex_header(5,"Penzion &mdash; skupiny a pokoje","2025 &middot; 1. náhradní termín","#eafaf1","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
-    body += zadani("""Skupina 18 osob přijela do penzionu. Tabulka udává počty volných pokojů a ceny lůžek. Každý pronajatý pokoj musí být plně obsazen.
+    body += zadani("""Skupina 18 osob přijela do penzionu. Každý pronajatý pokoj musí být plně obsazen.
+<table class="ex-table" style="width:100%;margin:10px 0">
+<tr><th style="background:#1E8449;color:white;text-align:left">Typ pokoje</th><th style="background:#1E8449;color:white">Počet volných pokojů</th><th style="background:#1E8449;color:white">Cena za lůžko</th></tr>
+<tr><td>Jednolůžkový</td><td>6</td><td>1 400 Kč</td></tr>
+<tr><td>Dvoulůžkový</td><td>5</td><td>700 Kč</td></tr>
+<tr><td>Třílůžkový</td><td>5</td><td>500 Kč</td></tr>
+<tr><td>Čtyřlůžkový</td><td>2</td><td>300 Kč</td></tr>
+</table>
 <ol class="task-list">
 <li>Kolik pokojů obsadili, jestliže vzali 2 pokoje pro 3 osoby a zbytek skupiny do pokojů pro 4 osoby?</li>
 <li>Jaká je nejnižší možná cena za ubytování celé skupiny?</li>
@@ -1128,7 +1142,7 @@ def pl03():
     body += zadani("Cyklista za 5 dní ujel celkem 200 km.\nPrvní den ujel nejdelší trasu a každý další den ujel o 6 km méně.\nKolik km ujel první den?","#C87941")
     body += '<div class="steps">'
     body += step(1,"Pojmenuji dny","1. den jede nejdéle. Každý další den ujede o 6 km méně.<br>Označím vzdálenost 1. dne jako <b>&#9633;</b> km.","#C87941","#fff8f0")
-    body += step(2,"Zapíšu všechny dny","<table class='ex-table'><tr><th>Den</th><th>1.</th><th>2.</th><th>3.</th><th>4.</th><th>5.</th></tr><tr><td>km</td><td>&#9633;</td><td>&#9633;&minus;6</td><td>&#9633;&minus;12</td><td>&#9633;&minus;18</td><td>&#9633;&minus;24</td></tr></table>","#A04000","#fff8f0")
+    body += step(2,"Zapíšu všechny dny","<div style='overflow-x:auto'><table class='ex-table'><tr><th>Den</th><th>1.</th><th>2.</th><th>3.</th><th>4.</th><th>5.</th></tr><tr><td>km</td><td>&#9633;</td><td>&#9633;&minus;6</td><td>&#9633;&minus;12</td><td>&#9633;&minus;18</td><td>&#9633;&minus;24</td></tr></table></div>","#A04000","#fff8f0")
     body += step(3,"Sečtu a hledám &#9633;","Kdybychom každý den ujeli &#9633; km (stejně jako první den), bylo by to 5 &times; &#9633; km.<br>Ale 2.&ndash;5. den ujeli méně: o 6, 12, 18, 24 km méně = celkem 60 km méně.<br>Takže: 5 &times; &#9633; &minus; 60 = 200 &rarr; 5 &times; &#9633; = <span class='calc'>260</span> &rarr; &#9633; = 260 &divide; 5 = <span class='calc'>52 km</span>","#7E5109","#fff8f0")
     body += step(4,"Ověřím","52 + 46 + 40 + 34 + 28 = <span class='calc'>200 &#10003;</span>","#7E5109","#fff8f0")
     body += '</div>'
@@ -1142,12 +1156,14 @@ def pl03():
     body += exam_img("posl_25n1_14","Zadání z přijímaček")
     body += zadani("1. obrazec: 3 bílé + 3 šedé trojúhelníky = 6 celkem.\nKaždý další přidá 1 pás trojúhelníků dokola.\n14.1 Kolik trojúhelníků celkem obsahuje přidaný pás 4. obrazce?\n14.2 Kolik šedých trojúhelníků je v celém 6. obrazci?\n14.3 Kolikátý obrazec má v posledním pásu 225 šedých trojúhelníků?","#C87941")
     body += hint_card("📊","Vyplň tabulku:","""
+<div style="overflow-x:auto">
 <table class="ex-table" style="width:100%">
 <tr><th style="background:#A04000;color:white">Obrazec</th><th style="background:#A04000;color:white">1.</th><th style="background:#A04000;color:white">2.</th><th style="background:#A04000;color:white">3.</th><th style="background:#A04000;color:white">4.</th><th style="background:#A04000;color:white">5.</th><th style="background:#A04000;color:white">6.</th></tr>
 <tr><td>Celkem △</td><td>6</td><td>24</td><td>54</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
 <tr><td>Přidaný pás</td><td>&mdash;</td><td>18</td><td>30</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
 <tr><td>Z toho šedých</td><td>3</td><td>9</td><td>15</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
 </table>
+</div>
 <p style="margin-top:8px;font-size:13px">Nápověda: počet šedých v pásu roste o 6. Celkový počet šedých = sečti šedé ve všech pasech.</p>""","#fff8f0","#C87941")
     body += answer_box("14.1: _____ △ &nbsp;&nbsp; 14.2: _____ šedých &nbsp;&nbsp; 14.3: _____ obrazec")
     body += '</div></div>'
@@ -1495,24 +1511,27 @@ for num, name, cd, cm, cl, ct, fn in SHEETS:
     # Generate PDF via wkhtmltopdf
     out_pdf = f"{OUTDIR}/PL{num:02d}_{name}.pdf"
     import subprocess
-    r = subprocess.run([
-        "wkhtmltopdf",
-        "--page-size", "A4",
-        "--margin-top", "12mm",
-        "--margin-bottom", "12mm",
-        "--margin-left", "12mm",
-        "--margin-right", "12mm",
-        "--encoding", "utf-8",
-        "--enable-local-file-access",
-        "--zoom", "0.88",
-        "--quiet",
-        out_html,
-        out_pdf
-    ], capture_output=True, text=True)
-    if r.returncode == 0:
-        pdf_size = os.path.getsize(out_pdf)
-        print(f" | PDF OK ({pdf_size//1024} KB)")
-    else:
-        print(f" | PDF ERR: {r.stderr[:80]}")
+    try:
+        r = subprocess.run([
+            "wkhtmltopdf",
+            "--page-size", "A4",
+            "--margin-top", "12mm",
+            "--margin-bottom", "12mm",
+            "--margin-left", "12mm",
+            "--margin-right", "12mm",
+            "--encoding", "utf-8",
+            "--enable-local-file-access",
+            "--zoom", "0.88",
+            "--quiet",
+            out_html,
+            out_pdf
+        ], capture_output=True, text=True)
+        if r.returncode == 0:
+            pdf_size = os.path.getsize(out_pdf)
+            print(f" | PDF OK ({pdf_size//1024} KB)")
+        else:
+            print(f" | PDF ERR: {r.stderr[:80]}")
+    except FileNotFoundError:
+        print(" | PDF skip (wkhtmltopdf not installed)")
 
 print("Hotovo!")
