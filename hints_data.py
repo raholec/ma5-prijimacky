@@ -420,16 +420,93 @@ Tip: rovnoramenný je „širší" skupina — každý rovnostranný trojúheln�
 # ══════════════════════════════════════════════════════════════════
 # PL02 — PROSTOROVÁ PŘEDSTAVIVOST
 # ══════════════════════════════════════════════════════════════════
+SVG_TYCKY_3SMERY = """<svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" aria-label="Drátový model krychle 3×3×3 s tyčkami ve 3 směrech" style="max-width:340px;display:block;margin:10px auto">
+<style>.tk-label{font:bold 13px sans-serif;fill:#333}.tk-dot{fill:#555}</style>
+<!-- tyčky doprava (červené) -->
+<line x1="40" y1="200" x2="100" y2="200" stroke="#e74c3c" stroke-width="2.5"/><line x1="100" y1="200" x2="160" y2="200" stroke="#e74c3c" stroke-width="2.5"/>
+<line x1="40" y1="150" x2="100" y2="150" stroke="#e74c3c" stroke-width="2.5"/><line x1="100" y1="150" x2="160" y2="150" stroke="#e74c3c" stroke-width="2.5"/>
+<line x1="40" y1="100" x2="100" y2="100" stroke="#e74c3c" stroke-width="2.5"/><line x1="100" y1="100" x2="160" y2="100" stroke="#e74c3c" stroke-width="2.5"/>
+<!-- tyčky nahoru (zelené) -->
+<line x1="40" y1="200" x2="40" y2="150" stroke="#27ae60" stroke-width="2.5"/><line x1="40" y1="150" x2="40" y2="100" stroke="#27ae60" stroke-width="2.5"/>
+<line x1="100" y1="200" x2="100" y2="150" stroke="#27ae60" stroke-width="2.5"/><line x1="100" y1="150" x2="100" y2="100" stroke="#27ae60" stroke-width="2.5"/>
+<line x1="160" y1="200" x2="160" y2="150" stroke="#27ae60" stroke-width="2.5"/><line x1="160" y1="150" x2="160" y2="100" stroke="#27ae60" stroke-width="2.5"/>
+<!-- tyčky dozadu (modré, izometrie) -->
+<line x1="40" y1="200" x2="70" y2="175" stroke="#2980b9" stroke-width="2.5"/><line x1="70" y1="175" x2="100" y2="150" stroke="#2980b9" stroke-width="2.5" stroke-dasharray="6,3"/>
+<line x1="160" y1="200" x2="190" y2="175" stroke="#2980b9" stroke-width="2.5"/><line x1="160" y1="100" x2="190" y2="75" stroke="#2980b9" stroke-width="2.5"/>
+<!-- kuličky (uzly) -->
+<circle cx="40" cy="200" r="5" class="tk-dot"/><circle cx="100" cy="200" r="5" class="tk-dot"/><circle cx="160" cy="200" r="5" class="tk-dot"/>
+<circle cx="40" cy="150" r="5" class="tk-dot"/><circle cx="100" cy="150" r="5" class="tk-dot"/><circle cx="160" cy="150" r="5" class="tk-dot"/>
+<circle cx="40" cy="100" r="5" class="tk-dot"/><circle cx="100" cy="100" r="5" class="tk-dot"/><circle cx="160" cy="100" r="5" class="tk-dot"/>
+<!-- legenda -->
+<line x1="200" y1="110" x2="240" y2="110" stroke="#e74c3c" stroke-width="3"/><text x="248" y="114" class="tk-label" fill="#e74c3c">doprava</text>
+<line x1="200" y1="135" x2="240" y2="135" stroke="#27ae60" stroke-width="3"/><text x="248" y="139" class="tk-label" fill="#27ae60">nahoru</text>
+<line x1="200" y1="160" x2="240" y2="160" stroke="#2980b9" stroke-width="3"/><text x="248" y="164" class="tk-label" fill="#2980b9">dozadu</text>
+<!-- popisek -->
+<text x="100" y="235" text-anchor="middle" class="tk-label">Přední stěna krychle 3×3</text>
+<text x="100" y="250" text-anchor="middle" font-size="11" fill="#888">● = kulička, — = tyčka</text>
+</svg>"""
+
+SVG_SLEPENI = """<svg viewBox="0 0 360 120" xmlns="http://www.w3.org/2000/svg" aria-label="Dvě kostky slepené k sobě — 2 strany zmizí" style="max-width:360px;display:block;margin:10px auto">
+<style>.sl-label{font:bold 12px sans-serif;fill:#333}</style>
+<!-- kostka 1 -->
+<rect x="20" y="20" width="80" height="80" rx="6" fill="#dfe6e9" stroke="#2d3436" stroke-width="2"/>
+<text x="60" y="55" text-anchor="middle" class="sl-label">12 teček</text>
+<text x="60" y="72" text-anchor="middle" font-size="10" fill="#666">kostka 1</text>
+<!-- kostka 2 -->
+<rect x="160" y="20" width="80" height="80" rx="6" fill="#dfe6e9" stroke="#2d3436" stroke-width="2"/>
+<text x="200" y="55" text-anchor="middle" class="sl-label">12 teček</text>
+<text x="200" y="72" text-anchor="middle" font-size="10" fill="#666">kostka 2</text>
+<!-- spoj (červené X na obou stranách) -->
+<line x1="100" y1="30" x2="100" y2="90" stroke="#e74c3c" stroke-width="3"/>
+<line x1="160" y1="30" x2="160" y2="90" stroke="#e74c3c" stroke-width="3"/>
+<text x="130" y="25" text-anchor="middle" font-size="22" fill="#e74c3c">✕</text>
+<text x="130" y="75" text-anchor="middle" class="sl-label" fill="#e74c3c">2 strany</text>
+<text x="130" y="90" text-anchor="middle" class="sl-label" fill="#e74c3c">zmizí!</text>
+<!-- výsledek -->
+<text x="280" y="50" class="sl-label" fill="#27ae60">→ viditelných:</text>
+<text x="280" y="70" class="sl-label" fill="#27ae60">24 − 2 strany</text>
+</svg>"""
+
+SVG_PYRAMIDA = """<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-label="Průřez pyramidou — skryté kostky červeně" style="max-width:300px;display:block;margin:10px auto">
+<style>.py-label{font:bold 11px sans-serif;fill:#333}</style>
+<!-- 1. patro 5×5 (pouze okraj, pohled shora) -->
+<rect x="25" y="155" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/><rect x="55" y="155" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/><rect x="85" y="155" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/><rect x="115" y="155" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/><rect x="145" y="155" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/>
+<!-- 2. patro 4×4 -->
+<rect x="40" y="125" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/><rect x="70" y="125" width="30" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/><rect x="100" y="125" width="30" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/><rect x="130" y="125" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/>
+<!-- 3. patro 3×3 -->
+<rect x="55" y="95" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/><rect x="85" y="95" width="30" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/><rect x="115" y="95" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/>
+<!-- 4. patro 2×2 -->
+<rect x="70" y="65" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/><rect x="100" y="65" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/>
+<!-- 5. patro 1×1 -->
+<rect x="85" y="35" width="30" height="30" fill="#dfe6e9" stroke="#555" stroke-width="1"/>
+<!-- legenda -->
+<rect x="200" y="50" width="16" height="16" fill="#dfe6e9" stroke="#555" stroke-width="1"/><text x="222" y="62" class="py-label">viditelná</text>
+<rect x="200" y="75" width="16" height="16" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/><text x="222" y="87" class="py-label" fill="#c0392b">skrytá</text>
+<text x="200" y="120" class="py-label">Celkem skrytých:</text>
+<text x="200" y="138" font-size="18" font-weight="bold" fill="#c0392b">4 + 1 = 5</text>
+<text x="100" y="198" text-anchor="middle" font-size="10" fill="#888">Průřez pyramidou (pohled zepředu)</text>
+</svg>"""
+
 HINTS_PL02 = [
 
 ("👁️", "Tři pohledy — co každý ukazuje", f"""
 {SVG_POHLEDY}
+<div class="ex"><div class="lbl">Představ si dům na ulici</div>
+Stojíš před domem kamaráda. Vidíš přední zeď, okna, dveře — to je <b>pohled zepředu</b>.<br>
+Teď si představ, že se na dům podíváš z dronu (shora) — uvidíš střechu a zahradu, ale nevidíš, jak je dům vysoký. A když obejdeš dům a podíváš se zprava — uvidíš boční zeď.<br><br>
+👉 <b>Každý pohled ti ukáže jen část stavby — proto potřebuješ víc pohledů najednou!</b>
+</div>
 <table class="htable">
-<tr><th style="background:#0E6655;color:white">Pohled</th><th style="background:#0E6655;color:white">Co vidíš</th><th style="background:#0E6655;color:white">Co NEvidíš</th></tr>
-<tr><td>🔼 <b>Shora</b></td><td>Kde jsou sloupce (jako mapa)</td><td>Jak jsou vysoké</td></tr>
-<tr><td>⬛ <b>Zepředu</b></td><td>Šířka + výška. Vždy <b>nejvyšší</b> sloupec v každé řadě</td><td>Kolik jich je za sebou</td></tr>
-<tr><td>▶️ <b>Zprava</b></td><td>Hloubka + výška. Pravý okraj každé řady</td><td>Co je za prvním sloupcem</td></tr>
-</table>""", "#e8faf5", "#0E6655"),
+<tr><th style="background:#0E6655;color:white">Pohled</th><th style="background:#0E6655;color:white">Co vidíš</th><th style="background:#0E6655;color:white">Co NEvidíš</th><th style="background:#0E6655;color:white">Příklad z života</th></tr>
+<tr><td>🔼 <b>Shora</b></td><td>Kde jsou sloupce (jako mapa)</td><td>Jak jsou vysoké</td><td>Pohled z dronu na střechu domu</td></tr>
+<tr><td>⬛ <b>Zepředu</b></td><td>Šířka + výška. Vždy <b>nejvyšší</b> sloupec v každé řadě</td><td>Kolik jich je za sebou</td><td>Fotka domu z ulice</td></tr>
+<tr><td>▶️ <b>Zprava</b></td><td>Hloubka + výška. Pravý okraj každé řady</td><td>Co je za prvním sloupcem</td><td>Pohled na dům od sousedů</td></tr>
+</table>
+<div class="ex"><div class="lbl">⚡ Tip na zapamatování</div>
+Pohled <b>shora</b> = MAPA (kde co stojí, ale ne jak vysoké).<br>
+Pohled <b>zepředu</b> a <b>zprava</b> = FOTKY (vidíš výšku, ale ne co je schované vzadu).<br>
+Vždy potřebuješ aspoň <b>dva pohledy</b>, abys stavbu pochopil/a celou!
+</div>""", "#e8faf5", "#0E6655"),
 
 ("🔢", "Jak spočítat kostky ze dvou pohledů — s příkladem", f"""
 <div class="ex"><div class="lbl">Jak může zadání vypadat</div>
@@ -461,6 +538,46 @@ Celkem: 3+1+3+1 = <span class="hint-result">8 kostek</span>
 Pohled zepředu nikdy neukazuje, <b>kolik kostek je za sebou</b> — vidí jen <b>nejvyšší</b> v dané řadě. Proto potřebuješ pohled shora, abys věděl, kde jsou sloupce!
 </div>""", "#e8faf5", "#17A589"),
 
+("🏷️", "Stěny s čísly — součty viditelných stěn", f"""
+<div class="ex"><div class="lbl">Jak může zadání vypadat (21r1)</div>
+<i>„Na stavbu z 16 krychliček napíšeme čísla: stěny viditelné zepředu=1, zezadu=2, zprava=3, zleva=4, shora=5. Spočti součet všech zapsaných čísel z každé strany."</i>
+</div>
+<div class="ex"><div class="lbl">Představ si to jako dárky s cenovkami</div>
+Máš na stole naskládané krabičky s dárky. Na každou stěnu, kterou vidíš z určité strany, nalepíš cenovku s číslem. Některé stěny ale nevidíš — třeba ta, co je přitisknutá ke stolu nebo k vedlejší krabičce. Na ty se nic nelepí!<br><br>
+👉 <b>Viditelná stěna</b> = stěna, na kterou vidíš, když se díváš z dané strany (není schovaná za jinou kostkou).
+</div>
+<div class="ex"><div class="lbl">Krok 1: Pochop co „viditelná stěna" znamená</div>
+Každá krychlička má 6 stěn. Stěna je <b>viditelná</b>, pokud na ni není přiložená jiná krychlička.<br>
+Krajní krychlička v řadě → stěna na okraji = viditelná ✓<br>
+Krychlička uprostřed → stěny po stranách zakryté sousedy ✗
+</div>
+<div class="ex"><div class="lbl">Krok 2: Pro každou stranu spočti viditelné stěny</div>
+Příklad: stavba 4×4×1 (16 krychliček v jedné vrstvě):<br>
+→ Pohled shora: všech 16 stěn vidět → součet = 16×5 = <b>80</b><br>
+→ Pohled zepředu: 4 stěny v přední řadě → součet = 4×1 = <b>4</b><br>
+→ Pohled zezadu: 4 stěny v zadní řadě → součet = 4×2 = <b>8</b><br>
+→ Pohled zprava: 4 stěny v pravém sloupci → součet = 4×3 = <b>12</b><br>
+→ Pohled zleva: 4 stěny v levém sloupci → součet = 4×4 = <b>16</b>
+</div>
+<div class="ex"><div class="lbl">Krok 3: Sečti všechno dohromady</div>
+Celkový součet: 80 + 4 + 8 + 12 + 16 = <span class="hint-result">120</span><br><br>
+💡 <b>Pozor:</b> Stěny zespodu (dotýkají se stolu) a stěny mezi kostkami se nepočítají — tam žádná cenovka není!
+</div>
+<div class="ex"><div class="lbl">Příklad: 2patrová stavba 2×2×2 (8 krychliček)</div>
+Teď pozor — 2 patra mění výpočet!<br>
+→ Pohled shora: vidíš jen horní 4 stěny → 4×5 = <b>20</b><br>
+→ Pohled zepředu: 2 sloupce × 2 patra = 4 stěny → 4×1 = <b>4</b><br>
+→ Pohled zezadu: 4 stěny → 4×2 = <b>8</b><br>
+→ Pohled zprava: 4 stěny → 4×3 = <b>12</b><br>
+→ Pohled zleva: 4 stěny → 4×4 = <b>16</b><br>
+Celkem: 20 + 4 + 8 + 12 + 16 = <span class="hint-result">60</span><br><br>
+⚡ Všimni si: zepředu vidíš stěny ve VŠECH patrech — jako panelák z ulice. Ale shora vidíš jen „střechu" (horní patro)!
+</div>
+<div class="ex"><div class="lbl">Tip: Nakresli si plán shora</div>
+Zakresli si stavbu jako tabulku (pohled shora). Pro každý pohled projdi celý okraj a spočti kolik stěn je vidět.<br><br>
+⚡ <b>Nejčastější chyba:</b> Děti zapomínají, že vícepatrové stavby mají <b>víc viditelných stěn</b> z boku! Vždy si nakresli stavbu i z boku!
+</div>""", "#e8faf5", "#0E6655"),
+
 ("📦", "Skryté kostky — pravidlo 6 stěn", f"""
 <div class="ex"><div class="lbl">Představ si to jako bonboniéru</div>
 Máš krabici plnou bonbónů naskládaných na sobě. Ty bonbóny, co vidíš navrchu a po stranách, jsou <b>viditelné</b>. Ale uprostřed krabice jsou bonbóny, na které ze žádné strany nevidíš — ty jsou <b>skryté</b>. U kostek je to stejné!
@@ -476,6 +593,7 @@ Kostka je skrytá, když ze žádné strany není vidět — všech 6 stěn sous
 👉 <b>Pamatuj si:</b> Skrytá kostka musí mít ze VŠECH 6 stran souseda — jako ten bonbón schovaný hluboko uprostřed krabice.
 </div>
 <div class="ex"><div class="lbl">Pyramida 5 pater — počítáme krok za krokem</div>
+{SVG_PYRAMIDA}
 Představ si pyramidu z LEGO kostek — dole velká deska, nahoře špička:<br><br>
 <b>1. patro (spodní):</b> 5×5 = 25 kostek. Všechny leží na stole → vidíš je zdola → skrytých = <b>0</b><br>
 <b>2. patro:</b> 4×4 = 16 kostek. Okrajové kostky vidíš z boku. Ale uvnitř je čtverec 2×2 = 4 kostky — ty nevidíš z žádné strany → skrytých = <b>4</b><br>
@@ -504,6 +622,7 @@ Například: S=4 → vnitřních = 2×2 = 4. S=3 → vnitřních = 1×1 = 1. S=2
 <li>Celkem teček na jedné kostce: 3×1 + 3×3 = 3 + 9 = <span class="hint-result">12 teček</span></li>
 </ul>
 </div>
+{SVG_SLEPENI}
 <div class="ex"><div class="lbl">Co znamená „slepení" — představ si dva dárky</div>
 Máš dva zabalené dárky. Každý má potištěný papír na všech stranách. Když je přitiskneš k sobě, <b>dvě strany zmizí</b> — jedna z levého dárku a jedna z pravého. Tečky na těch stranách už nikdo neuvidí.<br><br>
 👉 <b>Každý spoj = 2 ztracené strany</b> (jedna z každé kostky)
@@ -526,23 +645,28 @@ Hodně dětí si myslí, že 1 spoj = 1 ztracená strana. <b>NE!</b> Vždy se zt
 </div>""", "#e8faf5", "#17A589"),
 
 ("🏗️", "Filipův model — krychle z tyček a kuliček", f"""
-<div class="ex"><div class="lbl">Představ si stavebnici</div>
-Filip staví kostku z párátka (tyčky) a gumiček/kuliček v rozích. Je to jako stavět z brček a plastelíny — kuličky drží rohy, tyčky spojují kuličky.
+<div class="ex"><div class="lbl">Představ si stavebnici z brček a plastelíny</div>
+Filip staví kostku z párátka (tyčky) a gumiček/kuliček v rozích. Představ si, že stavíš z <b>brček</b> (= tyčky) a <b>kuliček plastelíny</b> (= rohy a křížení). Kulička drží v každém místě, kde se brčka setkávají — jako uzly na rybářské síti.
 </div>
-<div class="ex"><div class="lbl">Kuličky — jak je spočítat</div>
-Kuličky jsou v každém rohu a na každém křížení. Představ si kostku rozřezanou na vrstvy:<br>
-<b>Strana 2:</b> Jedna vrstva = 2×2 = 4 kuličky. Máš 2 vrstvy → 4×2 = <b>8 kuliček</b><br>
-<b>Strana 3:</b> Jedna vrstva = 3×3 = 9 kuliček. Máš 3 vrstvy → 9×3 = <b>27 kuliček</b><br>
-<b>Strana 4:</b> Jedna vrstva = 4×4 = 16. Máš 4 vrstvy → 16×4 = <b>64 kuliček</b><br>
-👉 Vždy: strana × strana × strana
+<div class="ex"><div class="lbl">Kuličky — počítej po patrech (jako panelák)</div>
+Představ si panelák — v každém patře je stejný počet bytů. Kuličky jsou jako byty:<br><br>
+<b>Příklad: kostka o straně 3</b><br>
+📐 Jedno patro (vrstva) vypadá jako čtverec 3×3 = <b>9 kuliček</b><br>
+🏢 Panelák má 3 patra → 9 × 3 = <b>27 kuliček celkem</b><br><br>
+Zkus to sám pro jiné velikosti:<br>
+<b>Strana 2:</b> jedno patro = 2×2 = 4, počet pater = 2 → 4×2 = <b>8 kuliček</b><br>
+<b>Strana 4:</b> jedno patro = 4×4 = 16, počet pater = 4 → 16×4 = <b>64 kuliček</b><br>
+👉 <b>Pravidlo:</b> Vždy strana × strana × strana (třikrát to samé číslo!)
 </div>
+{SVG_TYCKY_3SMERY}
 <div class="ex"><div class="lbl">Tyčky celkem — počítej ve 3 směrech</div>
-Tyčky jdou třemi směry: vodorovně doprava, vodorovně dozadu a svisle nahoru. V každém směru je jich stejně!<br><br>
-<b>Proč 2 tyčky v řadě?</b> Když máš v řadě 3 kuličky, mezi nimi jsou <b>2 mezery</b> — a každá mezera = 1 tyčka. Vždy platí: počet tyček v řadě = počet kuliček − 1.<br><br>
-<b>Strana 3 (S = 3, kde S = počet kuliček na straně):</b><br>
-V jedné vrstvě jedním směrem: 3 řady × 2 tyčky (= S−1) = 6 tyček.<br>
-Máš 3 vrstvy (kuliček nad sebou) → 6 × 3 = 18 tyček jedním směrem.<br>
-A to ve 3 směrech → 18 × 3 = <b>54 tyček</b>
+Tyčky jdou třemi směry — jako ulice ve městě: doprava, dozadu a nahoru. V každém směru je jich stejně!<br><br>
+<b>Proč 2 tyčky v řadě?</b> Představ si 3 zastávky autobusu v řadě — mezi nimi jsou <b>2 úseky cesty</b>. Stejně tak 3 kuličky v řadě = <b>2 tyčky</b> (mezery mezi nimi).<br>
+👉 Počet tyček v řadě = počet kuliček − 1<br><br>
+<b>Příklad: kostka o straně 3, krok za krokem:</b><br>
+1️⃣ V jednom patře jedním směrem (třeba doprava): 3 řady × 2 tyčky = <b>6 tyček</b><br>
+2️⃣ Pater je 3 → 6 × 3 = <b>18 tyček</b> jedním směrem<br>
+3️⃣ Směry jsou 3 (doprava + dozadu + nahoru) → 18 × 3 = <b>54 tyček celkem</b>
 </div>
 <table class="htable">
 <tr><th style="background:#0E6655;color:white">Strana</th><th style="background:#0E6655;color:white">Kuličky</th><th style="background:#0E6655;color:white">Tyčky celkem</th><th style="background:#0E6655;color:white">Tyčky jen na hranách</th></tr>
@@ -551,90 +675,66 @@ A to ve 3 směrech → 18 × 3 = <b>54 tyček</b>
 <tr><td>4</td><td><b>64</b></td><td>144</td><td>36</td></tr>
 <tr><td>5</td><td>125</td><td>300</td><td>48</td></tr>
 </table>
-<div class="ex"><div class="lbl">Tyčky na hranách — proč 12×(strana−1)</div>
-Kostka má <b>12 hran</b> (4 nahoře, 4 dole, 4 svisle). Na každé hraně je (strana − 1) tyček.<br>
-Strana 4 → na každé hraně 3 tyčky → 12 × 3 = <b>36 tyček na hranách</b>
+<div class="ex"><div class="lbl">Tyčky na hranách — jako rámeček na obrázku</div>
+Kostka má <b>12 hran</b> — představ si rámeček krabice od bot: 4 hrany nahoře, 4 dole a 4 svisle spojující horní a dolní rámeček.<br>
+Na každé hraně leží (strana − 1) tyček. Proč? Třeba hrana o straně 4 má 4 kuličky v řadě → mezi nimi 3 mezery = <b>3 tyčky</b>.<br>
+Celkem: 12 hran × 3 tyčky = <b>36 tyček na hranách</b>
 </div>
-<div class="ex"><div class="lbl">⚡ Pozor!</div>
-Hodně dětí si splete tyčky CELKEM a tyčky JEN NA HRANÁCH. Celkem = úplně všechny tyčky (i uvnitř). Na hranách = jen ty po obvodu kostky.
-</div>""", "#e8faf5", "#0E6655"),
-
-("🔵", "Diagram s kroužky — dosaď čísla do šipek", f"""
-<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
-<i>„Do prázdných kroužků doplňte čísla tak, aby byly všechny výpočty provedené ve směru šipek správné. Stejná písmena = stejné číslo."</i>
-</div>
-<div class="ex"><div class="lbl">Vzorový příklad (z 23n1)</div>
-Diagram: {fi('K')} → ÷K → −6 → +K → výsledek <b>2</b><br>
-Hledáme číslo K. Jaké číslo sem pasuje?
-</div>
-<div class="ex"><div class="lbl">Strategie A: Zkoušení (jednodušší, ale pomalejší)</div>
-Zkouším postupně K = 1, 2, 3, 4…<br>
-K=3: 3÷3=1, 1−6=<b>−5</b>, −5+3=−2 → výsledek −2, ale potřebuji 2 ✗<br>
-K=4: 4÷4=1, 1−6=<b>−5</b>, −5+4=−1 → výsledek −1 ✗<br>
-K=5: 5÷5=1, 1−6=<b>−5</b>, −5+5=0 → ✗<br>
-K=7: 7÷7=1, 1−6=<b>−5</b>, −5+7=<b>2</b> → výsledek 2 ✓<br><br>
-👉 Zkoušení funguje, ale trvá dlouho. Existuje chytřejší cesta ↓
-</div>
-<div class="ex"><div class="lbl">Strategie B: Zpětná úvaha (rychlejší)</div>
-Všimni si: K÷K je <b>vždy 1</b> (jakékoli číslo dělené sebou samým = 1).<br>
-Takže diagram zjednoduším: 1 → −6 → +K → 2<br>
-Po odečtení 6: 1 − 6 = <b>−5</b><br>
-Potřebuji: −5 + K = 2 → K musí být o 7 víc než −5 → K = <span class="hint-result">7</span><br>
-Ověř: 7÷7=1, 1−6=−5, −5+7 = <span class="hint-result">2 ✓</span>
-</div>
-<div class="ex"><div class="lbl">Postup — 3 kroky</div>
-<ol>
-<li>Přečti šipky zleva doprava — zapiš co se děje s číslem</li>
-<li>Pokus se <b>zjednodušit</b> (K÷K=1, K−K=0, K+K=2×K)</li>
-<li>Zkus zkoušení nebo zpětnou úvahu od výsledku</li>
-</ol>
-</div>
-<div class="ex"><div class="lbl">Klíčový trik — stejná písmena</div>
-Pokud se v diagramu opakuje písmeno K, je to vždy <b>stejné číslo</b>.<br>
-To ti často pomůže zjednodušit problém — K÷K, K−K nebo K+K můžeš vyřešit hned, bez znalosti K!
-</div>""", "#e8faf5", "#17A589"),
-
-("🏷️", "Stěny s čísly — součty viditelných stěn", f"""
-<div class="ex"><div class="lbl">Jak může zadání vypadat (21r1)</div>
-<i>„Na stavbu z 16 krychliček napíšeme čísla: stěny viditelné zepředu=1, zezadu=2, zprava=3, zleva=4, shora=5. Spočti součet všech zapsaných čísel z každé strany."</i>
-</div>
-<div class="ex"><div class="lbl">Krok 1: Pochop co „viditelná stěna" znamená</div>
-Každá krychlička má 6 stěn. Stěna je <b>viditelná</b>, pokud na ni není přiložená jiná krychlička.<br>
-Krajní krychlička v řadě → stěna na okraji = viditelná ✓<br>
-Krychlička uprostřed → stěny po stranách zakryté sousedy ✗
-</div>
-<div class="ex"><div class="lbl">Krok 2: Pro každou stranu spočti viditelné stěny</div>
-Příklad: stavba 4×4×1 (16 krychliček v jedné vrstvě):<br>
-→ Pohled shora: všech 16 stěn vidět → součet = 16×5 = <b>80</b><br>
-→ Pohled zepředu: 4 stěny v přední řadě → součet = 4×1 = <b>4</b><br>
-→ Pohled zprava: 4 stěny v pravém sloupci → součet = 4×3 = <b>12</b>
-</div>
-<div class="ex"><div class="lbl">Tip: Nakresli si plán shora</div>
-Zakresli si stavbu jako tabulku (pohled shora). Pro každý pohled projdi celý okraj a spočti kolik stěn je vidět. Dej si pozor na vícepatrové stavby — vyšší patra přidávají stěny shora!
+<div class="ex"><div class="lbl">⚡ Pozor — nejčastější chyba!</div>
+Hodně dětí si splete tyčky CELKEM a tyčky JEN NA HRANÁCH.<br>
+🔴 <b>Celkem</b> = úplně všechny tyčky (i ty schované uvnitř kostky — jako trámky uvnitř domu)<br>
+🔴 <b>Na hranách</b> = jen ty po obvodu kostky (jako rámeček — jen vnější okraje)<br><br>
+💡 <b>Tip:</b> Než odpovíš, vždy si přečti zadání dvakrát — ptají se na VŠECHNY tyčky, nebo jen na ty na HRANÁCH?
 </div>""", "#e8faf5", "#0E6655"),
 
 ("🧊", "Sítě krychle — která se složí správně?", f"""
-<div class="ex"><div class="lbl">Co je síť krychle</div>
-Síť = rozložená krychle do roviny. Když ji vystřihneš a složíš, vznikne krabička. Krychle má 6 stěn, takže síť má vždy <b>6 čtverečků</b>.
+<div class="ex"><div class="lbl">Co je síť krychle — představ si krabici od čaje</div>
+Vezmi prázdnou krabičku od čaje (nebo od bot). Rozstřihni ji nůžkami po hranách a rozlož na stůl — dostaneš plochý tvar z 6 obdélníků. To je <b>síť</b>!<br>
+U krychle (kostky na hraní) jsou všechny stěny čtvercové, takže síť má vždy <b>6 stejných čtverečků</b>.
 </div>
-<div class="ex"><div class="lbl">Jak poznat správnou síť — pravidlo „max 4 v řadě"</div>
+<div class="ex"><div class="lbl">Jak poznat správnou síť — 3 jednoduchá pravidla</div>
 <ul>
-<li>V jedné řadě mohou být <b>nejvíc 4 čtverečky</b> — zbylé 2 musí trčet do stran</li>
-<li>Nesmí být víc než <b>3 čtverečky v jednom rohu</b> (jinak se překryjí)</li>
-<li>Existuje přesně <b>11 různých sítí</b> krychle — všechny ostatní rozložení 6 čtverečků jsou špatně</li>
+<li>📏 V jedné řadě mohou být <b>nejvíc 4 čtverečky</b> — zbylé 2 musí trčet do stran</li>
+<li>🔲 Nesmí být víc než <b>3 čtverečky v jednom rohu</b> (jinak se při skládání překryjí — zkus si to z papíru!)</li>
+<li>🔢 Existuje přesně <b>11 různých sítí</b> krychle — všechny ostatní tvary z 6 čtverečků jsou špatně</li>
 </ul>
 </div>
 <div class="ex"><div class="lbl">Pravidlo protilehlých stěn</div>
 Protilehlé stěny krychle (naproti sobě) se v síti <b>nikdy nedotýkají</b> — jsou od sebe vždy odděleny jedním čtverečkem.<br><br>
 👉 <b>Trik:</b> Když v síti rámeček přeložíš v hlavě, dvě stěny oddělené jedním čtverečkem skončí naproti sobě. Stěny vedle sebe v síti budou i na krychli vedle sebe.
 </div>
-<div class="ex"><div class="lbl">Příklad: Kde skončí obrázek?</div>
-Pokud je na jedné stěně sítě nakreslená hvězdička ⭐, představ si, že síť skládáš krok po kroku:<br>
-1. Zvol si jednu stěnu jako „dno" krabičky<br>
-2. Ohni stěny kolem dna nahoru (to budou boční stěny)<br>
-3. Poslední stěna se přiklopí jako „víko"<br>
-Kde skončí hvězdička — nahoře, dole, vlevo, vpravo?
+<div class="ex"><div class="lbl">Příklad: Kde skončí obrázek? (krok za krokem)</div>
+Pokud je na jedné stěně sítě nakreslená hvězdička ⭐, skládej v hlavě krok po kroku:<br>
+<b>1.</b> Zvol si jednu stěnu jako „dno" krabičky (polož ji na stůl)<br>
+<b>2.</b> Ohni stěny kolem dna nahoru (to budou boční stěny — jako kdybys ohýbal/a papír)<br>
+<b>3.</b> Poslední stěna se přiklopí jako „víko"<br>
+Kde skončí hvězdička — nahoře, dole, vlevo, vpravo?<br><br>
+💡 <b>Super tip:</b> Když si nejsi jistý/á, vystřihni si síť z papíru a opravdu ji slož! Po 2–3 pokusech to budeš zvládat i v hlavě.
+</div>
+<div class="ex"><div class="lbl">⚡ Nejčastější chyba</div>
+Děti si myslí, že stěny, které v síti leží vedle sebe, budou na krychli naproti sobě. <b>Je to naopak!</b><br>
+Vedle sebe v síti → vedle sebe na krychli.<br>
+Oddělené jedním čtverečkem → naproti sobě na krychli.
 </div>""", "#e8faf5", "#0E6655"),
+
+("🔪", "Řezy krychle a kvádru — jaký tvar vznikne?", f"""
+<div class="ex"><div class="lbl">Co je řez tělesa</div>
+Představ si, že máš kostku másla a rozřízneš ji nožem. Na místě řezu vznikne plochý tvar — to je <b>řez</b>. Tvar řezu závisí na tom, jak nůž vedeme.
+</div>
+<div class="ex"><div class="lbl">Základní řezy krychle — 3 směry</div>
+<ul>
+<li>🔲 Řez <b>rovnoběžně s podstavou</b> (vodorovně) → vznikne <b>čtverec</b> (stejně velký jako podstava)</li>
+<li>🔲 Řez <b>svisle přes střed</b> (rovnoběžně s boční stěnou) → vznikne <b>čtverec</b></li>
+<li>🔷 Řez <b>šikmo</b> (diagonálně) → vznikne <b>obdélník</b> (delší než strana krychle!)</li>
+</ul>
+</div>
+<div class="ex"><div class="lbl">Kolik řezů potřebuješ?</div>
+Úloha typu <i>„Rozřízni kvádr na N dílů — kolik řezů potřebuješ?"</i><br>
+👉 <b>Pravidlo:</b> Počet řezů = počet dílů − 1.<br>
+Příklad: Rozřezat salám na 5 plátků = <b>4 řezy</b> (představ si to!).<br>
+Ale pozor: pokud řežeš ve 2 nebo 3 směrech, musíš počítat řezy v každém směru zvlášť!<br>
+Příklad: Kvádr na 2×3×4 = 24 kostiček → řezy: (2−1) + (3−1) + (4−1) = 1+2+3 = <b>6 řezů</b>
+</div>""", "#e8faf5", "#17A589"),
 
 ("⚠️", "Nejčastější chyby u prostorových úloh", f"""
 <table class="htable">
@@ -642,10 +742,11 @@ Kde skončí hvězdička — nahoře, dole, vlevo, vpravo?
 <tr><td>🔴 Záměna pohledu ZPRAVA a ZEZADU</td><td>Zprava = pravý okraj každé řady (jak to vidíš z pravé strany)</td></tr>
 <tr><td>🔴 Pohled zepředu = výška všech sloupců</td><td>Pohled zepředu ukazuje jen <b>nejvyšší</b> sloupec v každé řadě!</td></tr>
 <tr><td>🔴 Při slepování: 1 spoj = 1 ztracená stěna</td><td>1 spoj = <b>2 ztracené stěny</b> (jedna z každé kostky)</td></tr>
-<tr><td>🔴 U diagramu: záporný výsledek → „to nefunguje"</td><td>Záporná čísla jsou povolena — třeba −5+7 = 2 je správně!</td></tr>
 <tr><td>🔴 U pyramidy: počítám vnější kostky jako skryté</td><td>Skrytá = ze ŽÁDNÉ strany ji nevidíš — na okraji/podložce vždy viditelná</td></tr>
 <tr><td>🔴 Tyčky „celkem" vs. „jen na hranách"</td><td>Celkem = všechny tyčky (i uvnitř). Na hranách = jen ty na 12 hranách kostky po obvodu</td></tr>
 <tr><td>🔴 Síť: protilehlé stěny leží vedle sebe</td><td>Protilehlé stěny se v síti <b>nikdy nedotýkají</b> — vždy je mezi nimi 1 čtvereček</td></tr>
+<tr><td>🔴 Záměna „počet kostek" vs. „počet stěn"</td><td>Čti zadání pozorně — ptají se na <b>kostky</b> nebo na <b>stěny</b>? To je velký rozdíl!</td></tr>
+<tr><td>🔴 1. patro pyramidy: zapomenu že leží na podložce</td><td>Spodní kostky VŽDY vidíš zespodu (dotyk s podložkou) → nikdy nejsou skryté</td></tr>
 </table>""", "#fff0f0", "#C0392B"),
 ]
 
@@ -1446,6 +1547,40 @@ Každou operaci obrátíš na opak (÷ ↔ ×, + ↔ −) a jdeš zprava doleva:
 <tr><td>÷ 2 (vydělím 2)</td><td>× 2 (vynásobím 2)</td></tr>
 </table>
 Pravidlo: <b>×↔÷</b> a <b>+↔−</b>. Nic jiného se nestane!
+</div>""", "#E8F8F5", "#148F77"),
+
+("🔵", "Diagram s kroužky — dosaď čísla do šipek", f"""
+<div class="ex"><div class="lbl">Jak může zadání vypadat</div>
+<i>„Do prázdných kroužků doplňte čísla tak, aby byly všechny výpočty provedené ve směru šipek správné. Stejná písmena = stejné číslo."</i>
+</div>
+<div class="ex"><div class="lbl">Vzorový příklad (z 23n1)</div>
+Diagram: {fi('K')} → ÷K → −6 → +K → výsledek <b>2</b><br>
+Hledáme číslo K. Jaké číslo sem pasuje?
+</div>
+<div class="ex"><div class="lbl">Strategie A: Zkoušení (jednodušší, ale pomalejší)</div>
+Zkouším postupně K = 1, 2, 3, 4…<br>
+K=3: 3÷3=1, 1−6=… záporné, jdeme dál<br>
+K=5: 5÷5=1, 1−6=…, výsledek 0 ✗<br>
+K=7: 7÷7=1, 1−6=…, výsledek <b>2</b> → ✓<br><br>
+👉 Zkoušení funguje, ale trvá dlouho. Existuje chytřejší cesta ↓
+</div>
+<div class="ex"><div class="lbl">Strategie B: Zjednodušení (trik pro šikovné)</div>
+Všimni si: K÷K je <b>vždy 1</b> (jakékoli číslo dělené sebou samým = 1).<br>
+Takže diagram zjednoduším: 1 → −6 → +K → 2<br>
+Po prvních dvou krocích dostanu číslo, ke kterému přičtu K a musí vyjít 2.<br>
+Zkusím: 1 minus 6… potřebuji přičíst K, aby vyšlo 2. Kolik musím přičíst? <span class="hint-result">K = 7</span><br>
+Ověř: 7÷7=1, pak −6, pak +7 = <span class="hint-result">2 ✓</span>
+</div>
+<div class="ex"><div class="lbl">Postup — 3 kroky</div>
+<ol>
+<li>Přečti šipky zleva doprava — zapiš co se děje s číslem</li>
+<li>Pokus se <b>zjednodušit</b> (K÷K=1, K−K=0, K+K=2×K)</li>
+<li>Zkus zkoušení nebo zpětnou úvahu od výsledku</li>
+</ol>
+</div>
+<div class="ex"><div class="lbl">Klíčový trik — stejná písmena</div>
+Pokud se v diagramu opakuje písmeno K, je to vždy <b>stejné číslo</b>.<br>
+To ti často pomůže zjednodušit problém — K÷K, K−K nebo K+K můžeš vyřešit hned, bez znalosti K!
 </div>""", "#E8F8F5", "#148F77"),
 
 ("⚠️", "Nejčastější chyby u výrazů a závorek", f"""
