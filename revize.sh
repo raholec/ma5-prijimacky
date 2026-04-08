@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
 # =============================================================================
-# PIPELINE TŘÍ AGENTŮ — MA5 Prijimacky
-# Použití: bash pipeline.sh [PL01|PL02|...|PL09|25n1|25r1|...]
+# REVIZE A KOREKTURY — MA5 Prijimacky
+# Použití: bash revize.sh [PL01|PL02|...|PL09|25n1|25r1|...]
 #
-# Pracovní listy (PL01–PL09):
-#   Agent 1 — UČITEL MATEMATIKY: čte a upravuje hints_data.py
-#   Agent 2 — ŽÁK 5. TŘÍDY:      testuje srozumitelnost, dává zpětnou vazbu
-#   Agent 3 — PRACOVNÍK CERMAT:   posuzuje strukturu, doporučuje změny
-#
-# Vzorová řešení (25n1, 25r1, ...):
-#   Agent 1 — UČITEL MATEMATIKY: vylepšuje kroky řešení v HTML
-#   Agent 2 — ŽÁK 5. TŘÍDY:      testuje srozumitelnost kroků
-#   Agent 3 — PRACOVNÍK CERMAT:   ověřuje správnost a didaktiku
+# Agent 1 — UČITEL MATEMATIKY:  upravuje obsah (hinty / kroky řešení)
+# Agent 2 — ŽÁK 5. TŘÍDY:      testuje srozumitelnost, zpětná vazba
+# Agent 3 — PRACOVNÍK CERMAT:   posuzuje strukturu a správnost
+# Agent 4 — GRAFIK CERMAT:      navrhuje obrázky, grafy a vizuální doplnění
 # =============================================================================
 set -euo pipefail
 
@@ -65,6 +60,7 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 REPORT_FILE="$REPORTS_DIR/${ID}_${TIMESTAMP}.md"
 TEACHER_FILE="$REPORTS_DIR/.teacher_tmp.txt"
 STUDENT_FILE="$REPORTS_DIR/.student_tmp.txt"
+GRAFIK_FILE="$REPORTS_DIR/.grafik_tmp.txt"
 
 mkdir -p "$REPORTS_DIR"
 
@@ -205,6 +201,57 @@ PROMPT
 
   CERMAT_REPORT=$(cat "$REPORT_FILE.cermat_tmp" 2>/dev/null || echo "")
 
+  # AGENT 4: GRAFIK CERMAT — navrhuje vizuální doplnění
+  banner "AGENT 4 — GRAFIK CERMAT (navrhuje obrázky a grafy)"
+  step "Spouštím grafického agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  STUDENT_FEEDBACK=$(cat "$STUDENT_FILE")
+  PROMPT4=$(mktemp)
+  cat > "$PROMPT4" <<PROMPT
+Posud vizuální stránku didaktického materiálu pro přijímací zkoušky MA5.
+
+Pracovní list: ${PL_ID} — ${PL_NAME}
+
+Shrnutí učitele (co bylo upraveno):
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Zpětná vazba žáka 5. třídy:
+--- ZPĚTNÁ VAZBA ŽÁKA ---
+${STUDENT_FEEDBACK}
+--- KONEC ZPĚTNÉ VAZBY ---
+
+Přečti si aktuální stav sekce HINTS_${PL_ID} v hints_data.py a vygenerovaný HTML soubor docs/pages/PL${PL_ID#PL}_*.html.
+
+Z pozice zkušeného grafika navrhni:
+
+1. **Stávající vizuály** — Existují v materiálu SVG diagramy, tabulky nebo schémata? Jsou srozumitelné pro 11leté dítě? Navrhni konkrétní vylepšení (barvy, popisky, velikost).
+
+2. **Kde chybí obrázek nebo graf** — Projdi každý hint a příklad. U kterých by přidání vizuálu výrazně pomohlo pochopení? Pro každý návrh uveď:
+   - Přesné místo (číslo hintu, název, kontext)
+   - Typ vizuálu (schéma, diagram, graf, tabulka, nákres)
+   - Co přesně má vizuál zobrazovat
+   - Proč to pomůže žákovi
+
+3. **Grafy pro procvičování** — Navrhni 1–2 vizuály, které by mohly sloužit jako samostatné cvičení (žák čte z grafu, doplňuje do schématu apod.)
+
+4. **Technické doporučení** — Jaký formát vizuálu je nejvhodnější (inline SVG v hints_data.py, obrázek PNG, ASCII diagram)? Jak zajistit čitelnost na mobilu i při tisku?
+
+Buď konkrétní — u každého návrhu popiš CO nakreslit, ne jen „přidej obrázek". Max 500 slov.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený autor grafů a ilustrací pro didaktické materiály CERMAT s 10 lety praxe. Tvoříš obrázky, schémata, diagramy a grafy pro přijímací testy MA5 na víceletá gymnázia. Výborně znáš, jak vizualizovat matematické koncepty pro žáky 5. třídy — používáš jasné barvy, velké popisky, jednoduché tvary a minimální text. Víš, že správný obrázek dokáže vysvětlit víc než odstavec textu. Tvé vizuály jsou přehledné, barevně konzistentní a fungují jak na obrazovce, tak při tisku na papír." \
+    --allowedTools "Read,Glob" \
+    < "$PROMPT4" > "$GRAFIK_FILE" 2>&1
+  rm -f "$PROMPT4"
+
+  ok "Grafik dokončil návrhy."
+  echo ""
+  cat "$GRAFIK_FILE"
+
 else
   # ═══════════════════════════════════════════════════════════════════════
   # REŽIM: VZOROVÉ ŘEŠENÍ (25n1, 25r1, ...)
@@ -328,6 +375,57 @@ PROMPT
   rm -f "$PROMPT3"
 
   CERMAT_REPORT=$(cat "$REPORT_FILE.cermat_tmp" 2>/dev/null || echo "")
+
+  # AGENT 4: GRAFIK CERMAT — navrhuje vizuální doplnění řešení
+  banner "AGENT 4 — GRAFIK CERMAT (navrhuje obrázky a grafy)"
+  step "Spouštím grafického agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  STUDENT_FEEDBACK=$(cat "$STUDENT_FILE")
+  PROMPT4=$(mktemp)
+  cat > "$PROMPT4" <<PROMPT
+Posud vizuální stránku vzorového řešení přijímacího testu MA5: ${RESENI_NAME}.
+
+Soubor: docs/reseni/${RESENI_ID}.html
+
+Shrnutí učitele (co bylo upraveno):
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Zpětná vazba žáka 5. třídy:
+--- ZPĚTNÁ VAZBA ŽÁKA ---
+${STUDENT_FEEDBACK}
+--- KONEC ZPĚTNÉ VAZBY ---
+
+Přečti si aktuální stav souboru docs/reseni/${RESENI_ID}.html.
+
+Z pozice zkušeného grafika navrhni:
+
+1. **Kde chybí obrázek nebo graf** — Projdi kroky řešení všech 14 úloh. U kterých by přidání vizuálu výrazně pomohlo pochopení? Pro každý návrh uveď:
+   - Číslo úlohy a konkrétní krok
+   - Typ vizuálu (schéma, diagram, nákres, tabulka)
+   - Co přesně má vizuál zobrazovat
+   - Proč to pomůže žákovi pochopit řešení
+
+2. **Stávající tabulky a schémata** — Jsou existující tabulky (sol-table) přehledné? Navrhni vylepšení barev, popisků, zvýraznění klíčových hodnot.
+
+3. **Vizuální postup řešení** — U kterých úloh by pomohl „vizuální průvodce" kroky (šipky, čísla v kroužcích, barevné zvýraznění mezivýsledků)?
+
+4. **Technické doporučení** — Jaký formát vizuálu je nejvhodnější (inline SVG, CSS diagram, emoji schéma)? Jak zajistit čitelnost na mobilu i při tisku?
+
+Buď konkrétní — u každého návrhu popiš CO nakreslit, ne jen „přidej obrázek". Max 500 slov.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený autor grafů a ilustrací pro didaktické materiály CERMAT s 10 lety praxe. Tvoříš obrázky, schémata, diagramy a grafy pro přijímací testy MA5 na víceletá gymnázia. Výborně znáš, jak vizualizovat matematické koncepty pro žáky 5. třídy — používáš jasné barvy, velké popisky, jednoduché tvary a minimální text. Víš, že správný obrázek dokáže vysvětlit víc než odstavec textu. Tvé vizuály jsou přehledné, barevně konzistentní a fungují jak na obrazovce, tak při tisku na papír." \
+    --allowedTools "Read,Glob" \
+    < "$PROMPT4" > "$GRAFIK_FILE" 2>&1
+  rm -f "$PROMPT4"
+
+  ok "Grafik dokončil návrhy."
+  echo ""
+  cat "$GRAFIK_FILE"
 fi
 
 # =============================================================================
@@ -341,8 +439,10 @@ else
   REPORT_TITLE="${RESENI_ID} — ${RESENI_NAME} (vzorové řešení)"
 fi
 
+GRAFIK_REPORT=$(cat "$GRAFIK_FILE" 2>/dev/null || echo "")
+
 cat > "$REPORT_FILE" << HEREDOC
-# Pipeline Report: ${REPORT_TITLE}
+# Revize a korektury: ${REPORT_TITLE}
 Datum: $(date '+%d. %m. %Y %H:%M')
 
 ---
@@ -364,11 +464,17 @@ $(cat "$STUDENT_FILE")
 ${CERMAT_REPORT}
 
 ---
-*Vygenerováno pipeline.sh*
+
+## Agent 4 — Grafik CERMAT: Vizuální návrhy
+
+${GRAFIK_REPORT}
+
+---
+*Vygenerováno revize.sh*
 HEREDOC
 
 # úklid dočasných souborů
-rm -f "$TEACHER_FILE" "$STUDENT_FILE" "$REPORT_FILE.cermat_tmp"
+rm -f "$TEACHER_FILE" "$STUDENT_FILE" "$GRAFIK_FILE" "$REPORT_FILE.cermat_tmp"
 
 ok "Report uložen: $REPORT_FILE"
-banner "PIPELINE DOKONČENA"
+banner "REVIZE DOKONČENA"
