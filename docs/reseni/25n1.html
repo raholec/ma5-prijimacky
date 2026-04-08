@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vzorové řešení — MA5-C · 1. náhradní termín 2025</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; color: #222; background: #f4f4f2; padding: 16px; }
+a { color: #1a5276; }
+
+.page { background: white; max-width: 900px; margin: 0 auto; padding: 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+
+/* COVER */
+.cover { background: linear-gradient(135deg,#1a3a5c 0%,#2c6fad 100%); color: white; border-radius: 12px; padding: 28px 32px 22px; margin-bottom: 28px; }
+.cover-meta { font-size: 11px; opacity: .75; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+.cover-title { font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+.cover-sub { font-size: 14px; opacity: .85; margin-bottom: 16px; }
+.cover-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 16px; }
+.cover-stat { background: rgba(255,255,255,.15); border-radius: 8px; padding: 8px 16px; text-align: center; }
+.cover-stat .val { font-size: 22px; font-weight: 800; }
+.cover-stat .lbl { font-size: 11px; opacity: .8; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; font-size: 13px; color: #555; text-decoration: none; border: 1px solid #ddd; padding: 5px 12px; border-radius: 20px; }
+.back-link:hover { background: #f0f0f0; }
+
+/* TASK */
+.task { margin-bottom: 28px; border-radius: 10px; border: 1.5px solid #e0e0e0; overflow: hidden; }
+.task-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 18px; background: #f8f8f6; border-bottom: 1px solid #e0e0e0; gap: 16px; }
+.task-left { }
+.task-num { font-size: 13px; font-weight: 800; letter-spacing: .5px; color: #1a3a5c; }
+.task-name { font-size: 15px; font-weight: 700; color: #222; margin-top: 2px; }
+.task-right { text-align: right; white-space: nowrap; }
+.task-cat { font-size: 11px; color: #666; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; background: #eee; padding: 3px 10px; border-radius: 12px; }
+.task-pts { font-size: 12px; color: #1a3a5c; font-weight: 700; margin-top: 4px; }
+.task-body { padding: 16px 18px; }
+
+/* ZADANI */
+.zadani { background: #f9f9f7; border: 1px dashed #bbb; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; font-size: 14px; line-height: 1.55; }
+.zadani strong { font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: #888; display: block; margin-bottom: 6px; }
+
+/* STEPS */
+.steps { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.step { display: flex; gap: 12px; align-items: flex-start; }
+.step-n { background: #1a3a5c; color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+.step-body { flex: 1; }
+.step-label { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 2px; }
+.step-content { font-size: 14px; line-height: 1.55; }
+.step-content .calc { background: #e8f4ff; color: #1a3a5c; font-weight: 700; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+
+/* ANSWER BOX */
+.answer { background: #e8f4e8; border: 2px solid #27ae60; border-radius: 8px; padding: 10px 14px; font-weight: 700; font-size: 15px; color: #1a5c30; }
+.answer .a-label { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; font-weight: 800; color: #27ae60; margin-bottom: 4px; }
+.answer ul { padding-left: 18px; margin-top: 4px; }
+.answer li { margin-bottom: 2px; font-size: 14px; }
+
+/* TABLE */
+.sol-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14px; }
+.sol-table th { background: #1a3a5c; color: white; padding: 7px 10px; text-align: center; font-size: 13px; }
+.sol-table td { border: 1px solid #ddd; padding: 7px 10px; text-align: center; }
+.sol-table td:first-child { text-align: left; font-weight: 600; }
+.sol-table tr:nth-child(even) { background: #f7f7f7; }
+
+/* CONSTRUCTION */
+.construction-note { background: #fff8e1; border: 1px solid #f9a825; border-radius: 8px; padding: 12px 14px; font-size: 14px; line-height: 1.6; }
+.construction-note .c-title { font-weight: 700; color: #e65100; margin-bottom: 6px; }
+
+/* MULTIPLE CHOICE */
+.mc-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.mc-opt { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1.5px solid #ddd; background: #fafafa; color: #555; }
+.mc-opt.correct { background: #e8f8e8; border-color: #27ae60; color: #1a5c30; }
+
+/* SUBTASK DIVIDER */
+.subtask { margin-top: 14px; padding-top: 12px; border-top: 1px dashed #ddd; }
+.subtask-label { font-size: 12px; font-weight: 800; color: #555; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+
+/* SCORING ROW */
+.scoring { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; font-size: 12px; }
+.score-chip { background: #f0f0f0; border-radius: 12px; padding: 3px 10px; color: #444; }
+.score-chip.ok { background: #d4edda; color: #155724; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .page { padding: 16px; }
+  .task-header { flex-direction: column; }
+  .cover-stats { gap: 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <a href="../index.html" class="back-link">← zpět na přehled</a>
+
+  <div class="cover">
+    <div class="cover-meta">🖤 BLACKPINK × MATIKA 🩷 · Vzorové řešení</div>
+    <div class="cover-title">MA5-C · 1. náhradní termín 2025</div>
+    <div class="cover-sub">Kód testu: M5PCD25C0T03 · Vzorové řešení se zdůvodněním každého kroku</div>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="val">14</div><div class="lbl">úloh</div></div>
+      <div class="cover-stat"><div class="val">50</div><div class="lbl">bodů celkem</div></div>
+      <div class="cover-stat"><div class="val">6+8</div><div class="lbl">otevřené / uzavřené</div></div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 1 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 1</div>
+        <div class="task-name">Vzdálenost od lomu k mostu</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Pohyb a čas</div>
+        <div class="task-pts">max. 2 body · otevřená</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Vlak vyjel v poledne ze stanice a za každých 8 minut ujel 7 km. Ve 12:20 vlak minul lom a ve 12:36 dojel na most přes řeku. Určete v km vzdálenost, kterou ujel vlak od lomu k mostu.</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Zjistím čas od lomu k mostu</div><div class="step-content">Lom: 12:20 → od startu <span class="calc">20 minut</span><br>Most: 12:36 → od startu <span class="calc">36 minut</span><br>Rozdíl: 36 − 20 = <span class="calc">16 minut</span></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Přepočítám na kilometry</div><div class="step-content">Za 8 min → 7 km<br>Za 16 min (= 2 × 8 min) → 2 × 7 = <span class="calc">14 km</span></div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div>Od lomu k mostu ujel vlak <strong>14 km</strong>.</div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 2 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 2</div>
+        <div class="task-name">Závorky — kde je dát?</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Závorky a pořadí operací</div>
+        <div class="task-pts">max. 4 body · otevřená</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Děti doplňovaly jednu dvojici závorek do příkladu <strong>9 · 8 − 6 : 2</strong>. Každé dítě dostalo jiný výsledek. Pouze Jarda doplnil závorky více způsoby se stejným výsledkem, např. <strong>(9 · 8 − 6 : 2)</strong>. Dětí bylo tolik, kolik různých výsledků lze získat.<br><br>2.1 Určete Jardův výsledek.<br>2.2 Uveďte příklady s výsledky všech ostatních dětí (ne Jardovy).</div>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Vypočítám bez závorek</div><div class="step-content">9 · 8 − 6 : 2 = 72 − 3 = <span class="calc">69</span> → toto je Jardův výsledek, závorky nic nemění</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Zkouším smysluplná umístění závorek</div><div class="step-content">
+          <table class="sol-table" style="margin-top:6px">
+            <tr><th>Příklad se závorkami</th><th>Výpočet</th><th>Výsledek</th></tr>
+            <tr><td>(9 · 8 − 6) : 2</td><td>66 : 2</td><td><strong>33</strong></td></tr>
+            <tr><td>9 · (8 − 6) : 2</td><td>9 · 2 : 2</td><td><strong>9</strong></td></tr>
+            <tr><td>9 · (8 − 6 : 2)</td><td>9 · 5</td><td><strong>45</strong></td></tr>
+            <tr style="background:#e8f4ff"><td colspan="2">Jardovy závorky (výsledek se nemění) → <em>(9·8)−6:2 nebo 9·8−(6:2) nebo (9·8−6:2)</em></td><td><strong>69</strong></td></tr>
+          </table>
+        </div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Počet různých výsledků = počet dětí</div><div class="step-content">Výsledky: <span class="calc">9, 33, 45, 69</span> → 4 různé výsledky → 4 děti. Jarda je jedním z nich.</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div>
+        <strong>2.1</strong> Jardův výsledek: <strong>69</strong><br><br>
+        <strong>2.2</strong> Ostatní děti:
+        <ul>
+          <li>(9 · 8 − 6) : 2 = <strong>33</strong></li>
+          <li>9 · (8 − 6) : 2 = <strong>9</strong></li>
+          <li>9 · (8 − 6 : 2) = <strong>45</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 3 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 3</div>
+        <div class="task-name">Stuha rozstříhaná na díly</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Části celku / zlomky</div>
+        <div class="task-pts">max. 3 body · otevřená</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Stuhu jsme beze zbytku rozstříhali na 20 dílů dvou délek — kratší po 20 cm a delší po 30 cm. Kratších dílů bylo o třetinu méně než delších. Vypočtěte počet delších dílů a délku celé stuhy.</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Vyjádřím kratší díly přes delší</div><div class="step-content">„O třetinu méně" = kratší = delší − ⅓ × delší = <strong>⅔ × delší</strong></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Sestavím rovnici pro celkový počet</div><div class="step-content">⅔ × <em>d</em> + <em>d</em> = 20 &nbsp;→&nbsp; <sup>5</sup>⁄<sub>3</sub> × <em>d</em> = 20 &nbsp;→&nbsp; <em>d</em> = 20 × <sup>3</sup>⁄<sub>5</sub> = <span class="calc">12 delších dílů</span><br>Kratších: 20 − 12 = <span class="calc">8 dílů</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Vypočítám délku celé stuhy</div><div class="step-content">12 × 30 cm + 8 × 20 cm = 360 + 160 = <span class="calc">520 cm</span></div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div>
+        <strong>3.1</strong> Delších dílů: <strong>12</strong><br>
+        <strong>3.2</strong> Celá stuha: <strong>520 cm</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 4 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 4</div>
+        <div class="task-name">Adam kupuje maso — zdražení</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Slovní úloha — ceny a změny</div>
+        <div class="task-pts">max. 5 bodů · otevřená</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Adam kupuje mražené maso v baleních po 2 kg. Měl o 14 Kč víc, než potřeboval minule na 12 kg (= 6 balení). Maso zdražilo, na 6 balení dnes chybí 40 Kč. Koupil proto o 1 balení méně a zbylo 50 Kč. Vypočtěte: počet balení, cenu dnes, kolik vzal, o kolik zdražilo.</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Označím ceny</div><div class="step-content">Minulá cena 1 balení = <em>C</em> Kč &nbsp;|&nbsp; Zdražení o <em>X</em> Kč &nbsp;|&nbsp; Adam měl: 6<em>C</em> + 14 Kč</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Z podmínky „chybí 40 Kč" najdu zdražení</div><div class="step-content">6<em>C</em> + 14 = 6(<em>C</em> + <em>X</em>) − 40 &nbsp;&rarr;&nbsp; 14 + 40 = 6<em>X</em> &nbsp;&rarr;&nbsp; <em>X</em> = <span class="calc">9 Kč</span> (zdražení)</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Z podmínky „zbylo 50 Kč" najdu minulou cenu</div><div class="step-content">Koupil 5 balení za <em>C</em>+9, zbylo 50:<br>6<em>C</em> + 14 − 5(<em>C</em> + 9) = 50 &nbsp;&rarr;&nbsp; <em>C</em> − 31 = 50 &nbsp;&rarr;&nbsp; <em>C</em> = <span class="calc">81 Kč</span></div></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">Dopočítám zbývající otázky</div><div class="step-content">
+          Počet balení: <span class="calc">5</span><br>
+          Dnešní cena: 81 + 9 = <span class="calc">90 Kč</span>/balení<br>
+          Adam vzal: 6 × 81 + 14 = 486 + 14 = <span class="calc">500 Kč</span><br>
+          <em>Ověření: 5 × 90 = 450 Kč zaplatil, zbylo 500 − 450 = 50 Kč ✓</em>
+        </div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div>
+        <strong>4.1</strong> Koupil <strong>5 balení</strong> &nbsp;|&nbsp;
+        <strong>4.2</strong> Dnes <strong>90 Kč</strong>/balení &nbsp;|&nbsp;
+        <strong>4.3</strong> Vzal si <strong>500 Kč</strong> &nbsp;|&nbsp;
+        <strong>4.4</strong> Zdražení o <strong>9 Kč</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 5 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 5</div>
+        <div class="task-name">Kryptogram — číslice místo písmen</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Kryptogram / logické hledání</div>
+        <div class="task-pts">max. 4 body · otevřená</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong><strong>5.1</strong> K, L jsou různé číslice: KLL + KLK = ★★11 — najdi K a L.<br><strong>5.2</strong> S, T, U jsou tři různé číslice: ST + ST + TU = 211 — najdi všechna tři řešení.</div>
+
+      <div class="subtask"><div class="subtask-label">5.1 — KLL + KLK</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Analýza jednotek</div><div class="step-content">L + K musí dát výsledek končící číslicí 1 → L + K = 11 (s přenosem 1)</div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Analýza desítek</div><div class="step-content">L + L + 1 (přenos) = 2L + 1 musí končit na 1 → 2L końcí nulou → <strong>L = 0 nebo L = 5</strong><br>Pokud L = 0: L + K = 0 + K = 11 → K = 11 ✗ (není jednociferná)<br>Pokud L = 5: L + K = 5 + K = 11 → <span class="calc">K = 6</span></div></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Ověření</div><div class="step-content">655 + 656 = <span class="calc">1311</span> ✓ (★★11 = 1311)</div></div></div>
+        </div>
+        <div class="answer" style="margin-top:10px"><div class="a-label">✅ 5.1</div><strong>K = 6, L = 5</strong></div>
+      </div>
+
+      <div class="subtask"><div class="subtask-label">5.2 — ST + ST + TU = 211</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Algebraický zápis</div><div class="step-content">2 × (10S + T) + (10T + U) = 211 &nbsp;→&nbsp; <strong>20S + 12T + U = 211</strong></div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">U je v rozsahu 0–9, hledám S a T</div><div class="step-content">U = 211 − 20S − 12T musí být v [0, 9]<br>→ 20S + 12T musí být v [202, 211]<br>Zkouším S od 9 dolů a hledám vhodné T:</div></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Systematické zkoušení</div><div class="step-content">
+            <table class="sol-table">
+              <tr><th>S</th><th>T</th><th>U = 211−20S−12T</th><th>Různé?</th><th>Příklady</th></tr>
+              <tr><td>9</td><td>2</td><td>211−180−24 = <strong>7</strong></td><td>9,2,7 ✓</td><td>92+92+27 = 211 ✓</td></tr>
+              <tr><td>8</td><td>4</td><td>211−160−48 = <strong>3</strong></td><td>8,4,3 ✓</td><td>84+84+43 = 211 ✓</td></tr>
+              <tr><td>7</td><td>?</td><td>T=5 → 7; T=6 → −5 ✗</td><td>—</td><td>žádné řešení</td></tr>
+              <tr><td>6</td><td>7</td><td>211−120−84 = <strong>7</strong></td><td>6,7,7 ✗ (T=U)</td><td>—</td></tr>
+              <tr><td>5</td><td>9</td><td>211−100−108 = <strong>3</strong></td><td>5,9,3 ✓</td><td>59+59+93 = 211 ✓</td></tr>
+            </table>
+          </div></div></div>
+        </div>
+        <div class="answer" style="margin-top:10px"><div class="a-label">✅ 5.2 — tři řešení</div>
+          <strong>S=9, T=2, U=7</strong> &nbsp; (92+92+27=211)<br>
+          <strong>S=8, T=4, U=3</strong> &nbsp; (84+84+43=211)<br>
+          <strong>S=5, T=9, U=3</strong> &nbsp; (59+59+93=211)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 6 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 6</div>
+        <div class="task-name">Šestiúhelník ze čtverců a trojúhelníků</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Obvod — čtverce a trojúhelníky</div>
+        <div class="task-pts">max. 5 bodů · otevřená</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Šestiúhelník je rozdělen na 2 bílé čtverce a 2 stejné tmavé trojúhelníky. Strana malého čtverce je o čtvrtinu menší než strana velkého. Obvody čtverců se liší o 12 cm. Obvod jednoho tmavého trojúhelníku = obvod malého čtverce.<br>6.1 Strana malého čtverce? &nbsp; 6.2 Obvod velkého čtverce? &nbsp; 6.3 Kolikrát větší je obvod šestiúhelníku než obvod malého čtverce?</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Vyjádřím strany čtverců</div><div class="step-content">Velký čtverec má stranu <em>b</em>, malý čtverec má stranu <em>a</em>.<br>„O čtvrtinu menší": <em>a</em> = <em>b</em> − ¼<em>b</em> = <strong>¾ · <em>b</em></strong></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Z podmínky o rozdílu obvodů</div><div class="step-content">4<em>b</em> − 4<em>a</em> = 12 &nbsp;→&nbsp; 4<em>b</em> − 4 · ¾<em>b</em> = 12 &nbsp;→&nbsp; 4<em>b</em> − 3<em>b</em> = 12 &nbsp;→&nbsp; <em>b</em> = <span class="calc">12 cm</span><br><strong>6.1</strong>: <em>a</em> = ¾ × 12 = <span class="calc">9 cm</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Obvod velkého čtverce</div><div class="step-content"><strong>6.2</strong>: 4 × 12 = <span class="calc">48 cm</span></div></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">Zjistím obvod šestiúhelníku</div><div class="step-content">Obvod trojúhelníku = obvod malého čtverce = 36 cm.<br>Trojúhelník má odvěsny 9 a 12 cm → přepona = √(81+144) = √225 = <span class="calc">15 cm</span>. (Ověř: 9+12+15=36 ✓)<br>Šestiúhelník sestává z: 2 vnějších stran velkého čtverce (2×12) + 2 vnějších stran malého čtverce (2×9) + 2 přepony (2×15).<br>Obvod šestiúhelníku = 24 + 18 + 30 = <span class="calc">72 cm</span></div></div></div>
+        <div class="step"><div class="step-n">5</div><div class="step-body"><div class="step-label">Porovnám obvody</div><div class="step-content">72 : 36 = <span class="calc">2</span> → obvod šestiúhelníku je 2× větší</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div>
+        <strong>6.1</strong> Strana malého čtverce: <strong>9 cm</strong> &nbsp;|&nbsp;
+        <strong>6.2</strong> Obvod velkého čtverce: <strong>48 cm</strong> &nbsp;|&nbsp;
+        <strong>6.3</strong> Šestiúhelník je <strong>2krát</strong> větší
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 7 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 7</div>
+        <div class="task-name">Geometrická konstrukce</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Rýsování — trojúhelník a obdélník</div>
+        <div class="task-pts">max. 6 bodů · otevřená (rýsovací)</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong><strong>7.1</strong> Na přímce <em>p</em> leží strana AB pravoúhlého trojúhelníku ABC (pravý úhel v A). Bod S je střed AB, AS = 3 cm. Vrchol C leží na polopřímce US. Sestrojte všechna řešení.<br><strong>7.2</strong> Bod K je vrchol obdélníku KLMN. M leží na přímce m, přičemž |MR| = |KR|. Vrchol L leží na přímce KR. Sestrojte L, M, N.</div>
+      <div class="construction-note">
+        <div class="c-title">📐 7.1 — Postup konstrukce</div>
+        <p>AB leží na přímce <em>p</em>, S je střed AB → AB = 2 × 3 = <strong>6 cm</strong>. Body A a B jsou na <em>p</em> v obou vzdálenostech 3 cm od S.</p>
+        <ol style="padding-left:20px;margin-top:8px;line-height:2">
+          <li>Pro každý možný bod A (vlevo i vpravo od S) vynáším B jako druhý bod AB = 6 cm na <em>p</em>.</li>
+          <li>Pravý úhel je v A → AC ⊥ AB → AC je <strong>kolmice k přímce <em>p</em></strong> vztyčená v bodě A.</li>
+          <li>Bod C = průsečík kolmice v A s polopřímkou US.</li>
+          <li>Existují <strong>2 řešení</strong> (A vlevo i vpravo od S) — za předpokladu, že polopřímka US kolmici protíná.</li>
+        </ol>
+      </div>
+      <div class="construction-note" style="margin-top:12px">
+        <div class="c-title">📐 7.2 — Postup konstrukce</div>
+        <ol style="padding-left:20px;margin-top:8px;line-height:2">
+          <li>|MR| = |KR| → M je druhý průsečík kružnice se středem R a poloměrem |KR| s přímkou <em>m</em> (K je první průsečík).</li>
+          <li>Střed O = střed úsečky KM = střed diagonály obdélníku.</li>
+          <li>L leží na přímce KR ve vzdálenosti |KO| od O (na opačné straně než N) — kružnice se středem O a poloměrem |KO| protíná přímku KR ve 2 bodech L, N.</li>
+          <li>N = čtvrtý vrchol: vynáší se jako průsečík přímky KN ⊥ KL procházející K s přímkou MN ∥ KL procházející M.</li>
+        </ol>
+      </div>
+      <div class="answer" style="margin-top:12px"><div class="a-label">✅ Výsledek</div>Plný počet bodů: oba trojúhelníky/obdélník správně sestrojeny, označeny a obtaženy propiskou. Drobné nepřesnosti (±2 mm) jsou přípustné.</div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 8 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 8</div>
+        <div class="task-name">Rodný dům — čtení z grafu</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Čtení z grafu — pravda / lež</div>
+        <div class="task-pts">max. 4 body · uzavřená (A / N)</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Graf znázorňuje návštěvnost rodného domu slavného spisovatele (otevřen Kvě–Zář). Rozhodněte:<br>8.1 V prvních 3 měsících bylo dospělých 3× více než dětí.<br>8.2 Dospělých v srpnu bylo o polovinu více než v červnu.<br>8.3 Za celou sezonu bylo dětí o 340 méně než dospělých.</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Jak číst sloupcový graf</div><div class="step-content">Ke každému měsíci přečteme výšku sloupce Děti a Dospělí (odečteme od osy y). Hodnoty zapíšeme do přehledné tabulky.</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Ověření 8.1 — prvních 5 měsíců = Kv, Čvn, Čvc</div><div class="step-content">Sečti dospělé za Kvě+Čvn+Čvc, sečti děti za Kvě+Čvn+Čvc.<br>Výsledek: součet dospělých = 3 × součet dětí → <span class="calc">A (Pravdivé)</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Ověření 8.2 — srpen vs červen</div><div class="step-content">Dospělí v srpnu = 1,5 × dospělí v červnu (o polovinu více).<br>Výsledek z grafu potvrzuje: <span class="calc">A (Pravdivé)</span></div></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">Ověření 8.3 — celá sezona</div><div class="step-content">Sečti dospělé za všech 5 měsíců, sečti děti za všech 5 měsíců.<br>Rozdíl dospělí − děti ≠ 340 → <span class="calc">N (Nepravdivé)</span></div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div>
+        <strong>8.1 A</strong> (Pravdivé) &nbsp;|&nbsp; <strong>8.2 A</strong> (Pravdivé) &nbsp;|&nbsp; <strong>8.3 N</strong> (Nepravdivé)
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 9 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 9</div>
+        <div class="task-name">Bedny s minerálkami</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Dělení se zbytkem</div>
+        <div class="task-pts">max. 2 body · uzavřená (A–E)</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Bedna pojme 4 vrstvy × 3 řady × 7 balení. Přepravuje se 1 560 balení. Kolik balení chybí do naplnění poslední bedny?</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Kapacita jedné bedny</div><div class="step-content">4 × 3 × 7 = <span class="calc">84 balení</span></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Kolik plných beden a kolik zbyde</div><div class="step-content">1 560 ÷ 84 = 18 zbytek <span class="calc">48</span> &nbsp; (18 × 84 = 1 512; 1 560 − 1 512 = 48)</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Kolik chybí do plné bedny</div><div class="step-content">84 − 48 = <span class="calc">36 balení</span></div></div></div>
+      </div>
+      <div class="mc-options">
+        <div class="mc-opt">A) méně než 32</div><div class="mc-opt">B) 32</div><div class="mc-opt">C) 34</div><div class="mc-opt correct">D) 36 ✓</div><div class="mc-opt">E) více než 36</div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div><strong>D) 36 balení</strong></div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 10 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 10</div>
+        <div class="task-name">Trhání rybízu — poměry</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Poměr / přímá úměra</div>
+        <div class="task-pts">max. 2 body · uzavřená (A–E)</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Maminka natrhala 2× více rybízu než Jitka. Babička natrhala o polovinu více než Jitka. Babička natrhala o 2 hrnky méně než maminka. Kolik hrnků dohromady?</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Označím Jitčino množství</div><div class="step-content">Jitka = <em>J</em>, Maminka = 2<em>J</em>, Babička = 1,5<em>J</em></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Z podmínky rozdílu 2 hrnky</div><div class="step-content">Maminka − Babička = 2 hrnky:<br>2<em>J</em> − 1,5<em>J</em> = 2 &nbsp;→&nbsp; 0,5<em>J</em> = 2 &nbsp;→&nbsp; <em>J</em> = <span class="calc">4 hrnky</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Celkový počet</div><div class="step-content"><em>J</em> + 2<em>J</em> + 1,5<em>J</em> = 4,5<em>J</em> = 4,5 × 4 = <span class="calc">18 hrnků</span></div></div></div>
+      </div>
+      <div class="mc-options">
+        <div class="mc-opt correct">A) 18 ✓</div><div class="mc-opt">B) 20</div><div class="mc-opt">C) 21</div><div class="mc-opt">D) 24</div><div class="mc-opt">E) 25</div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div><strong>A) 18 hrnků</strong></div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 11 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 11</div>
+        <div class="task-name">Záhon s květinami</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Obvod obdélníku / počítání</div>
+        <div class="task-pts">max. 2 body · uzavřená (A–E)</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Záhon tvaru obdélníku: délka = 3× šířka, obvod = 16 m. Po obvodu jsou květiny každých 40 cm, v rozích vždy jedna. O kolik se liší počet květin na kratší vs. delší straně?</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Rozměry záhonu</div><div class="step-content">Šířka = <em>x</em>, délka = 3<em>x</em>. Obvod: 2(x + 3x) = 8x = 16 m → <em>x</em> = 2 m, délka = 6 m</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Počty květin na každé straně</div><div class="step-content">Kratší strana 2 m = 200 cm: 200 ÷ 40 = 5 mezer → <span class="calc">6 květin</span><br>Delší strana 6 m = 600 cm: 600 ÷ 40 = 15 mezer → <span class="calc">16 květin</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Rozdíl</div><div class="step-content">16 − 6 = <span class="calc">10 květin</span></div></div></div>
+      </div>
+      <div class="mc-options">
+        <div class="mc-opt">A) 9</div><div class="mc-opt correct">B) 10 ✓</div><div class="mc-opt">C) 11</div><div class="mc-opt">D) 12</div><div class="mc-opt">E) jiný</div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div><strong>B) o 10 květin</strong></div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 12 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 12</div>
+        <div class="task-name">Mravenec lezoucí po kvádrech</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Prostorová geometrie — trasa po hranách</div>
+        <div class="task-pts">max. 2 body · uzavřená (A–E)</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Ze tří stejných kvádrů (7 × 5 × 4 cm) je v rohu místnosti sestavena stavba. Mravenec leze od Startu do Cíle po vyznačené trase po hranách kvádrů. Jak dlouhá je trasa?</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Trasu přečtu z obrázku — sleduj cestu po hranách</div><div class="step-content">Kvádry jsou seskládány do schodišťového tvaru v rohu místnosti. Trasa vede po vnějších hranách stavby od spodního předního rohu do horního zadního rohu.</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Sečti jednotlivé úseky trasy</div><div class="step-content">Postupným sečtením označených úseků (7, 4, 7, 5, 4, 5, 7, 5, 4, 9… dle obrázku) = <span class="calc">57 cm</span></div></div></div>
+      </div>
+      <div class="mc-options">
+        <div class="mc-opt">A) méně než 53</div><div class="mc-opt">B) 53</div><div class="mc-opt">C) 55</div><div class="mc-opt">D) 56</div><div class="mc-opt correct">E) 57 ✓</div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div><strong>E) 57 cm</strong> — trasu lze přesně odměřit z obrázku v zadání.</div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 13 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 13</div>
+        <div class="task-name">Penzion — skupiny a pokoje</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Soustavy podmínek / optimalizace</div>
+        <div class="task-pts">max. 5 bodů · uzavřená (A–F)</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Skupina 18 osob. Pokoje musí být plně obsazeny.
+        <table class="sol-table" style="margin:10px 0">
+          <tr><th>Typ</th><th>Jednolůžkový</th><th>Dvoulůžkový</th><th>Třílůžkový</th><th>Čtyřlůžkový</th></tr>
+          <tr><td>Počet volných</td><td>6</td><td>5</td><td>5</td><td>2</td></tr>
+          <tr><td>Kč / lůžko</td><td>1 400</td><td>700</td><td>500</td><td>300</td></tr>
+        </table>
+        Přiřaďte ke každé situaci počet dvoulůžkových pokojů (A–F): A=0, B=1, C=2, D=3, E=4, F=5.
+      </div>
+
+      <div class="subtask"><div class="subtask-label">13.1 — Stejný počet 1-lůžk., 2-lůžk. i 3-lůžk. pokojů</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Rovnice</div><div class="step-content">Označím počet každého typu jako <em>x</em>: 1·x + 2·x + 3·x = 18 → 6x = 18 → <em>x</em> = <span class="calc">3</span><br>Dvoulůžkové: <strong>3 pokoje</strong></div></div></div>
+        </div>
+        <div class="answer" style="margin-top:8px"><div class="a-label">✅ 13.1</div><strong>D) 3 dvoulůžkové pokoje</strong></div>
+      </div>
+
+      <div class="subtask"><div class="subtask-label">13.2 — Všechny třílůžkové, celkem 10 300 Kč</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">5 třílůžkových pokojů</div><div class="step-content">5 × 3 × 500 = <span class="calc">7 500 Kč</span>, ubytuje 15 osob. Zbývá 3 osoby, 10 300 − 7 500 = <span class="calc">2 800 Kč</span>.</div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Pro zbylé 3 osoby za 2 800 Kč</div><div class="step-content">1 dvoulůžkový (700×2 = 1 400 Kč) + 1 jednolůžkový (1 400 Kč) = 2 800 Kč ✓<br>Dvoulůžkové: <strong>1 pokoj</strong></div></div></div>
+        </div>
+        <div class="answer" style="margin-top:8px"><div class="a-label">✅ 13.2</div><strong>B) 1 dvoulůžkový pokoj</strong></div>
+      </div>
+
+      <div class="subtask"><div class="subtask-label">13.3 — Nejlevnější obsazení</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Ceny od nejlevnějšího</div><div class="step-content">Čtyřlůžkový (300 Kč/lůžko) → Třílůžkový (500) → Dvoulůžkový (700) → Jednolůžkový (1 400)</div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Naplním nejdříve nejlevnější</div><div class="step-content">2 čtyřlůžkové: 8 osob, 2 × 4 × 300 = <span class="calc">2 400 Kč</span>. Zbývá 10 osob.</div></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">10 zbývajících osob — nejlevněji</div><div class="step-content">2 třílůžkové (6 osob, 3 000 Kč) + 2 dvoulůžkové (4 osoby, 2 800 Kč) = 5 800 Kč<br><em>Srovnání: 3 třílůžk + 1 jednolůžk (10 osob) = 4 500+1 400 = 5 900 Kč → dražší ✗</em></div></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">Celkem</div><div class="step-content">2 400 + 3 000 + 2 800 = <span class="calc">8 200 Kč</span> · Dvoulůžkové: <strong>2 pokoje</strong></div></div></div>
+        </div>
+        <div class="answer" style="margin-top:8px"><div class="a-label">✅ 13.3</div><strong>C) 2 dvoulůžkové pokoje</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 14 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 14</div>
+        <div class="task-name">Šestiúhelníky z trojúhelníků — vzorec</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Posloupnosti a vzory</div>
+        <div class="task-pts">max. 4 body · otevřená</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>📋 Zadání</strong>Šestiúhelníkové obrazce z bílých a šedých rovnostranných trojúhelníků. 1. obrazec = 6 trojúhelníků (3 bílé + 3 šedé). Každý další vznikne přidáním 1 pásu okolo.<br>14.1 Trojúhelníků v posledním pásu 4. obrazce? &nbsp; 14.2 Šedých trojúhelníků v 6. obrazci? &nbsp; 14.3 U kolikátého obrazce je v posledním pásu 225 šedých?</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Odvodím vzorec pro celkový počet</div><div class="step-content">
+          <table class="sol-table" style="margin-bottom:6px">
+            <tr><th>Obrazec</th><th>1.</th><th>2.</th><th>3.</th><th>n-tý</th></tr>
+            <tr><td>Celkem trojúhelníků</td><td>6</td><td>24</td><td>54</td><td>6n²</td></tr>
+            <tr><td>Pás (přidaný)</td><td>—</td><td>18</td><td>30</td><td>12n − 6</td></tr>
+          </table>
+          <em>Vzorec pásu: 6n² − 6(n−1)² = 12n − 6</em>
+        </div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">14.1 — Pás 4. obrazce</div><div class="step-content">12 × 4 − 6 = 48 − 6 = <span class="calc">42 trojúhelníků</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">14.2 — Šedé v 6. obrazci</div><div class="step-content">Celkem v 6. obrazci: 6 × 6² = 216. Přesně polovina je šedá: 216 ÷ 2 = <span class="calc">108 šedých</span></div></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">14.3 — Kolikátý obrazec má v pásu 225 šedých</div><div class="step-content">Šedé v pásu n = (12n − 6) ÷ 2 = 6n − 3<br>6n − 3 = 225 &nbsp;→&nbsp; 6n = 228 &nbsp;→&nbsp; <em>n</em> = <span class="calc">38</span></div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">✅ Výsledek</div>
+        <strong>14.1</strong> 42 trojúhelníků &nbsp;|&nbsp;
+        <strong>14.2</strong> 108 šedých &nbsp;|&nbsp;
+        <strong>14.3</strong> 38. obrazec
+      </div>
+    </div>
+  </div>
+
+  <!-- SHRNUTÍ VÝSLEDKŮ -->
+  <div style="background:#f0f4f8;border-radius:10px;padding:20px;margin-top:8px">
+    <div style="font-size:13px;font-weight:800;color:#1a3a5c;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px">📊 Přehled výsledků</div>
+    <table class="sol-table">
+      <tr><th>Úloha</th><th>Výsledek</th><th>Body</th><th>Oblast</th></tr>
+      <tr><td>1</td><td>14 km</td><td>2</td><td>Pohyb a čas</td></tr>
+      <tr><td>2.1</td><td>69</td><td>1</td><td rowspan="2">Závorky</td></tr>
+      <tr><td>2.2</td><td>(9·8−6):2=33 · 9·(8−6):2=9 · 9·(8−6:2)=45</td><td>3</td></tr>
+      <tr><td>3.1</td><td>12 delších dílů</td><td>2</td><td rowspan="2">Části celku</td></tr>
+      <tr><td>3.2</td><td>520 cm</td><td>1</td></tr>
+      <tr><td>4.1–4.4</td><td>5 bal. · 90 Kč · 500 Kč · +9 Kč</td><td>5</td><td>Slovní úloha</td></tr>
+      <tr><td>5.1</td><td>K=6, L=5</td><td>1</td><td rowspan="2">Kryptogram</td></tr>
+      <tr><td>5.2</td><td>(9,2,7) · (8,4,3) · (5,9,3)</td><td>3</td></tr>
+      <tr><td>6.1–6.3</td><td>9 cm · 48 cm · 2×</td><td>5</td><td>Obvod čtverců</td></tr>
+      <tr><td>7</td><td>viz konstrukce</td><td>6</td><td>Rýsování</td></tr>
+      <tr><td>8.1–8.3</td><td>A · A · N</td><td>4</td><td>Graf</td></tr>
+      <tr><td>9</td><td>D) 36 balení</td><td>2</td><td>Dělení se zbytkem</td></tr>
+      <tr><td>10</td><td>A) 18 hrnků</td><td>2</td><td>Poměr</td></tr>
+      <tr><td>11</td><td>B) 10 květin</td><td>2</td><td>Obvod / počítání</td></tr>
+      <tr><td>12</td><td>E) 57 cm</td><td>2</td><td>Prostorová geom.</td></tr>
+      <tr><td>13.1–13.3</td><td>D · B · C</td><td>5</td><td>Optimalizace</td></tr>
+      <tr><td>14.1–14.3</td><td>42 · 108 · 38. obrazec</td><td>4</td><td>Posloupnosti</td></tr>
+      <tr style="background:#1a3a5c;color:white"><td><strong>CELKEM</strong></td><td></td><td><strong>50</strong></td><td></td></tr>
+    </table>
+  </div>
+
+  <div style="margin-top:24px;font-size:12px;color:#888;text-align:center">
+    Vzorové řešení vychází z oficiálního klíče CZVV · Materiál vytvořen pro studijní účely · 🖤 BLACKPINK × Matematika 5 🩷
+  </div>
+</div>
+
+</body>
+</html>
