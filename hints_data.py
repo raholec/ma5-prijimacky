@@ -1199,17 +1199,38 @@ Výraz: <b>(3 + 5) × 2 − 4</b><br>
 2. Násobení: 8×2 = <b>16</b><br>
 3. Odčítání: 16−4 = <span class="hint-result">12</span>
 </div>
-<div class="ex"><div class="lbl">Náročnější příklad: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)</div>
+<div class="ex"><div class="lbl">🛒 Proč na pořadí záleží — příklad z pekárny</div>
+Koupíš <b>3 rohlíky</b> po 2 Kč a <b>4 housky</b> po 3 Kč. Kolik zaplatíš celkem?<br>
+Výraz: 3 × 2 + 4 × 3<br>
+❌ Špatně (zleva doprava): 3×2=6, pak 6+4=10, pak 10×3 = <b>30 Kč</b> — to je nesmysl!<br>
+✅ Správně (nejdřív násobení): 3×2 = <b>6 Kč</b> za rohlíky, 4×3 = <b>12 Kč</b> za housky → 6+12 = <span class="hint-result">18 Kč</span><br>
+💡 <b>Pomůcka:</b> Násobení = „kolik kusů × cena jednoho". Sčítání = „dohromady za všechno".
+<div style="margin-top:8px;padding:8px;background:#fff3e0;border-radius:6px;font-size:13px">
+⚠️ <b>Nejčastější chyba:</b> 2 + 3 × 4 = 5 × 4 = 20. <b>Špatně!</b> Správně: 2 + 12 = <b>14</b>. Násobení VŽDY před sčítáním — i bez závorek!
+</div>
+</div>
+<div class="ex"><div class="lbl">Středně těžký příklad: (12 − 4) × 3 + 15 ÷ 5</div>
+Závorka: (12−4) = <b>8</b><br>
+Násobení/dělení: 8×3 = <b>24</b> &nbsp;&nbsp; 15÷5 = <b>3</b><br>
+Sčítání: 24 + 3 = <span class="hint-result">27</span>
+</div>
+<div class="ex"><div class="lbl">⭐ Bonus pro odvážné: 5 × 120 + (700 − 6 × 25) ÷ (10 − 7 + 2)</div>
 Závorky: (700 − 6×25) = 700−150 = <b>550</b> &nbsp;&nbsp; (10−7+2) = <b>5</b><br>
 Násobení/dělení: 5×120 = <b>600</b> &nbsp;&nbsp; 550÷5 = <b>110</b><br>
 Sčítání: 600 + 110 = <span class="hint-result">710</span>
 </div>
-<div class="ex"><div class="lbl">Příklad: (5 + 5 × 29) − 4 × (176 ÷ 8 − 8 × 2)</div>
+<div class="ex"><div class="lbl">⭐ Bonus pro odvážné: (5 + 5 × 29) − 4 × (176 ÷ 8 − 8 × 2)</div>
 Závorky: 5+5×29 = 5+145 = 150 &nbsp;&nbsp; 176÷8=22, 8×2=16, 22−16=6 → 4×6=24<br>
 Výsledek: 150 − 24 = <span class="hint-result">126</span>
 </div>""", "#E8F8F5", "#148F77"),
 
 ("🔄", "Závorky mění vše — jak je vyzkoušet", f"""
+<div class="ex"><div class="lbl">🍕 Závorka z každodenního života — proč na ní záleží</div>
+Máš <b>3 přátele</b>. Každý z nich dostane (8 − 2) kousky pizzy. Kolik kousků celkem?<br>
+✅ Se závorkou: 3 × (8 − 2) = 3 × <b>6</b> = <span class="hint-result">18 kousků</span> — každý dostane 6, správně!<br>
+❌ Bez závorky: 3 × 8 − 2 = 24 − 2 = <b>22 kousků</b> — to nejde rovnoměrně rozdělit!<br>
+⚠️ <b>Pamatuj:</b> Závorka říká: „<i>tohle spočítej JAKO PRVNÍ — dřív než cokoliv jiného!</i>"
+</div>
 <div class="ex"><div class="lbl">Závorka mění pořadí — co je uvnitř se počítá DŘÍV</div>
 Výraz: 9 × 8 − 6 ÷ 2 = 72−3 = <b>69</b> (bez závorek)
 <table class="htable" style="margin-top:8px">
@@ -1222,6 +1243,18 @@ Výraz: 9 × 8 − 6 ÷ 2 = 72−3 = <b>69</b> (bez závorek)
 <div class="ex"><div class="lbl">Jak vyzkoušet VŠECHNA místa pro závorku</div>
 U 4 čísel: závorka může začínat u 1., 2. nebo 3. čísla.<br>
 Závorka kolem celého výrazu = stejný výsledek jako bez závorky → nevede k novému výsledku!
+</div>
+<div class="ex"><div class="lbl">Typ úlohy: doplň závorky tak, aby výsledek byl X</div>
+Zadání: <i>„Doplňte závorky do výrazu 3 + 4 × 5 − 2 tak, aby výsledek byl 33."</i><br>
+<b>Postup — zkus každou pozici zleva doprava:</b>
+<table class="htable" style="margin-top:8px">
+<tr><th style="background:#17A589;color:white">Zkusím závorku</th><th style="background:#17A589;color:white">Výpočet</th><th style="background:#17A589;color:white">Výsledek</th></tr>
+<tr><td>(3 + 4) × 5 − 2</td><td>7 × 5 − 2 = 35 − 2</td><td><b style="color:#27AE60">33 ✓</b></td></tr>
+<tr><td>3 + 4 × (5 − 2)</td><td>3 + 4 × 3 = 3 + 12</td><td>15 ✗</td></tr>
+<tr><td>(3 + 4 × 5) − 2</td><td>23 − 2</td><td>21 ✗</td></tr>
+</table>
+→ Správná závorka: <b>(3 + 4) × 5 − 2 = 33</b> ✓<br>
+<b>Strategie:</b> začni od první závorky vlevo, zkoušej systematicky — každá pozice jednou.
 </div>""", "#E8F8F5", "#17A589"),
 
 ("□", "Neznámé číslo — jdi pozpátku", f"""
@@ -1234,22 +1267,45 @@ Závorka kolem celého výrazu = stejný výsledek jako bez závorky → nevede 
 <tr><td>÷ 4 (vydělím 4)</td><td>× 4 (vynásobím 4)</td></tr>
 </table>
 </div>
-<div class="ex"><div class="lbl">Příklad: vydělím 7, přičtu 3, zdvojnásobím → dostanu 20</div>
+<div class="ex"><div class="lbl">🍪 Hádanka se sušenkami — krok za krokem pozpátku</div>
+Honza měl sušenky. Rozdělil je <b>rovnoměrně mezi 7 kamarádů</b>, pak přidal <b>3 sušenky navíc</b>, pak vše <b>zdvojnásobil</b>. Teď má <b>20 sušenek</b>. Kolik měl Honza na začátku?<br>
+<b>Nejdřív si zapiš co se dělo dopředu:</b>
+<ol style="margin:6px 0 8px 0">
+<li>Začátek: ? sušenek → <b>÷ 7</b> (rozdělil mezi 7 kamarádů)</li>
+<li>→ <b>+ 3</b> (přidal 3 navíc)</li>
+<li>→ <b>× 2</b> (zdvojnásobil) = výsledek 20</li>
+</ol>
+Teď jdeme <b>pozpátku od výsledku 20</b> — každou operaci otočíme na opak a jdeme zprava:<br>
 {calc_row('20', '÷2', '10', '−3', '7', '×7', '49')}<br>
-Ověř: 49÷7=7, +3=10, ×2=<span class="hint-result">20 ✓</span>
+Ověř dopředu: 49÷7=7, +3=10, ×2=<span class="hint-result">20 ✓</span>
 </div>
 <div class="ex"><div class="lbl">Příklad: (188−152)÷(1+{fi('?')}) = 4+20÷4</div>
 Pravá strana: 4+5=9. Levá: 36÷(1+{fi('?')})=9 → 1+{fi('?')}=4 → {fi('?')}=<span class="hint-result">3</span>
 </div>
 <div class="ex"><div class="lbl">🆕 Typ: „zvětšené o svou polovinu" — krok za krokem</div>
 Zadání: <i>„Číslo zvětšené o svou polovinu se rovná 198."</i><br>
-Co to znamená: číslo + (číslo ÷ 2) = 198<br>
-Dvě poloviny + jedna polovina = <b>tři poloviny</b> celkem = 198<br>
-→ Jedna polovina = 198 ÷ 3 = <b>66</b><br>
-→ Celé číslo = 66 × 2 = <span class="hint-result">132</span><br>
+<b>Přelož do češtiny:</b> číslo + jeho polovina = 198<br>
+💡 <b>Klíčová věta:</b> celé číslo = 2 díly, polovina navíc = 1 díl → dohromady <b>3 díly = 198</b><br>
+<b>Nakresli si to jako tři stejné díly:</b>
+<table class="htable" style="max-width:380px;text-align:center;margin-top:6px">
+<tr>
+  <td style="background:#D5F5E3;padding:8px;font-size:13px"><b>½ čísla</b></td>
+  <td style="background:#D5F5E3;padding:8px;font-size:13px"><b>½ čísla</b></td>
+  <td style="background:#AED6F1;padding:8px;font-size:13px"><b>+ ½ čísla</b></td>
+  <td style="padding:8px"><b>= 198</b></td>
+</tr>
+<tr>
+  <td colspan="2" style="background:#A9DFBF;padding:4px;font-size:12px;color:#1a5">= celé číslo</td>
+  <td style="background:#85C1E9;padding:4px;font-size:12px;color:#156">přidaná polovina</td>
+  <td></td>
+</tr>
+</table>
+Celkem 3 stejné díly = 198 → 1 díl = 198 ÷ 3 = <b>66</b> → celé číslo = 66 × 2 = <span class="hint-result">132</span><br>
 Ověř: 132 + 66 = 198 ✓
 <div style="margin-top:8px;padding:8px;background:#ffebee;border-radius:6px;font-size:13px">
-⛔ Záměna! „198 ÷ 2 = 99" je číslo <b>zmenšené</b> na polovinu — to je úplně jiná úloha!
+⛔ <b>Záměna!</b> „198 ÷ 2 = 99" = číslo <b>zmenšené</b> na polovinu — to je úplně jiná úloha!<br>
+💡 Zvětšit <i>o</i> polovinu → přidáš půl → výsledek je <b>1,5× původní číslo</b>.<br>
+&nbsp;&nbsp;&nbsp; Zmenšit <i>na</i> polovinu → vezmeš jen půl → výsledek je <b>0,5× původní číslo</b>.
 </div>
 </div>""", "#E8F8F5", "#148F77"),
 
@@ -1323,6 +1379,7 @@ Pravidlo: <b>×↔÷</b> a <b>+↔−</b>. Nic jiného se nestane!
 <tr><td>🔴 Při pozpátku: otoč operaci ale jdi stále dopředu</td><td>Otoč operaci A JDI ZPRAVA DOLEVA: od výsledku k začátku</td></tr>
 <tr><td>🔴 Závorka kolem celého výrazu = nový výsledek</td><td>Závorka kolem VŠEHO výsledek nezmění — nepočítej ji!</td></tr>
 <tr><td>🔴 „Zvětšené o polovinu" → dělím 198 ÷ 2 = 99</td><td>Zvětšené o polovinu = číslo + polovina = tři poloviny. 198 ÷ 3 = 66, číslo = 66×2 = <b>132</b>!</td></tr>
+<tr><td>🔴 Závorku spočítám, ale zapomenu vynásobit — 3×(8−2)=6</td><td>Výsledek závorky je jen mezikrok! Teprve pak vynásob: 3×<b>6</b> = <span style="font-weight:bold">18</span></td></tr>
 </table>""", "#fff0f0", "#C0392B"),
 ]
 
