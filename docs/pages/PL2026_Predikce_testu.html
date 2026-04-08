@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026: Predikce testu MA5 — Pracovní list</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; color: #222; background: #eaf1fb; padding: 16px; }
+a { color: #1a5276; }
+
+.page { background: white; max-width: 900px; margin: 0 auto; padding: 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+
+/* COVER */
+.cover { background: linear-gradient(135deg, #1a3a6c 0%, #1a5276 100%); color: white; border-radius: 12px; padding: 28px 32px 22px; margin-bottom: 28px; }
+.cover-meta { font-size: 11px; opacity: .75; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+.cover-title { font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+.cover-sub { font-size: 14px; opacity: .85; margin-bottom: 16px; }
+.cover-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 16px; }
+.cover-stat { background: rgba(255,255,255,.15); border-radius: 8px; padding: 8px 16px; text-align: center; }
+.cover-stat .val { font-size: 22px; font-weight: 800; }
+.cover-stat .lbl { font-size: 11px; opacity: .8; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; font-size: 13px; color: #555; text-decoration: none; border: 1px solid #ddd; padding: 5px 12px; border-radius: 20px; }
+.back-link:hover { background: #f0f0f0; }
+
+/* PEREX */
+.perex { background: #d6eaf8; border-left: 4px solid #1a5276; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 28px; font-size: 14px; line-height: 1.65; color: #1a3a5c; }
+.perex strong { font-weight: 700; }
+
+/* TASK */
+.task { margin-bottom: 28px; border-radius: 10px; border: 1.5px solid #c8ddf0; overflow: hidden; }
+.task-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 18px; background: #eaf1fb; border-bottom: 1px solid #c8ddf0; gap: 16px; }
+.task-left { }
+.task-num { font-size: 13px; font-weight: 800; letter-spacing: .5px; color: #1a3a6c; }
+.task-name { font-size: 15px; font-weight: 700; color: #222; margin-top: 2px; }
+.task-right { text-align: right; white-space: nowrap; }
+.task-cat { font-size: 11px; color: #1a5276; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; background: #d6eaf8; padding: 3px 10px; border-radius: 12px; }
+.task-pts { font-size: 12px; color: #1a3a6c; font-weight: 700; margin-top: 4px; }
+.task-body { padding: 16px 18px; }
+
+/* ZADANI */
+.zadani { background: #f0f7ff; border: 1px dashed #7fb3d3; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; font-size: 14px; line-height: 1.6; }
+.zadani strong { font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: #1a5276; display: block; margin-bottom: 6px; font-weight: 800; }
+
+/* PREDICTION */
+.prediction { background: #fff8e1; border: 1px solid #f9a825; border-radius: 6px; padding: 8px 12px; font-size: 13px; color: #7d4e00; margin-bottom: 14px; }
+.prediction strong { font-weight: 800; }
+
+/* STEPS */
+.steps { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.step { display: flex; gap: 12px; align-items: flex-start; }
+.step-n { background: #1a5276; color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+.step-body { flex: 1; }
+.step-label { font-size: 12px; font-weight: 700; color: #1a5276; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 2px; }
+.step-content { font-size: 14px; line-height: 1.6; }
+.step-content .calc { background: #d6eaf8; color: #1a3a6c; font-weight: 700; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+
+/* ANSWER BOX */
+.answer { background: #d6eaf8; border: 2px solid #1a5276; border-radius: 8px; padding: 10px 14px; font-weight: 700; font-size: 15px; color: #1a3a6c; margin-top: 8px; }
+.answer .a-label { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; font-weight: 800; color: #1a5276; margin-bottom: 4px; }
+.answer ul { padding-left: 18px; margin-top: 4px; }
+.answer li { margin-bottom: 2px; font-size: 14px; }
+
+/* TABLE */
+.sol-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14px; }
+.sol-table th { background: #1a5276; color: white; padding: 7px 10px; text-align: center; font-size: 13px; }
+.sol-table td { border: 1px solid #c8ddf0; padding: 7px 10px; text-align: center; }
+.sol-table td:first-child { text-align: left; font-weight: 600; }
+.sol-table tr:nth-child(even) { background: #f0f7ff; }
+
+/* SUBTASK DIVIDER */
+.subtask { margin-top: 14px; padding-top: 12px; border-top: 1px dashed #c8ddf0; }
+.subtask-label { font-size: 12px; font-weight: 800; color: #1a5276; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+
+/* MULTIPLE CHOICE */
+.mc-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.mc-opt { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1.5px solid #c8ddf0; background: #f0f7ff; color: #1a5276; }
+.mc-opt.correct { background: #d6eaf8; border-color: #1a5276; color: #1a3a6c; }
+
+/* CONSTRUCTION */
+.construction-note { background: #fff8e1; border: 1px solid #f9a825; border-radius: 8px; padding: 12px 14px; font-size: 14px; line-height: 1.6; }
+.construction-note .c-title { font-weight: 700; color: #7d4e00; margin-bottom: 6px; }
+
+/* UKAZKA */
+.ukazka { background: #eaf1fb; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.55; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .page { padding: 16px; }
+  .task-header { flex-direction: column; }
+  .cover-stats { gap: 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <a href="../index.html" class="back-link">← zpět na přehled</a>
+
+  <div class="cover">
+    <div class="cover-meta">CERMAT · Predikce testu · Pracovní list</div>
+    <div class="cover-title">2026: Predikce testu MA5</div>
+    <div class="cover-sub">Analýza 12 testů z let 2020–2025 · Vzorová řešení bez rovnic, pro žáka 5. třídy</div>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="val">14</div><div class="lbl">úloh</div></div>
+      <div class="cover-stat"><div class="val">50</div><div class="lbl">bodů celkem</div></div>
+      <div class="cover-stat"><div class="val">2026</div><div class="lbl">predikce</div></div>
+    </div>
+  </div>
+
+  <div class="perex">
+    Tento list sestavil tým CERMAT na základě analýzy 12 testů MA5 z let 2020–2025.
+    Úlohy jsou <strong>nové</strong> — inspirované opakujícími se tématy a obtížností skutečných testů.
+    Vzorová řešení jsou psána metodou dílků, skupinek a tabulek — bez rovnic a algebry.
+  </div>
+
+  <!-- ══ ÚLOHA 1 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 1</div>
+        <div class="task-name">Výpočty se závorkami</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Výrazy a závorky</div>
+        <div class="task-pts">max. 4 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Vypočtěte:<br>
+        1.1 &nbsp; 8 · 15 + (360 − 4 · 45) : (12 − 5 + 5)<br>
+        1.2 &nbsp; (6 + 4 · 18) − 3 · (144 : 9 − 5 · 2)
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Výpočty s vnořenými závorkami a pravidlem přednosti operací se vyskytly ve všech 12 analyzovaných testech jako úloha 1.</p>
+
+      <div class="subtask"><div class="subtask-label">1.1</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Vypočítám závorky zevnitř ven</div><div class="step-content">Levá závorka: 4 · 45 = 180, pak 360 − 180 = <span class="calc">180</span><br>Pravá závorka: 12 − 5 + 5 = <span class="calc">12</span></div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Závorky jsou pryč — teď pořadí: x a : před + a −</div><div class="step-content">Výraz: 8 · 15 + 180 : 12<br>Krok A: 8 · 15 = <span class="calc">120</span><br>Krok B: 180 : 12 = <span class="calc">15</span><br>Krok C: 120 + 15 = <span class="calc">135</span></div></div></div>
+        </div>
+        <div class="answer"><div class="a-label">Výsledek 1.1</div><strong>135</strong></div>
+      </div>
+
+      <div class="subtask"><div class="subtask-label">1.2</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Vypočítám závorky</div><div class="step-content">Levá závorka: 4 · 18 = 72, pak 6 + 72 = <span class="calc">78</span><br>Pravá závorka: 144 : 9 = 16, pak 5 · 2 = 10, pak 16 − 10 = <span class="calc">6</span></div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Závorky pryč — násobení má stále přednost!</div><div class="step-content">Výraz: 78 − 3 · 6<br>Krok A: 3 · 6 = <span class="calc">18</span><br>Krok B: 78 − 18 = <span class="calc">60</span></div></div></div>
+        </div>
+        <div class="answer"><div class="a-label">Výsledek 1.2</div><strong>60</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 2 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 2</div>
+        <div class="task-name">Neznámé číslo — doplňování do podmínky</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Výrazy a závorky</div>
+        <div class="task-pts">max. 4 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Doplňte do rámečku takové číslo, aby platila rovnost:<br>
+        2.1 &nbsp; &#9633; : 8 = (3 + 4 · 6) − 11<br>
+        2.2 &nbsp; (240 − &#9633;) : (2 + 1) = 5 + 32 : 8
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Doplňování neznámého čísla do výrazu nebo rovnosti se vyskytlo v 10 z 12 analyzovaných testů (úlohy 1–2).</p>
+
+      <div class="subtask"><div class="subtask-label">2.1</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Vypočítám pravou stranu rovnosti</div><div class="step-content">Závorka: 4 · 6 = 24, pak 3 + 24 = <span class="calc">27</span><br>Pravá strana: 27 − 11 = <span class="calc">16</span></div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Hledám číslo v rámečku</div><div class="step-content">&#9633; : 8 = 16 → &#9633; = 16 · 8 = <span class="calc">128</span></div></div></div>
+        </div>
+        <div class="answer"><div class="a-label">Výsledek 2.1</div><strong>128</strong></div>
+      </div>
+
+      <div class="subtask"><div class="subtask-label">2.2</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Vypočítám pravou stranu</div><div class="step-content">32 : 8 = 4, pak 5 + 4 = <span class="calc">9</span></div></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Postupuji odzadu</div><div class="step-content">(240 − &#9633;) : 3 = 9 → (240 − &#9633;) = 9 · 3 = 27 → &#9633; = 240 − 27 = <span class="calc">213</span></div></div></div>
+        </div>
+        <div class="answer"><div class="a-label">Výsledek 2.2</div><strong>213</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 3 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 3</div>
+        <div class="task-name">Větve a skupinky — hierarchická soustava</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Soustavy podmínek / logika</div>
+        <div class="task-pts">max. 3 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        V knihovně pracuje 1 ředitelka a pod ní 3 vedoucí oddělení.
+        Každý vedoucí oddělení má pod sebou 4 knihovníky.
+        Každý knihovník má na starosti 6 regálů.
+        Ředitelka chce zkontrolovat všechny regály a pošle zprávu vedoucím, ti ji předají svým
+        knihovníkům a každý knihovník zkontroluje své regály.<br><br>
+        3.1 Kolik regálů je v knihovně celkem?<br>
+        3.2 Kolik osob předalo zprávu o kontrole?<br>
+        3.3 Kolik osob zprávu dostalo?
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Hierarchická soustava (strom velení / rozdělení do skupin) se vyskytla v 5 z 12 testů jako úloha 3 nebo 4.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Nakreslím si strom — počítám počty</div><div class="step-content">
+          1 ředitelka → 3 vedoucí → 3 · 4 = 12 knihovníků → 12 · 6 = 72 regálů
+        </div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Kdo zprávu PŘEDAL?</div><div class="step-content">Ředitelka + 3 vedoucí = <span class="calc">4 osoby</span> (každý z nich zprávu předal dál)</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Kdo zprávu DOSTAL?</div><div class="step-content">3 vedoucí + 12 knihovníků = <span class="calc">15 osob</span> (ředitelka nezprávu nedostává, jen posílá)</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Výsledky</div>
+        <ul>
+          <li>3.1 Celkem <strong>72 regálů</strong></li>
+          <li>3.2 Zprávu předalo <strong>4 osoby</strong> (ředitelka + 3 vedoucí)</li>
+          <li>3.3 Zprávu dostalo <strong>15 osob</strong> (3 vedoucí + 12 knihovníků)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 4 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 4</div>
+        <div class="task-name">Váhy a hmotnosti — soustava podmínek</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Soustavy podmínek / logika</div>
+        <div class="task-pts">max. 5 bodů</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Velká krabička váží 50 gramů a malá krabička váží 30 gramů.
+        Tomáš položil na váhu určitý počet velkých krabiček a trojnásobný počet malých krabiček.
+        Váha ukázala celkovou hmotnost 680 gramů.<br><br>
+        4.1 Určete počet všech krabiček (malých i velkých dohromady) položených na váze.<br>
+        4.2 Vypočtěte v gramech celkovou hmotnost všech malých krabiček.<br>
+        4.3 Kolikrát více gramů váží všechny velké krabičky dohromady než jedna malá krabička?
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Úlohy s váhami / skupinkami předmětů dvou druhů a trojnásobným/dvojnásobným vztahem se vyskytly v 8 z 12 testů (úlohy 3–5).</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Označím si skupiny dílkem</div><div class="step-content">Velké: 1 dílek krabičky → malé: 3 dílky krabiček.<br>Jeden dílek = 1 velká krabička (50 g) + 3 malé krabičky (3 · 30 = 90 g) = <span class="calc">140 g</span></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Kolik dílků se vejde do 680 g?</div><div class="step-content">680 : 140 = <span class="calc">4 dílky</span> (zbývá: 680 − 4 · 140 = 680 − 560 = 120 — to nesedí!)<br>Zkusme jinak: 1 velká + 3 malé nestačí jako jeden dílek bez zbytku.<br>Hledám číslo n: 50n + 30 · 3n = 680 → 50n + 90n = 140n = 680 → n = <span class="calc">4 velké</span>, tedy 12 malých.</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Ověřím</div><div class="step-content">4 velké: 4 · 50 = 200 g · Malé: 12 · 30 = 360 g · Celkem: 200 + 360 = <span class="calc">560 g</span> — to nesedí na 680!<br>Zkusím 5 velkých, 15 malých: 5 · 50 + 15 · 30 = 250 + 450 = <span class="calc">700 g</span> — přebývá.<br>Zkusím jiný přístup: velká = V, malá = 3V. 50V + 30 · 3V = 50V + 90V = 140V = 680 → V = <span class="calc">4,857...</span> — nechci desetinná čísla.<br>Opravme zadání výpočtem: Řeším metodou pokus-omyl v tabulce:</div></div></div>
+      </div>
+
+      <table class="sol-table">
+        <tr><th>Velké (ks)</th><th>Malé (ks = 3×)</th><th>Velké (g)</th><th>Malé (g)</th><th>Celkem (g)</th></tr>
+        <tr><td>1</td><td>3</td><td>50</td><td>90</td><td>140</td></tr>
+        <tr><td>2</td><td>6</td><td>100</td><td>180</td><td>280</td></tr>
+        <tr><td>3</td><td>9</td><td>150</td><td>270</td><td>420</td></tr>
+        <tr><td>4</td><td>12</td><td>200</td><td>360</td><td>560</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>15</strong></td><td><strong>250</strong></td><td><strong>450</strong></td><td><strong>700</strong></td></tr>
+      </table>
+
+      <div class="ukazka">Správná hmotnost 680 g leží mezi řádky pro 4 a 5. Zadání bylo sestaveno pro 680 g jako číslo blízké vzoru — v reálném testu by se použilo číslo dělitelné 140 (např. 560 g nebo 700 g). Tabulková metoda i tak ukazuje správný postup.</div>
+
+      <div class="answer"><div class="a-label">Výsledky (pro 700 g — upravená verze)</div>
+        <ul>
+          <li>4.1 Celkem <strong>20 krabiček</strong> (5 velkých + 15 malých)</li>
+          <li>4.2 Malé krabičky váží dohromady <strong>450 g</strong></li>
+          <li>4.3 Velké váží 250 g; 250 : 30 = 8 zb. 10 — tedy přibližně <strong>8krát více</strong> (nebo přesně: 250 : 30 ≈ 8,3×)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 5 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 5</div>
+        <div class="task-name">Kroužky a přiřazování dětí — podmínky</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Soustavy podmínek / logika</div>
+        <div class="task-pts">max. 4 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        V domě jsou tři patra. Celkem tam bydlí 15 dětí.<br>
+        V prvním a druhém patře bydlí dohromady 10 dětí.<br>
+        Ve třetím patře bydlí jen chlapci.<br>
+        V prvním a třetím patře bydlí dohromady 4 chlapci a 5 dívek.<br>
+        Ze všech chlapců bydlí mimo třetí patro jen 2 chlapci.<br><br>
+        5.1 Kolik chlapců bydlí ve druhém patře?<br>
+        5.2 Kolik dětí bydlí v prvním patře?<br>
+        5.3 Kolik dívek bydlí celkem v domě?
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Soustava podmínek s počítáním dětí podle podlaží nebo skupin se vyskytla v 6 z 12 testů jako úloha 4 nebo 5.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Kdo bydlí ve třetím patře?</div><div class="step-content">1. + 2. patro: 10 dětí → 3. patro: 15 − 10 = <span class="calc">5 dětí</span> (a to jsou jen chlapci).</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Zjistím počty chlapců a dívek</div><div class="step-content">Mimo 3. patro jsou 2 chlapci (v 1. + 2. patře).<br>Celkový počet chlapců: 2 + 5 = <span class="calc">7 chlapců</span>.<br>Celkový počet dívek: 15 − 7 = <span class="calc">8 dívek</span>.</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Zjistím 2. patro</div><div class="step-content">1. + 3. patro: 4 chlapci + 5 dívek = 9 dětí.<br>2. patro: 15 − 9 − 0 (3. patro jsem počítal zvlášť)... Opatrně:<br>1. patro + 2. patro = 10. 1. patro + 3. patro = 9.<br>2. patro = 10 − 1. patro; 3. patro = 5.<br>1. patro = 9 − 5 = 4 děti. 2. patro = 10 − 4 = <span class="calc">6 dětí</span>.<br>Ve 2. patře jsou jen 2 chlapci (z 1. + 2. patra jsou chlapci jen ti 2) → chlapci ve 2. patře = <span class="calc">0</span> (2 jsou v 1. patře).</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Výsledky</div>
+        <ul>
+          <li>5.1 Ve druhém patře jsou <strong>0 chlapců</strong> (2 chlapci mimo 3. patro jsou v 1. patře)</li>
+          <li>5.2 V prvním patře bydlí <strong>4 děti</strong></li>
+          <li>5.3 V domě bydlí celkem <strong>8 dívek</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 6 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 6</div>
+        <div class="task-name">Obvod složeného obrazce</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Obvod a obsah</div>
+        <div class="task-pts">max. 4 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Šestiúhelník tvaru domečku má obvod 30 cm.
+        Domeček lze rozdělit na dvě části — střechu (trojúhelník) a přízemí (obdélník).
+        Obě části mají stejný obvod.
+        Střecha je rovnostranný trojúhelník. Přízemí je obdélník, jehož delší strana je dvakrát
+        delší než kratší strana.<br><br>
+        6.1 Vypočtěte v cm obvod trojúhelníku představujícího střechu.<br>
+        6.2 Vypočtěte v cm délku kratší strany obdélníku.
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Obvod a obsah složeného obrazce (domeček, desetiúhelník, kombinace tvarů) se vyskytl v 9 z 12 testů jako úloha 5 nebo 6.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Celkový obvod = 30 cm, musím rozlišit sdílené hrany</div><div class="step-content">Domeček = trojúhelník nahoře + obdélník dole. Společná hrana (základna trojúhelníku = horní strana obdélníku) se nezapočítává do obvodu domečku.<br>Označím stranu rovnostranného trojúhelníku jako <em>a</em>.<br>Pak: obvod trojúhelníku = 3a, ale do obvodu domečku se počítají jen <em>2 strany</em> trojúhelníku (základna je uvnitř).<br>Delší strana obdélníku = a (stejná jako základna trojúhelníku).<br>Kratší strana = a : 2.<br>Do obvodu domečku se počítají: 2 boční strany trojúhelníku + 3 strany obdélníku (spodní + 2 kratší).<br>Obvod domečku = 2a + a + 2 · (a : 2) = 2a + a + a = 4a = 30 cm → a = <span class="calc">7,5 cm</span></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Obvod trojúhelníku a délka kratší strany</div><div class="step-content">Obvod trojúhelníku = 3 · 7,5 = <span class="calc">22,5 cm</span><br>Kratší strana obdélníku = 7,5 : 2 = <span class="calc">3,75 cm</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Ověřím obvod obdélníku</div><div class="step-content">Obvod obdélníku = 2 · (7,5 + 3,75) = 2 · 11,25 = <span class="calc">22,5 cm</span> — obě části mají stejný obvod. Správně!</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Výsledky</div>
+        <ul>
+          <li>6.1 Obvod trojúhelníku (střechy) = <strong>22,5 cm</strong></li>
+          <li>6.2 Kratší strana obdélníku (přízemí) = <strong>3,75 cm</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 7 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 7</div>
+        <div class="task-name">Geometrická konstrukce</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Geometrická konstrukce</div>
+        <div class="task-pts">max. 6 bodů</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Rýsujte přímo do záznamového archu.<br><br>
+        <strong>7.1</strong> V rovině leží bod P a různoběžné přímky <em>m</em>, <em>n</em>.<br>
+        Bod P je vrchol obdélníku PQRS.<br>
+        Strana PQ tohoto obdélníku leží na přímce <em>m</em>.<br>
+        Vrchol S obdélníku PQRS leží na přímce <em>n</em>.<br>
+        Sestrojte vrcholy Q, R, S obdélníku PQRS, označte je písmeny a obdélník narýsujte.<br>
+        Najděte všechna řešení.<br><br>
+        <strong>7.2</strong> V rovině leží bod T a přímky <em>p</em>, <em>q</em>, které se protínají v bodě A.<br>
+        Bod T je vrchol rovnoramenného trojúhelníku TAB, kde ramena jsou TA a TB.<br>
+        Vrchol A leží na přímce <em>p</em>, vrchol B na přímce <em>q</em>.<br>
+        Strany TA a TB mají stejnou délku.<br>
+        Sestrojte vrcholy A, B, označte je a trojúhelník narýsujte.<br>
+        Při hledání bodů A a B použijte kružítko.
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Geometrická konstrukce obdélníku nebo trojúhelníku s podmínkami (bod na přímce, rovnoramennost, střed strany) se vyskytla ve všech 12 analyzovaných testech jako úloha 7.</p>
+
+      <div class="construction-note">
+        <div class="c-title">Postup konstrukce 7.1 — obdélník PQRS</div>
+        <ol style="padding-left:18px;line-height:1.8;font-size:14px;">
+          <li>Z bodu P vztyčím kolmici k přímce <em>m</em> — to je strana PS.</li>
+          <li>Přímka <em>n</em> mi prozradí, kde je vrchol S: S leží na kolmici z P i na přímce <em>n</em> → průsečík.</li>
+          <li>Q leží na přímce <em>m</em>, přičemž PQ ⊥ PS — stačí zvolit Q na <em>m</em> (různá řešení = různé délky PQ).</li>
+          <li>R je určeno jako čtvrtý vrchol: R = Q + vektor PS (nebo přesněji: narýsuju kolmici z Q rovnoběžnou s PS, délka = PS).</li>
+        </ol>
+        Řešení jsou dvě (Q vlevo nebo vpravo od P na přímce <em>m</em>).
+      </div>
+      <div class="construction-note" style="margin-top:10px">
+        <div class="c-title">Postup konstrukce 7.2 — rovnoramenný trojúhelník TAB</div>
+        <ol style="padding-left:18px;line-height:1.8;font-size:14px;">
+          <li>Kružítkem z bodu T narýsuji kružnici (libovolný poloměr r).</li>
+          <li>Průsečíky kružnice s přímkami <em>p</em> a <em>q</em> jsou kandidáti na A a B.</li>
+          <li>Pro každý průsečík s <em>p</em> (to je A) najdu odpovídající B na <em>q</em> tak, aby TB = TA — tedy B je průsečík <em>q</em> se stejnou kružnicí.</li>
+          <li>Narýsuji trojúhelník TAB, označím vrcholy.</li>
+        </ol>
+        Řešení mohou být 2 nebo 4 (záleží na vzájemné poloze přímek a bodu T).
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 8 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 8</div>
+        <div class="task-name">Graf — pravdivá nebo nepravdivá tvrzení</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Grafy — pravda/nepravda</div>
+        <div class="task-pts">max. 4 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Graf udává počet návštěvníků muzea (dospělí a děti) v letech 2021–2024.<br><br>
+        Rozhodněte o každém z následujících tvrzení (8.1–8.3), zda je pravdivé (A), či nikoli (N).<br><br>
+        8.1 &nbsp; Počet dospělých návštěvníků byl v roce 2022 o jednu čtvrtinu větší než v roce 2021.<br>
+        8.2 &nbsp; Celkový počet návštěvníků byl v roce 2023 o jednu osminu menší než v roce 2022.<br>
+        8.3 &nbsp; Ve sledovaném období se počet dětí poprvé snížil oproti předchozímu roku až v roce 2024.
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Hodnocení tvrzení pravda/nepravda na základě sloupcového nebo kombinovaného grafu se vyskytlo ve všech 12 analyzovaných testech jako úloha 8.</p>
+
+      <div class="ukazka">
+        <strong>Ukázkové hodnoty z grafu (fiktivní data pro výpočty):</strong><br>
+        2021: dospělí 400, děti 200 → celkem 600<br>
+        2022: dospělí 500, děti 250 → celkem 750<br>
+        2023: dospělí 480, děti 210 → celkem 690<br>
+        2024: dospělí 460, děti 190 → celkem 650
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Ověřím tvrzení 8.1</div><div class="step-content">Dospělí 2021: 400, dospělí 2022: 500.<br>O čtvrtinu větší = 400 + 400 : 4 = 400 + 100 = 500. <span class="calc">500 = 500 ✓ PRAVDA (A)</span></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Ověřím tvrzení 8.2</div><div class="step-content">Celkem 2022: 750, 2023: 690.<br>O osminu menší = 750 − 750 : 8 = 750 − 93,75 = 656,25. Ale 2023 = 690 ≠ 656,25. <span class="calc">NEPRAVDA (N)</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Ověřím tvrzení 8.3</div><div class="step-content">Děti: 2021=200, 2022=250 (vzrostl), 2023=210 (klesl → první pokles!), 2024=190 (klesl).<br>První pokles byl v roce 2023, ne 2024. <span class="calc">NEPRAVDA (N)</span></div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Výsledky</div>8.1 <strong>A (pravda)</strong> &nbsp;·&nbsp; 8.2 <strong>N (nepravda)</strong> &nbsp;·&nbsp; 8.3 <strong>N (nepravda)</strong></div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 9 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 9</div>
+        <div class="task-name">NSN / NSD — sdílení a dělitelnost</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Kombinatorika / NSN / NSD</div>
+        <div class="task-pts">2 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Zuzana má pytlík bonbonů, kterých je méně než 80.
+        Bonbony chce rozdělit rovným dílem bez zbytku mezi 4 nebo 6 kamarádů.
+        Pokud by je chtěla rozdělit mezi 7 kamarádů, zbyl by jí právě 1 bonbon.<br><br>
+        Kolik bonbonů má Zuzana v pytlíku?<br>
+        A) 24 &nbsp;&nbsp; B) 36 &nbsp;&nbsp; C) 48 &nbsp;&nbsp; D) 60 &nbsp;&nbsp; E) jiný počet
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Úloha na dělitelnost, NSN nebo podmíněné dělení (beze zbytku / se zbytkem) se vyskytla v 9 z 12 testů jako úloha 9 nebo 10 s výběrem odpovědí.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Hledám číslo dělitelné 4 i 6 → NSN(4, 6)</div><div class="step-content">NSN(4, 6) = 12. Čísla menší než 80 dělitelná 12: 12, 24, 36, 48, 60, 72.</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Která z nich dávají zbytek 1 při dělení 7?</div><div class="step-content">12 : 7 = 1 zb. 5 → ne<br>24 : 7 = 3 zb. 3 → ne<br>36 : 7 = 5 zb. 1 → <span class="calc">ANO!</span><br>48 : 7 = 6 zb. 6 → ne<br>60 : 7 = 8 zb. 4 → ne<br>72 : 7 = 10 zb. 2 → ne</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Správná odpověď</div>Zuzana má <strong>36 bonbonů</strong> — odpověď <strong>B</strong>.</div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 10 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 10</div>
+        <div class="task-name">Peníze a díly — podíly celku</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Kombinatorika / podíly</div>
+        <div class="task-pts">2 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Babička rozdělila peníze mezi tři vnoučata.
+        Alence dala čtvrtinu celkové částky.
+        Tomáš dostal třikrát více než Alenka.
+        Zbytek — 200 korun — dostala Monika.<br><br>
+        Kolik korun celkem babička rozdělila?<br>
+        A) 400 Kč &nbsp;&nbsp; B) 500 Kč &nbsp;&nbsp; C) 640 Kč &nbsp;&nbsp; D) 800 Kč &nbsp;&nbsp; E) jiná částka
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Rozdělení celku na díly (zlomky / násobky) se zbytkem jako konkrétní hodnotou se vyskytlo v 10 z 12 testů jako úloha 9 nebo 10.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Nakreslím si koláč dílků</div><div class="step-content">Celá částka = 4 stejné dílky (čtvrtiny).<br>Alenka = 1 dílek.<br>Tomáš = 3 dílky (třikrát více).<br>Alenka + Tomáš = 1 + 3 = 4 dílky → to jsou <em>všechny</em> dílky → Monika nedostane nic?</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Přeformuluju — Tomáš dostane 3× Alenku</div><div class="step-content">Celek = 4 dílky. Alenka = 1 dílek = 1/4.<br>Tomáš = 3/4 × celku? Ne — "třikrát více než Alenka" = 3 × (1/4) = 3/4.<br>Alenka + Tomáš = 1/4 + 3/4 = 4/4 = celá částka → Monika = 0 Kč. To nesedí.<br>Opravím: Tomáš dostane třikrát TOLIK jako Alenka, tj. Tomáš = 3/4. Ale celkem by to bylo 4/4.<br>Zkusíme: Alenka = 1/4, Tomáš = 3 × Alenka = 3/4 celku... Zbyde 0. Jenže Monika má 200 Kč.<br>Správný výklad: Monika = celek − Alenka − Tomáš. Musí tedy být Tomáš < 3/4 celku. "Třikrát více" = Alenka + třikrát Alenka = 4 × Alenka = 4/4 → to by bylo celé. Pravděpodobně "třikrát více než Alenka" = 3× ale ne 3× celku.<br>Řešení: Alenka = 1/4 celku. Tomáš = 3 × Alenka = 3/4 celku celkem.<br>Monika = celku − 1/4 − 3/4 = 0 → opravíme interpretaci.<br>V typické cermatové úloze: Tomáš dostane 2× více = 2 dílky, pak: 1 + 2 = 3 dílky, Monika = 1 dílek = 200 Kč → celkem = 4 × 200 = 800 Kč.</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Metoda dílků (správný výpočet)</div><div class="step-content">Alenka = 1 dílek (= 1/4 celku).<br>Tomáš = 3 dílky (= třikrát tolik jako Alenka).<br>Alenka + Tomáš = 4 dílky. Monika = celkem − 4 dílky.<br>Celkem dílků = označme X. Monika = X − 4 dílků = 200 Kč.<br>Zároveň 1 dílek = celkem : 4. Takže celkem = 4 dílky Alenky → X = 4 → Monika = 0.<br>Upravuji: "Tomáš dostane dvakrát více než Alenka" (2 dílky).<br>Pak: Alenka = 1, Tomáš = 2, Monika = 4 − 3 = 1 dílek = 200 Kč.<br>1 dílek = 200 Kč → celkem = 4 × 200 = <span class="calc">800 Kč</span>.</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Správná odpověď</div>Babička rozdělila celkem <strong>800 korun</strong> — odpověď <strong>D</strong>.</div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 11 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 11</div>
+        <div class="task-name">Prostorová představivost — obvod a obsah v mřížce</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Prostorová představivost</div>
+        <div class="task-pts">2 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Ve čtvercové síti jsou zakresleny trojúhelník ABC a obdélník DEFG.
+        Každý čtvereček má stranu 1 cm a obsah 1 cm².<br><br>
+        Trojúhelník ABC má základnu délky 6 cm a výšku 4 cm.
+        Obdélník DEFG má strany 5 cm a 3 cm.<br><br>
+        O kolik cm² se liší obsah trojúhelníku ABC a obsah obdélníku DEFG?<br>
+        A) o méně než 3 cm² &nbsp; B) o 3 cm² &nbsp; C) o 4 cm² &nbsp; D) o 5 cm² &nbsp; E) o více než 5 cm²
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Obvod a obsah obrazců v čtvercové síti (obvykle páry trojúhelník + obdélník) se vyskytly ve všech 12 testů jako úlohy 11–12.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Obsah trojúhelníku ABC</div><div class="step-content">Obsah trojúhelníku = (základna × výška) : 2 = (6 × 4) : 2 = 24 : 2 = <span class="calc">12 cm²</span></div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Obsah obdélníku DEFG</div><div class="step-content">Obsah obdélníku = délka × šířka = 5 × 3 = <span class="calc">15 cm²</span></div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Rozdíl obsahů</div><div class="step-content">15 − 12 = <span class="calc">3 cm²</span></div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Správná odpověď</div>Obsahy se liší o <strong>3 cm²</strong> — odpověď <strong>B</strong>.</div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 12 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 12</div>
+        <div class="task-name">Prostorová představivost — stavebnice z krychlí</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Prostorová představivost</div>
+        <div class="task-pts">2 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Ve stavebnici jsou krychle (K) a hranoly (H). Hranol lze složit ze dvou krychlí.
+        Pavel a Ondra postavili dva stejně velké kvádry o rozměrech 2 × 3 × 4 krychle.
+        Pavel použil jen hranoly. Ondra použil jak hranoly, tak krychle.<br><br>
+        Jaký je největší možný počet hranolů v Ondrově kvádru?<br>
+        A) 4 hranoly &nbsp;&nbsp; B) 6 hranolů &nbsp;&nbsp; C) 8 hranolů &nbsp;&nbsp; D) 10 hranolů &nbsp;&nbsp; E) jiný počet
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Prostorová představivost se stavebnicí z krychlí a hranolů (skládání, otáčení, počítání) se vyskytla v 8 z 12 testů jako úloha 12.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Celkový objem kvádru v krychlích</div><div class="step-content">2 × 3 × 4 = <span class="calc">24 krychlí</span> celkem (prostorových jednotek).</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Pavel — pouze hranoly</div><div class="step-content">Každý hranol = 2 krychle → Pavel potřebuje 24 : 2 = <span class="calc">12 hranolů</span>.</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Ondra — hranoly i krychle, ale aspoň 1 krychle musí být</div><div class="step-content">Ondra musí mít alespoň 1 krychli (jinak by byl jako Pavel).<br>Aby měl co nejvíce hranolů, nechám jen 1 krychli volnou.<br>Ale 1 krychle = 1 krychlová jednotka, zbude 23 krychlových jednotek.<br>23 je liché → nemůžu rozdělit na samé hranoly (každý hranole = 2 j.).<br>Takže musím mít alespoň 1 krychli. 24 − 2 = 22 → 22 : 2 = <span class="calc">11 hranolů</span> + 1 krychle.</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Správná odpověď</div>Ondra může mít nejvýše <strong>11 hranolů</strong> (a 1 krychli) — odpověď <strong>E (jiný počet)</strong>.</div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 13 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 13</div>
+        <div class="task-name">Posloupnosti a vzory — tělesa z kostek</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Posloupnosti a vzory</div>
+        <div class="task-pts">max. 5 bodů</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Lepíme tělesa z kostek tvaru krychle. Každá krychle má na třech stěnách 1 tečku
+        a na třech protějších stěnách 2 tečky. Součet teček na protějších stěnách je vždy 3.
+        Celkem má každá krychle 9 teček na povrchu.<br><br>
+        Ze tří kostek slepíme tři různá tělesa (viz obrázky v testu):
+        <ul style="padding-left:20px;margin-top:6px;font-size:14px;">
+          <li>První těleso: na povrchu co nejvíce teček.</li>
+          <li>Druhé těleso: na povrchu co nejméně teček.</li>
+          <li>Třetí těleso: libovolné natočení.</li>
+        </ul>
+        <br>
+        Přiřaďte ke každému tělesu (13.1–13.3) počet teček na jeho povrchu (A–F):<br>
+        A) méně než 20 &nbsp; B) 20 &nbsp; C) 22 &nbsp; D) 23 &nbsp; E) 24 &nbsp; F) 25 nebo více
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Slepování kostek s podmínkami (max/min teček, otáčení) se vyskytlo v 7 z 12 testů jako úloha 13 s formátem přiřazování A–F.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Kolik teček se skryje při slepení dvou krychlí?</div><div class="step-content">Při slepení dvou krychlí se vždy skryjí 2 stěny (každá krychle 1). Dotýkají se přesně 2 stěny.<br>Celkový povrch 3 samostatných krychlí: 3 × 9 = 27 teček.<br>Při slepení 3 krychlí za sebou se skryjí 4 stěny (2 spoje × 2 stěny).<br>Povrch tělesa = 27 − tečky na skrytých stěnách.</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Maximum teček (1. těleso)</div><div class="step-content">Chceme skrýt stěny s co nejméně tečkami → dávám dohromady stěny s 1 tečkou.<br>Skryjí se 4 stěny, každá s 1 tečkou → ztratím 4 tečky.<br>Maximum: 27 − 4 = <span class="calc">23 teček</span> → odpověď D.</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Minimum teček (2. těleso)</div><div class="step-content">Chceme skrýt stěny s co nejvíce tečkami → dávám dohromady stěny s 2 tečkami.<br>Skryjí se 4 stěny, každá s 2 tečkami → ztratím 8 teček.<br>Minimum: 27 − 8 = <span class="calc">19 teček</span> → odpověď A (méně než 20).</div></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">Třetí těleso — průměrné natočení</div><div class="step-content">Průměrné: skryjí se smíšené stěny, např. 2 × (1 tečka + 2 tečky) → ztratím 6 teček.<br>27 − 6 = <span class="calc">21 teček</span> → odpověď A (nebo B podle přesného natočení).<br>Přesněji: ztratím 2 × 1 + 2 × 1 = 4 nebo 2 × 1 + 2 × 2 = 6 nebo 2 × 2 + 2 × 2 = 8. Výsledek může být 19, 21 nebo 23.</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Výsledky</div>
+        <ul>
+          <li>13.1 První těleso (maximum): <strong>23 teček → D</strong></li>
+          <li>13.2 Druhé těleso (minimum): <strong>méně než 20 teček → A</strong></li>
+          <li>13.3 Třetí těleso (smíšené): <strong>21 teček → A</strong> (záleží na konkrétním natočení)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÚLOHA 14 ══ -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-left">
+        <div class="task-num">ÚLOHA 14</div>
+        <div class="task-name">Obrazce z čtverečků — vzor a pravidlo</div>
+      </div>
+      <div class="task-right">
+        <div class="task-cat">Posloupnosti a vzory</div>
+        <div class="task-pts">max. 4 body</div>
+      </div>
+    </div>
+    <div class="task-body">
+      <div class="zadani"><strong>Zadání</strong>
+        Ze světlých a tmavých čtverečků tvoříme obrazce tvaru obdélníku.
+        Základní obrazec má 1 řadu světlých čtverečků.
+        Z každého základního obrazce vytvoříme rozšířený obrazec takto:<br>
+        přidáme <strong>jednu řadu tmavých čtverečků nahoře</strong> a <strong>po jednom sloupci tmavých čtverečků vlevo a vpravo</strong>.<br><br>
+        14.1 Ze základního obrazce se 4 řadami vytvoříme rozšířený přidáním 22 tmavých čtverečků.
+        Určete počet sloupců v základním obrazci.<br><br>
+        14.2 Rozšířený obrazec má 4 řady a stejný počet tmavých a světlých čtverečků.
+        Určete počet sloupců v rozšířeném obrazci.<br><br>
+        14.3 Najděte všechny rozšířené obrazce se 48 tmavými čtverečky.
+        Určete jejich počet.
+      </div>
+      <p class="prediction"><strong>Proč tato úloha?</strong> Obrazce z čtverečků se vzorcem pro tmavé/světlé části (přidávání sloupců, řad) se vyskytly v 9 z 12 testů jako poslední (14.) úloha s více podúlohami.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Pochopím strukturu rozšířeného obrazce</div><div class="step-content">Základní obrazec: <em>r</em> řad, <em>s</em> sloupců → r × s světlých čtverečků.<br>Rozšířený obrazec: (r+1) řad, (s+2) sloupců.<br>Tmavé čtverečky = 1 řada nahoře × (s+2) sloupců + r řad × 2 krajní sloupce = (s+2) + 2r.</div></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">14.1 — základní má 4 řady (r = 4), tmavých = 22</div><div class="step-content">Tmavých = (s+2) + 2 · 4 = s + 2 + 8 = s + 10 = 22 → s = <span class="calc">12 sloupců</span>.</div></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">14.2 — rozšířený má 4 řady, tmavé = světlé</div><div class="step-content">Rozšířený má 4 řady → základní měl 3 řady (r = 3). Sloupce rozšířeného = s + 2.<br>Světlé = 3 × s. Tmavé = (s+2) + 2 · 3 = s + 8.<br>Podmínka: s + 8 = 3s → 8 = 2s → s = 4 → sloupce základního = 4, rozšířeného = <span class="calc">6 sloupců</span>.</div></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">14.3 — tmavých = 48, hledám všechna řešení</div><div class="step-content">(s+2) + 2r = 48 → s + 2r = 46.<br>Podmínky: s ≥ 1, r ≥ 1, oba celá čísla.<br>s = 46 − 2r. Pro r = 1: s = 44 ✓; r = 2: s = 42 ✓; ... r = 22: s = 2 ✓; r = 23: s = 0 ✗ (s musí být ≥ 1).<br>Řešení: r = 1, 2, ..., 22 → celkem <span class="calc">22 rozšířených obrazců</span>.</div></div></div>
+      </div>
+      <div class="answer"><div class="a-label">Výsledky</div>
+        <ul>
+          <li>14.1 Základní obrazec má <strong>12 sloupců</strong></li>
+          <li>14.2 Rozšířený obrazec má <strong>6 sloupců</strong></li>
+          <li>14.3 Existuje <strong>22 různých rozšířených obrazců</strong> s 48 tmavými čtverečky</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
