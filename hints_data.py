@@ -890,51 +890,95 @@ Doplňuj tak, aby každý řádek i sloupec dal správný součet!
 </div>""", "#eafaf1", "#1E8449"),
 
 ("🔵", "Vennův diagram — průnik skupin", f"""
+<div class="ex"><div class="lbl">🤔 Proč nestačí kroužky jen sečíst?</div>
+Představ si, že Lenka hraje <b>fotbal i plavání</b>. Kdybys ji počítal dvakrát — jednou za fotbal a jednou za plavání — dostaneš vyšší číslo, než kolik dětí ve třídě skutečně je!<br>
+Proto musíme <b>překryv (průnik)</b> odečíst — chceme každé dítě počítat <b>právě jednou</b>.
+</div>
 {SVG_VENN}
 <div class="ex"><div class="lbl">Jak spočítat celkový počet — krok za krokem</div>
 <ol>
-<li>Sečti všechny kroužky: 14+12+6 = 32 (ale průniky jsou počítány víckrát!)</li>
-<li>Odečti děti v právě 2 kroužcích jednou: 32−8 = 24</li>
-<li>Odečti děti ve všech 3 kroužcích dvakrát: 24−2×3 = 24−6 = <span class="hint-result">18 dětí</span></li>
+<li><b>Sečti všechny kroužky:</b> 14 + 12 + 6 = <b>32</b> <span style="color:#C0392B">(ale pozor — Lenka a ostatní „přetékači" jsou tu napočítáni víckrát!)</span></li>
+<li><b>Odečti děti, co jsou ve 2 kroužcích</b> (napočítal/a jsi je 2×, má být 1×, odečti 1): 32 − 8 = <b>24</b></li>
+<li><b>Odečti děti, co jsou ve 3 kroužcích</b> (napočítal/a jsi je 3×, má být 1×, odečti 2): 24 − 2×3 = 24 − 6 = <span class="hint-result">18 dětí</span></li>
 </ol>
 </div>
-<div class="ex"><div class="lbl">Kolik navštěvuje POUZE jeden kroužek</div>
+<div class="ex"><div class="lbl">Kolik navštěvuje POUZE jeden kroužek?</div>
 18 celkem − 8 (právě dva kroužky) − 3 (všechny tři) = <span class="hint-result">7 dětí</span>
+</div>
+<div class="ex" style="background:#FFF9C4"><div class="lbl">💡 Pamatuj si jako básničku</div>
+<b>1 kroužek</b> → počítej 1×, neodčítej nic.<br>
+<b>2 kroužky</b> → napočítal/a jsi 2×, odečti <b>1 navíc</b>.<br>
+<b>3 kroužky</b> → napočítal/a jsi 3×, odečti <b>2 navíc</b>.<br>
+Obecně: odečti tolik, o kolik kroužků víc než 1 dítě má.
 </div>""", "#eafaf1", "#27AE60"),
 
 ("🔺", "Součtový trojúhelník — krok za krokem", f"""
 {SVG_SOUCET_T}
 {SVG_SOUCET_PRIKLAD}
-<div class="ex"><div class="lbl">Jak řešit: obě ? jsou stejná čísla, výsledek = 44</div>
+<div class="ex"><div class="lbl">🍎 Nejdřív přemýšlej — co o čísle víme?</div>
+Dole je výsledek <b>44</b>. Číslo <b>8</b> leží nahoře na kraji — projde trojúhelníkem jen <b>jednou</b>.<br>
+Hledané číslo <b>?</b> je nahoře <b>dvakrát</b> → do dolního výsledku se promítne celkem <b>třikrát</b>.<br>
+Takže: <b>3 × hledané číslo + 8 = 44</b>
+</div>
+<div class="ex"><div class="lbl">🔴 Jak ? „teče" trojúhelníkem — 3 cesty do výsledku</div>
+<table style="text-align:center;font-size:0.95em;border-collapse:collapse;width:100%">
+<tr>
+  <td style="padding:5px 8px;color:#C0392B;font-weight:bold;white-space:nowrap">? (vlevo nahoře)</td>
+  <td style="padding:4px;color:#888">→</td>
+  <td style="padding:5px 8px;background:#D5F5E3;border-radius:4px;white-space:nowrap">2? (vlevo uprostřed)</td>
+  <td style="padding:4px;color:#888">→</td>
+  <td rowspan="3" style="padding:5px 10px;background:#FFF9C4;border-radius:6px;font-weight:bold;color:#E65100;font-size:1.1em;vertical-align:middle">44</td>
+</tr>
+<tr>
+  <td style="padding:5px 8px;color:#C0392B;font-weight:bold;white-space:nowrap">? (vpravo nahoře)</td>
+  <td style="padding:4px;color:#888">→</td>
+  <td style="padding:5px 8px;background:#D5F5E3;border-radius:4px;white-space:nowrap">2? (vlevo uprostřed)</td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding:5px 8px;color:#C0392B;font-weight:bold;white-space:nowrap">? (vpravo nahoře)</td>
+  <td style="padding:4px;color:#888">→</td>
+  <td style="padding:5px 8px;background:#D5F5E3;border-radius:4px;white-space:nowrap">?+8 (vpravo uprostřed)</td>
+  <td></td>
+</tr>
+</table>
+<div style="margin-top:8px;font-size:0.93em;color:#555">Celkem: <b style="color:#C0392B">3×?</b> + <b style="color:#1A5276">8</b> = <b style="color:#E65100">44</b> → 3×? = 36 → ? = 12</div>
+</div>
+<div class="ex"><div class="lbl">Krok za krokem — vizuální metoda (doporučeno!)</div>
 <ol>
-<li>Označím hledané číslo jako {fi('A')}</li>
-<li>Prostřední řádek: vlevo = {fi('A')}+{fi('A')} = 2{fi('A')}, vpravo = {fi('A')}+8</li>
-<li>Dole: 2{fi('A')} + ({fi('A')}+8) = 3{fi('A')}+8 = 44</li>
-<li>3{fi('A')} = 36 → {fi('A')} = <span class="hint-result">12</span></li>
-<li>Ověř: nahoře 12, 12, 8 → prostřední: 24, 20 → dole: 44 ✓</li>
+<li>Odečti číslo, které „projde" trojúhelníkem jen 1×: 44 − 8 = <b>36</b></li>
+<li>Zbývají 3 stejné části (hledané číslo se promítne 3×): 36 ÷ 3 = <span class="hint-result">12</span></li>
+<li><b>Ověř celý trojúhelník:</b> nahoře 12, 12, 8 → prostřední řádek: 12+12 = <b>24</b>, 12+8 = <b>20</b> → dole: 24+20 = <b>44</b> ✓</li>
 </ol>
 </div>
-<div class="ex"><div class="lbl">💡 Bez rovnic — vizuální alternativa</div>
-Dole = 44. Číslo 8 je na kraji → odečti: 44 − 8 = 36.<br>
-Zbývají 3 stejné části → 36 ÷ 3 = <span class="hint-result">12</span> = A ✓
+<div class="ex" style="background:#FFF9C4"><div class="lbl">⚠️ Nejčastější záměna — dole není součet HORNÍ řady!</div>
+Špatně: 12 + 12 + 8 = 32 ≠ 44.<br>
+Správně: nejdřív vyplň <b>prostřední řádek</b> (součty sousedů nahoře), pak teprve spočítej dolní číslo ze součtu prostředního řádku.
 </div>""", "#eafaf1", "#1E8449"),
 
 ("🔢", "Zlomky celku — krok za krokem", f"""
+<div class="ex"><div class="lbl">🍕 Myslím si to jako pizzu nakrájenou na stejné kousky</div>
+Celá pizza = všechny kuličky (= 100 %). Zlomek říká, <b>kolik kousků pizza má</b> a <b>kolik z nich vidíme</b>.<br>
+Znám počet kuliček v <b>části</b> → musím zjistit, kolik je <b>jeden kousek</b>, a pak vynásobit na celou pizzu.
+</div>
 <div class="ex"><div class="lbl">Příklad: třetina žlutých, 12 červených, zbytek modrý. Modrých = 18.</div>
 <ol>
-<li>Červené + modré = 12+18 = 30</li>
-<li>Žluté jsou třetina → červené+modré jsou <b>dvě třetiny</b> ze všech</li>
-<li>Dvě třetiny = 30 → jedna třetina = 15 → celkem = <span class="hint-result">45 kuliček</span></li>
+<li>Červené + modré = 12 + 18 = <b>30</b></li>
+<li>Žluté jsou <b>třetina</b> → červené a modré tvoří <b>dvě třetiny</b> ze všeho (pizza má 3 kousky, vidím 2)</li>
+<li>Dva kousky = 30 → <b>jeden kousek</b> = 30 ÷ 2 = <b>15</b></li>
+<li>Celá pizza (3 kousky) = 15 × 3 = <span class="hint-result">45 kuliček</span></li>
 </ol>
+<b>Zkratka:</b> ⅔ = 30 → celkem = 30 ÷ 2 × 3 = <span class="hint-result">45</span> ✓
 </div>
-<div class="ex"><div class="lbl">Obecný vzorec: část = X z Y dílů celku</div>
-Celkem = část ÷ X × Y<br>
-Příklad: ⅔ = 30 → celkem = 30 ÷ 2 × 3 = 45 ✓
+<div class="ex" style="background:#FDEDEC"><div class="lbl">🚨 Nejčastější chyba — pozor!</div>
+<b>Špatně:</b> „Dvě třetiny jsou 30, takže celkem = 30 ÷ 2 = 15." — To je jen <b>jeden kousek</b>, ne celá pizza!<br>
+<b>Správně:</b> 30 ÷ 2 × 3 = <b>45</b>. Vždy: vyděl počtem <i>viditelných</i> kousků, vynásob <i>celkovým</i> počtem kousků.
 </div>
-<div class="ex"><div class="lbl">Příklad: Ondra, Pavel a Šárka mají dohromady 750 Kč. Ondra má 2× tolik co Šárka. Pavel má také 2× tolik co Šárka. Kolik má Šárka?</div>
-Označím Šárku jako {fi('?')}. Ondra = 2×{fi('?')}, Pavel = 2×{fi('?')}.<br>
-{fi('?')} + 2×{fi('?')} + 2×{fi('?')} = 5×{fi('?')} = 750 Kč<br>
-{fi('?')} = 750 ÷ 5 = <span class="hint-result">150 Kč</span>. Ondra = Pavel = 300 Kč. Ověř: 150+300+300 = 750 ✓
+<div class="ex"><div class="lbl">Příklad: Ondra, Pavel a Šárka mají dohromady 750 Kč. Ondra má 2× tolik co Šárka. Pavel také 2× tolik co Šárka. Kolik má Šárka?</div>
+Myslím si Šárčin díl jako <b>1 kousek</b>. Ondra = <b>2 kousky</b>. Pavel = <b>2 kousky</b>.<br>
+Dohromady = 1 + 2 + 2 = <b>5 kousků</b> = 750 Kč.<br>
+Jeden kousek = 750 ÷ 5 = <span class="hint-result">150 Kč</span> → Šárka má <b>150 Kč</b>, Ondra a Pavel každý <b>300 Kč</b>.<br>
+Ověř: 150 + 300 + 300 = <b>750 Kč</b> ✓
 </div>""", "#eafaf1", "#27AE60"),
 
 ("💡", "Dosaď jednu podmínku do druhé", f"""
@@ -948,10 +992,13 @@ Označím Šárku jako {fi('?')}. Ondra = 2×{fi('?')}, Pavel = 2×{fi('?')}.<br
 </ol>
 </div>
 <div class="ex"><div class="lbl">Příklad: dvě čísla, součet = 150, druhé = polovina prvního</div>
+Teď máme dvě věty najednou — z jedné si vytáhneme hodnotu a dosadíme do druhé.<br>
+Myslím si první číslo jako <b>2 kousky</b> a druhé jako <b>1 kousek</b> (protože druhé je polovina prvního).<br>
 <ol>
-<li>Druhé = první÷2</li>
-<li>první + první÷2 = tři poloviny prvního čísla = 150</li>
-<li>Tři poloviny = 150 → jedna polovina = 50 → celé první číslo = <span class="hint-result">100</span>. Druhé = 50. Ověř: 100+50 = 150 ✓</li>
+<li>Dohromady: 2 kousky + 1 kousek = <b>3 kousky</b> = 150</li>
+<li>Jeden kousek = 150 ÷ 3 = <span class="hint-result">50</span></li>
+<li>První číslo = 2 kousky = 2 × 50 = <span class="hint-result">100</span>. Druhé = 1 kousek = <span class="hint-result">50</span>.</li>
+<li>Ověř: 100 + 50 = 150 ✓ a 50 je polovina 100 ✓</li>
 </ol>
 </div>""", "#eafaf1", "#1E8449"),
 
@@ -963,6 +1010,7 @@ Označím Šárku jako {fi('?')}. Ondra = 2×{fi('?')}, Pavel = 2×{fi('?')}.<br
 <tr><td>🔴 Součtový trojúhelník: dole = součet horní řady</td><td>Dole = součet PROSTŘEDNÍ řady (ne horní!)</td></tr>
 <tr><td>🔴 „Čtvrtina je 12" → celkem = 12 × 4 ✓ (toto je správně!)</td><td>Ale: „dvě třetiny jsou 30" → celkem = 30 ÷ 2 × 3 = 45 (ne 30÷2!)</td></tr>
 <tr><td>🔴 Neověřím výsledek v KAŽDÉ podmínce</td><td>Zkontroluj každou podmínku zvlášť — soudné řešení splňuje všechny</td></tr>
+<tr><td>🔴 Odpovím na jiné číslo, než se ptá otázka</td><td>Podtrhni otázku na konci zadání — zkontroluj, co přesně hledáš (chlapci? dívky? celkem?)</td></tr>
 </table>""", "#fff0f0", "#C0392B"),
 ]
 
