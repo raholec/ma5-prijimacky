@@ -26,7 +26,7 @@ a { color: #1a5276; }
 .intro strong { font-size: 13px; text-transform: uppercase; letter-spacing: .5px; display: block; margin-bottom: 6px; color: #2d6a4f; }
 
 /* CARD */
-.card { border-radius: 10px; border: 1.5px solid #e0e0e0; margin-bottom: 20px; overflow: hidden; }
+.card { border-radius: 10px; border: 1.5px solid #e0e0e0; margin-bottom: 20px; overflow: hidden; page-break-inside: avoid; }
 .card-header { display: flex; align-items: center; gap: 14px; padding: 12px 18px; background: #f8f8f6; border-bottom: 1px solid #e0e0e0; }
 .card-icon { font-size: 22px; flex-shrink: 0; }
 .card-title { font-size: 15px; font-weight: 800; color: #1a3a5c; }
@@ -70,6 +70,9 @@ a { color: #1a5276; }
   body { background: white; padding: 0; }
   .page { box-shadow: none; padding: 16px; }
   .back-link { display: none; }
+  .warn { border: 2px solid #f9a825; background: white; color: #5a3700; }
+  .example { border: 2px solid #aad4f5; background: white; color: #1a3a5c; }
+  .cover { background: #2d6a4f; }
 }
 </style>
 </head>
@@ -164,9 +167,9 @@ a { color: #1a5276; }
     <div class="card-body">
       <div class="block">
         <div class="block-label">Klíčová myšlenka</div>
-        Nemusíš znát konkrétní čísla. Zvětšení jednoho čísla k-krát a zmenšení druhého l-krát změní celý součin faktorem k ÷ l. Vezmi si jako pomůcku jakákoliv dvě čísla se správným součinem.
+        Nemusíš znát konkrétní čísla. Zvol si jako pomůcku jednoduchá čísla (třeba 1 a 180, pokud součin = 180). Proveď na nich zadané změny a spočítej nový součin. Pak zjisti, kolikrát je nový součin větší nebo menší.
       </div>
-      <div class="key">Celkový efekt = násobit všechny faktory změn dohromady. Pokud je jich víc na každé straně, pronásob každou skupinu zvlášť a pak vyděl.</div>
+      <div class="key">Příklad: součin = 180 → vezmu 1 × 180. Zvětším první číslo 2× (1 → 2) a zmenším druhé 6× (180 → 30): nový součin = 2 × 30 = 60. Každá změna se „pronásobí" do výsledku — zvětšení zvětšuje, zmenšení zmenšuje.</div>
       <div class="warn">Žáci hledají „ta správná" dvě čísla a vzdají se. Stačí vzít 1 × (součin) — výsledek vyjde vždy stejně!</div>
     </div>
   </div>
@@ -216,7 +219,7 @@ a { color: #1a5276; }
       </div>
       <div class="block">
         <div class="block-label">Peněženka (dvě situace)</div>
-        „Chtěla koupit N kusů, chybělo X; koupila M kusů, zbylo Y." → rozdíl v počtu (N−M) kusů stojí (X + Y) Kč. Cena 1 kusu = (X+Y) ÷ (N−M).
+        „Chtěla koupit <em>více</em> kusů — chyběly jí peníze. Koupila <em>méně</em> kusů — ještě jí zbylo." → Rozdíl v počtu kusů stojí právě tolik, kolik chybělo <em>plus</em> kolik zbylo. Cena 1 kusu = (chybělo + zbylo) ÷ (o kolik kusů koupila méně).
       </div>
       <div class="warn">Při záměně: závaží (2A ↔ 3B) smíš vyměnit, protože jsou stejně těžká — ne proto, že si to přeješ. Vždy zkontroluj, že podmínka to říká.</div>
     </div>
@@ -235,16 +238,53 @@ a { color: #1a5276; }
     <div class="card-body">
       <div class="block">
         <div class="block-label">Klíčová myšlenka</div>
-        Když sečteš záznamy ze všech skupin, osoby ve více skupinách jsou počítány vícekrát. Výsledný součet zápisů = 1 × (jen v 1 skupině) + 2 × (právě ve 2) + 3 × (ve všech 3).
+        Každý, kdo je ve více skupinách, byl zapsán vícekrát. Součet zápisů ze všech skupin proto bývá větší než skutečný počet osob.
       </div>
+
+      <!-- SVG: Vennův diagram s čísly -->
+      <svg viewBox="0 0 360 230" style="width:100%;max-width:360px;display:block;margin:4px auto" aria-label="Vennův diagram: 20 žáků, 3 kroužky">
+        <defs>
+          <clipPath id="cs"><circle cx="120" cy="105" r="75"/></clipPath>
+          <clipPath id="cv"><circle cx="240" cy="105" r="75"/></clipPath>
+          <clipPath id="ch"><circle cx="180" cy="175" r="75"/></clipPath>
+        </defs>
+        <!-- kruhy -->
+        <circle cx="120" cy="105" r="75" fill="#d0eaff" fill-opacity=".55" stroke="#5a9fd4" stroke-width="2"/>
+        <circle cx="240" cy="105" r="75" fill="#ffe0cc" fill-opacity=".55" stroke="#e07040" stroke-width="2"/>
+        <circle cx="180" cy="175" r="75" fill="#d6f5d6" fill-opacity=".55" stroke="#4caf50" stroke-width="2"/>
+        <!-- štítky kroužků -->
+        <text x="62" y="38" font-size="12" font-weight="700" fill="#1a5276" text-anchor="middle">Sport</text>
+        <text x="62" y="51" font-size="11" fill="#1a5276" text-anchor="middle">(12 zápisů)</text>
+        <text x="298" y="38" font-size="12" font-weight="700" fill="#943126" text-anchor="middle">Výtvarný</text>
+        <text x="298" y="51" font-size="11" fill="#943126" text-anchor="middle">(10 zápisů)</text>
+        <text x="180" y="220" font-size="12" font-weight="700" fill="#1e5631" text-anchor="middle">Hudební (8 zápisů)</text>
+        <!-- čísla v oblastech -->
+        <!-- jen sport -->
+        <text x="72" y="100" font-size="15" font-weight="800" fill="#1a5276" text-anchor="middle">5</text>
+        <!-- jen výtvarný -->
+        <text x="288" y="100" font-size="15" font-weight="800" fill="#943126" text-anchor="middle">4</text>
+        <!-- jen hudební -->
+        <text x="180" y="200" font-size="15" font-weight="800" fill="#1e5631" text-anchor="middle">3</text>
+        <!-- sport ∩ výtvarný (nahoře uprostřed) -->
+        <text x="180" y="76" font-size="14" font-weight="800" fill="#555" text-anchor="middle">3</text>
+        <!-- sport ∩ hudební (vlevo dole) -->
+        <text x="118" y="167" font-size="14" font-weight="800" fill="#555" text-anchor="middle">2</text>
+        <!-- výtvarný ∩ hudební (vpravo dole) -->
+        <text x="242" y="167" font-size="14" font-weight="800" fill="#555" text-anchor="middle">1</text>
+        <!-- všichni 3 (střed) -->
+        <text x="180" y="140" font-size="15" font-weight="800" fill="#333" text-anchor="middle">2</text>
+        <!-- celkem -->
+        <text x="180" y="13" font-size="12" fill="#444" text-anchor="middle">Celkem: 5+4+3+3+2+1+2 = <tspan font-weight="800">20 žáků</tspan></text>
+      </svg>
+
       <div class="steps-mini">
-        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Sečti záznamy ze všech skupin (může to být víc než počet osob).</div></div>
-        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Odečti příspěvek těch ve 3 skupinách (každý přispěl 3× → přičti jen 3× jejich počet).</div></div>
-        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Odečti příspěvek těch ve 2 skupinách (každý přispěl 2×).</div></div>
-        <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Co zbyde = příspěvek jednoskupinových = jejich počet.</div></div>
-        <div class="step-mini"><div class="step-mini-n">5</div><div class="step-mini-text">Celkem = jednoskupinoví + dvouSkupinoví + tříSkupinoví.</div></div>
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Sečti záznamy ze všech skupin: 12 + 10 + 8 = <strong>30</strong> (víc než 20, protože někteří jsou ve více kroužcích).</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Ti, kdo jsou ve <strong>všech 3</strong> kroužcích, byli zapsáni 3×. Vyber je jako první: v příkladu jsou <strong>2</strong>.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Ti <strong>právě ve 2</strong> kroužcích byly zapsáni 2×: sport+výtvarný=3, sport+hudební=2, výtvarný+hudební=1 → celkem <strong>6</strong>.</div></div>
+        <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Zbylí jsou <strong>jen v 1</strong> kroužku: celkem − ve 2 kroužcích − ve 3 kroužcích = 20 − 6 − 2 = <strong>12</strong>.</div></div>
+        <div class="step-mini"><div class="step-mini-n">5</div><div class="step-mini-text">Celkem = 12 + 6 + 2 = <strong>20 ✓</strong></div></div>
       </div>
-      <div class="warn">Součet zápisů ≠ celkový počet osob. Správný počet je vždy menší nebo roven součtu zápisů.</div>
+      <div class="warn">„Právě ve 2 skupinách" ≠ „alespoň ve 2 skupinách". Ti ve všech 3 patří do „alespoň 2", ale NE do „právě 2". Přečti zadání pomalu — slovo „právě" změní výsledek! Součet zápisů ≠ celkový počet osob.</div>
     </div>
   </div>
 
@@ -266,11 +306,11 @@ a { color: #1a5276; }
       <div class="steps-mini">
         <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Najdi nejmenší počet dílků, aby vše vyšlo celé. (Polovina + třetina z poloviny = 3 dílky + 1 dílek → celkem 6 dílků.)</div></div>
         <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Přiřaď každé části počet dílků.</div></div>
-        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Z KNOWN hodnoty urči cenu 1 dílku.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Ze ZNÁMÉ hodnoty urči cenu 1 dílku.</div></div>
         <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Dopočítej ostatní: počet dílků × cena 1 dílku.</div></div>
       </div>
       <div class="example">Víme, že 2 dílky = 300 Kč → 1 dílek = 150 Kč → celek (6 dílků) = 900 Kč.</div>
-      <div class="warn">„Třetina z toho, co dostal první" ≠ „třetina z celku". Vždy si ujasni, třetina z ČEHO.</div>
+      <div class="warn">„Třetina z toho, co dostal první" ≠ „třetina z celku". Vždy si ujasni, třetina z ČEHO. Totéž platí pro Ú9 — třetina je z části, ne z celkové částky.</div>
     </div>
   </div>
 
@@ -319,7 +359,7 @@ a { color: #1a5276; }
         <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Rovnostranný trojúhelník nebo obdélník „sedí na" čtvercích → jeho rozměry jsou násobky strany čtverce.</div></div>
         <div class="step-mini"><div class="step-mini-n">4</div><div class="step-mini-text">Teprve pak počítej obvody. Ověřuj, zda výsledek odpovídá tvrzení (A/N).</div></div>
       </div>
-      <div class="key">Odhad bez odmocnin: třetí strana trojúhelníku (přepona) je kratší než součet obou dalších stran. Stačí na odhadnutí „méně / více než X".</div>
+      <div class="key">Odhad bez odmocnin: každá strana trojúhelníku je kratší než součet zbývajících dvou stran. Příklad: strany 4 a 20 → třetí strana musí být kratší než 4+20=24. Tvrzení „je kratší než 48 cm" → ověřuji, zda 4+20=24 &lt; 48 — ano, vyhovuje.</div>
       <div class="warn">Rovnostranný trojúhelník nemusí mít stranu rovnou nejkratší straně polygonu — může sedět na více čtvercích!</div>
     </div>
   </div>
@@ -418,14 +458,49 @@ a { color: #1a5276; }
         Rozšíření přidá: horní řadu + levý sloupec + pravý sloupec. Horní řada je o 2 širší než základní obrazec (přibydou rohové čtverečky). Čtverečky doleva a doprava mají výšku pouze základního obrazce (ne rozšířeného).
       </div>
       <div class="key">Tmavé = (šířka základu + 2) + výška základu + výška základu = šířka + 2 × výška + 2</div>
+      <!-- SVG: mřížka 5×3 — základ 3×2, rozšíření tmavě -->
+      <svg viewBox="0 0 230 130" style="width:100%;max-width:280px;display:block;margin:6px auto" aria-label="Mřížka: základ 3×2, tmavé rozšíření kolem">
+        <defs><style>.gs{fill:#c8e6c9;stroke:#4caf50;stroke-width:1}.gd{fill:#37474f;stroke:#263238;stroke-width:1}.gl{fill:none;stroke:#bbb;stroke-width:.5}</style></defs>
+        <!-- tmavé: horní řada (5 čtverců) -->
+        <rect x="10" y="10" width="30" height="30" class="gd"/>
+        <rect x="40" y="10" width="30" height="30" class="gd"/>
+        <rect x="70" y="10" width="30" height="30" class="gd"/>
+        <rect x="100" y="10" width="30" height="30" class="gd"/>
+        <rect x="130" y="10" width="30" height="30" class="gd"/>
+        <!-- tmavé: levý sloupec (2 čtverců) -->
+        <rect x="10" y="40" width="30" height="30" class="gd"/>
+        <rect x="10" y="70" width="30" height="30" class="gd"/>
+        <!-- světlé: základ 3×2 -->
+        <rect x="40" y="40" width="30" height="30" class="gs"/>
+        <rect x="70" y="40" width="30" height="30" class="gs"/>
+        <rect x="100" y="40" width="30" height="30" class="gs"/>
+        <rect x="40" y="70" width="30" height="30" class="gs"/>
+        <rect x="70" y="70" width="30" height="30" class="gs"/>
+        <rect x="100" y="70" width="30" height="30" class="gs"/>
+        <!-- tmavé: pravý sloupec (2 čtverců) -->
+        <rect x="130" y="40" width="30" height="30" class="gd"/>
+        <rect x="130" y="70" width="30" height="30" class="gd"/>
+        <!-- popisky -->
+        <text x="25" y="122" font-size="10" fill="#37474f" text-anchor="middle" font-weight="700">lev.</text>
+        <text x="85" y="122" font-size="10" fill="#37474f" text-anchor="middle" font-weight="700">základ 3×2</text>
+        <text x="145" y="122" font-size="10" fill="#37474f" text-anchor="middle" font-weight="700">prav.</text>
+        <!-- šipky a vzorec -->
+        <text x="175" y="30" font-size="11" fill="#333">horní řada</text>
+        <text x="175" y="43" font-size="11" fill="#333">= šířka+2 = 5</text>
+        <text x="175" y="62" font-size="11" fill="#333">boky = výška</text>
+        <text x="175" y="75" font-size="11" fill="#333">= 2 každý</text>
+        <text x="175" y="95" font-size="12" fill="#2d6a4f" font-weight="800">5+2+2 = 9 ✓</text>
+        <text x="175" y="109" font-size="10" fill="#555">3+2×2+2 = 9</text>
+      </svg>
+
       <div class="block">
         <div class="block-label">Počítání všech řešení (14.3)</div>
-        Máš vzorec a zadaný počet tmavých → vyjádři jednu proměnnou pomocí druhé. Pak zjisti, pro která celá čísla platí podmínka (oba rozměry ≥ 1). Systematicky vyjmenuj nebo vypočítej počet platných hodnot.
+        Vzorec ti říká, kolik tmavých je pro danou šířku a výšku. Máš zadaný počet tmavých → zkoušej výšku 1, 2, 3, … a počítej, jaká by musela být šířka. Dokud šířka vychází aspoň 1, je to platné řešení.
       </div>
       <div class="steps-mini">
-        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Z podmínky (tmavé = N) vyjádři: šířka = N − 2 × výška − 2.</div></div>
-        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Podmínka: šířka ≥ 1 → zjisti největší přípustnou výšku.</div></div>
-        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Výška může být 1, 2, 3, ..., MAX → celkový počet = MAX.</div></div>
+        <div class="step-mini"><div class="step-mini-n">1</div><div class="step-mini-text">Zkus výšku = 1 → spočítej: šířka = (zadaný počet tmavých) − 2×1 − 2. Je šířka ≥ 1? Pak je to platné řešení.</div></div>
+        <div class="step-mini"><div class="step-mini-n">2</div><div class="step-mini-text">Zkus výšku = 2, 3, 4, … — opakuj, dokud šířka nevychází 0 nebo záporná.</div></div>
+        <div class="step-mini"><div class="step-mini-n">3</div><div class="step-mini-text">Počet platných výšek = počet řešení.</div></div>
       </div>
       <div class="warn">Největší výška může vyjít jako desetinné číslo — vždy zaokrouhli DOLŮ (hledáš celé řady).</div>
     </div>

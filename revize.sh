@@ -36,9 +36,31 @@ declare -A RESENI_NAMES=(
   [23r1]="MA5-C · 1. řádný termín 2023"
 )
 
-# ── rozpoznání typu (PL vs řešení) ────────────────────────────────────────
+declare -A PRUVODCE_NAMES=(
+  [23r1]="MA5-C · 1. řádný termín 2023"
+)
+
+# ── rozpoznání typu (PL vs řešení vs průvodce) ────────────────────────────
+# Formát: PL01, 25n1, pruvodce-23r1
 MODE=""
-if [[ -n "${PL_NAMES[$ID]+x}" ]]; then
+RAW_ID="$ID"
+
+if [[ "$ID" == pruvodce-* ]]; then
+  MODE="pruvodce"
+  PRUVODCE_KEY="${ID#pruvodce-}"
+  if [[ -z "${PRUVODCE_NAMES[$PRUVODCE_KEY]+x}" ]]; then
+    echo "Chyba: Neznámý průvodce '$PRUVODCE_KEY'." >&2
+    echo "Platné hodnoty: ${!PRUVODCE_NAMES[*]}" >&2
+    exit 1
+  fi
+  PRUVODCE_ID="$PRUVODCE_KEY"
+  PRUVODCE_NAME="${PRUVODCE_NAMES[$PRUVODCE_KEY]}"
+  PRUVODCE_FILE="$SCRIPT_DIR/docs/pruvodce/${PRUVODCE_ID}.html"
+  if [[ ! -f "$PRUVODCE_FILE" ]]; then
+    echo "Chyba: Soubor '$PRUVODCE_FILE' neexistuje." >&2
+    exit 1
+  fi
+elif [[ -n "${PL_NAMES[$ID]+x}" ]]; then
   MODE="pl"
   PL_ID="$ID"
   PL_NAME="${PL_NAMES[$ID]}"
@@ -53,7 +75,7 @@ elif [[ -n "${RESENI_NAMES[$ID]+x}" ]]; then
   fi
 else
   echo "Chyba: Neznámé ID '$ID'." >&2
-  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2, 23r1" >&2
+  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2, 23r1, pruvodce-23r1" >&2
   exit 1
 fi
 
@@ -253,7 +275,7 @@ PROMPT
   echo ""
   cat "$GRAFIK_FILE"
 
-else
+elif [[ "$MODE" == "reseni" ]]; then
   # ═══════════════════════════════════════════════════════════════════════
   # REŽIM: VZOROVÉ ŘEŠENÍ (25n1, 25r1, ...)
   # ═══════════════════════════════════════════════════════════════════════
@@ -430,16 +452,188 @@ PROMPT
 fi
 
 # =============================================================================
+# REŽIM: PRŮVODCE TYPY ÚLOH
+# =============================================================================
+if [[ "$MODE" == "pruvodce" ]]; then
+  banner "PIPELINE: pruvodce-${PRUVODCE_ID} — ${PRUVODCE_NAME} (průvodce typy úloh)"
+
+  # AGENT 1: UČITEL — kontroluje správnost principů a pedagogický jazyk
+  banner "AGENT 1 — UČITEL MATEMATIKY (správnost principů)"
+  step "Spouštím učitelského agenta..."
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený učitel matematiky na 1. stupni základní školy s 15 lety praxe. Specializuješ se na přípravu žáků 5. třídy na přijímací zkoušky MA5. Nikdy nepoužíváš rovnice ani algebru — vše vysvětluješ logicky. Dbáš na to, aby žák pochopil PROČ." \
+    --allowedTools "Read,Edit,Glob" \
+    --permission-mode acceptEdits \
+    "Přečti soubor docs/pruvodce/${PRUVODCE_ID}.html — průvodce typy úloh pro test ${PRUVODCE_NAME}.
+
+Dokument obsahuje karty pro každý typ úlohy v testu. Každá karta popisuje:
+- Typ / název problému
+- Princip řešení (kroky)
+- Ilustrativní příklad (abstraktní)
+- Varování před nejčastější chybou
+
+Jako zkušený učitel:
+1. Zkontroluj, zda jsou PRINCIPY matematicky správné a pedagogicky vhodné pro 5. třídu
+2. Zkontroluj, zda každá karta mapuje na správnou úlohu v testu
+3. Uprav nebo doplň maximálně 3–4 karty, kde:
+   - Princip je příliš abstraktní nebo používá nevhodný jazyk
+   - Chybí důležitý krok v postupu
+   - Varování nezachycuje nejčastější chybu žáků
+4. NEMĚŇ HTML strukturu, třídy ani CSS
+5. Výsledky konkrétního testu NEUVÁDĚT — průvodce je bez výsledků
+
+Na konci napiš shrnutí (max 200 slov): co jsi upravil/a a proč." \
+    > "$TEACHER_FILE" 2>&1
+
+  ok "Učitel dokončil kontrolu."
+  echo ""
+  cat "$TEACHER_FILE"
+
+  # AGENT 2: ŽÁK — testuje, zda průvodce opravdu pomáhá před testem
+  banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje použitelnost průvodce)"
+  step "Spouštím žákovského agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  PROMPT2=$(mktemp)
+  cat > "$PROMPT2" <<PROMPT
+Přečti soubor docs/pruvodce/${PRUVODCE_ID}.html — průvodce typy úloh pro test ${PRUVODCE_NAME}.
+
+Učitel průvodce upravil. Tady je jeho shrnutí:
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Přečti si průvodce celý a odpověz jako žák 5. třídy, který si ho čte PŘED začátkem kontrolního testu:
+
+1. **Které karty ti dávaly smysl** — u kterých typů úloh víš po přečtení, jak postupovat?
+2. **Kde ses zasekl/a** — které karty jsou matoucí, příliš složité nebo neúplné?
+3. **Chybí ti nějaký typ úlohy?** — přijde ti, že průvodce pokrývá vše, nebo na něco zapomněl?
+4. **Nejlepší karta** — která je nejjasnější a proč?
+5. **Co bys změnil/a** — jak by se ti průvodce lépe četl?
+6. **Hodnocení** — jak moc ti průvodce pomůže před testem? (1 = výborně, 5 = vůbec)
+
+Piš neformálně, upřímně.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi žák nebo žákyně 5. třídy, 11 let. Připravuješ se na přijímací zkoušky MA5. Čteš průvodce PŘED testem — chceš si rychle připomenout, jak na každý typ úlohy. Nemáš rád/a nudné texty. Odpovídáš upřímně." \
+    --allowedTools "Read" \
+    < "$PROMPT2" > "$STUDENT_FILE" 2>&1
+  rm -f "$PROMPT2"
+
+  ok "Žák dokončil hodnocení."
+  echo ""
+  cat "$STUDENT_FILE"
+
+  # AGENT 3: CERMAT — odborná kontrola správnosti a úplnosti
+  banner "AGENT 3 — PRACOVNÍK CERMAT (správnost a úplnost)"
+  step "Spouštím CERMAT agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  STUDENT_FEEDBACK=$(cat "$STUDENT_FILE")
+  PROMPT3=$(mktemp)
+  cat > "$PROMPT3" <<PROMPT
+Posud průvodce typy úloh pro přijímací test MA5: ${PRUVODCE_NAME}.
+
+Soubor: docs/pruvodce/${PRUVODCE_ID}.html
+
+Shrnutí učitele:
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Zpětná vazba žáka:
+--- ZPĚTNÁ VAZBA ŽÁKA ---
+${STUDENT_FEEDBACK}
+--- KONEC ZPĚTNÉ VAZBY ---
+
+Přečti soubor docs/pruvodce/${PRUVODCE_ID}.html.
+
+Z pozice pracovníka CERMAT posud:
+
+1. **Správnost principů** — jsou popsané postupy matematicky správné? Odpovídají typům úloh v testu MA5?
+2. **Úplnost pokrytí** — pokrývá průvodce všechny typy úloh, které se v daném testu vyskytují? Co chybí?
+3. **Pedagogická vhodnost** — jsou principy vysvětleny bez rovnic a algebry, přístupně pro 5. třídu?
+4. **Přesnost varování** — zachycují varování skutečně nejčastější chyby žáků v MA5 testech?
+5. **Konkrétní doporučení** — co přesně upravit?
+
+Max 400 slov.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený odborný pracovník CERMAT s 10 lety zkušeností s MA5 testy. Hodnotíš didaktické přípravné materiály odborně a konkrétně." \
+    --allowedTools "Read" \
+    < "$PROMPT3" 2>&1 | tee -a "$REPORT_FILE.cermat_tmp"
+  rm -f "$PROMPT3"
+
+  CERMAT_REPORT=$(cat "$REPORT_FILE.cermat_tmp" 2>/dev/null || echo "")
+
+  # AGENT 4: GRAFIK — navrhuje vizuální vylepšení průvodce
+  banner "AGENT 4 — GRAFIK CERMAT (vizuální vylepšení průvodce)"
+  step "Spouštím grafického agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  STUDENT_FEEDBACK=$(cat "$STUDENT_FILE")
+  PROMPT4=$(mktemp)
+  cat > "$PROMPT4" <<PROMPT
+Posud vizuální stránku průvodce typy úloh pro test MA5: ${PRUVODCE_NAME}.
+
+Soubor: docs/pruvodce/${PRUVODCE_ID}.html
+
+Přečti si soubor docs/pruvodce/${PRUVODCE_ID}.html.
+
+Shrnutí učitele:
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Zpětná vazba žáka:
+--- ZPĚTNÁ VAZBA ŽÁKA ---
+${STUDENT_FEEDBACK}
+--- KONEC ZPĚTNÉ VAZBY ---
+
+Z pozice grafika navrhni:
+
+1. **Kde by vizuál pomohl pochopit princip** — u kterých karet by malý SVG nákres / diagram / schéma okamžitě vysvětlil princip lépe než text? Pro každý návrh uveď:
+   - Číslo karty / typ úlohy
+   - Co přesně nakreslit (ne jen „přidej obrázek")
+   - Proč to pomůže žákovi
+
+2. **Čitelnost a přehlednost karet** — jsou karty vizuálně přehledné? Co zlepšit v barvách, struktuře, délce textu?
+
+3. **Tiskový formát** — průvodce je čten před testem, možná i vytisknutý. Je vhodný pro tisk? Co zlepšit?
+
+4. **Prioritní návrhy** — seřaď návrhy od nejdůležitějšího po méně důležité.
+
+Max 400 slov.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený grafik CERMAT tvořící přehledné didaktické materiály pro žáky 5. třídy. Víš, že správný jednoduchý obrázek vysvětlí víc než odstavec textu." \
+    --allowedTools "Read,Glob" \
+    < "$PROMPT4" > "$GRAFIK_FILE" 2>&1
+  rm -f "$PROMPT4"
+
+  ok "Grafik dokončil návrhy."
+  echo ""
+  cat "$GRAFIK_FILE"
+fi
+
+# =============================================================================
 # VÝSTUPNÍ REPORT
 # =============================================================================
 banner "VÝSTUPNÍ REPORT"
 
 if [[ "$MODE" == "pl" ]]; then
   REPORT_TITLE="${PL_ID} — ${PL_NAME}"
+elif [[ "$MODE" == "pruvodce" ]]; then
+  REPORT_TITLE="pruvodce-${PRUVODCE_ID} — ${PRUVODCE_NAME} (průvodce typy úloh)"
 else
   REPORT_TITLE="${RESENI_ID} — ${RESENI_NAME} (vzorové řešení)"
 fi
 
+CERMAT_REPORT=$(cat "$REPORT_FILE.cermat_tmp" 2>/dev/null || echo "")
 GRAFIK_REPORT=$(cat "$GRAFIK_FILE" 2>/dev/null || echo "")
 
 cat > "$REPORT_FILE" << HEREDOC
