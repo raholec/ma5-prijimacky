@@ -1,5 +1,4 @@
 {
-  "forceLoginMethod": "claudeai",
   "env": {
     "CLAUDE_CODE_USE_VERTEX": "",
     "ANTHROPIC_VERTEX_PROJECT_ID": "",
@@ -7,7 +6,8 @@
   },
   "permissions": {
     "allow": [
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(grep:*)"
     ]
   },
   "hooks": {
@@ -17,12 +17,13 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Bash(git push*)",
             "command": "python3 -c \"\nimport sys, json, re, subprocess\nfrom datetime import datetime\ndata = json.load(sys.stdin)\ncmd = data.get('tool_input', {}).get('command', '')\nif not re.search(r'\\\\bgit\\\\s+push\\\\b', cmd): sys.exit(0)\nnow = datetime.now()\nverze = f'Verze {now.day}. {now.month}. {now.year} {now.strftime(\\\"%H:%M\\\")}'\nf = 'docs/index.html'\ntext = open(f).read()\nnew_text = re.sub(r'Verze \\\\d+\\\\. \\\\d+\\\\. \\\\d{4}( \\\\d{2}:\\\\d{2})?', verze, text)\nopen(f, 'w').write(new_text)\nsubprocess.run(['git', 'add', f])\nprint(f'Footer updated: {verze}')\n\" 2>/dev/null || true",
+            "if": "Bash(git push*)",
             "statusMessage": "Aktualizuji verzi v patičce..."
           }
         ]
       }
     ]
-  }
+  },
+  "forceLoginMethod": "claudeai"
 }
