@@ -103,6 +103,8 @@ REPORT_FILE="$REPORTS_DIR/${ID}_${TIMESTAMP}.md"
 TEACHER_FILE="$REPORTS_DIR/.teacher_tmp.txt"
 STUDENT_FILE="$REPORTS_DIR/.student_tmp.txt"
 GRAFIK_FILE="$REPORTS_DIR/.grafik_tmp.txt"
+DIALOG_FILE="$REPORTS_DIR/.dialog_tmp.txt"
+DIALOG_ROUNDS="${DIALOG_ROUNDS:-2}"
 
 mkdir -p "$REPORTS_DIR"
 
@@ -121,6 +123,91 @@ step() {
 
 ok() {
   echo "  ✓ $1"
+}
+
+# ── dialóg učitel ↔ žák ───────────────────────────────────────────────────
+# Použití: run_dialog "<instrukce co číst>" "<název kontextu>" "<system prompt učitele>"
+# Čte TEACHER_FILE (shrnutí Agent 1), zapisuje transcript do DIALOG_FILE.
+# Žák: ✅ ROZUMÍM / ❌ NEROZUMÍM pro každý krok.
+# Učitel: opravuje POUZE části označené ❌ a přidává je do souboru přes Edit.
+# Pokud žák neoznačí žádné ❌, smyčka se ukončí předčasně.
+run_dialog() {
+  local file_read="$1" ctx_name="$2" teacher_sys="$3"
+  local round teacher_summary student_reply prompt_tmp
+  : > "$DIALOG_FILE"
+  teacher_summary=$(cat "$TEACHER_FILE")
+
+  for round in $(seq 1 "$DIALOG_ROUNDS"); do
+    banner "DIALOG — KOLO $round / $DIALOG_ROUNDS  (učitel ↔ žák)"
+
+    # ─── Žák reaguje ──────────────────────────────────────────────────────
+    step "Žák čte vysvětlení a reaguje (kolo $round)..."
+    prompt_tmp=$(mktemp)
+    printf '%s\n\n' "$file_read" > "$prompt_tmp"
+    printf 'Kontext: %s\n\n' "$ctx_name" >> "$prompt_tmp"
+    printf 'Učitel právě upravil vysvětlení. Co změnil:\n--- CO UČITEL ZMĚNIL ---\n%s\n--- KONEC ---\n\n' \
+      "$teacher_summary" >> "$prompt_tmp"
+    cat >> "$prompt_tmp" << 'ŽÁKINST'
+Projdi každou upravenou část POSTUPNĚ — krok po kroku, vysvětlení po vysvětlení.
+Pro každý krok nebo princip napiš přesně jednu z těchto dvou reakcí:
+
+  ✅ ROZUMÍM — [napiš co ti bylo jasné a proč to dává smysl]
+  ❌ NEROZUMÍM — [cituj přesnou větu nebo krok, který nechápeš, a řekni PROČ ti to nedává smysl]
+
+Pravidla:
+- Buď velmi konkrétní. Nestačí napsat "nechápu to" — musíš říct přesně která věta nebo číslo.
+- Nikdy netvrdíš že rozumíš, když to není pravda — učitel musí vědět co opravit.
+- Piš jako žák 5. třídy, neformálně.
+ŽÁKINST
+    student_reply=$("$CLAUDE_BIN" -p \
+      --system-prompt "Jsi žák nebo žákyně 5. třídy, 11 let. Připravuješ se na přijímací zkoušky MA5. Matematiku celkem zvládáš, ale potřebuješ jasné, konkrétní vysvětlení každého kroku. Odpovídáš upřímně a přesně — říkáš konkrétně co chápeš a co ne. Nikdy netvrdíš že rozumíš, když to není pravda." \
+      --allowedTools "Read" \
+      < "$prompt_tmp" 2>&1)
+    rm -f "$prompt_tmp"
+
+    ok "Žák odpověděl (kolo $round)."
+    echo ""
+    echo "$student_reply"
+    printf '\n### Dialog kolo %s — Žák\n\n%s\n' "$round" "$student_reply" >> "$DIALOG_FILE"
+
+    # ─── Konec pokud vše jasné ────────────────────────────────────────────
+    if ! echo "$student_reply" | grep -qi 'NEROZUMÍM'; then
+      ok "Žák neoznačil žádné ❌ — dialog ukončen předčasně po kole $round."
+      return
+    fi
+
+    # ─── Učitel opravuje (ne v posledním kole) ───────────────────────────
+    if [[ $round -lt $DIALOG_ROUNDS ]]; then
+      step "Učitel opravuje nepochopené části (kolo $round)..."
+      prompt_tmp=$(mktemp)
+      printf '%s\n\n' "$file_read" > "$prompt_tmp"
+      printf 'Žák 5. třídy reagoval takto:\n--- ZPĚTNÁ VAZBA ŽÁKA ---\n%s\n--- KONEC ---\n\n' \
+        "$student_reply" >> "$prompt_tmp"
+      cat >> "$prompt_tmp" << 'UČITELINST'
+Zaměř se VÝHRADNĚ na části, kde žák napsal "❌ NEROZUMÍM".
+Pro každou takovou část uprav text přímo v souboru (nástrojem Edit):
+  - Rozlom krok na menší části nebo přidej mezikrok
+  - Použij jednodušší slova nebo přirovnání z každodenního života (jablka, peníze, vzdálenost...)
+  - Přidej konkrétní číselný příklad pokud chybí
+  - Nahraď abstraktní popis konkrétním postupem
+
+NEUPRAVUJ části označené "✅ ROZUMÍM" — ty jsou v pořádku, neměň je.
+
+Napiš stručné shrnutí: které části jsi upravil/a a jak to řeší žákovy konkrétní problémy.
+UČITELINST
+      teacher_summary=$("$CLAUDE_BIN" -p \
+        --system-prompt "$teacher_sys" \
+        --allowedTools "Read,Edit" \
+        --permission-mode acceptEdits \
+        < "$prompt_tmp" 2>&1)
+      rm -f "$prompt_tmp"
+
+      ok "Učitel upravil (kolo $round)."
+      echo ""
+      echo "$teacher_summary"
+      printf '\n### Dialog kolo %s — Učitel\n\n%s\n' "$round" "$teacher_summary" >> "$DIALOG_FILE"
+    fi
+  done
 }
 
 # ── hlavní pipeline ────────────────────────────────────────────────────────
@@ -164,6 +251,13 @@ Na konci napiš stručné shrnutí (max 300 slov):
   ok "Učitel dokončil úpravy."
   echo ""
   cat "$TEACHER_FILE"
+
+  # DIALOG: UČITEL ↔ ŽÁK — iterativní zpřesňování vysvětlení
+  banner "DIALOG — UČITEL ↔ ŽÁK (${DIALOG_ROUNDS} kola)"
+  run_dialog \
+    "Přečti si sekci HINTS_${PL_ID} v souboru hints_data.py (téma: ${PL_NAME})." \
+    "${PL_ID} — ${PL_NAME}" \
+    "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Dostáváš konkrétní zpětnou vazbu od žáka a upravuješ POUZE místa, která jsou nejasná — cíleně a konkrétně."
 
   # AGENT 2: ŽÁK 5. TŘÍDY — testuje srozumitelnost hintů
   banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje srozumitelnost)"
@@ -339,6 +433,13 @@ Na konci napiš stručné shrnutí (max 300 slov):
   echo ""
   cat "$TEACHER_FILE"
 
+  # DIALOG: UČITEL ↔ ŽÁK — iterativní zpřesňování kroků řešení
+  banner "DIALOG — UČITEL ↔ ŽÁK (${DIALOG_ROUNDS} kola)"
+  run_dialog \
+    "Přečti si soubor docs/reseni/${RESENI_ID}.html — vzorové řešení testu ${RESENI_NAME}." \
+    "${RESENI_ID} — ${RESENI_NAME}" \
+    "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Dostáváš konkrétní zpětnou vazbu od žáka a upravuješ POUZE kroky řešení, která jsou nejasná — cíleně a konkrétně."
+
   # AGENT 2: ŽÁK 5. TŘÍDY — testuje srozumitelnost kroků řešení
   banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje srozumitelnost)"
   step "Spouštím žákovského agenta..."
@@ -509,6 +610,13 @@ Na konci napiš shrnutí (max 200 slov): co jsi upravil/a a proč." \
   echo ""
   cat "$TEACHER_FILE"
 
+  # DIALOG: UČITEL ↔ ŽÁK — iterativní zpřesňování průvodce
+  banner "DIALOG — UČITEL ↔ ŽÁK (${DIALOG_ROUNDS} kola)"
+  run_dialog \
+    "Přečti si soubor docs/pruvodce/${PRUVODCE_ID}.html — průvodce typy úloh pro test ${PRUVODCE_NAME}." \
+    "pruvodce-${PRUVODCE_ID} — ${PRUVODCE_NAME}" \
+    "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Dostáváš konkrétní zpětnou vazbu od žáka a upravuješ POUZE principy a kroky, která jsou nejasná — cíleně a konkrétně."
+
   # AGENT 2: ŽÁK — testuje, zda průvodce opravdu pomáhá před testem
   banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje použitelnost průvodce)"
   step "Spouštím žákovského agenta..."
@@ -674,6 +782,13 @@ Na konci napiš shrnutí (max 200 slov): co jsi upravil/a a proč." \
   echo ""
   cat "$TEACHER_FILE"
 
+  # DIALOG: UČITEL ↔ ŽÁK — iterativní zpřesňování nápověd
+  banner "DIALOG — UČITEL ↔ ŽÁK (${DIALOG_ROUNDS} kola)"
+  run_dialog \
+    "Přečti si soubor docs/pruvodce_po/${PRUVODCE_PO_ID}.html — průvodce po testu pro ${PRUVODCE_PO_NAME}." \
+    "pruvodce_po-${PRUVODCE_PO_ID} — ${PRUVODCE_PO_NAME}" \
+    "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Dostáváš konkrétní zpětnou vazbu od žáka a upravuješ POUZE nápovědy, která jsou nejasná — cíleně a konkrétně."
+
   # AGENT 2: ŽÁK — testuje, zda nápovědy skutečně pomáhají dokončit úlohy
   banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje použitelnost nápověd)"
   step "Spouštím žákovského agenta..."
@@ -821,6 +936,8 @@ fi
 CERMAT_REPORT=$(cat "$REPORT_FILE.cermat_tmp" 2>/dev/null || echo "")
 GRAFIK_REPORT=$(cat "$GRAFIK_FILE" 2>/dev/null || echo "")
 
+DIALOG_REPORT=$(cat "$DIALOG_FILE" 2>/dev/null || echo "")
+
 cat > "$REPORT_FILE" << HEREDOC
 # Revize a korektury: ${REPORT_TITLE}
 Datum: $(date '+%d. %m. %Y %H:%M')
@@ -830,6 +947,12 @@ Datum: $(date '+%d. %m. %Y %H:%M')
 ## Agent 1 — Učitel matematiky: Co bylo upraveno
 
 $(cat "$TEACHER_FILE")
+
+---
+
+## Dialog — Učitel ↔ Žák (${DIALOG_ROUNDS} kola)
+
+${DIALOG_REPORT}
 
 ---
 
@@ -854,7 +977,7 @@ ${GRAFIK_REPORT}
 HEREDOC
 
 # úklid dočasných souborů
-rm -f "$TEACHER_FILE" "$STUDENT_FILE" "$GRAFIK_FILE" "$REPORT_FILE.cermat_tmp"
+rm -f "$TEACHER_FILE" "$STUDENT_FILE" "$GRAFIK_FILE" "$DIALOG_FILE" "$REPORT_FILE.cermat_tmp"
 
 ok "Report uložen: $REPORT_FILE"
 banner "REVIZE DOKONČENA"
