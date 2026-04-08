@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Průvodce po testu — MA5 · 1. řádný termín 2023</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; color: #222; background: #f4f4f2; padding: 16px; }
+a { color: #7d4e00; }
+
+.page { background: white; max-width: 860px; margin: 0 auto; padding: 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+
+/* COVER — amber */
+.cover { background: linear-gradient(135deg,#b35900 0%,#f5a623 100%); color: white; border-radius: 12px; padding: 26px 30px 20px; margin-bottom: 28px; }
+.cover-meta { font-size: 11px; opacity: .85; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; }
+.cover-title { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+.cover-sub { font-size: 13px; opacity: .9; line-height: 1.6; }
+.cover-steps { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.cover-step { background: rgba(255,255,255,.2); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.cover-step.active { background: rgba(255,255,255,.45); }
+
+.back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; font-size: 13px; color: #555; text-decoration: none; border: 1px solid #ddd; padding: 5px 12px; border-radius: 20px; }
+.back-link:hover { background: #f0f0f0; }
+
+/* INTRO */
+.intro { background: #fff8e8; border: 1.5px solid #f5a623; border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; line-height: 1.7; color: #5a3300; }
+.intro strong { font-size: 13px; text-transform: uppercase; letter-spacing: .5px; display: block; margin-bottom: 6px; color: #b35900; }
+
+/* TASK GROUP HEADING */
+.group-heading { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #b35900; margin: 24px 0 8px; border-bottom: 2px solid #f5a623; padding-bottom: 5px; }
+
+/* TASK CARD */
+.card { border-radius: 10px; border: 1.5px solid #e0e0e0; margin-bottom: 14px; overflow: hidden; page-break-inside: avoid; }
+.card-header { display: flex; align-items: center; gap: 14px; padding: 11px 18px; background: #fdf6ec; border-bottom: 1px solid #e8d8b0; }
+.card-num { font-size: 13px; font-weight: 800; color: #b35900; background: #ffe0a0; border-radius: 20px; padding: 3px 11px; white-space: nowrap; }
+.card-desc { font-size: 13px; color: #444; line-height: 1.5; flex: 1; }
+.card-pts { font-size: 11px; color: #999; font-weight: 600; white-space: nowrap; }
+.card-body { padding: 12px 18px; display: flex; flex-direction: column; gap: 10px; }
+
+/* ZADÁNÍ EXCERPT */
+.zadani { font-size: 13px; color: #555; background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 8px 12px; line-height: 1.6; font-style: italic; }
+
+/* NUDGE — the hint */
+.nudge { background: #fff3cd; border: 1.5px solid #f5a623; border-radius: 8px; padding: 9px 14px; font-size: 13.5px; line-height: 1.65; color: #5a3300; }
+.nudge-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; color: #b35900; margin-bottom: 5px; }
+
+/* CALCULATION SCAFFOLD */
+.scaffold { font-size: 13px; color: #333; background: #f8f8f5; border: 1px solid #ddd; border-radius: 6px; padding: 8px 12px; line-height: 1.8; font-family: 'Courier New', monospace; }
+.scaffold .blank { display: inline-block; min-width: 36px; height: 18px; border-bottom: 2px solid #b35900; margin: 0 3px; vertical-align: middle; }
+
+/* PARTIAL STEPS */
+.parts { display: flex; flex-direction: column; gap: 8px; }
+.part { border-left: 3px solid #f5a623; padding: 7px 12px; background: #fffbf0; border-radius: 0 6px 6px 0; }
+.part-label { font-size: 11px; font-weight: 800; color: #b35900; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px; }
+.part-text { font-size: 13px; color: #444; line-height: 1.6; }
+
+/* WARNING */
+.warn { background: #fde8e8; border: 1px solid #e57373; border-radius: 7px; padding: 7px 12px; font-size: 12.5px; line-height: 1.5; color: #7d0000; }
+.warn::before { content: "⚠️ "; }
+
+/* SKIP TAG */
+.skip-tag { display: inline-flex; align-items: center; gap: 4px; background: #e8f5e9; border: 1px solid #a5d6a7; color: #1b5e20; font-size: 11px; font-weight: 700; border-radius: 12px; padding: 3px 10px; }
+
+@media (max-width: 600px) { .page { padding: 14px; } }
+
+@media print {
+  body { background: white; padding: 0; }
+  .page { box-shadow: none; padding: 16px; }
+  .back-link { display: none; }
+  .nudge { border: 2px solid #f5a623; background: white; }
+  .warn { border: 2px solid #e57373; background: white; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <a href="../index.html" class="back-link">← zpět na přehled</a>
+
+  <div class="cover">
+    <div class="cover-meta">🖤 BLACKPINK × MATIKA 🩷 · Druhá šance</div>
+    <div class="cover-title">Průvodce po testu — MA5 · 1. řádný termín 2023</div>
+    <div class="cover-sub">Pro každou úlohu dostaneš konkrétní nápovědu — kam se kouknout, co spočítat. Výsledky nejsou.</div>
+    <div class="cover-steps">
+      <div class="cover-step">① Přečti průvodce</div>
+      <div class="cover-step">② Vypracuj test</div>
+      <div class="cover-step active">③ Tento dokument →</div>
+      <div class="cover-step">④ Vzorové řešení</div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <strong>🟠 Jak tento dokument použít</strong>
+    Podívej se na úlohu, se kterou sis nevěděl/a rady. Nápověda ti neprozradí výsledek — ukáže ti ale přesně, <em>co spočítat jako další krok</em>. Zkus dopočítat, teprve pak jdi na vzorové řešení.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="group-heading">Úlohy 1–6 · Otevřené — zapišeš vlastní číslo</div>
+
+
+  <!-- ── Ú1 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 1</div>
+      <div class="card-desc">Závorky a pořadí operací · 2 podúlohy</div>
+      <div class="card-pts">max. 4 b</div>
+    </div>
+    <div class="card-body">
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">1.1 &nbsp; 5 · 120 + (700 − 6 · 25) ÷ (10 − 7 + 2)</div>
+          <div class="part-text">
+            Spočítej obě závorky zvlášť:<br>
+            <strong>(700 − 6 · 25)</strong> — nejdřív 6 · 25, pak odečti od 700.<br>
+            <strong>(10 − 7 + 2)</strong> — zleva doprava.
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">1.2 &nbsp; (5 + 5 · 29) − 4 · (176 ÷ 8 − 8 · 2)</div>
+          <div class="part-text">
+            V první závorce je násobení uvnitř (5 · 29). V druhé závorce jsou dvě operace — 176 ÷ 8 a 8 · 2. Spočítej každou závorku, pak teprve odečti.
+          </div>
+        </div>
+      </div>
+      <div class="scaffold">
+        1.1: 5 · 120 + <span class="blank"></span> ÷ <span class="blank"></span> = 600 + <span class="blank"></span> = <span class="blank"></span><br>
+        1.2: <span class="blank"></span> − 4 · <span class="blank"></span> = <span class="blank"></span> − <span class="blank"></span> = <span class="blank"></span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú2 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 2</div>
+      <div class="card-desc">Zlomky &amp; efekt změn na součin</div>
+      <div class="card-pts">max. 4 b</div>
+    </div>
+    <div class="card-body">
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">2.1 · Čtvrtina z 24 litrů vs. třetina z 12 litrů</div>
+          <div class="part-text">
+            Spočítej obě části odděleně: 24 ÷ 4 = ? a 12 ÷ 3 = ?<br>
+            Pak zjisti, o kolik se liší (odečti menší od většího).
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">2.2 · Součin 180, jedno číslo ×2, druhé ÷6</div>
+          <div class="part-text">
+            Konkrétní čísla nepotřebuješ. Vezmi jako pomůcku: první číslo = 1, druhé číslo = 180.<br>
+            Proveď změny: 1 → <strong>×2</strong> a 180 → <strong>÷6</strong>. Vynásob výsledky.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú3 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 3</div>
+      <div class="card-desc">Stromová hierarchie — rota: kapitán, 4 poručíci, každý 3 četaře, každý 10 vojínů</div>
+      <div class="card-pts">max. 3 b</div>
+    </div>
+    <div class="card-body">
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">3.1 · Kolik je vojínů?</div>
+          <div class="part-text">
+            4 poručíci × 3 četaři = ? četařů. Každý četař má 10 vojínů.
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">3.2 · Kolik osob vydalo rozkaz?</div>
+          <div class="part-text">
+            Vydal ten, kdo má podřízené. To jsou: kapitán (1) + poručíci + četaři.<br>
+            <em>Vojíni nevydali — nemají nikoho pod sebou.</em>
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">3.3 · Kolik osob dostalo rozkaz?</div>
+          <div class="part-text">
+            Dostal ten, kdo má nadřízeného. To jsou: poručíci + četaři + vojíni.<br>
+            <em>Kapitán nedostal — není nad ním nikdo.</em>
+          </div>
+        </div>
+      </div>
+      <div class="scaffold">
+        Četaři: 4 × 3 = <span class="blank"></span>&nbsp; | &nbsp; Vojíni: <span class="blank"></span> × 10 = <span class="blank"></span><br>
+        Vydali: 1 + 4 + <span class="blank"></span> = <span class="blank"></span>&nbsp; | &nbsp; Dostali: 4 + <span class="blank"></span> + <span class="blank"></span> = <span class="blank"></span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú4 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 4</div>
+      <div class="card-desc">Sešity a kružítka — poměry, záměna, peněženka</div>
+      <div class="card-pts">max. 5 b</div>
+    </div>
+    <div class="card-body">
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">4.1 · 36 sešitů, linkovaných 3× více než čtverečkovaných</div>
+          <div class="part-text">
+            Skupinka = 1 čtverečkovaný + 3 linkované = 4 sešity.<br>
+            36 ÷ 4 = ? skupinek. Linkovaných = ? skupinek × 3.
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">4.2 · 2L + 2Č = 180 Kč &nbsp;|&nbsp; 2Č = 3L</div>
+          <div class="part-text">
+            Záměna: 2 čtverečkované nahraď 3 linkovanými. Rovnice se změní na: 2L + 3L = 5L = 180 Kč.<br>
+            Cena 1 linkovaného = ? → cena 1 čtverečkovaného = 1,5 × cena linkovaného.
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">4.3 · Na 6 kružítek chybělo 160 Kč · Na 4 kružítka zbylo 100 Kč</div>
+          <div class="part-text">
+            Rozdíl = 6 − 4 = 2 kružítka stojí přesně (chybělo + zbylo).<br>
+            2 kružítka = 160 + 100 = 260 Kč → cena 1 kružítka = ?<br>
+            Zaplaceno = 4 × cena 1 kusu.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú5 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 5</div>
+      <div class="card-desc">Kroužky SEN — Vennův diagram &nbsp;|&nbsp; Sportovní 14, Divadelní 12, Robotický 6 · 3 ve všech · 8 právě ve dvou</div>
+      <div class="card-pts">max. 4 b</div>
+    </div>
+    <div class="card-body">
+      <div class="nudge">
+        <div class="nudge-label">▶ Nápověda</div>
+        Celkem zápisů = 14 + 12 + 6 = <strong>32</strong>. Ale každé dítě ve 2 kroužcích bylo zapsáno 2×, ve 3 kroužcích 3×.<br><br>
+        <strong>5.1 — jen v jednom kroužku:</strong><br>
+        Záznamy těch ve 3 kroužcích: 3 × 3 = 9<br>
+        Záznamy těch právě ve 2 kroužcích: 8 × 2 = 16<br>
+        Záznamy těch jen v 1 kroužku = 32 − 9 − 16 = <span class="blank" style="display:inline-block;min-width:30px;height:16px;border-bottom:2px solid #b35900;vertical-align:middle"></span><br>
+        Tato čísla jsou přímo <em>počty osob</em> jen v jednom kroužku.<br><br>
+        <strong>5.2 — celkem dětí:</strong><br>
+        Jen v 1 (z 5.1) + právě ve 2 (8) + ve všech 3 (3) = ?
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú6 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 6</div>
+      <div class="card-desc">Odměny — 1. dostal polovinu, 2. dostal 300 Kč, 3. dostal třikrát méně než 1.</div>
+      <div class="card-pts">max. 3 b</div>
+    </div>
+    <div class="card-body">
+      <div class="nudge">
+        <div class="nudge-label">▶ Dílkový přístup</div>
+        Rozděl celkovou částku na dílky:<br>
+        • 1. soutěžící = <strong>polovina</strong> celku = 3 dílky<br>
+        • 3. soutěžící = třikrát méně než 1. = <strong>1 dílek</strong><br>
+        • 2. soutěžící = zbývající <strong>2 dílky</strong> = 300 Kč<br><br>
+        Celková částka má 6 dílků (polovina + zbytek). Z toho 2 dílky = 300 Kč → 1 dílek = ?<br><br>
+        <strong>6.1</strong> — kolikrát více dostal 2. než 3.? → 2. dostal 2 dílky, 3. dostal 1 dílek.<br>
+        <strong>6.2</strong> — celková částka = 6 dílků × cena 1 dílku.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="group-heading">Úloha 7 · Geometrická konstrukce — rýsuješ tužkou</div>
+
+
+  <!-- ── Ú7 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 7</div>
+      <div class="card-desc">Trojúhelník ABC a obdélník KLMN · hledej VŠECHNA řešení</div>
+      <div class="card-pts">max. 6 b</div>
+    </div>
+    <div class="card-body">
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">7.1 · AC ∥ b a |AB| = |AC|</div>
+          <div class="part-text">
+            <strong>Krok 1 — najdi A:</strong> Veď přes C přímku rovnoběžnou s b. Kde protne přímku a, je bod A.<br>
+            <strong>Krok 2 — najdi B:</strong> Narýsuj kružnici se středem A a poloměrem |AC|. Kde protne přímku b, jsou možné polohy B.<br>
+            Kružnice protíná přímku b na <em>dvou místech</em> → jsou 2 řešení.
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">7.2 · S je střed KL · přímka p prochází středem KL a středem ještě jedné strany</div>
+          <div class="part-text">
+            Přímka p může procházet středem naproti leží strany MN (pak je p ∥ stranám KN, LM) nebo středem strany KN nebo LM.<br>
+            Zkus obě možné orientace přímky p → <em>jsou 2 různá řešení</em>.<br>
+            Délka KL = 2 × |KS|. Délku druhé strany zjistíš z přímky p.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="group-heading">Úlohy 8–13 · Uzavřené — vyber A–E (nebo doplň)</div>
+
+
+  <!-- ── Ú8 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 8</div>
+      <div class="card-desc">Desetiúhelník · nejkratší strana = 4 cm, nejdelší = 20 cm</div>
+      <div class="card-pts">max. 4 b</div>
+    </div>
+    <div class="card-body">
+      <div class="nudge">
+        <div class="nudge-label">▶ Klíč k rozměrům</div>
+        Nejkratší strana = strana jednoho čtverce = <strong>4 cm</strong>.<br>
+        Nejdelší strana = 5 čtverců v řadě = <strong>20 cm</strong> ✓<br>
+        Výška sestavy = 2 čtverce (rovnostranný trojúhelník sedí na 2 čtvercích).
+      </div>
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">8.1 · Obvod rovnostranného trojúhelníku</div>
+          <div class="part-text">
+            Trojúhelník sedí na 2 čtvercích → jeho strana = 2 × 4 cm = <strong>8 cm</strong>.<br>
+            Obvod rovnostranného = 3 × strana = ?
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">8.2 · Obvod šedého obdélníku</div>
+          <div class="part-text">
+            Šedý obdélník: šířka = 20 cm (celá délka). Výška = výška 2 čtverců = 8 cm.<br>
+            Obvod = 2 × (délka + výška) = ?
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">8.3 · Obvod šedého trojúhelníku &gt; 50 cm?</div>
+          <div class="part-text">
+            Šedý trojúhelník má dvě known strany: <strong>4 cm</strong> (výška čtverce) a <strong>20 cm</strong> (délka obdélníku).<br>
+            Třetí strana (šikmá) musí být kratší než 4 + 20 = 24 cm.<br>
+            Celý obvod &lt; 4 + 20 + 24 = 48 cm. Je 48 cm větší nebo menší než 50 cm?
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú9 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 9</div>
+      <div class="card-desc">Zákusky · 1. = 72 Kč · 2. o čtvrtinu levnější · 3. = třetina celkové ceny</div>
+      <div class="card-pts">2 b</div>
+    </div>
+    <div class="card-body">
+      <div class="nudge">
+        <div class="nudge-label">▶ Dílkový přístup</div>
+        Celková cena = 3 dílky (protože 3. zákusek = třetina celku = 1 dílek).<br>
+        Zbývají 2 dílky pro 1. a 2. zákusek.<br><br>
+        <strong>Krok 1:</strong> Cena 2. zákusku = 72 − čtvrtina z 72 = 72 − 18 = <strong>54 Kč</strong><br>
+        <strong>Krok 2:</strong> 1. + 2. dohromady = 72 + 54 = 126 Kč = 2 dílky → 1 dílek = ?<br>
+        <strong>Krok 3:</strong> 3. zákusek = 1 dílek = ? Kč<br>
+        <strong>Krok 4:</strong> O kolik je 3. dražší než 2.? → (3. cena) − 54 = ?
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú10 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 10</div>
+      <div class="card-desc">Kasička · 78 mincí · hodnota pětikorunových = hodnota desetikorunových</div>
+      <div class="card-pts">2 b</div>
+    </div>
+    <div class="card-body">
+      <div class="nudge">
+        <div class="nudge-label">▶ Skupinkový přístup</div>
+        Aby se hodnoty vyrovnaly: 1 desetikoruna = 2 pětikoruny.<br>
+        Skupinka = 1 desetikoruna + 2 pětikoruny = <strong>3 mince</strong>, hodnota skupinky = 20 Kč.<br>
+        78 ÷ 3 = ? skupinek → hodnota všech mincí = ? skupinek × 20 Kč.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú11–12 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 11–12</div>
+      <div class="card-desc">Stavebnice · dílek 6 cm × 4 cm × 4 cm</div>
+      <div class="card-pts">2 + 2 b</div>
+    </div>
+    <div class="card-body">
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">11 · Kvádr 8 × 12 × 16 cm</div>
+          <div class="part-text">
+            Otočením dílku jde rozměr 4 cm použít pro výšku 8 cm (2 dílky), 6 cm pro délku 12 cm (2 dílky), 4 cm pro délku 16 cm (4 dílky).<br>
+            Rozložení: 8 = 2×4 &nbsp;|&nbsp; 12 = 2×6 &nbsp;|&nbsp; 16 = 4×4 → počet dílků = 2 × 2 × 4 = ?<br>
+            Nebo ověř objemem: 8×12×16 ÷ (6×4×4) = ?
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">12 · Nejmenší krychle</div>
+          <div class="part-text">
+            Strana krychle musí být dělitelná 6, 4 a 4 (rozměry dílku).<br>
+            Vypiš násobky 6: 6, 12, 18, 24… a násobky 4: 4, 8, 12…<br>
+            Nejmenší společné číslo = NSN(6, 4) = ?<br>
+            Počet dílků = strana³ ÷ objem dílku.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Ú13 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 13</div>
+      <div class="card-desc">Graf tříděného odpadu — oddíly R, S, T · papír / plast / kovy</div>
+      <div class="card-pts">max. 5 b</div>
+    </div>
+    <div class="card-body">
+      <div class="nudge">
+        <div class="nudge-label">▶ Odečti hodnoty z grafu</div>
+        Z grafu odečti kg pro každý oddíl a každou kategorii:<br>
+        R: papír = <strong>9</strong>, plast = <strong>9</strong>, kovy = <strong>3</strong><br>
+        S: papír = <strong>12</strong>, plast = <strong>6</strong>, kovy = <strong>6</strong><br>
+        T: papír = <strong>6</strong>, plast = <strong>6</strong>, kovy = <strong>9</strong>
+      </div>
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">13.1 · Oddíl R vytřídil …… méně papíru než S</div>
+          <div class="part-text">
+            Rozdíl: 12 − 9 = 3 kg. Referenční číslo = S (větší). Kolik je 3 z 12? Zkus: 12 ÷ 4 = 3 → ?
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">13.2 · S+T dohromady vytřídily …… více plastu než R</div>
+          <div class="part-text">
+            Plast S+T = 6+6 = 12. Plast R = 9. Rozdíl = 3. Referenční = R (menší). Kolik je 3 z 9?
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">13.3 · Všechny tři oddíly: papír vs. kovy</div>
+          <div class="part-text">
+            Papír celkem = 9+12+6 = 27. Kovy celkem = 3+6+9 = 18. Rozdíl = 9. Referenční = kovy (menší). Kolik je 9 z 18?
+          </div>
+        </div>
+      </div>
+      <div class="warn">Referenční číslo je vždy to, co stojí ZA slovem „než". Dělíš rozdíl referenčním číslem — ne celkovým součtem.</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="group-heading">Úloha 14 · Mřížkové obrazce — otevřená, 3 podúlohy</div>
+
+
+  <!-- ── Ú14 ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">Úloha 14</div>
+      <div class="card-desc">Mřížka · vzorec: tmavé = (šířka + 2) + 2 × výška</div>
+      <div class="card-pts">max. 4 b</div>
+    </div>
+    <div class="card-body">
+      <div class="nudge">
+        <div class="nudge-label">▶ Vzorec</div>
+        Tmavé čtverečky rozšíření = horní řada + levý sloupec + pravý sloupec<br>
+        = <strong>(šířka + 2)</strong> + výška + výška = <strong>šířka + 2 × výška + 2</strong><br>
+        Kde šířka a výška = rozměry <em>základního</em> obrazce.
+      </div>
+      <div class="parts">
+        <div class="part">
+          <div class="part-label">14.1 · Základ má 5 řad (výška = 5) a přibyde 30 tmavých</div>
+          <div class="part-text">
+            Dosaď do vzorce: 30 = šířka + 2×5 + 2 = šířka + 12.<br>
+            Šířka základu = 30 − 12 = ?
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">14.2 · Rozšířený má 3 řady · tmavých = světlých</div>
+          <div class="part-text">
+            Rozšířený = základ + 1 přidaná horní řada → výška základu = 2.<br>
+            Tmavé = šířka + 2×2 + 2 = šířka + 6.<br>
+            Světlé = základ = šířka × 2.<br>
+            Nastav tmavé = světlé: šířka + 6 = šířka × 2 → šířka = 6.<br>
+            Šířka rozšířeného = šířka základu + 2 = ?
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-label">14.3 · Rozšířených obrazců s 50 tmavými — kolik je jich celkem?</div>
+          <div class="part-text">
+            Zkus postupně výšku = 1, 2, 3, …:<br>
+            &nbsp; výška = 1: šířka = 50 − 2×1 − 2 = 46 ✓ (šířka ≥ 1)<br>
+            &nbsp; výška = 2: šířka = 50 − 2×2 − 2 = 42 ✓<br>
+            &nbsp; … pokračuj, dokud šířka ≥ 1.<br>
+            Jaká je největší výška, pro kterou šířka ještě vyjde ≥ 1?
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ZÁVĚR -->
+  <div style="background:#fff8e8;border-radius:10px;padding:16px 20px;margin-top:8px;font-size:14px;line-height:1.75;color:#5a3300;border:1.5px solid #f5a623">
+    <strong style="font-size:13px;text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:8px;color:#b35900">🟠 Co dál?</strong>
+    Zkus dopočítat úlohy, kde sis nevěděl/a rady. Pokud teď výsledek vychází, zkontroluj ho dosazením zpět do podmínky.<br>
+    Až budeš hotová, otevři <a href="../reseni/23r1.html">vzorové řešení →</a> a porovnej svůj postup i výsledky.
+  </div>
+
+</div><!-- .page -->
+</body>
+</html>
