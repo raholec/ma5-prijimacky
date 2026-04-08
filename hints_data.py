@@ -462,16 +462,25 @@ Pohled zepředu nikdy neukazuje, <b>kolik kostek je za sebou</b> — vidí jen <
 </div>""", "#e8faf5", "#17A589"),
 
 ("📦", "Skryté kostky — pravidlo 6 stěn", f"""
+<div class="ex"><div class="lbl">Představ si to jako bonboniéru</div>
+Máš krabici plnou bonbónů naskládaných na sobě. Ty bonbóny, co vidíš navrchu a po stranách, jsou <b>viditelné</b>. Ale uprostřed krabice jsou bonbóny, na které ze žádné strany nevidíš — ty jsou <b>skryté</b>. U kostek je to stejné!
+</div>
 <div class="ex"><div class="lbl">Co je skrytá kostka</div>
 Kostka je skrytá, když ze žádné strany není vidět — všech 6 stěn sousedí s jinou kostkou nebo podložkou.
 </div>
-<div class="ex"><div class="lbl">Skrytá kostka NESMÍ být</div>
+<div class="ex"><div class="lbl">Kdy kostka NEMŮŽE být skrytá</div>
 <ul>
-<li>v <b>nejnižší vrstvě</b> — dotýká se podložky → viditelná zdola</li>
-<li>na <b>okraji stavby</b> → viditelná z některé strany</li>
+<li>v <b>nejnižší vrstvě</b> — dotýká se podložky → vidíš ji zdola ❌</li>
+<li>na <b>okraji stavby</b> → vidíš ji z některé strany ❌</li>
 </ul>
+👉 <b>Pamatuj si:</b> Skrytá kostka musí mít ze VŠECH 6 stran souseda — jako ten bonbón schovaný hluboko uprostřed krabice.
 </div>
-<div class="ex"><div class="lbl">Pyramida 5 pater — počet skrytých</div>
+<div class="ex"><div class="lbl">Pyramida 5 pater — počítáme krok za krokem</div>
+Představ si pyramidu z LEGO kostek — dole velká deska, nahoře špička:<br><br>
+<b>1. patro (spodní):</b> 5×5 = 25 kostek. Všechny leží na stole → vidíš je zdola → skrytých = <b>0</b><br>
+<b>2. patro:</b> 4×4 = 16 kostek. Okrajové kostky vidíš z boku. Ale uvnitř je čtverec 2×2 = 4 kostky — ty nevidíš z žádné strany → skrytých = <b>4</b><br>
+<b>3. patro:</b> 3×3 = 9 kostek. Okraj tvoří 8 kostek (viditelné). Uprostřed zbývá 1 kostka → skrytých = <b>1</b><br>
+<b>4. a 5. patro:</b> 2×2 a 1×1 — moc malé, všechno je na okraji → skrytých = <b>0</b>
 <table class="htable">
 <tr><th style="background:#0E6655;color:white">Patro</th><th style="background:#0E6655;color:white">Rozměr</th><th style="background:#0E6655;color:white">Skrytých</th><th style="background:#0E6655;color:white">Proč</th></tr>
 <tr><td>1. (spodní)</td><td>5×5 = 25</td><td><b>0</b></td><td>dotýká se podložky</td></tr>
@@ -479,41 +488,75 @@ Kostka je skrytá, když ze žádné strany není vidět — všech 6 stěn sous
 <tr><td>3.</td><td>3×3 = 9</td><td><b>1</b></td><td>vnitřní 1×1 = 1 skrytá</td></tr>
 <tr><td>4. a 5.</td><td>2×2, 1×1</td><td><b>0</b></td><td>vše na okraji</td></tr>
 </table>
-Celkem: 4 + 1 = <span class="hint-result">5 skrytých kostek</span></div>""", "#e8faf5", "#0E6655"),
+Celkem: 4 + 1 = <span class="hint-result">5 skrytých kostek</span>
+</div>
+<div class="ex"><div class="lbl">⚡ Trik na rychlé počítání</div>
+U každého patra se zeptej: <b>„Kolik kostek je uvnitř, ne na okraji?"</b><br>
+Patro o straně S (S = počet kostek na straně patra) má vnitřních kostek = (S−2)×(S−2).<br>
+Například: S=4 → vnitřních = 2×2 = 4. S=3 → vnitřních = 1×1 = 1. S=2 → vnitřních = 0×0 = 0.
+</div>""", "#e8faf5", "#0E6655"),
 
 ("⚫", "Kostky s tečkami — slepování a počítání", f"""
 <div class="ex"><div class="lbl">Jedna kostka — základní fakta</div>
 <ul>
 <li>3 stěny mají po <b>1 tečce</b>, 3 stěny mají po <b>3 tečkách</b></li>
-<li>Protilehlé stěny dávají vždy 1+3 = <b>4 tečky</b></li>
-<li>Celkem: 3×1 + 3×3 = <span class="hint-result">12 teček</span> na jedné kostce</li>
+<li>Protilehlé stěny (naproti sobě) dávají vždy 1+3 = <b>4 tečky</b></li>
+<li>Celkem teček na jedné kostce: 3×1 + 3×3 = 3 + 9 = <span class="hint-result">12 teček</span></li>
 </ul>
 </div>
-<div class="ex"><div class="lbl">Slepení = skryji stěny (2 stěny za každý spoj)</div>
+<div class="ex"><div class="lbl">Co znamená „slepení" — představ si dva dárky</div>
+Máš dva zabalené dárky. Každý má potištěný papír na všech stranách. Když je přitiskneš k sobě, <b>dvě strany zmizí</b> — jedna z levého dárku a jedna z pravého. Tečky na těch stranách už nikdo neuvidí.<br><br>
+👉 <b>Každý spoj = 2 ztracené strany</b> (jedna z každé kostky)
+</div>
+<div class="ex"><div class="lbl">Chci NEJVÍC teček nebo NEJMÉNĚ?</div>
 <ul>
-<li>Chci <b>maximum</b> teček → skryji stěny po <b>1 tečce</b> (ztratím co nejméně)</li>
-<li>Chci <b>minimum</b> teček → skryji stěny po <b>3 tečkách</b> (ztratím co nejvíce)</li>
+<li>Chci <b>co nejvíc</b> teček vidět? → Schovej strany s <b>1 tečkou</b> (ztratíš málo) 👍</li>
+<li>Chci <b>co nejméně</b> teček vidět? → Schovej strany s <b>3 tečkami</b> (ztratíš hodně) 👍</li>
 </ul>
+💡 Přemýšlej o tom jako o penězích: pokud musíš schovat dvě mince, radši schovej dvě jednokoruny než dvě pětikoruny!
 </div>
-<div class="ex"><div class="lbl">3 kostky v L-tvaru (2 spoje)</div>
-Celkem: 3 × 12 = 36 teček.<br>
-Maximum (skryji 4× po 1): 36 − 4 = <span class="hint-result">32 teček</span><br>
-Minimum (skryji 4× po 3): 36 − 12 = <span class="hint-result">24 teček</span></div>""", "#e8faf5", "#17A589"),
+<div class="ex"><div class="lbl">Příklad: 3 kostky v L-tvaru (2 spoje)</div>
+<b>Krok 1:</b> Celkem teček = 3 kostky × 12 teček = <b>36 teček</b><br>
+<b>Krok 2:</b> Máme 2 spoje → ztratíme 2 × 2 = <b>4 strany</b><br>
+<b>Krok 3 — Maximum:</b> Schováme 4 strany po 1 tečce → 36 − 4 = <span class="hint-result">32 teček</span><br>
+<b>Krok 3 — Minimum:</b> Schováme 4 strany po 3 tečkách → 36 − 12 = <span class="hint-result">24 teček</span>
+</div>
+<div class="ex"><div class="lbl">⚡ Pozor na nejčastější chybu!</div>
+Hodně dětí si myslí, že 1 spoj = 1 ztracená strana. <b>NE!</b> Vždy se ztratí <b>2 strany</b> najednou — jako když si podáš ruku s kamarádem, zmizí tvoje dlaň I jeho dlaň.
+</div>""", "#e8faf5", "#17A589"),
 
 ("🏗️", "Filipův model — krychle z tyček a kuliček", f"""
+<div class="ex"><div class="lbl">Představ si stavebnici</div>
+Filip staví kostku z párátka (tyčky) a gumiček/kuliček v rozích. Je to jako stavět z brček a plastelíny — kuličky drží rohy, tyčky spojují kuličky.
+</div>
+<div class="ex"><div class="lbl">Kuličky — jak je spočítat</div>
+Kuličky jsou v každém rohu a na každém křížení. Představ si kostku rozřezanou na vrstvy:<br>
+<b>Strana 2:</b> Jedna vrstva = 2×2 = 4 kuličky. Máš 2 vrstvy → 4×2 = <b>8 kuliček</b><br>
+<b>Strana 3:</b> Jedna vrstva = 3×3 = 9 kuliček. Máš 3 vrstvy → 9×3 = <b>27 kuliček</b><br>
+<b>Strana 4:</b> Jedna vrstva = 4×4 = 16. Máš 4 vrstvy → 16×4 = <b>64 kuliček</b><br>
+👉 Vždy: strana × strana × strana
+</div>
+<div class="ex"><div class="lbl">Tyčky celkem — počítej ve 3 směrech</div>
+Tyčky jdou třemi směry: vodorovně doprava, vodorovně dozadu a svisle nahoru. V každém směru je jich stejně!<br><br>
+<b>Proč 2 tyčky v řadě?</b> Když máš v řadě 3 kuličky, mezi nimi jsou <b>2 mezery</b> — a každá mezera = 1 tyčka. Vždy platí: počet tyček v řadě = počet kuliček − 1.<br><br>
+<b>Strana 3 (S = 3, kde S = počet kuliček na straně):</b><br>
+V jedné vrstvě jedním směrem: 3 řady × 2 tyčky (= S−1) = 6 tyček.<br>
+Máš 3 vrstvy (kuliček nad sebou) → 6 × 3 = 18 tyček jedním směrem.<br>
+A to ve 3 směrech → 18 × 3 = <b>54 tyček</b>
+</div>
 <table class="htable">
-<tr><th style="background:#0E6655;color:white">Strana n</th><th style="background:#0E6655;color:white">Kuličky (n×n×n)</th><th style="background:#0E6655;color:white">Tyčky celkem</th><th style="background:#0E6655;color:white">Tyčky jen na hranách</th></tr>
-<tr><td>n = 2</td><td>8</td><td>12</td><td>12</td></tr>
-<tr><td>n = 3</td><td>27</td><td>54</td><td>24</td></tr>
-<tr><td>n = 4</td><td><b>64</b></td><td>144</td><td>36</td></tr>
-<tr><td>n = 5</td><td>125</td><td>300</td><td>48</td></tr>
+<tr><th style="background:#0E6655;color:white">Strana</th><th style="background:#0E6655;color:white">Kuličky</th><th style="background:#0E6655;color:white">Tyčky celkem</th><th style="background:#0E6655;color:white">Tyčky jen na hranách</th></tr>
+<tr><td>2</td><td>8</td><td>12</td><td>12</td></tr>
+<tr><td>3</td><td>27</td><td>54</td><td>24</td></tr>
+<tr><td>4</td><td><b>64</b></td><td>144</td><td>36</td></tr>
+<tr><td>5</td><td>125</td><td>300</td><td>48</td></tr>
 </table>
-<div class="ex"><div class="lbl">Vzorce</div>
-<ul>
-<li>Kuličky = n × n × n</li>
-<li>Tyčky celkem = 3 × n × n × (n−1)</li>
-<li>Tyčky na hranách = 12 × (n−1) &nbsp; <span style="color:#888">(krychle má 12 hran)</span></li>
-</ul>
+<div class="ex"><div class="lbl">Tyčky na hranách — proč 12×(strana−1)</div>
+Kostka má <b>12 hran</b> (4 nahoře, 4 dole, 4 svisle). Na každé hraně je (strana − 1) tyček.<br>
+Strana 4 → na každé hraně 3 tyčky → 12 × 3 = <b>36 tyček na hranách</b>
+</div>
+<div class="ex"><div class="lbl">⚡ Pozor!</div>
+Hodně dětí si splete tyčky CELKEM a tyčky JEN NA HRANÁCH. Celkem = úplně všechny tyčky (i uvnitř). Na hranách = jen ty po obvodu kostky.
 </div>""", "#e8faf5", "#0E6655"),
 
 ("🔵", "Diagram s kroužky — dosaď čísla do šipek", f"""
@@ -522,23 +565,33 @@ Minimum (skryji 4× po 3): 36 − 12 = <span class="hint-result">24 teček</span
 </div>
 <div class="ex"><div class="lbl">Vzorový příklad (z 23n1)</div>
 Diagram: {fi('K')} → ÷K → −6 → +K → výsledek <b>2</b><br>
-Zkus K=3: 3÷3=1, 1−6=−5... záporné číslo → K není 3<br>
-Zkus K=4: 4÷4=1, 1−6=−5... stále záporné → K není 4<br>
-Zkus K=3 jinak: podmínka je <b>÷K, −6, +K → 2</b><br>
-Zapíši jako rovnici: (K÷K) − 6 + K = 2 → 1 − 6 + K = 2 → K = <span class="hint-result">7</span><br>
+Hledáme číslo K. Jaké číslo sem pasuje?
+</div>
+<div class="ex"><div class="lbl">Strategie A: Zkoušení (jednodušší, ale pomalejší)</div>
+Zkouším postupně K = 1, 2, 3, 4…<br>
+K=3: 3÷3=1, 1−6=<b>−5</b>, −5+3=−2 → výsledek −2, ale potřebuji 2 ✗<br>
+K=4: 4÷4=1, 1−6=<b>−5</b>, −5+4=−1 → výsledek −1 ✗<br>
+K=5: 5÷5=1, 1−6=<b>−5</b>, −5+5=0 → ✗<br>
+K=7: 7÷7=1, 1−6=<b>−5</b>, −5+7=<b>2</b> → výsledek 2 ✓<br><br>
+👉 Zkoušení funguje, ale trvá dlouho. Existuje chytřejší cesta ↓
+</div>
+<div class="ex"><div class="lbl">Strategie B: Zpětná úvaha (rychlejší)</div>
+Všimni si: K÷K je <b>vždy 1</b> (jakékoli číslo dělené sebou samým = 1).<br>
+Takže diagram zjednoduším: 1 → −6 → +K → 2<br>
+Po odečtení 6: 1 − 6 = <b>−5</b><br>
+Potřebuji: −5 + K = 2 → K musí být o 7 víc než −5 → K = <span class="hint-result">7</span><br>
 Ověř: 7÷7=1, 1−6=−5, −5+7 = <span class="hint-result">2 ✓</span>
 </div>
 <div class="ex"><div class="lbl">Postup — 3 kroky</div>
 <ol>
 <li>Přečti šipky zleva doprava — zapiš co se děje s číslem</li>
-<li>Začni od místa, kde <b>výsledek znáš</b> (číslo v kroužku na konci)</li>
-<li>Jdi <b>pozpátku</b> nebo zkus hodnoty systematicky (1, 2, 3, 4...)</li>
+<li>Pokus se <b>zjednodušit</b> (K÷K=1, K−K=0, K+K=2×K)</li>
+<li>Zkus zkoušení nebo zpětnou úvahu od výsledku</li>
 </ol>
 </div>
 <div class="ex"><div class="lbl">Klíčový trik — stejná písmena</div>
 Pokud se v diagramu opakuje písmeno K, je to vždy <b>stejné číslo</b>.<br>
-Napiš si rovnici: (výsledek první operace s K) → další operace → výsledný kroužek<br>
-Pak rovnici vyřeš jako neznámé číslo.
+To ti často pomůže zjednodušit problém — K÷K, K−K nebo K+K můžeš vyřešit hned, bez znalosti K!
 </div>""", "#e8faf5", "#17A589"),
 
 ("🏷️", "Stěny s čísly — součty viditelných stěn", f"""
@@ -560,6 +613,29 @@ Příklad: stavba 4×4×1 (16 krychliček v jedné vrstvě):<br>
 Zakresli si stavbu jako tabulku (pohled shora). Pro každý pohled projdi celý okraj a spočti kolik stěn je vidět. Dej si pozor na vícepatrové stavby — vyšší patra přidávají stěny shora!
 </div>""", "#e8faf5", "#0E6655"),
 
+("🧊", "Sítě krychle — která se složí správně?", f"""
+<div class="ex"><div class="lbl">Co je síť krychle</div>
+Síť = rozložená krychle do roviny. Když ji vystřihneš a složíš, vznikne krabička. Krychle má 6 stěn, takže síť má vždy <b>6 čtverečků</b>.
+</div>
+<div class="ex"><div class="lbl">Jak poznat správnou síť — pravidlo „max 4 v řadě"</div>
+<ul>
+<li>V jedné řadě mohou být <b>nejvíc 4 čtverečky</b> — zbylé 2 musí trčet do stran</li>
+<li>Nesmí být víc než <b>3 čtverečky v jednom rohu</b> (jinak se překryjí)</li>
+<li>Existuje přesně <b>11 různých sítí</b> krychle — všechny ostatní rozložení 6 čtverečků jsou špatně</li>
+</ul>
+</div>
+<div class="ex"><div class="lbl">Pravidlo protilehlých stěn</div>
+Protilehlé stěny krychle (naproti sobě) se v síti <b>nikdy nedotýkají</b> — jsou od sebe vždy odděleny jedním čtverečkem.<br><br>
+👉 <b>Trik:</b> Když v síti rámeček přeložíš v hlavě, dvě stěny oddělené jedním čtverečkem skončí naproti sobě. Stěny vedle sebe v síti budou i na krychli vedle sebe.
+</div>
+<div class="ex"><div class="lbl">Příklad: Kde skončí obrázek?</div>
+Pokud je na jedné stěně sítě nakreslená hvězdička ⭐, představ si, že síť skládáš krok po kroku:<br>
+1. Zvol si jednu stěnu jako „dno" krabičky<br>
+2. Ohni stěny kolem dna nahoru (to budou boční stěny)<br>
+3. Poslední stěna se přiklopí jako „víko"<br>
+Kde skončí hvězdička — nahoře, dole, vlevo, vpravo?
+</div>""", "#e8faf5", "#0E6655"),
+
 ("⚠️", "Nejčastější chyby u prostorových úloh", f"""
 <table class="htable">
 <tr><th style="background:#C0392B;color:white">Chyba</th><th style="background:#C0392B;color:white">Jak to správně</th></tr>
@@ -568,6 +644,8 @@ Zakresli si stavbu jako tabulku (pohled shora). Pro každý pohled projdi celý 
 <tr><td>🔴 Při slepování: 1 spoj = 1 ztracená stěna</td><td>1 spoj = <b>2 ztracené stěny</b> (jedna z každé kostky)</td></tr>
 <tr><td>🔴 U diagramu: záporný výsledek → „to nefunguje"</td><td>Záporná čísla jsou povolena — třeba −5+7 = 2 je správně!</td></tr>
 <tr><td>🔴 U pyramidy: počítám vnější kostky jako skryté</td><td>Skrytá = ze ŽÁDNÉ strany ji nevidíš — na okraji/podložce vždy viditelná</td></tr>
+<tr><td>🔴 Tyčky „celkem" vs. „jen na hranách"</td><td>Celkem = všechny tyčky (i uvnitř). Na hranách = jen ty na 12 hranách kostky po obvodu</td></tr>
+<tr><td>🔴 Síť: protilehlé stěny leží vedle sebe</td><td>Protilehlé stěny se v síti <b>nikdy nedotýkají</b> — vždy je mezi nimi 1 čtvereček</td></tr>
 </table>""", "#fff0f0", "#C0392B"),
 ]
 
