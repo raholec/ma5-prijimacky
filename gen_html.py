@@ -977,13 +977,14 @@ def pl05():
 
     body += ex_header(5,"Penzion &mdash; skupiny a pokoje","2025 &middot; 1. náhradní termín","#eafaf1","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
-    body += zadani("""Skupina 18 osob přijela do penzionu. Každý pronajatý pokoj musí být plně obsazen.
-<table class="ex-table" style="width:100%;margin:10px 0">
+    body += zadani("""Skupina 18 osob přijela do penzionu na jednu noc. Tabulka udává počty volných pokojů a ceny lůžek. Každý pronajatý pokoj musí být plně obsazen.
+<table class="ex-table" style="width:100%;margin:10px 0;table-layout:fixed">
+<colgroup><col style="width:42%"><col style="width:29%"><col style="width:29%"></colgroup>
 <tr><th style="background:#1E8449;color:white;text-align:left">Typ pokoje</th><th style="background:#1E8449;color:white">Počet volných pokojů</th><th style="background:#1E8449;color:white">Cena za lůžko</th></tr>
-<tr><td>Jednolůžkový</td><td>6</td><td>1 400 Kč</td></tr>
-<tr><td>Dvoulůžkový</td><td>5</td><td>700 Kč</td></tr>
-<tr><td>Třílůžkový</td><td>5</td><td>500 Kč</td></tr>
-<tr><td>Čtyřlůžkový</td><td>2</td><td>300 Kč</td></tr>
+<tr><td style="text-align:left">Jednolůžkový</td><td>6</td><td>1 400 Kč</td></tr>
+<tr><td style="text-align:left">Dvoulůžkový</td><td>5</td><td>700 Kč</td></tr>
+<tr><td style="text-align:left">Třílůžkový</td><td>5</td><td>500 Kč</td></tr>
+<tr><td style="text-align:left">Čtyřlůžkový</td><td>2</td><td>300 Kč</td></tr>
 </table>
 <ol class="task-list">
 <li>Kolik pokojů obsadili, jestliže vzali 2 pokoje pro 3 osoby a zbytek skupiny do pokojů pro 4 osoby?</li>
