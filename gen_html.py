@@ -772,6 +772,7 @@ def pl08():
         body += answer_box()
         body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(5,"Zlomky hodin a metrů — doplň do rámečku","2024 &middot; 2. náhradní termín","#fdf5ec","#784212","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Doplňte do rámečku číslo, aby platila rovnost:
@@ -964,6 +965,7 @@ def pl05():
         body += answer_box()
         body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(4,"Vědomostní soutěž &mdash; tým a body","2025 &middot; 2. náhradní termín","#eafaf1","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Vědomostní soutěže se zúčastnil 10členný tým. Ve dvou kolech získali soutěžící 8, 9 nebo 10 bodů. Celkem tým získal 93 bodů v 1. kole a 94 bodů v 2. kole.
@@ -975,6 +977,7 @@ def pl05():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(5,"Penzion &mdash; skupiny a pokoje","2025 &middot; 1. náhradní termín","#eafaf1","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Skupina 18 osob přijela do penzionu na jednu noc. Tabulka udává počty volných pokojů a ceny lůžek. Každý pronajatý pokoj musí být plně obsazen.
@@ -994,6 +997,7 @@ def pl05():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(6,"Dvě neznámá čísla &mdash; součet a rozdíl","2025 &middot; 2. řádný termín","#eafaf1","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""<ol class="task-list">
@@ -1004,6 +1008,7 @@ def pl05():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(7,"Nákupy za mince — hledej nejmenší počet","2021 &middot; 2. řádný termín","#eafaf1","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""V dětské hře: za 5 mincí = 6 panáčků, za 20 mincí = 9 zvířátek.
@@ -1102,6 +1107,7 @@ Takže délka = _____</p>""","#f5f5f5","#7F8C8D")
         body += answer_box()
         body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(7,"Obdélník z čtverců čtyř velikostí — S, M, L, XL","2022 &middot; 2. řádný termín","#f5f0ff","#7F8C8D","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Obdélník je rozdělen na 12 čtverců čtyř různých velikostí (S, M, L a XL). Delší strana obdélníku měří 260 cm.
@@ -1210,6 +1216,7 @@ def pl03():
 
     body += tip("📋","Tabulka je tvůj nejlepší kamarád! Vypiš si hodnoty pro 1., 2., 3., 4. člen a pak hledej pravidlo. Bez tabulky se snadno spletěš.","#fff8f0","#C87941")
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(4,"Sirky &mdash; stálý přírůstek obrazců","2020 &middot; 1. řádný termín","#fff8f0","#C87941","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""1. obrazec je sestaven z 9 sirek, 2. ze 13 sirek. Každý další se zvětšuje podle téhož pravidla.
@@ -1222,6 +1229,7 @@ def pl03():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(5,"Puntíky ve čtvercích &mdash; vzorec n-tého obrazce","2021 &middot; 1. řádný termín","#fff8f0","#C87941","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Obrazce jsou tvořeny puntíky ve čtvercích. 1. obrazec = 1 puntík. Strana 2. obrazce = 3 puntíky, každý další má o 2 puntíky více na straně.
@@ -1234,6 +1242,7 @@ def pl03():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(6,"Sirky &mdash; stálý přírůstek obrazců","2020 &middot; 1. řádný termín","#fff8f0","#C87941","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""1. obrazec je sestaven z 9 sirek, 2. ze 13 sirek. Každý další se zvětšuje podle téhož pravidla.
@@ -1246,6 +1255,7 @@ def pl03():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(7,"Puntíky ve čtvercích &mdash; vzorec n-tého obrazce","2021 &middot; 1. řádný termín","#fff8f0","#C87941","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Obrazce jsou tvořeny puntíky ve čtvercích. 1. obrazec = 1 puntík. Strana 2. obrazce = 3 puntíky, každý další má o 2 puntíky více na straně.
@@ -1432,6 +1442,7 @@ def pl02():
         body += '</div></div>'
 
     # ── Nové příklady 2020-2022 ──
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(4,"Stěny krychliček &mdash; součet čísel z pohledu","2021 &middot; 1. řádný termín","#e8f5e9","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Na podložce je stavba z 16 krychliček (čtverec 4×4 v jedné vrstvě). Každá viditelná stěna dostane číslo: zepředu=1, zezadu=2, zprava=3, zleva=4, shora=5.
@@ -1444,6 +1455,7 @@ def pl02():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(5,"Diagram s kroužky &mdash; doplň čísla do šipek","2023 &middot; 1. náhradní termín","#e8f5e9","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""V každém diagramu se stejná písmena nahradí stejným kladným číslem. Doplň čísla do kroužků tak, aby výpočty ve směru šipek souhlasily.
@@ -1457,6 +1469,7 @@ def pl02():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(6,"Popis stavby tabulkou — výška sloupců","2021 &middot; 2. řádný termín","#e8f5e9","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Stavbu popisuje tabulka — číslo = počet krychliček nad sebou ve sloupci. Tři čísla jsou zakryta kartičkami K, L, M.
@@ -1468,6 +1481,7 @@ def pl02():
     body += answer_box()
     body += '</div></div>'
 
+    body += '<div class="example" style="border-color:#ddd">'
     body += ex_header(7,"Velká krychle — Klára odebírá krychličky","2021 &middot; 1. náhradní termín","#e8f5e9","#1E8449","🖊 Vyřeš sám/sama","🖊")
     body += '<div class="ex-body">'
     body += zadani("""Velká krychle má 4 vrstvy po 16 krychličkách. Klára odebrala krychličky podle nákresu 1, Mirek odebral z Klářiny stavby podle nákresu 2, Nora odebírala z Mirkovy stavby.
