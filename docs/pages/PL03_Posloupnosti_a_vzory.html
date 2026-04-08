@@ -468,17 +468,31 @@ Horní řada: 3, 7, 2<br>
 <div class="hint-calc"><b>3 + 7</b> <span class="step-arrow">→ = 10 →</span></div> &nbsp;&nbsp; <div class="hint-calc"><b>7 + 2</b> <span class="step-arrow">→ = 9 →</span></div><br>
 <div class="hint-calc"><b>10 + 9</b> <span class="step-arrow">→ = 19 →</span></div> ← spodní číslo
 </div>
-<div class="hint-diagram"><svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
+<div class="hint-diagram"><svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
+  <defs>
+    <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E74C3C"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2980B9"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E67E22"/>
+    </marker>
+  </defs>
   <rect x="10" y="10" width="66" height="48" rx="8" fill="#FDEDEC" stroke="#E74C3C" stroke-width="2.5"/>
   <rect x="117" y="10" width="66" height="48" rx="8" fill="#FDEDEC" stroke="#E74C3C" stroke-width="2.5"/>
   <rect x="224" y="10" width="66" height="48" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
   <text x="43" y="41" font-size="22" font-weight="bold" fill="#C0392B" font-family="sans-serif" text-anchor="middle">?</text>
   <text x="150" y="41" font-size="22" font-weight="bold" fill="#C0392B" font-family="sans-serif" text-anchor="middle">?</text>
   <text x="257" y="41" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">8</text>
-  <line x1="76" y1="58" x2="103" y2="88" stroke="#aaa" stroke-width="1.5"/>
-  <line x1="117" y1="58" x2="90" y2="88" stroke="#aaa" stroke-width="1.5"/>
-  <line x1="183" y1="58" x2="210" y2="88" stroke="#aaa" stroke-width="1.5"/>
-  <line x1="224" y1="58" x2="197" y2="88" stroke="#aaa" stroke-width="1.5"/>
+  <!-- cesta 1: ? (levý) → 2? (střed-vlevo) — červená šipka -->
+  <line x1="43" y1="58" x2="90" y2="85" stroke="#E74C3C" stroke-width="3" marker-end="url(#arr-red)"/>
+  <!-- cesta 2: ? (střed) → 2? a ?+8 — modrá šipka -->
+  <line x1="150" y1="58" x2="103" y2="85" stroke="#2980B9" stroke-width="3" marker-end="url(#arr-blue)"/>
+  <line x1="150" y1="58" x2="197" y2="85" stroke="#2980B9" stroke-width="3" marker-end="url(#arr-blue)"/>
+  <!-- cesta 3: 8 → ?+8 — oranžová šipka -->
+  <line x1="224" y1="58" x2="210" y2="85" stroke="#E67E22" stroke-width="3" marker-end="url(#arr-orange)"/>
   <rect x="63" y="88" width="66" height="48" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
   <rect x="171" y="88" width="66" height="48" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
   <text x="96" y="119" font-size="18" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">2?</text>
@@ -487,6 +501,13 @@ Horní řada: 3, 7, 2<br>
   <line x1="171" y1="136" x2="150" y2="158" stroke="#aaa" stroke-width="1.5"/>
   <rect x="117" y="152" width="66" height="48" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/>
   <text x="150" y="183" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">44</text>
+  <!-- legenda -->
+  <line x1="15" y1="202" x2="35" y2="202" stroke="#E74C3C" stroke-width="3" marker-end="url(#arr-red)"/>
+  <text x="40" y="206" font-size="10" fill="#C0392B" font-family="sans-serif">? vlevo (1×)</text>
+  <line x1="110" y1="202" x2="130" y2="202" stroke="#2980B9" stroke-width="3" marker-end="url(#arr-blue)"/>
+  <text x="135" y="206" font-size="10" fill="#2980B9" font-family="sans-serif">? střed (2×)</text>
+  <line x1="210" y1="202" x2="230" y2="202" stroke="#E67E22" stroke-width="3" marker-end="url(#arr-orange)"/>
+  <text x="235" y="206" font-size="10" fill="#E67E22" font-family="sans-serif">8</text>
 </svg><div class="diagram-caption">Příklad: obě ? jsou stejná → 3? + 8 = 44 → ? = 12</div></div>
 <div class="ex"><div class="lbl">Krok 2: Znám spodní číslo a jedno horní — hledám neznámá (?)</div>
 Příklad: pravé horní = 8, obě levá horní jsou stejná (?), spodní = 44<br>
@@ -528,51 +549,51 @@ Nebo: zapíš rovnici (2? + ? + 8 = 44) a řeš krok za krokem bez závorek.
 <div class="q-text">Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. pás = 21... Kolik šedých je v 5. pásu?</div>
 <div class="quiz-options"><div class="quiz-opt"><span class="opt-letter">A</span><span>24</span></div><div class="quiz-opt"><span class="opt-letter">B</span><span>27</span></div><div class="quiz-opt"><span class="opt-letter">C</span><span>30</span></div><div class="quiz-opt"><span class="opt-letter">D</span><span>33</span></div></div></div></div><div class="quiz-answers-section" style="border-color:#C87941">
 <div class="quiz-answers-title" style="color:#C87941">✅ Odpovědi ke kvízu — klikni pro zobrazení</div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a1_87134')" id="tg_a1_87134">
+<div class="ans-toggle" onclick="tA('a1_69615')" id="tg_a1_69615">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 1 — Posloupnost: 5, 11, 17, 23, 29... Jaká je 6. člen?</span>
 </div>
-<div class="ans-body" id="a1_87134">
+<div class="ans-body" id="a1_69615">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>
   <div class="ans-row-exp">Rozdíly jsou všechny +6 → přičítám vždy 6. Takže: 5, 11, 17, 23, 29, 35. Šestý člen je 35.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a2_18008')" id="tg_a2_18008">
+<div class="ans-toggle" onclick="tA('a2_93029')" id="tg_a2_93029">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 2 — Cyklista jede 5 dní, celkem 200 km. Každý den ujede o 6 km méně než de…</span>
 </div>
-<div class="ans-body" id="a2_18008">
+<div class="ans-body" id="a2_93029">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">Kdybych každý den jel stejně (□ km), bylo by to 5×□. Ale 2.–5. den jedu celkem o 6+12+18+24 = 60 km méně. Takže 5×□ − 60 = 200 → 5×□ = 260 → □ = 52 km. Zkontroluj: 52+46+40+34+28 = 200 ✓</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a3_5070')" id="tg_a3_5070">
+<div class="ans-toggle" onclick="tA('a3_90753')" id="tg_a3_90753">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 3 — Korálky: 1. skupina = 2, každá další je 4× větší. Kolik korálků je cel…</span>
 </div>
-<div class="ans-body" id="a3_5070">
+<div class="ans-body" id="a3_90753">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">1. = 2, 2. = 8, 3. = 32, 4. = 128. Celkem: 2 + 8 + 32 + 128 = 170 korálků.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a4_15494')" id="tg_a4_15494">
+<div class="ans-toggle" onclick="tA('a4_81067')" id="tg_a4_81067">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 4 — Základní obrazec má 5 řad a 18 sloupců světlých čtverečků. Kolik tmavý…</span>
 </div>
-<div class="ans-body" id="a4_15494">
+<div class="ans-body" id="a4_81067">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: C
   </div>
   <div class="ans-row-exp">Tmavých = (šířka + 2) + 2 × výška = (18 + 2) + 2 × 5 = 20 + 10 = 30 tmavých čtverečků.</div>
 </div></div><div class="quiz-ans-row">
-<div class="ans-toggle" onclick="tA('a5_24691')" id="tg_a5_24691">
+<div class="ans-toggle" onclick="tA('a5_88755')" id="tg_a5_88755">
   <span class="toggle-icon">▶</span>
   <span class="toggle-label">Otázka 5 — Šedých trojúhelníků v pásech: 1. pás = 3, 2. pás = 9, 3. pás = 15, 4. …</span>
 </div>
-<div class="ans-body" id="a5_24691">
+<div class="ans-body" id="a5_88755">
   <div class="ans-row-correct" style="color:#C87941;font-size:15px;font-weight:700;margin-bottom:6px">
     ✅ Správná odpověď: B
   </div>

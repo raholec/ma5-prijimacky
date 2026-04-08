@@ -87,17 +87,26 @@ SVG_POHLEDY = diag('''<svg viewBox="0 0 440 230" xmlns="http://www.w3.org/2000/s
   <text x="310" y="162" font-size="11" fill="#555" font-family="sans-serif">(pravý okraj každé řady)</text>
 </svg>''', "Tři pohledy na stavbu z kostek — každý ukazuje něco jiného")
 
-SVG_VENN = diag('''<svg viewBox="0 0 380 230" xmlns="http://www.w3.org/2000/svg" style="max-width:380px">
+SVG_VENN = diag('''<svg viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg" style="max-width:380px">
   <circle cx="155" cy="95" r="75" fill="#D6EAF8" fill-opacity=".75" stroke="#2980B9" stroke-width="2"/>
   <circle cx="225" cy="95" r="75" fill="#D5F5E3" fill-opacity=".75" stroke="#27AE60" stroke-width="2"/>
   <circle cx="190" cy="155" r="75" fill="#FDEBD0" fill-opacity=".75" stroke="#E67E22" stroke-width="2"/>
-  <text x="100" y="70" font-size="13" font-weight="bold" fill="#1A5276" font-family="sans-serif">Sport 14</text>
-  <text x="240" y="70" font-size="13" font-weight="bold" fill="#145A32" font-family="sans-serif">Div. 12</text>
-  <text x="165" y="215" font-size="13" font-weight="bold" fill="#784212" font-family="sans-serif">Roboti 6</text>
-  <text x="178" y="93" font-size="12" fill="#333" font-family="sans-serif" text-anchor="middle">8 dětí</text>
-  <text x="178" y="107" font-size="11" fill="#555" font-family="sans-serif" text-anchor="middle">(právě 2 kr.)</text>
-  <text x="190" y="133" font-size="13" font-weight="bold" fill="#922B21" font-family="sans-serif" text-anchor="middle">3</text>
-  <text x="190" y="147" font-size="11" fill="#922B21" font-family="sans-serif" text-anchor="middle">(všechny 3)</text>
+  <!-- průnik dvou kroužků — zvýšená fill-opacity -->
+  <path d="M190,32 A75,75,0,0,1,228,88 A75,75,0,0,1,190,32" fill="#B8E4C0" fill-opacity=".6"/>
+  <!-- průnik tří kroužků — červený nádech -->
+  <ellipse cx="190" cy="128" rx="18" ry="14" fill="#E8A0A0" fill-opacity=".7"/>
+  <text x="100" y="68" font-size="16" font-weight="bold" fill="#1A5276" font-family="sans-serif">Sport 14</text>
+  <text x="238" y="68" font-size="16" font-weight="bold" fill="#145A32" font-family="sans-serif">Div. 12</text>
+  <text x="162" y="220" font-size="16" font-weight="bold" fill="#784212" font-family="sans-serif">Roboti 6</text>
+  <!-- čísla v exkluzivních oblastech -->
+  <text x="110" y="100" font-size="16" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">7</text>
+  <text x="268" y="100" font-size="16" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">5</text>
+  <text x="190" y="192" font-size="16" font-weight="bold" fill="#784212" font-family="sans-serif" text-anchor="middle">1</text>
+  <!-- průniky -->
+  <text x="178" y="90" font-size="13" fill="#333" font-family="sans-serif" text-anchor="middle">8 dětí</text>
+  <text x="178" y="105" font-size="12" fill="#555" font-family="sans-serif" text-anchor="middle">(právě 2 kr.)</text>
+  <text x="190" y="128" font-size="16" font-weight="bold" fill="#922B21" font-family="sans-serif" text-anchor="middle">3</text>
+  <text x="190" y="144" font-size="12" fill="#922B21" font-family="sans-serif" text-anchor="middle">(všechny 3)</text>
 </svg>''', "Vennův diagram — kroužky SEN (23r1): celkem 18 dětí")
 
 SVG_SOUCET_T = diag('''<svg viewBox="0 0 340 185" xmlns="http://www.w3.org/2000/svg" style="max-width:340px">
@@ -124,17 +133,31 @@ SVG_SOUCET_T = diag('''<svg viewBox="0 0 340 185" xmlns="http://www.w3.org/2000/
   <text x="180" y="184" font-size="16" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">A+2B+C</text>
 </svg>''', "Součtový trojúhelník — součet dvou sousedních = číslo pod nimi")
 
-SVG_SOUCET_PRIKLAD = diag('''<svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
+SVG_SOUCET_PRIKLAD = diag('''<svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
+  <defs>
+    <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E74C3C"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2980B9"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E67E22"/>
+    </marker>
+  </defs>
   <rect x="10" y="10" width="66" height="48" rx="8" fill="#FDEDEC" stroke="#E74C3C" stroke-width="2.5"/>
   <rect x="117" y="10" width="66" height="48" rx="8" fill="#FDEDEC" stroke="#E74C3C" stroke-width="2.5"/>
   <rect x="224" y="10" width="66" height="48" rx="8" fill="#EAF2FF" stroke="#2980B9" stroke-width="2"/>
   <text x="43" y="41" font-size="22" font-weight="bold" fill="#C0392B" font-family="sans-serif" text-anchor="middle">?</text>
   <text x="150" y="41" font-size="22" font-weight="bold" fill="#C0392B" font-family="sans-serif" text-anchor="middle">?</text>
   <text x="257" y="41" font-size="22" font-weight="bold" fill="#1A5276" font-family="sans-serif" text-anchor="middle">8</text>
-  <line x1="76" y1="58" x2="103" y2="88" stroke="#aaa" stroke-width="1.5"/>
-  <line x1="117" y1="58" x2="90" y2="88" stroke="#aaa" stroke-width="1.5"/>
-  <line x1="183" y1="58" x2="210" y2="88" stroke="#aaa" stroke-width="1.5"/>
-  <line x1="224" y1="58" x2="197" y2="88" stroke="#aaa" stroke-width="1.5"/>
+  <!-- cesta 1: ? (levý) → 2? (střed-vlevo) — červená šipka -->
+  <line x1="43" y1="58" x2="90" y2="85" stroke="#E74C3C" stroke-width="3" marker-end="url(#arr-red)"/>
+  <!-- cesta 2: ? (střed) → 2? a ?+8 — modrá šipka -->
+  <line x1="150" y1="58" x2="103" y2="85" stroke="#2980B9" stroke-width="3" marker-end="url(#arr-blue)"/>
+  <line x1="150" y1="58" x2="197" y2="85" stroke="#2980B9" stroke-width="3" marker-end="url(#arr-blue)"/>
+  <!-- cesta 3: 8 → ?+8 — oranžová šipka -->
+  <line x1="224" y1="58" x2="210" y2="85" stroke="#E67E22" stroke-width="3" marker-end="url(#arr-orange)"/>
   <rect x="63" y="88" width="66" height="48" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
   <rect x="171" y="88" width="66" height="48" rx="8" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
   <text x="96" y="119" font-size="18" font-weight="bold" fill="#145A32" font-family="sans-serif" text-anchor="middle">2?</text>
@@ -143,6 +166,13 @@ SVG_SOUCET_PRIKLAD = diag('''<svg viewBox="0 0 300 190" xmlns="http://www.w3.org
   <line x1="171" y1="136" x2="150" y2="158" stroke="#aaa" stroke-width="1.5"/>
   <rect x="117" y="152" width="66" height="48" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="2.5"/>
   <text x="150" y="183" font-size="22" font-weight="bold" fill="#E65100" font-family="sans-serif" text-anchor="middle">44</text>
+  <!-- legenda -->
+  <line x1="15" y1="202" x2="35" y2="202" stroke="#E74C3C" stroke-width="3" marker-end="url(#arr-red)"/>
+  <text x="40" y="206" font-size="10" fill="#C0392B" font-family="sans-serif">? vlevo (1×)</text>
+  <line x1="110" y1="202" x2="130" y2="202" stroke="#2980B9" stroke-width="3" marker-end="url(#arr-blue)"/>
+  <text x="135" y="206" font-size="10" fill="#2980B9" font-family="sans-serif">? střed (2×)</text>
+  <line x1="210" y1="202" x2="230" y2="202" stroke="#E67E22" stroke-width="3" marker-end="url(#arr-orange)"/>
+  <text x="235" y="206" font-size="10" fill="#E67E22" font-family="sans-serif">8</text>
 </svg>''', "Příklad: obě ? jsou stejná → 3? + 8 = 44 → ? = 12")
 
 SVG_ZEBRIK = diag('''<svg viewBox="0 0 430 130" xmlns="http://www.w3.org/2000/svg" style="max-width:430px">
@@ -1068,6 +1098,38 @@ Kdykoli je v zadání více skupin nebo více vlastností — nakresli tabulku h
 Doplňuj tak, aby každý řádek i sloupec dal správný součet!
 </div>""", "#eafaf1", "#1E8449"),
 
+("📏", "Logické pořadí z podmínek", f"""
+<div class="ex"><div class="lbl">Co to je?</div>
+Zadání dá sérii podmínek jako „Áda je vyšší než Bára, Céline je nižší než Áda…" — tvým úkolem je sestavit pořadí od nejmenšího po největší.
+</div>
+<div class="ex"><div class="lbl">Postup — 3 kroky</div>
+<ol>
+<li><b>Každou podmínku nakresli jako šipku.</b> Pravidlo: šipka míří od menšího k většímu.<br>
+&nbsp;&nbsp;Áda &gt; Bára &nbsp;→&nbsp; nakresli: <b>Bára → Áda</b> (šipka: menší → větší)</li>
+<li><b>Sestav pořadí</b> od nejmenšího (žádná šipka nevede do něj „od většího") po největší.</li>
+<li><b>Ověř každou podmínku zpět</b> — dosadí výsledné pořadí a zkontroluj, že každá věta ze zadání sedí.</li>
+</ol>
+</div>
+<div class="ex"><div class="lbl">Příklad: Áda, Bára, Céline</div>
+Podmínky:<br>
+&nbsp;&nbsp;① Áda je vyšší než Bára<br>
+&nbsp;&nbsp;② Céline je nižší než Áda<br>
+&nbsp;&nbsp;③ Bára je vyšší než Céline<br>
+<br>
+Šipky (menší → větší):<br>
+&nbsp;&nbsp;① Bára → Áda<br>
+&nbsp;&nbsp;② Céline → Áda<br>
+&nbsp;&nbsp;③ Céline → Bára<br>
+<br>
+Pořadí (od nejmenší): <span class="hint-result">Céline &lt; Bára &lt; Áda</span><br>
+<br>
+Ověř: ① Áda &gt; Bára ✓ &nbsp; ② Áda &gt; Céline ✓ &nbsp; ③ Bára &gt; Céline ✓
+</div>
+<div class="ex" style="background:#FFF9C4"><div class="lbl warn">⚠️ Pozor na záměnu &gt; a &lt;</div>
+Přečti pomalu každou větu zvlášť — „Áda je <b>vyšší</b> než Bára" znamená Áda &gt; Bára, ne opačně.<br>
+Pokud si nejsi jistý/á, přepiš větu do šipky: <b>kdo je menší → kdo je větší</b>.
+</div>""", "#eafaf1", "#8E44AD"),
+
 ("🔵", "Vennův diagram — průnik skupin", f"""
 <div class="ex"><div class="lbl">🤔 Proč nestačí kroužky jen sečíst?</div>
 Představ si, že Lenka hraje <b>fotbal i plavání</b>. Kdybys ji počítal dvakrát — jednou za fotbal a jednou za plavání — dostaneš vyšší číslo, než kolik dětí ve třídě skutečně je!<br>
@@ -1082,7 +1144,8 @@ Proto musíme <b>překryv (průnik)</b> odečíst — chceme každé dítě poč
 </ol>
 </div>
 <div class="ex"><div class="lbl">Kolik navštěvuje POUZE jeden kroužek?</div>
-18 celkem − 8 (právě dva kroužky) − 3 (všechny tři) = <span class="hint-result">7 dětí</span>
+18 celkem − 8 (právě dva kroužky) − 3 (všechny tři) = <span class="hint-result">7 dětí</span><br>
+<span style="color:#27AE60;font-size:0.93em">Ověření: 7 + 8 + 3 = <b>18</b> ✓ — přesně všechny děti.</span>
 </div>
 <div class="ex" style="background:#FFF9C4"><div class="lbl">💡 Pamatuj si jako básničku</div>
 <b>1 kroužek</b> → počítej 1×, neodčítej nic.<br>
@@ -1094,34 +1157,21 @@ Obecně: odečti tolik, o kolik kroužků víc než 1 dítě má.
 ("🔺", "Součtový trojúhelník — krok za krokem", f"""
 {SVG_SOUCET_T}
 {SVG_SOUCET_PRIKLAD}
-<div class="ex"><div class="lbl">🍎 Nejdřív přemýšlej — co o čísle víme?</div>
-Dole je výsledek <b>44</b>. Číslo <b>8</b> leží nahoře na kraji — projde trojúhelníkem jen <b>jednou</b>.<br>
-Hledané číslo <b>?</b> je nahoře <b>dvakrát</b> → do dolního výsledku se promítne celkem <b>třikrát</b>.<br>
-Takže: <b>3 × hledané číslo + 8 = 44</b>
+<div class="ex"><div class="lbl">🍎 Zkus to nejdřív s číslem, které znáš — pochopíš proč</div>
+Horní řada je: <b>[?, ?, 8]</b>. Zkus místo ? dosadit třeba <b>5</b> a sleduj cestu každého čísla:<br>
+&nbsp;&nbsp;→ prostřední vlevo = 5 + 5 = <b>10</b> &nbsp;|&nbsp; prostřední vpravo = 5 + 8 = <b>13</b><br>
+&nbsp;&nbsp;→ výsledek dole = 10 + 13 = <b>23</b> = 3×5 + 8 ✓<br>
+Pětka se do výsledku dostala <b>třikrát</b> — jednou skrz prostřední levé, jednou přes prostřední pravé a jednou přímo spolu s 8.<br>
+Totéž platí pro naše ?: &nbsp;<b>3×? + 8 = 44</b> → nejdřív odečtu 8, pak vydělím 3.
 </div>
-<div class="ex"><div class="lbl">🔴 Jak ? „teče" trojúhelníkem — 3 cesty do výsledku</div>
-<table style="text-align:center;font-size:0.95em;border-collapse:collapse;width:100%">
-<tr>
-  <td style="padding:5px 8px;color:#C0392B;font-weight:bold;white-space:nowrap">? (vlevo nahoře)</td>
-  <td style="padding:4px;color:#888">→</td>
-  <td style="padding:5px 8px;background:#D5F5E3;border-radius:4px;white-space:nowrap">2? (vlevo uprostřed)</td>
-  <td style="padding:4px;color:#888">→</td>
-  <td rowspan="3" style="padding:5px 10px;background:#FFF9C4;border-radius:6px;font-weight:bold;color:#E65100;font-size:1.1em;vertical-align:middle">44</td>
-</tr>
-<tr>
-  <td style="padding:5px 8px;color:#C0392B;font-weight:bold;white-space:nowrap">? (vpravo nahoře)</td>
-  <td style="padding:4px;color:#888">→</td>
-  <td style="padding:5px 8px;background:#D5F5E3;border-radius:4px;white-space:nowrap">2? (vlevo uprostřed)</td>
-  <td></td>
-</tr>
-<tr>
-  <td style="padding:5px 8px;color:#C0392B;font-weight:bold;white-space:nowrap">? (vpravo nahoře)</td>
-  <td style="padding:4px;color:#888">→</td>
-  <td style="padding:5px 8px;background:#D5F5E3;border-radius:4px;white-space:nowrap">?+8 (vpravo uprostřed)</td>
-  <td></td>
-</tr>
+<div class="ex"><div class="lbl">🔴 Proč se ? počítá třikrát — přehledně</div>
+<table class="htable">
+<tr><th style="background:#C0392B;color:white">Políčko v trojúhelníku</th><th style="background:#C0392B;color:white">Co v něm je</th><th style="background:#C0392B;color:white">Kolikrát je tam ?</th></tr>
+<tr><td>Prostřední <b>levé</b></td><td>? + ? = 2×?</td><td style="text-align:center;color:#C0392B;font-weight:bold">2×</td></tr>
+<tr><td>Prostřední <b>pravé</b></td><td>? + 8</td><td style="text-align:center;color:#C0392B;font-weight:bold">1×</td></tr>
+<tr style="background:#FFF9C4"><td><b>Výsledek dole</b></td><td>2×? + (? + 8)<br><span style="color:#888;font-size:0.9em">= 2×? + 1×? + 8</span><br><span style="color:#888;font-size:0.9em">= <b>3×? + 8</b></span><br><span style="color:#555;font-size:0.85em">(2 jablka + 1 jablko = 3 jablka)</span></td><td style="text-align:center;color:#C0392B;font-weight:bold">3× celkem ✓</td></tr>
 </table>
-<div style="margin-top:8px;font-size:0.93em;color:#555">Celkem: <b style="color:#C0392B">3×?</b> + <b style="color:#1A5276">8</b> = <b style="color:#E65100">44</b> → 3×? = 36 → ? = 12</div>
+<div style="margin-top:8px;font-size:0.93em;color:#555">3×? + 8 = 44 &nbsp;→&nbsp; odečteme 8: 3×? = <b>36</b> &nbsp;→&nbsp; vydělíme 3: ? = <b style="color:#E65100;font-size:1.05em">12</b></div>
 </div>
 <div class="ex"><div class="lbl">Krok za krokem — vizuální metoda (doporučeno!)</div>
 <ol>
@@ -1153,31 +1203,41 @@ Znám počet kuliček v <b>části</b> → musím zjistit, kolik je <b>jeden kou
 <b>Špatně:</b> „Dvě třetiny jsou 30, takže celkem = 30 ÷ 2 = 15." — To je jen <b>jeden kousek</b>, ne celá pizza!<br>
 <b>Správně:</b> 30 ÷ 2 × 3 = <b>45</b>. Vždy: vyděl počtem <i>viditelných</i> kousků, vynásob <i>celkovým</i> počtem kousků.
 </div>
-<div class="ex"><div class="lbl">Příklad: Ondra, Pavel a Šárka mají dohromady 750 Kč. Ondra má 2× tolik co Šárka. Pavel také 2× tolik co Šárka. Kolik má Šárka?</div>
-Myslím si Šárčin díl jako <b>1 kousek</b>. Ondra = <b>2 kousky</b>. Pavel = <b>2 kousky</b>.<br>
-Dohromady = 1 + 2 + 2 = <b>5 kousků</b> = 750 Kč.<br>
-Jeden kousek = 750 ÷ 5 = <span class="hint-result">150 Kč</span> → Šárka má <b>150 Kč</b>, Ondra a Pavel každý <b>300 Kč</b>.<br>
-Ověř: 150 + 300 + 300 = <b>750 Kč</b> ✓
-</div>""", "#eafaf1", "#27AE60"),
+""", "#eafaf1", "#27AE60"),
 
 ("💡", "Dosaď jednu podmínku do druhé", f"""
+<div class="ex"><div class="lbl">💡 Jak trik „výměny" funguje — příklad z obchodu</div>
+Máme dvě informace. Z <b>jedné</b> zjistíme, za co lze <b>vyměnit</b> část z <b>druhé</b>.<br>
+🛒 Představ si: víš, že <b>1 pytlík bonbonů stojí stejně jako 2 tyčinky</b>. Kdykoli pak vidíš v zadání „1 pytlík", <b>vyměníš</b> ho za „2 tyčinky" — a najednou počítáš jen s jedním druhem. Snadné!
+</div>
 <div class="ex"><div class="lbl">Příklad (Jana a sešity, 23r1)</div>
-2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí jako 3 linkované.
+2 linkované + 2 čtverečkované = 180 Kč. 2 čtverečkované stojí stejně jako 3 linkované.
 <ol>
-<li>Z 2. podmínky: 2 čtverečkované = 3 linkované</li>
-<li>Dosadím do 1.: 2 linkované + 3 linkované = 5 linkovaných = 180 Kč</li>
-<li>1 linkovaný = <span class="hint-result">36 Kč</span></li>
-<li>1 čtverečkovaný = 3×36÷2 = <span class="hint-result">54 Kč</span></li>
+<li>Z 2. informace: 2 čtverečkované = 3 linkované</li>
+<li><b>Vyměním</b> „2 čtverečkované" v 1. informaci za „3 linkované": 2 linkované + 3 linkované = 5 linkovaných = 180 Kč</li>
+<li>1 linkovaný = 180 ÷ 5 = <span class="hint-result">36 Kč</span></li>
+<li>Cena 3 linkovaných = 3 × 36 = <b>108 Kč</b> — a to jsou právě 2 čtverečkované</li>
+<li>1 čtverečkovaný = 108 ÷ 2 = <span class="hint-result">54 Kč</span></li>
 </ol>
+<div style="font-size:0.9em;color:#555;margin-top:4px">Ověř: 2×36 + 2×54 = 72 + 108 = <b>180 Kč</b> ✓</div>
 </div>
 <div class="ex"><div class="lbl">Příklad: dvě čísla, součet = 150, druhé = polovina prvního</div>
-Teď máme dvě věty najednou — z jedné si vytáhneme hodnotu a dosadíme do druhé.<br>
+Znovu použijeme trik výměny — z jedné věty zjistíme vztah a <b>vyměníme</b> ho ve druhé větě.<br>
 Myslím si první číslo jako <b>2 kousky</b> a druhé jako <b>1 kousek</b> (protože druhé je polovina prvního).<br>
 <ol>
 <li>Dohromady: 2 kousky + 1 kousek = <b>3 kousky</b> = 150</li>
 <li>Jeden kousek = 150 ÷ 3 = <span class="hint-result">50</span></li>
 <li>První číslo = 2 kousky = 2 × 50 = <span class="hint-result">100</span>. Druhé = 1 kousek = <span class="hint-result">50</span>.</li>
 <li>Ověř: 100 + 50 = 150 ✓ a 50 je polovina 100 ✓</li>
+</ol>
+</div>
+<div class="ex"><div class="lbl">Stejný trik funguje i u dílů: Ondra, Pavel a Šárka mají dohromady 750 Kč. Ondra má 2× tolik co Šárka. Pavel také 2× tolik co Šárka. Kolik má Šárka?</div>
+Myslím si Šárčin díl jako <b>1 kousek</b>. Z podmínek: Ondra = <b>2 kousky</b>. Pavel = <b>2 kousky</b>.<br>
+<b>Vyměním</b> „Ondra" a „Pavel" za jejich díly: 1 + 2 + 2 = <b>5 kousků</b> = 750 Kč.<br>
+<ol>
+<li>Jeden kousek = 750 ÷ 5 = <span class="hint-result">150 Kč</span></li>
+<li>Šárka = 1 kousek = <b>150 Kč</b>. Ondra = 2 × 150 = <b>300 Kč</b>. Pavel = 2 × 150 = <b>300 Kč</b>.</li>
+<li>Ověř: 150 + 300 + 300 = <b>750 Kč</b> ✓</li>
 </ol>
 </div>""", "#eafaf1", "#1E8449"),
 
@@ -1188,8 +1248,10 @@ Myslím si první číslo jako <b>2 kousky</b> a druhé jako <b>1 kousek</b> (pr
 <tr><td>🔴 Venn: sečtu všechny kroužky = celkový počet</td><td>Průniky jsou počítány víckrát — musíš je odečíst!</td></tr>
 <tr><td>🔴 Součtový trojúhelník: dole = součet horní řady</td><td>Dole = součet PROSTŘEDNÍ řady (ne horní!)</td></tr>
 <tr><td>🔴 „Čtvrtina je 12" → celkem = 12 × 4 ✓ (toto je správně!)</td><td>Ale: „dvě třetiny jsou 30" → celkem = 30 ÷ 2 × 3 = 45 (ne 30÷2!)</td></tr>
-<tr><td>🔴 Neověřím výsledek v KAŽDÉ podmínce</td><td>Zkontroluj každou podmínku zvlášť — soudné řešení splňuje všechny</td></tr>
+<tr><td>🔴 Neověřím výsledek v KAŽDÉ podmínce</td><td>Dosaď výsledek zpátky do zadání — správné řešení musí sedět do KAŽDÉ věty v zadání</td></tr>
 <tr><td>🔴 Odpovím na jiné číslo, než se ptá otázka</td><td>Podtrhni otázku na konci zadání — zkontroluj, co přesně hledáš (chlapci? dívky? celkem?)</td></tr>
+<tr><td>🔴 Při výměně (substituci) zapomenu vrátit výsledek zpět na původní zboží</td><td>Po výpočtu linkovaného ověř, kolik stojí čtverečkovaný — otázka se může ptát na jiný druh!</td></tr>
+<tr><td>🔴 U Vennova diagramu zaměním „právě ve dvou kroužcích" za „aspoň ve dvou" → odečtu víc, než mám</td><td>„Právě ve dvou" = přesně dvou, ne třech. Děti ve třech kroužcích se nepočítají do skupiny „právě dva"!</td></tr>
 </table>""", "#fff0f0", "#C0392B"),
 ]
 
