@@ -33,6 +33,7 @@ declare -A RESENI_NAMES=(
   [25n2]="MA5-C · 2. náhradní termín 2025"
   [25r1]="MA5-C · 1. řádný termín 2025"
   [25r2]="MA5-C · 2. řádný termín 2025"
+  [23r1]="MA5-C · 1. řádný termín 2023"
 )
 
 # ── rozpoznání typu (PL vs řešení) ────────────────────────────────────────
@@ -52,7 +53,7 @@ elif [[ -n "${RESENI_NAMES[$ID]+x}" ]]; then
   fi
 else
   echo "Chyba: Neznámé ID '$ID'." >&2
-  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2" >&2
+  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2, 23r1" >&2
   exit 1
 fi
 
