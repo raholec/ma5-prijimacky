@@ -7,7 +7,8 @@
   "permissions": {
     "allow": [
       "Bash(wc:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(python3:*)"
     ]
   },
   "hooks": {
@@ -17,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 -c \"\nimport sys, json, re, subprocess\nfrom datetime import datetime\ndata = json.load(sys.stdin)\ncmd = data.get('tool_input', {}).get('command', '')\nif not re.search(r'\\\\bgit\\\\s+push\\\\b', cmd): sys.exit(0)\nnow = datetime.now()\nverze = f'Verze {now.day}. {now.month}. {now.year} {now.strftime(\\\"%H:%M\\\")}'\nf = 'docs/index.html'\ntext = open(f).read()\nnew_text = re.sub(r'Verze \\\\d+\\\\. \\\\d+\\\\. \\\\d{4}( \\\\d{2}:\\\\d{2})?', verze, text)\nopen(f, 'w').write(new_text)\nsubprocess.run(['git', 'add', f])\nprint(f'Footer updated: {verze}')\n\" 2>/dev/null || true",
+            "command": "python3 -c \"\nimport sys, json, re, subprocess\nfrom datetime import datetime\ndata = json.load(sys.stdin)\ncmd = data.get('tool_input', {}).get('command', '')\nif not re.search(r'\\\\bgit\\\\s+push\\\\b', cmd): sys.exit(0)\nnow = datetime.now()\nverze = f'Verze {now.day}. {now.month}. {now.year} {now.strftime(\\\"%H:%M\\\")}'\nf = 'docs/index.html'\ntext = open(f).read()\nnew_text = re.sub(r'Verze \\\\d+\\\\. \\\\d+\\\\. \\\\d{4}( \\\\d{2}:\\\\d{2})?', verze, text)\nif new_text == text: sys.exit(0)\nopen(f, 'w').write(new_text)\nsubprocess.run(['git', 'add', f])\nsubprocess.run(['git', 'commit', '-m', f'aktualizuj verzi v patičce: {verze}'])\nprint(f'Footer updated and committed: {verze}')\n\" 2>/dev/null || true",
             "if": "Bash(git push*)",
             "statusMessage": "Aktualizuji verzi v patičce..."
           }
