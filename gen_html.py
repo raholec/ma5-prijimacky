@@ -1523,30 +1523,21 @@ for num, name, cd, cm, cl, ct, fn in SHEETS:
     size = os.path.getsize(out_html)
     print(f" HTML OK ({size//1024} KB)", end="", flush=True)
 
-    # Generate PDF via wkhtmltopdf
+    # Generate PDF via weasyprint
     out_pdf = f"{OUTDIR}/PL{num:02d}_{name}.pdf"
     import subprocess
     try:
         r = subprocess.run([
-            "wkhtmltopdf",
-            "--page-size", "A4",
-            "--margin-top", "12mm",
-            "--margin-bottom", "12mm",
-            "--margin-left", "12mm",
-            "--margin-right", "12mm",
-            "--encoding", "utf-8",
-            "--enable-local-file-access",
-            "--zoom", "0.88",
-            "--quiet",
+            "weasyprint", "-q",
             out_html,
             out_pdf
         ], capture_output=True, text=True)
-        if r.returncode == 0:
+        if os.path.exists(out_pdf) and os.path.getsize(out_pdf) > 0:
             pdf_size = os.path.getsize(out_pdf)
             print(f" | PDF OK ({pdf_size//1024} KB)")
         else:
             print(f" | PDF ERR: {r.stderr[:80]}")
     except FileNotFoundError:
-        print(" | PDF skip (wkhtmltopdf not installed)")
+        print(" | PDF skip (weasyprint not installed: pipx install weasyprint)")
 
 print("Hotovo!")
