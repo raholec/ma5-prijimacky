@@ -6,7 +6,7 @@ sys.path.insert(0, '/home/claude')
 from hints_data import HINTS_PL01,HINTS_PL02,HINTS_PL03,HINTS_PL04,HINTS_PL05,HINTS_PL06,HINTS_PL07,HINTS_PL08,HINTS_PL09,QUIZ_PL01,QUIZ_PL02,QUIZ_PL03,QUIZ_PL04,QUIZ_PL05,QUIZ_PL06,QUIZ_PL07,QUIZ_PL08,QUIZ_PL09
 
 OUTDIR = os.path.join(os.path.dirname(__file__) or ".", "docs", "pages")
-IMGDIR = "/tmp/cropped"
+IMGDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "imgs")
 
 def img64(name):
     p = f"{IMGDIR}/{name}.jpeg"
