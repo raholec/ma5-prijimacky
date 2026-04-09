@@ -46,9 +46,11 @@ declare -A PRUVODCE_PO_NAMES=(
 
 declare -A PAGE_NAMES=(
   [strategie35]="Strategie 35 bodů"
+  [cviceni39b]="Procvičování na 39 bodů"
 )
 declare -A PAGE_FILES=(
   [strategie35]="docs/pages/PL_Strategie35.html"
+  [cviceni39b]="docs/pages/PL_Cviceni_39b.html"
 )
 
 # ── rozpoznání typu (PL vs řešení vs průvodce vs pruvodce_po) ─────────────

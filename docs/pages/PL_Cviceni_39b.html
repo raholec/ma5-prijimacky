@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Procvičování na 39 bodů — BLACKPINK × MA5</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:#222;background:#0a0a0a;padding:16px}
+.page{background:white;max-width:860px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 4px 32px rgba(255,0,118,.25)}
+
+/* COVER */
+.cover{background:linear-gradient(135deg,#0a0a0a 0%,#1a0010 60%,#2a000a 100%);color:white;padding:32px 28px 28px;position:relative;overflow:hidden}
+.cover::before{content:'BLACKPINK';position:absolute;right:-10px;top:10px;font-size:80px;font-weight:900;color:rgba(255,0,118,.08);letter-spacing:-2px;pointer-events:none}
+.cover .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#ff0076;font-weight:700;margin-bottom:8px}
+.cover h1{font-size:28px;font-weight:900;line-height:1.2;margin-bottom:6px}
+.cover h1 span{color:#ff0076}
+.cover .sub{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:16px}
+.cover .pills{display:flex;flex-wrap:wrap;gap:8px}
+.cover .pill{background:rgba(255,0,118,.15);border:1px solid rgba(255,0,118,.4);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:#ff6eb0}
+
+.bp-back{display:inline-flex;align-items:center;gap:6px;color:#888;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid #ddd;border-radius:20px;margin:16px 16px 0;background:white;transition:all .2s}
+.bp-back:hover{background:#ff0076;color:white;border-color:#ff0076}
+
+/* SECTION HEADERS */
+.sekce{padding:28px 24px 0}
+.sekce-header{border-radius:12px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;color:white}
+.sekce-header .s-icon{font-size:26px}
+.sekce-header .s-num{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;margin-bottom:2px}
+.sekce-header .s-title{font-size:18px;font-weight:800}
+.sekce-header .s-pts{margin-left:auto;background:rgba(255,255,255,.2);border-radius:12px;padding:4px 12px;font-size:12px;font-weight:700;white-space:nowrap}
+
+/* ULOHA CARD */
+.uloha{border:2px solid #e8e8e8;border-radius:12px;margin-bottom:18px;overflow:hidden}
+.uloha-header{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#fafafa;border-bottom:2px solid #e8e8e8}
+.uloha-num{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.uloha-theme{font-size:12px;color:#888;font-style:italic}
+.uloha-body{padding:16px}
+
+.zadani{background:#f8f9fa;border-radius:8px;padding:14px 16px;margin-bottom:14px;border-left:5px solid #ccc;font-size:14px;line-height:1.75}
+.zadani strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#888;margin-bottom:6px}
+
+/* Multiple choice */
+.mc-options{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.mc-opt{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border-radius:8px;background:#f5f5f5;border:1.5px solid #e0e0e0;font-size:14px}
+.mc-opt .ltr{font-weight:800;min-width:22px;flex-shrink:0;color:#555}
+
+/* AN table */
+.an-table{border-collapse:collapse;margin:10px 0;font-size:14px;width:100%}
+.an-table th{padding:8px 12px;text-align:center;background:#f0f0f0;font-size:12px;font-weight:700;text-transform:uppercase}
+.an-table td{padding:9px 12px;border:1px solid #e0e0e0;vertical-align:middle}
+.an-table td:last-child,.an-table td:nth-last-child(2){text-align:center;font-weight:800;min-width:44px;color:#888}
+
+/* SVG graph */
+.graph-wrap{background:#f8f8f8;border-radius:10px;padding:16px;margin-bottom:14px;overflow-x:auto}
+.graph-legend{display:flex;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600}
+.leg-dot{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+
+/* REVEAL BUTTONS */
+.reveal-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.btn-hint{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:8px;border:2px solid #f59e0b;background:white;color:#b45309;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-hint:hover{background:#fef3c7;border-color:#d97706}
+.btn-sol{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:8px;border:2px solid #22c55e;background:white;color:#15803d;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-sol:hover{background:#dcfce7;border-color:#16a34a}
+
+/* HINT PANEL */
+.hint-panel{display:none;margin-top:12px;background:#fffbeb;border:2px solid #fcd34d;border-radius:10px;padding:14px 16px}
+.hint-panel .hp-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#92400e;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.hint-panel p,.hint-panel li{font-size:14px;line-height:1.75;color:#44403c}
+.hint-panel ul{padding-left:0;list-style:none}
+.hint-panel ul li{padding:3px 0 3px 18px;position:relative}
+.hint-panel ul li::before{content:"→";position:absolute;left:0;color:#d97706}
+.hint-panel .hcalc{font-family:monospace;background:rgba(0,0,0,.06);border-radius:5px;padding:3px 8px;font-size:13px}
+
+/* SOLUTION PANEL */
+.sol-panel{display:none;margin-top:12px;background:#f0fdf4;border:2px solid #86efac;border-radius:10px;padding:14px 16px}
+.sol-panel .sp-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#166534;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.sol-panel p,.sol-panel li{font-size:14px;line-height:1.75;color:#14532d}
+.sol-panel .sline{font-family:monospace;display:block;background:rgba(0,0,0,.05);border-radius:5px;padding:3px 8px;font-size:13px;margin:3px 0}
+.answer-final{margin-top:10px;background:white;border:2px solid #22c55e;border-radius:8px;padding:10px 14px;font-size:15px;font-weight:800;color:#15803d}
+.answer-final::before{content:"✅ Odpověď: "}
+
+/* SECTION DIVIDER */
+.sec-divider{height:3px;background:linear-gradient(90deg,transparent,#ff0076,transparent);margin:8px 0 0}
+
+/* FOOTER */
+.footer{background:#0a0a0a;color:#666;text-align:center;padding:16px;font-size:12px}
+
+@media(max-width:600px){
+  .cover h1{font-size:22px}
+  .sekce{padding:16px 12px 0}
+  .uloha-body{padding:12px}
+  .reveal-row{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+<a href="../index.html" class="bp-back">← zpět na přehled</a>
+
+<div class="cover">
+  <div class="tag">BLACKPINK × Matematika 5 — Cílová příprava</div>
+  <h1>Procvičování na <span>39 bodů</span></h1>
+  <div class="sub">15 úloh · 5 typů · nápověda + řešení</div>
+  <div class="pills">
+    <span class="pill">💚 Soustavy podmínek</span>
+    <span class="pill">💙 Multiple choice</span>
+    <span class="pill">💜 Geometrie</span>
+    <span class="pill">🩵 Grafy</span>
+    <span class="pill">🩷 Vzory</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCE 1: SOUSTAVY PODMÍNEK -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="sekce">
+<div class="sekce-header" style="background:linear-gradient(135deg,#1E8449,#27AE60)">
+  <div class="s-icon">💚</div>
+  <div>
+    <div class="s-num">Část 1</div>
+    <div class="s-title">Soustavy podmínek</div>
+  </div>
+  <div class="s-pts">+8 bodů v testu</div>
+</div>
+
+<!-- 1A -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#d1fae5">
+    <div class="uloha-num" style="color:#16a34a">Úloha 1A</div>
+    <div class="uloha-theme">Jennie — merch</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Jennie koupila pro fanynky trička a náramky.
+      Triček koupila třikrát více než náramků.
+      Celkem koupila <strong>28 kusů</strong>.
+      Kolik triček koupila?
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h1a')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s1a')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h1a">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Představ si, že máme <strong>krabičky</strong>. Náramky jsou <strong>1 krabička</strong>, trička jsou <strong>3 krabičky</strong> (třikrát více).</li>
+        <li>Celkem máme <span class="hcalc">1 + 3 = 4 krabičky</span> a v nich dohromady 28 kusů.</li>
+        <li>Kolik kusů je v 1 krabičce? → <span class="hcalc">28 ÷ 4 = 7 kusů</span> (to jsou náramky)</li>
+        <li>Trička jsou 3 krabičky → <span class="hcalc">3 × 7 = ?</span></li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s1a">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Krabičky: 1 (náramky) + 3 (trička) = 4 krabičky celkem</span>
+      <span class="sline">28 ÷ 4 = 7  → v 1 krabičce je 7 kusů  (= počet náramků)</span>
+      <span class="sline">Trička = 3 krabičky = 3 × 7 = 21</span>
+      <div class="answer-final">21 triček</div>
+    </div>
+  </div>
+</div>
+
+<!-- 1B -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#d1fae5">
+    <div class="uloha-num" style="color:#16a34a">Úloha 1B</div>
+    <div class="uloha-theme">Rosé — ceny merche</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Dvě trička a dvě sošky Rosé stojí dohromady <strong>300 Kč</strong>.
+      Dvě sošky stojí stejně jako tři trička.
+      Kolik stojí jedno tričko?
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h1b')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s1b')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h1b">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Přečti znovu druhou větu: <strong>2 sošky stojí stejně jako 3 trička</strong>. To je zlatý klíč!</li>
+        <li>Kdykoli vidíme „2 sošky", můžeme je klidně vyměnit za „3 trička" — stojí přece stejně jako 3 trička.</li>
+        <li>V první větě máme: 2 trička + 2 sošky = 300 Kč. Vyměníme 2 sošky za 3 trička:</li>
+        <li><span class="hcalc">2 trička + 3 trička = 5 triček = 300 Kč</span> → 1 tričko = ?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s1b">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">2 sošky stojí stejně jako 3 trička  →  vyměníme je</span>
+      <span class="sline">2 trička + 2 sošky = 300 Kč</span>
+      <span class="sline">2 trička + 3 trička = 5 triček = 300 Kč</span>
+      <span class="sline">1 tričko = 300 ÷ 5 = 60 Kč</span>
+      <div class="answer-final">1 tričko = 60 Kč</div>
+    </div>
+  </div>
+</div>
+
+<!-- 1C -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#d1fae5">
+    <div class="uloha-num" style="color:#16a34a">Úloha 1C</div>
+    <div class="uloha-theme">Jisoo — výhry na soutěži</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Na výherce soutěže o setkání s Jisoo byl připraven obnos v Kč.
+      První výherce dostala <strong>polovinu</strong> obnosu.
+      Druhá výherce dostala <strong>400 Kč</strong>.
+      Třetí výherce dostala zbytek, což bylo <strong>třikrát méně</strong> než první.
+      Kolik Kč bylo celkem připraveno?
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h1c')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s1c')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h1c">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li><strong>Proč zrovna 6 krabičků?</strong> Podívej se na dvě podmínky v zadání:
+          <ul style="margin-top:4px">
+            <li>1. výherce dostala <em>polovinu</em> → počet krabičků musí jít rozdělit na 2 stejné díly.</li>
+            <li>3. výherce dostala <em>třikrát méně</em> než 1. výherce → ta polovina musí jít ještě rozdělit na 3 stejné díly.</li>
+          </ul>
+          Hledáme číslo, jehož polovina jde dělit třemi. Zkus: polovina z <strong>6</strong> = 3, a 3 ÷ 3 = 1. Funguje! ✓<br>
+          Proto bereme právě <strong>6 krabičků</strong>.
+        </li>
+        <li>Celý obnos si představ jako <strong>6 stejných krabičků</strong> s penězi.</li>
+        <li>1. výherce dostala <strong>polovinu = 3 krabičky</strong>. Třetí dostala třikrát méně než první → <strong>1 krabičku</strong>.</li>
+        <li>2. výherce dostala zbytek: 6 − 3 − 1 = <strong>2 krabičky = 400 Kč</strong>.</li>
+        <li>Teď víme cenu jednoho sáčku: <span class="hcalc">400 ÷ 2 = 200 Kč</span> v 1 krabičce.</li>
+        <li>Celý obnos = <span class="hcalc">6 krabičků × 200 Kč = ?</span></li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s1c">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Proč 6 krabičků? Polovina z 6 = 3, a 3 ÷ 3 = 1 → obě podmínky vychází celé číslo ✓</span>
+      <span class="sline">Celý obnos rozdělíme na 6 stejných krabičků</span>
+      <span class="sline">1. výherce = polovina celku = 3 krabičky</span>
+      <span class="sline">3. výherce = třikrát méně než 1. výherce = 3 ÷ 3 = 1 krabička</span>
+      <span class="sline">2. výherce = zbytek = 6 − 3 − 1 = 2 krabičky = 400 Kč</span>
+      <span class="sline">1 krabička = 400 ÷ 2 = 200 Kč</span>
+      <span class="sline">Celkem = 6 × 200 = 1 200 Kč</span>
+      <span class="sline">Ověření: 600 + 400 + 200 = 1 200 ✓</span>
+      <div class="answer-final">Celkem připraveno: 1 200 Kč</div>
+    </div>
+  </div>
+</div>
+</div><!-- /sekce -->
+<div class="sec-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCE 2: MULTIPLE CHOICE -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="sekce">
+<div class="sekce-header" style="background:linear-gradient(135deg,#1a4db5,#2563eb)">
+  <div class="s-icon">💙</div>
+  <div>
+    <div class="s-num">Část 2</div>
+    <div class="s-title">Multiple choice — výpočty</div>
+  </div>
+  <div class="s-pts">+8 bodů v testu</div>
+</div>
+
+<!-- 2A -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#dbeafe">
+    <div class="uloha-num" style="color:#1d4ed8">Úloha 2A</div>
+    <div class="uloha-theme">Lisa — plakáty</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Lisa si koupila 3 různé plakáty. První stál <strong>96 Kč</strong>.
+      Druhý byl o čtvrtinu levnější než první.
+      Cena třetího plakátu byla <strong>třetinou celkové ceny</strong> všech tří.
+      O kolik korun byl třetí plakát dražší než druhý?
+    </div>
+    <div class="mc-options">
+      <div class="mc-opt"><span class="ltr">A)</span> o méně než 10 Kč</div>
+      <div class="mc-opt"><span class="ltr">B)</span> o 10 Kč</div>
+      <div class="mc-opt"><span class="ltr">C)</span> o 12 Kč</div>
+      <div class="mc-opt"><span class="ltr">D)</span> o 15 Kč</div>
+      <div class="mc-opt"><span class="ltr">E)</span> o více než 15 Kč</div>
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h2a')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s2a')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h2a">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Spočítej 2. plakát: o čtvrtinu levnější = 96 − 96÷4 = <span class="hcalc">96 − 24 = 72 Kč</span>.</li>
+        <li>1. + 2. plakát = 96 + 72 = <strong>168 Kč</strong>.</li>
+        <li>3. plakát je třetina celku → 1. + 2. plakát tvoří <strong>dvě třetiny</strong> celku.</li>
+        <li>Dvě třetiny = 168 Kč → jedna třetina = 168 ÷ 2 = 84 Kč (to je 3. plakát).</li>
+        <li>O kolik je 3. plakát dražší než 2.? → 84 − 72 = ?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s2a">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">2. plakát: o čtvrtinu levnější = 96 − 96÷4 = 96 − 24 = 72 Kč</span>
+      <span class="sline">1. + 2. plakát = 96 + 72 = 168 Kč</span>
+      <span class="sline">168 Kč = dvě třetiny celku  →  jedna třetina = 168 ÷ 2 = 84 Kč</span>
+      <span class="sline">3. plakát = 84 Kč  (je to ta jedna třetina celku ✓)</span>
+      <span class="sline">3. − 2. plakát = 84 − 72 = 12 Kč</span>
+      <div class="answer-final">C) o 12 Kč</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2B -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#dbeafe">
+    <div class="uloha-num" style="color:#1d4ed8">Úloha 2B</div>
+    <div class="uloha-theme">Jennie — kasička</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Jennie má v kasičce celkem <strong>60 mincí</strong> — pětikorunové a desetikorunové.
+      Hodnota všech pětikorunových je stejná jako hodnota všech desetikorunových.
+      Jaká je celková hodnota všech mincí v kasičce?
+    </div>
+    <div class="mc-options">
+      <div class="mc-opt"><span class="ltr">A)</span> 300 Kč</div>
+      <div class="mc-opt"><span class="ltr">B)</span> 400 Kč</div>
+      <div class="mc-opt"><span class="ltr">C)</span> 500 Kč</div>
+      <div class="mc-opt"><span class="ltr">D)</span> 600 Kč</div>
+      <div class="mc-opt"><span class="ltr">E)</span> jiná hodnota</div>
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h2b')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s2b')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h2b">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Hodnoty jsou si rovny → hodnota pětikorunových = hodnota desetikorunových.</li>
+        <li>Na každou 10 Kč minci potřebuji <strong>2 pětikorunové</strong> (aby hodnoty seděly). Tvoří skupinu 3 mincí.</li>
+        <li>Celkem 60 mincí → <span class="hcalc">60 ÷ 3 = 20 skupin</span>.</li>
+        <li>Každá skupina = 1 desetikorunová + 2 pětikorunové = <strong>20 Kč</strong>.</li>
+        <li>Celková hodnota = 20 skupin × 20 Kč = ?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s2b">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Na každou 10 Kč minci potřebuji 2 pětikorunové (aby hodnoty byly stejné).</span>
+      <span class="sline">Skupina = 1 desetikorunová + 2 pětikorunové = 3 mince, hodnota = 20 Kč</span>
+      <span class="sline">Počet skupin: 60 ÷ 3 = 20 skupin</span>
+      <span class="sline">Celková hodnota: 20 × 20 = 400 Kč</span>
+      <span class="sline">Ověření: 40 pětikorunových = 200 Kč, 20 desetikorunových = 200 Kč ✓</span>
+      <div class="answer-final">B) 400 Kč</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2C -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#dbeafe">
+    <div class="uloha-num" style="color:#1d4ed8">Úloha 2C</div>
+    <div class="uloha-theme">Rosé — stavebnicová scéna</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Rosé staví model pódia ze stavebnicových dílků s rozměry <strong>4 cm × 3 cm × 2 cm</strong>.
+      Kolik dílků potřebuje ke složení kvádru s rozměry <strong>8 cm × 12 cm × 6 cm</strong>?
+    </div>
+    <div class="mc-options">
+      <div class="mc-opt"><span class="ltr">A)</span> méně než 20 dílků</div>
+      <div class="mc-opt"><span class="ltr">B)</span> 20 dílků</div>
+      <div class="mc-opt"><span class="ltr">C)</span> 24 dílků</div>
+      <div class="mc-opt"><span class="ltr">D)</span> 30 dílků</div>
+      <div class="mc-opt"><span class="ltr">E)</span> více než 30 dílků</div>
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h2c')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s2c')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h2c">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Představ si kostky cukru naskládané do velké cukřenky — přesně tak fungují tyto dílky!</li>
+        <li>Zjisti, kolik dílků se vejde v každém směru <em>zvlášť</em>:<br>
+          → Do délky (8 cm): <span class="hcalc">8 ÷ 4 = 2</span> dílky vedle sebe<br>
+          → Do šířky (12 cm): <span class="hcalc">12 ÷ 3 = 4</span> dílky za sebou<br>
+          → Do výšky (6 cm): <span class="hcalc">6 ÷ 2 = 3</span> vrstvy nad sebou
+        </li>
+        <li>V jedné vrstvě leží <span class="hcalc">2 × 4 = 8</span> dílků. Takové vrstvy jsou 3 → celkem <span class="hcalc">8 × 3 = ?</span></li>
+        <li>(Nebo rovnou: 2 × 4 × 3 = ? — výsledek je stejný.)</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s2c">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Podélně: 8 ÷ 4 = 2</span>
+      <span class="sline">Příčně:  12 ÷ 3 = 4</span>
+      <span class="sline">Výška:   6 ÷ 2 = 3</span>
+      <span class="sline">Celkem: 2 × 4 × 3 = 24 dílků</span>
+      <div class="answer-final">C) 24 dílků</div>
+    </div>
+  </div>
+</div>
+</div><!-- /sekce -->
+<div class="sec-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCE 3: GEOMETRIE -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="sekce">
+<div class="sekce-header" style="background:linear-gradient(135deg,#6d28d9,#7c3aed)">
+  <div class="s-icon">💜</div>
+  <div>
+    <div class="s-num">Část 3</div>
+    <div class="s-title">Geometrie — pravdivé / nepravdivé</div>
+  </div>
+  <div class="s-pts">+4 body v testu</div>
+</div>
+<p style="font-size:13px;color:#666;margin-bottom:16px;padding:0 4px">
+  U každého tvrzení rozhodněte: <strong>A</strong> = pravdivé, <strong>N</strong> = nepravdivé.
+</p>
+
+<!-- 3A -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#ede9fe">
+    <div class="uloha-num" style="color:#7c3aed">Úloha 3A</div>
+    <div class="uloha-theme">Jennie — obdélníkové pódium</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Pódium pro Jennie má tvar obdélníku s obvodem <strong>44 cm</strong>
+      (v modelu). Jedna strana je o <strong>6 cm delší</strong> než druhá.
+    </div>
+    <table class="an-table">
+      <tr><th>č.</th><th>Tvrzení</th><th>A</th><th>N</th></tr>
+      <tr><td>3A.1</td><td>Kratší strana měří 8 cm.</td><td></td><td></td></tr>
+      <tr><td>3A.2</td><td>Delší strana měří 14 cm.</td><td></td><td></td></tr>
+      <tr><td>3A.3</td><td>Obvod čtverce se stranou = kratší straně pódia je 36 cm.</td><td></td><td></td></tr>
+    </table>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h3a')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s3a')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h3a">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Obvod obdélníku = 2× kratší + 2× delší. Polovina obvodu = <span class="hcalc">44 ÷ 2 = 22 cm</span> = kratší + delší.</li>
+        <li>Kratší + delší = 22 cm a delší je o 6 cm více. Zkus: kratší = 7 → delší = 13 → součet = 20 ≠ 22. Zkus 8 a 14.</li>
+        <li>Po nalezení stran zkontroluj každé tvrzení zvlášť.</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s3a">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Polovina obvodu = 44 ÷ 2 = 22 cm = kratší + delší strana</span>
+      <span class="sline">Zkus kratší = 7: delší = 13, součet = 20 ≠ 22 ✗</span>
+      <span class="sline">Zkus kratší = 8: delší = 14, součet = 22 ✓  →  kratší = 8 cm, delší = 14 cm</span>
+      <span class="sline">3A.1: kratší = 8 cm  →  A ✓</span>
+      <span class="sline">3A.2: delší = 14 cm  →  A ✓</span>
+      <span class="sline">3A.3: čtverec se stranou 8 cm: 4 × 8 = 32 cm ≠ 36  →  N ✗</span>
+      <div class="answer-final">3A.1 = A, 3A.2 = A, 3A.3 = N</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3B -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#ede9fe">
+    <div class="uloha-num" style="color:#7c3aed">Úloha 3B</div>
+    <div class="uloha-theme">Lisa — LED nápis ze čtverců</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      LED nápis BLACKPINK tvoří tři stejné čtverce přiložené za sebou do řady.
+      Délka strany každého čtverce je <strong>5 cm</strong>.
+    </div>
+    <table class="an-table">
+      <tr><th>č.</th><th>Tvrzení</th><th>A</th><th>N</th></tr>
+      <tr><td>3B.1</td><td>Obvod celého nápisu je 40 cm.</td><td></td><td></td></tr>
+      <tr><td>3B.2</td><td>Obvod je dvakrát větší než obvod jednoho čtverce.</td><td></td><td></td></tr>
+      <tr><td>3B.3</td><td>Přidáním 4. čtverce vzroste obvod o 20 cm.</td><td></td><td></td></tr>
+    </table>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h3b')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s3b')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h3b">
+      <div class="hp-title">💡 Nápověda</div>
+      <!-- SVG tří čtverců s vyznačeným obvodem -->
+      <div style="text-align:center;margin:8px 0 12px">
+        <svg width="100%" viewBox="0 0 240 80" style="max-width:300px;overflow:visible">
+          <!-- tři čtverce 5×5 (kresleno v měřítku 50px = 5cm) -->
+          <!-- vnitřní sdílené strany - přerušovaně -->
+          <line x1="90"  y1="10" x2="90"  y2="60" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="140" y1="10" x2="140" y2="60" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- vnější obvod - tučně -->
+          <rect x="40" y="10" width="150" height="50" fill="#ede9fe" stroke="#7c3aed" stroke-width="2.5" rx="2"/>
+          <!-- popisky stran -->
+          <text x="115" y="8"  text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="700">15 cm (nahoře)</text>
+          <text x="115" y="76" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="700">15 cm (dole)</text>
+          <text x="34"  y="37" text-anchor="end"    font-size="10" fill="#7c3aed" font-weight="700">5</text>
+          <text x="196" y="37" text-anchor="start"  font-size="10" fill="#7c3aed" font-weight="700">5</text>
+          <!-- středy čtverců -->
+          <text x="65"  y="40" text-anchor="middle" font-size="9" fill="#888">5×5</text>
+          <text x="115" y="40" text-anchor="middle" font-size="9" fill="#888">5×5</text>
+          <text x="165" y="40" text-anchor="middle" font-size="9" fill="#888">5×5</text>
+          <!-- popis sdílených -->
+          <text x="90"  y="72" text-anchor="middle" font-size="8" fill="#aaa">uvnitř</text>
+          <text x="140" y="72" text-anchor="middle" font-size="8" fill="#aaa">uvnitř</text>
+        </svg>
+      </div>
+      <ul>
+        <li>Vnitřní strany (kde se čtverce dotýkají) jsou přerušované — <strong>do obvodu se nepočítají</strong>.</li>
+        <li>Celý tvar je obdélník 15 cm × 5 cm. Obdélník má <strong>2 delší strany</strong> (nahoře + dole) a <strong>2 kratší</strong> (vlevo + vpravo).</li>
+        <li>Obvod = <span class="hcalc">2 × 15 + 2 × 5 = ?</span></li>
+        <li>Pro 3B.3: 4 čtverce → délka = <span class="hcalc">4 × 5 = 20 cm</span> → nový obvod = <span class="hcalc">2×20 + 2×5 = 50 cm</span>. Kolik vzrostl oproti 40 cm?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s3b">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Tři čtverce v řadě: výška 5 cm, délka 3×5=15 cm</span>
+      <span class="sline">Obvod = 2×15 + 2×5 = 30 + 10 = 40 cm</span>
+      <span class="sline">3B.1: 40 cm  →  A ✓</span>
+      <span class="sline">3B.2: 1 čtverec = 20 cm; 40 = 2×20  →  A ✓</span>
+      <span class="sline">3B.3: 4 čtverce: 2×20+2×5 = 50 cm; 50−40 = 10 cm ≠ 20  →  N ✗</span>
+      <div class="answer-final">3B.1 = A, 3B.2 = A, 3B.3 = N</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3C -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#ede9fe">
+    <div class="uloha-num" style="color:#7c3aed">Úloha 3C</div>
+    <div class="uloha-theme">Jisoo — rovnostranný trojúhelník</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Jisoo navrhla logo skupiny ve tvaru rovnostranného trojúhelníku
+      s obvodem <strong>24 cm</strong>.
+    </div>
+    <table class="an-table">
+      <tr><th>č.</th><th>Tvrzení</th><th>A</th><th>N</th></tr>
+      <tr><td>3C.1</td><td>Délka strany trojúhelníku je 8 cm.</td><td></td><td></td></tr>
+      <tr><td>3C.2</td><td>Zkrátíme-li strany na polovinu, obvod se zkrátí na čtvrtinu.</td><td></td><td></td></tr>
+      <tr><td>3C.3</td><td>Čtyři taková loga dohromady mají obvod 96 cm.</td><td></td><td></td></tr>
+    </table>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h3c')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s3c')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h3c">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Rovnostranný trojúhelník: všechny 3 strany stejně dlouhé → strana = <span class="hcalc">24 ÷ 3 = 8 cm</span>.</li>
+        <li>Pro 3C.2 — ⚠️ záludná otázka! Zkrátíme <strong>každou</strong> ze tří stran na polovinu: nová strana = <span class="hcalc">8 ÷ 2 = 4 cm</span>.</li>
+        <li>Nový obvod = <span class="hcalc">3 × 4 = 12 cm</span>. Je to čtvrtina z 24? Čtvrtina by musela být <span class="hcalc">24 ÷ 4 = 6 cm</span>. Ale 12 ≠ 6 → obvod se zkrátil jen na <strong>polovinu</strong>!</li>
+        <li>Proč? Obvod = součet všech stran. Každou stranu jsme zkrátili na polovinu → i součet (= obvod) se zkrátí na polovinu. Čtvrtina by nastala, kdyby se každá strana zkrátila na čtvrtinu.</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s3c">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Strana = 24 ÷ 3 = 8 cm</span>
+      <span class="sline">3C.1: strana = 8 cm  →  A ✓</span>
+      <span class="sline">3C.2: strany/2 → nová strana 4 cm, obvod = 12 cm = 24/2 (na polovinu, ne čtvrtinu)  →  N ✗</span>
+      <span class="sline">3C.3: 4 × 24 = 96 cm  →  A ✓</span>
+      <div class="answer-final">3C.1 = A, 3C.2 = N, 3C.3 = A</div>
+    </div>
+  </div>
+</div>
+</div><!-- /sekce -->
+<div class="sec-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCE 4: GRAFY -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="sekce">
+<div class="sekce-header" style="background:linear-gradient(135deg,#0e7490,#0891b2)">
+  <div class="s-icon">🩵</div>
+  <div>
+    <div class="s-num">Část 4</div>
+    <div class="s-title">Čtení grafů — porovnávání</div>
+  </div>
+  <div class="s-pts">+5 bodů v testu</div>
+</div>
+
+<!-- Graf — společný pro 4A, 4B, 4C -->
+<div class="graph-wrap">
+  <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:#0e7490">
+    Fanklubová soutěž BLACKPINK — počet vytvořených příspěvků (3 skupiny)
+  </div>
+  <div class="graph-legend">
+    <div class="leg-item"><div class="leg-dot" style="background:#ff0076"></div>Kreseb</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#2563eb"></div>Videí</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#888"></div>Textů</div>
+  </div>
+  <svg width="100%" viewBox="0 0 400 200" style="overflow:visible">
+    <!-- Axes -->
+    <line x1="50" y1="10" x2="50" y2="160" stroke="#ccc" stroke-width="1.5"/>
+    <line x1="50" y1="160" x2="395" y2="160" stroke="#ccc" stroke-width="1.5"/>
+    <!-- Grid -->
+    <line x1="50" y1="120" x2="395" y2="120" stroke="#eee" stroke-width="1"/>
+    <line x1="50" y1="80"  x2="395" y2="80"  stroke="#eee" stroke-width="1"/>
+    <line x1="50" y1="40"  x2="395" y2="40"  stroke="#eee" stroke-width="1"/>
+    <!-- Y labels (scale: 10 units = 40px) -->
+    <text x="44" y="163" text-anchor="end" font-size="11" fill="#888">0</text>
+    <text x="44" y="123" text-anchor="end" font-size="11" fill="#888">10</text>
+    <text x="44" y="83"  text-anchor="end" font-size="11" fill="#888">20</text>
+    <text x="44" y="43"  text-anchor="end" font-size="11" fill="#888">30</text>
+    <!-- Group R -->
+    <rect x="58"  y="80"  width="16" height="80" fill="#ff0076"/>
+    <text x="66"  y="76"  text-anchor="middle" font-size="10" font-weight="700" fill="#ff0076">20</text>
+    <rect x="76"  y="120" width="16" height="40" fill="#2563eb"/>
+    <text x="84"  y="116" text-anchor="middle" font-size="10" font-weight="700" fill="#2563eb">10</text>
+    <rect x="94"  y="100" width="16" height="60" fill="#888"/>
+    <text x="102" y="96"  text-anchor="middle" font-size="10" font-weight="700" fill="#666">15</text>
+    <text x="84"  y="178" text-anchor="middle" font-size="12" font-weight="700" fill="#333">R</text>
+    <!-- Group S -->
+    <rect x="168" y="60"  width="16" height="100" fill="#ff0076"/>
+    <text x="176" y="56"  text-anchor="middle" font-size="10" font-weight="700" fill="#ff0076">25</text>
+    <rect x="186" y="120" width="16" height="40"  fill="#2563eb"/>
+    <text x="194" y="116" text-anchor="middle" font-size="10" font-weight="700" fill="#2563eb">10</text>
+    <rect x="204" y="100" width="16" height="60"  fill="#888"/>
+    <text x="212" y="96"  text-anchor="middle" font-size="10" font-weight="700" fill="#666">15</text>
+    <text x="194" y="178" text-anchor="middle" font-size="12" font-weight="700" fill="#333">S</text>
+    <!-- Group T -->
+    <rect x="278" y="100" width="16" height="60" fill="#ff0076"/>
+    <text x="286" y="96"  text-anchor="middle" font-size="10" font-weight="700" fill="#ff0076">15</text>
+    <rect x="296" y="120" width="16" height="40" fill="#2563eb"/>
+    <text x="304" y="116" text-anchor="middle" font-size="10" font-weight="700" fill="#2563eb">10</text>
+    <rect x="314" y="120" width="16" height="40" fill="#888"/>
+    <text x="322" y="116" text-anchor="middle" font-size="10" font-weight="700" fill="#666">10</text>
+    <text x="304" y="178" text-anchor="middle" font-size="12" font-weight="700" fill="#333">T</text>
+  </svg>
+</div>
+
+<!-- 4A -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#cffafe">
+    <div class="uloha-num" style="color:#0891b2">Úloha 4A</div>
+    <div class="uloha-theme">Srovnání kreseb</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání — doplňte</strong>
+      Skupina R vytvořila <strong>__________</strong> méně kreseb než skupina S.
+    </div>
+    <div style="font-size:13px;color:#555;margin-bottom:12px">Vyberte z možností: A) o šestinu &nbsp; B) o pětinu &nbsp; C) o čtvrtinu &nbsp; D) o třetinu &nbsp; E) o polovinu &nbsp; F) dvakrát</div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h4a')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s4a')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h4a">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>R = 20 kreseb, S = 25 kreseb.</li>
+        <li>Rozdíl = 25 − 20 = 5.</li>
+        <li>Zeptej se: 5 je kolikátá část z 25? → 5/25 = ?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s4a">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">R = 20, S = 25. Rozdíl = 5.</span>
+      <span class="sline">5 / 25 = 1/5 → o pětinu méně</span>
+      <div class="answer-final">B) o pětinu</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4B -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#cffafe">
+    <div class="uloha-num" style="color:#0891b2">Úloha 4B</div>
+    <div class="uloha-theme">Srovnání videí</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání — doplňte</strong>
+      Skupiny S a T dohromady vytvořily <strong>__________</strong> více videí než skupina R.
+    </div>
+    <div style="font-size:13px;color:#555;margin-bottom:12px">Vyberte z možností: A) o šestinu &nbsp; B) o pětinu &nbsp; C) o čtvrtinu &nbsp; D) o třetinu &nbsp; E) o polovinu &nbsp; F) dvakrát</div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h4b')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s4b')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h4b">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>S videí = 10, T videí = 10. Dohromady S+T = 20.</li>
+        <li>R videí = 10.</li>
+        <li>O kolik více? 20 − 10 = 10. A 10 je kolikátá část z 10?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s4b">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">S+T videí = 10+10 = 20, R videí = 10</span>
+      <span class="sline">S+T mají o 10 více než R. A R měla přesně 10 — tolik, kolik je ten rozdíl.</span>
+      <span class="sline">Jinak řečeno: S+T mají tolik co R (= 10) a ještě jednou tolik navíc (= 10) → celkem <strong>dvakrát více</strong>.</span>
+      <div class="answer-final">F) dvakrát</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4C -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#cffafe">
+    <div class="uloha-num" style="color:#0891b2">Úloha 4C</div>
+    <div class="uloha-theme">Celkové srovnání</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání — doplňte</strong>
+      Všechny tři skupiny dohromady vytvořily <strong>__________</strong> více kreseb než textů.
+    </div>
+    <div style="font-size:13px;color:#555;margin-bottom:12px">Vyberte z možností: A) o šestinu &nbsp; B) o pětinu &nbsp; C) o čtvrtinu &nbsp; D) o třetinu &nbsp; E) o polovinu &nbsp; F) dvakrát</div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h4c')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s4c')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h4c">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Sečti kreseb za R+S+T. Sečti textů za R+S+T.</li>
+        <li>Spočítej rozdíl. Zeptej se: rozdíl je kolikátá část z počtu textů?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s4c">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Kreseb celkem: 20+25+15 = 60</span>
+      <span class="sline">Textů celkem: 15+15+10 = 40</span>
+      <span class="sline">Rozdíl = 20. 20/40 = 1/2 → o polovinu více</span>
+      <div class="answer-final">E) o polovinu</div>
+    </div>
+  </div>
+</div>
+</div><!-- /sekce -->
+<div class="sec-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCE 5: VZORY A KOMBINATORIKA -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="sekce" style="padding-bottom:28px">
+<div class="sekce-header" style="background:linear-gradient(135deg,#c2410c,#ea580c)">
+  <div class="s-icon">🩷</div>
+  <div>
+    <div class="s-num">Část 5</div>
+    <div class="s-title">Vzory a kombinatorika</div>
+  </div>
+  <div class="s-pts">+4 body v testu</div>
+</div>
+
+<!-- Společný text -->
+<div style="background:#fff7ed;border:2px solid #fdba74;border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:14px;line-height:1.75">
+  <strong style="display:block;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#c2410c;margin-bottom:6px">Výchozí text (pro úlohy 5A–5C)</strong>
+  Ze světlých a tmavých čtverečků tvoříme obrazce BLACKPINK.<br>
+  <strong>Základní obrazec</strong> má <em>r</em> řad a <em>s</em> sloupců světlých čtverečků.<br>
+  <strong>Rozšířený obrazec</strong> vznikne tak, že přidáme <em>nahoru</em> jednu řadu tmavých čtverečků
+  a pak <em>vlevo i vpravo</em> po jednom sloupci tmavých čtverečků.
+
+  <!-- SVG diagram: základní (r=3, s=4) → rozšířený (4×6) -->
+  <div style="margin:14px 0 6px;text-align:center">
+    <svg width="100%" viewBox="0 0 370 140" style="max-width:420px;overflow:visible">
+      <!-- ZÁKLADNÍ (r=3, s=4): světlé čtverce 20×20, start x=10, y=20 -->
+      <text x="50" y="14" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">ZÁKLADNÍ (3 řady × 4 sloupce)</text>
+      <rect x="10" y="20" width="80" height="60" fill="#fef9c3" stroke="#d97706" stroke-width="1.5" rx="2"/>
+      <!-- grid lines -->
+      <line x1="30" y1="20" x2="30" y2="80" stroke="#d97706" stroke-width=".8"/>
+      <line x1="50" y1="20" x2="50" y2="80" stroke="#d97706" stroke-width=".8"/>
+      <line x1="70" y1="20" x2="70" y2="80" stroke="#d97706" stroke-width=".8"/>
+      <line x1="10" y1="40" x2="90" y2="40" stroke="#d97706" stroke-width=".8"/>
+      <line x1="10" y1="60" x2="90" y2="60" stroke="#d97706" stroke-width=".8"/>
+      <text x="50" y="95" text-anchor="middle" font-size="10" fill="#92400e">světlé čtverečky</text>
+      <text x="50" y="107" text-anchor="middle" font-size="10" fill="#92400e">(3 × 4 = 12)</text>
+
+      <!-- ŠIPKA -->
+      <text x="120" y="55" text-anchor="middle" font-size="22" fill="#c2410c">→</text>
+      <text x="120" y="70" text-anchor="middle" font-size="9" fill="#9a3412">přidej</text>
+      <text x="120" y="80" text-anchor="middle" font-size="9" fill="#9a3412">tmavý okraj</text>
+
+      <!-- ROZŠÍŘENÝ (r+1=4 řady, s+2=6 sl): start x=155, y=10 -->
+      <text x="245" y="14" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">ROZŠÍŘENÝ (4 řady × 6 sloupců)</text>
+      <!-- tmavý horní řádek -->
+      <rect x="155" y="20" width="120" height="20" fill="#1a1a1a" rx="2"/>
+      <!-- tmavé boční sloupce -->
+      <rect x="155" y="40" width="20" height="60" fill="#1a1a1a"/>
+      <rect x="255" y="40" width="20" height="60" fill="#1a1a1a"/>
+      <!-- světlý vnitřek (3×4) -->
+      <rect x="175" y="40" width="80" height="60" fill="#fef9c3" stroke="#d97706" stroke-width="1.5" rx="1"/>
+      <line x1="195" y1="40" x2="195" y2="100" stroke="#d97706" stroke-width=".8"/>
+      <line x1="215" y1="40" x2="215" y2="100" stroke="#d97706" stroke-width=".8"/>
+      <line x1="235" y1="40" x2="235" y2="100" stroke="#d97706" stroke-width=".8"/>
+      <line x1="175" y1="60" x2="255" y2="60" stroke="#d97706" stroke-width=".8"/>
+      <line x1="175" y1="80" x2="255" y2="80" stroke="#d97706" stroke-width=".8"/>
+      <!-- popisky tmavých -->
+      <text x="215" y="115" text-anchor="middle" font-size="10" fill="#374151">tmavých = 2×3 + 4 + 2 = <tspan font-weight="700">12</tspan></text>
+      <text x="215" y="127" text-anchor="middle" font-size="10" fill="#374151">světlých = 3 × 4 = <tspan font-weight="700">12</tspan></text>
+      <!-- šipky popis -->
+      <line x1="245" y1="30" x2="280" y2="30" stroke="#666" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="283" y="33" font-size="9" fill="#555">s+2 = 6</text>
+      <line x1="275" y1="40" x2="275" y2="100" stroke="#666" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="278" y="73" font-size="9" fill="#555">r = 3</text>
+      <line x1="155" y1="10" x2="275" y2="10" stroke="#666" stroke-width="1" stroke-dasharray="3,2"/>
+    </svg>
+  </div>
+  <span style="font-size:12px;color:#9a3412;display:block;text-align:center">
+    Vzorec pro počet tmavých: <strong>2r + s + 2</strong>
+    &nbsp;(2 boční sloupce = 2r, horní řada = s, 2 rohové čtverečky = 2)
+  </span>
+</div>
+
+<!-- 5A -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#fed7aa">
+    <div class="uloha-num" style="color:#c2410c">Úloha 5A</div>
+    <div class="uloha-theme">Kolik tmavých přibude?</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Ze základního obrazce s <strong>3 řadami</strong> vytvoříme rozšířený obrazec
+      přidáním <strong>20 tmavých</strong> čtverečků.
+      Určete počet sloupců v základním obrazci.
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h5a')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s5a')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h5a">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Počet tmavých = <span class="hcalc">2r + s + 2</span>, kde r = řady základního, s = sloupce základního.</li>
+        <li>Dosaď r = 3, tmavých = 20 a vyřeš s.</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s5a">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Tmavých = 2×3 + sloupce + 2 = 20</span>
+      <span class="sline">6 + sloupce + 2 = 20  →  sloupce = 20 − 8 = 12</span>
+      <div class="answer-final">12 sloupců</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5B -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#fed7aa">
+    <div class="uloha-num" style="color:#c2410c">Úloha 5B</div>
+    <div class="uloha-theme">Stejně tmavých i světlých</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Rozšířený obrazec má <strong>4 řady</strong> a tvoří jej
+      <strong>stejný počet tmavých a světlých</strong> čtverečků.
+      Určete počet sloupců rozšířeného obrazce.
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h5b')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s5b')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h5b">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Rozšířený má 4 řady → základní má <strong>3 řady</strong>.</li>
+        <li>Zkus různé počty sloupců základního obrazce a spočítej tmavé i světlé ručně z obrázku:</li>
+        <li>s = 2: světlých = 3×2 = 6, tmavých = 2×3+2+2 = 10. Stejně? Ne (10 ≠ 6).</li>
+        <li>s = 4: světlých = 3×4 = 12, tmavých = 2×3+4+2 = 12. Stejně? Ano! ✓</li>
+        <li>Sloupce rozšířeného = 4 + 2 = ?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s5b">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Rozšířený má 4 řady  →  základní má 3 řady.</span>
+      <span class="sline">Zkus s = 2: světlých = 3×2 = 6,  tmavých = 2×3+2+2 = 10  →  6 ≠ 10 ✗</span>
+      <span class="sline">Zkus s = 4: světlých = 3×4 = 12,  tmavých = 2×3+4+2 = 12  →  12 = 12 ✓</span>
+      <span class="sline">Základní má 4 sloupce  →  rozšířený má 4 + 2 = 6 sloupců</span>
+      <div class="answer-final">6 sloupců</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5C -->
+<div class="uloha">
+  <div class="uloha-header" style="border-color:#fed7aa">
+    <div class="uloha-num" style="color:#c2410c">Úloha 5C</div>
+    <div class="uloha-theme">Kolik různých obrazců?</div>
+  </div>
+  <div class="uloha-body">
+    <div class="zadani">
+      <strong>Zadání</strong>
+      Kolik různých rozšířených obrazců lze sestavit tak,
+      aby měly přesně <strong>30 tmavých</strong> čtverečků?
+    </div>
+    <div class="reveal-row">
+      <button class="btn-hint" onclick="toggle('h5c')">💡 Nápověda</button>
+      <button class="btn-sol"  onclick="toggle('s5c')">✅ Řešení</button>
+    </div>
+    <div class="hint-panel" id="h5c">
+      <div class="hp-title">💡 Nápověda</div>
+      <ul>
+        <li>Tmavých = 2r + s + 2 = 30. Odečti 2 z obou stran: <strong>2r + s = 28</strong> → s = 28 − 2r.<br><span style="font-size:12px;color:#92400e">(28 vzniklo jako 30 − 2, protože "ty 2 navíc" odečteme)</span></li>
+        <li>Zkus postupně r = 1, 2, 3 … a vyplň tabulku — jakmile vyjde s = 0 nebo méně, stop:</li>
+      </ul>
+      <table style="border-collapse:collapse;margin:8px 0 6px;font-size:13px;width:auto">
+        <tr style="background:#fef3c7">
+          <th style="padding:5px 12px;border:1px solid #d97706">r (řady základ.)</th>
+          <th style="padding:5px 12px;border:1px solid #d97706">s = 28 − 2r</th>
+          <th style="padding:5px 12px;border:1px solid #d97706">OK?</th>
+        </tr>
+        <tr><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">1</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">26</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center;color:#16a34a">✓</td></tr>
+        <tr><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">2</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">24</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center;color:#16a34a">✓</td></tr>
+        <tr><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">…</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">…</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">…</td></tr>
+        <tr><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">13</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">2</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center;color:#16a34a">✓</td></tr>
+        <tr><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">14</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center">0</td><td style="padding:4px 12px;border:1px solid #e5e7eb;text-align:center;color:#dc2626">✗ (nula nesmí)</td></tr>
+      </table>
+      <ul>
+        <li>Kolik řádků s ✓ je v tabulce?</li>
+      </ul>
+    </div>
+    <div class="sol-panel" id="s5c">
+      <div class="sp-title">✅ Řešení</div>
+      <span class="sline">Tmavých = 2r + s + 2 = 30  →  s = 28 − 2r</span>
+      <span class="sline">s musí být alespoň 1 (jinak by základní obrazec neměl žádný sloupec).</span>
+      <span class="sline">r=1: s=26 ✓ · r=2: s=24 ✓ · ... · r=13: s=2 ✓ · r=14: s=0 ✗ (nesmí být nula)</span>
+      <span class="sline">Takže r může být 1, 2, 3, ..., 13 → celkem 13 různých hodnot.</span>
+      <div class="answer-final">13 rozšířených obrazců</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /sekce -->
+
+<div class="footer">
+  🖤 BLACKPINK × Matematika 5 &nbsp;·&nbsp; Procvičování na 39 bodů &nbsp;·&nbsp; 2026
+</div>
+</div><!-- /page -->
+
+<script>
+function toggle(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var open = el.style.display !== 'none' && el.style.display !== '';
+  el.style.display = open ? 'none' : 'block';
+}
+</script>
+</body>
+</html>
