@@ -360,7 +360,7 @@ a { color: #1a5276; }
         V domě jsou tři patra. Celkem tam bydlí 15 dětí.<br>
         V prvním a druhém patře bydlí dohromady 10 dětí.<br>
         Ve třetím patře bydlí jen chlapci.<br>
-        V prvním a třetím patře bydlí dohromady 4 chlapci a 5 dívek.<br>
+        V prvním patře bydlí 4 děti, z toho 2 jsou chlapci.<br>
         Ze všech chlapců bydlí mimo třetí patro jen 2 chlapci.<br><br>
         5.1 Kolik chlapců bydlí ve druhém patře?<br>
         5.2 Kolik dětí bydlí v prvním patře?<br>
@@ -375,7 +375,9 @@ a { color: #1a5276; }
         <div class="hp-title">💡 Nápověda</div>
         <ul>
           <li>Začni od 3. patra: celkem 15 dětí, 1.+2. patro = 10 → 3. patro = ?</li>
-          <li>A ve 3. patře jsou jen chlapci.</li>
+          <li>Ve 3. patře jsou jen chlapci. Kolik chlapců je celkem?</li>
+          <li>Z podmínky „mimo 3. patro jen 2 chlapci" zjistíš celkový počet chlapců i dívek.</li>
+          <li>1. patro máš přímo v zadání → 2. patro = 10 − 1. patro.</li>
         </ul>
       </div>
       <div class="sol-panel" id="s5">
@@ -383,7 +385,7 @@ a { color: #1a5276; }
         <div class="steps">
           <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Kdo bydlí ve třetím patře?</div><div class="step-content">1. + 2. patro: 10 dětí → 3. patro: 15 − 10 = <span class="calc">5 dětí</span> (a to jsou jen chlapci).</div></div></div>
           <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Zjistím počty chlapců a dívek</div><div class="step-content">Mimo 3. patro jsou 2 chlapci (v 1. + 2. patře).<br>Celkový počet chlapců: 2 + 5 = <span class="calc">7 chlapců</span>.<br>Celkový počet dívek: 15 − 7 = <span class="calc">8 dívek</span>.</div></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Zjistím 1. a 2. patro</div><div class="step-content">1. + 3. patro: 4 chlapci + 5 dívek = 9 dětí.<br>3. patro = 5 dětí → 1. patro = 9 − 5 = <span class="calc">4 děti</span>.<br>2. patro = 10 − 4 = <span class="calc">6 dětí</span>.<br>Ve 2. patře jsou jen 2 chlapci (mimo 3. patro jsou chlapci jen ti 2) → 2 chlapci jsou v 1. nebo 2. patře.<br>1. patro má 4 děti, z toho 5 dívek z 1.+3. patra, ve 3. patře jsou 0 dívek → 1. patro: 5 dívek (ale 1. patro má jen 4 děti...) → 1. patro: 4 dívky, 0 chlapců; 2 chlapci jsou v 2. patře → chlapci ve 2. patře = <span class="calc">0</span> (2 chlapci z 1.+2. patra jsou v 1. patře).</div></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Zjistím 1. a 2. patro</div><div class="step-content">Ze zadání: 1. patro = 4 děti, z toho 2 chlapci → 2. patro = 10 − 4 = <span class="calc">6 dětí</span>.<br>Mimo 3. patro jsou celkem 2 chlapci — a oba jsou v 1. patře → ve 2. patře je <span class="calc">0 chlapců</span> (všechny děti ve 2. patře jsou dívky).</div></div></div>
         </div>
         <div class="answer"><div class="a-label">Výsledky</div>
           <ul>
@@ -433,7 +435,7 @@ a { color: #1a5276; }
       <div class="sol-panel" id="s6">
         <div class="sp-title">✅ Řešení</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Celkový obvod = 30 cm, musím rozlišit sdílené hrany</div><div class="step-content">Domeček = trojúhelník nahoře + obdélník dole. Společná hrana (základna trojúhelníku = horní strana obdélníku) se nezapočítává do obvodu domečku.<br>Označím stranu rovnostranného trojúhelníku jako <em>a</em>.<br>Pak: obvod trojúhelníku = 3a, ale do obvodu domečku se počítají jen <em>2 strany</em> trojúhelníku (základna je uvnitř).<br>Delší strana obdélníku = a (stejná jako základna trojúhelníku).<br>Kratší strana = a : 2.<br>Do obvodu domečku se počítají: 2 boční strany trojúhelníku + 3 strany obdélníku (spodní + 2 kratší).<br>Obvod domečku = 2a + a + 2 · (a : 2) = 2a + a + a = 4a = 30 cm → a = <span class="calc">7,5 cm</span></div></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Spočítám, z kolika stejně dlouhých stran se skládá obvod domečku</div><div class="step-content">Nakreslím domeček a označím jeho vnější hrany: 2 boční strany střechy + spodní strana obdélníku + 2 kratší strany obdélníku. (Základna trojúhelníku = horní strana obdélníku — ta je uvnitř a do obvodu domečku se nepočítá!)<br>Střecha je rovnostranný trojúhelník → všechny 3 strany jsou stejně dlouhé. Říkám jim „strana".<br>Delší strana obdélníku = „strana" (stejná délka jako základna střechy).<br>Kratší strana obdélníku = strana ÷ 2.<br>Obvod domečku = strana + strana + strana + strana = <strong>4 strany dohromady = 30 cm</strong>.<br>Zkusím: 4 × 7 = 28 (málo), 4 × 8 = 32 (moc), 4 × 7,5 = 30 ✓ → strana = <span class="calc">7,5 cm</span></div></div></div>
           <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Obvod trojúhelníku a délka kratší strany</div><div class="step-content">Obvod trojúhelníku = 3 · 7,5 = <span class="calc">22,5 cm</span><br>Kratší strana obdélníku = 7,5 : 2 = <span class="calc">3,75 cm</span></div></div></div>
           <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Ověřím obvod obdélníku</div><div class="step-content">Obvod obdélníku = 2 · (7,5 + 3,75) = 2 · 11,25 = <span class="calc">22,5 cm</span> — obě části mají stejný obvod. Správně!</div></div></div>
         </div>
@@ -787,13 +789,13 @@ a { color: #1a5276; }
           <div class="step"><div class="step-n">1</div><div class="step-body"><div class="step-label">Kolik teček se skryje při slepení dvou krychlí?</div><div class="step-content">Při slepení dvou krychlí se vždy skryjí 2 stěny (každá krychle 1). Dotýkají se přesně 2 stěny.<br>Celkový povrch 3 samostatných krychlí: 3 × 9 = 27 teček.<br>Při slepení 3 krychlí za sebou se skryjí 4 stěny (2 spoje × 2 stěny).<br>Povrch tělesa = 27 − tečky na skrytých stěnách.</div></div></div>
           <div class="step"><div class="step-n">2</div><div class="step-body"><div class="step-label">Maximum teček (1. těleso)</div><div class="step-content">Chceme skrýt stěny s co nejméně tečkami → dávám dohromady stěny s 1 tečkou.<br>Skryjí se 4 stěny, každá s 1 tečkou → ztratím 4 tečky.<br>Maximum: 27 − 4 = <span class="calc">23 teček</span> → odpověď D.</div></div></div>
           <div class="step"><div class="step-n">3</div><div class="step-body"><div class="step-label">Minimum teček (2. těleso)</div><div class="step-content">Chceme skrýt stěny s co nejvíce tečkami → dávám dohromady stěny s 2 tečkami.<br>Skryjí se 4 stěny, každá s 2 tečkami → ztratím 8 teček.<br>Minimum: 27 − 8 = <span class="calc">19 teček</span> → odpověď A (méně než 20).</div></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">Třetí těleso — průměrné natočení</div><div class="step-content">Průměrné: skryjí se smíšené stěny, např. 2 × (1 tečka + 2 tečky) → ztratím 6 teček.<br>27 − 6 = <span class="calc">21 teček</span> → odpověď A (nebo B podle přesného natočení).</div></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><div class="step-label">Třetí těleso — smíšené natočení</div><div class="step-content">Konkrétní příklad: první spoj skryje stěny s 1 a 1 tečkou (ztráta 2), druhý spoj skryje stěnu s 1 a stěnu s 2 tečkami (ztráta 3). Celkem ztratím 5 teček.<br>27 − 5 = <span class="calc">22 teček</span> → odpověď C.<br><small>Poznámka: přesná odpověď závisí na natočení kostek z obrázku v zadání — vždy se řídím konkrétním obrázkem.</small></div></div></div>
         </div>
         <div class="answer"><div class="a-label">Výsledky</div>
           <ul>
             <li>13.1 První těleso (maximum): <strong>23 teček → D</strong></li>
             <li>13.2 Druhé těleso (minimum): <strong>méně než 20 teček → A</strong></li>
-            <li>13.3 Třetí těleso (smíšené): <strong>21 teček → A</strong> (záleží na konkrétním natočení)</li>
+            <li>13.3 Třetí těleso (smíšené): <strong>22 teček → C</strong> (v tomto příkladu; jiné natočení z obrázku zadání může dát B nebo D)</li>
           </ul>
         </div>
       </div>
