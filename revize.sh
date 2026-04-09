@@ -114,7 +114,7 @@ elif [[ -n "${PAGE_NAMES[$ID]+x}" ]]; then
   fi
   # Speciální režim pro predikce2026: žák nejdřív řeší, pak komentuje
   PAGE_STUDENT_MODE="review"
-  if [[ "$PAGE_ID" == "predikce2026" ]]; then
+  if [[ "$PAGE_ID" == "predikce2026" ]] || [[ "$PAGE_ID" == "strategie35" ]]; then
     PAGE_STUDENT_MODE="solve_first"
   fi
 else
