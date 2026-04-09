@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # REVIZE A KOREKTURY — MA5 Prijimacky
-# Použití: bash revize.sh [PL01|PL02|...|PL09|25n1|25r1|...]
+# Použití: bash revize.sh [PL01|PL02|...|PL09|25n1|25r1|...|strategie35|...]
 #
 # Agent 1 — UČITEL MATEMATIKY:  upravuje obsah (hinty / kroky řešení)
 # Agent 2 — ŽÁK 5. TŘÍDY:      testuje srozumitelnost, zpětná vazba
@@ -42,6 +42,13 @@ declare -A PRUVODCE_NAMES=(
 
 declare -A PRUVODCE_PO_NAMES=(
   [23r1]="MA5-C · 1. řádný termín 2023"
+)
+
+declare -A PAGE_NAMES=(
+  [strategie35]="Strategie 35 bodů"
+)
+declare -A PAGE_FILES=(
+  [strategie35]="docs/pages/PL_Strategie35.html"
 )
 
 # ── rozpoznání typu (PL vs řešení vs průvodce vs pruvodce_po) ─────────────
@@ -92,9 +99,18 @@ elif [[ -n "${RESENI_NAMES[$ID]+x}" ]]; then
     echo "Chyba: Soubor '$RESENI_FILE' neexistuje." >&2
     exit 1
   fi
+elif [[ -n "${PAGE_NAMES[$ID]+x}" ]]; then
+  MODE="page"
+  PAGE_ID="$ID"
+  PAGE_NAME="${PAGE_NAMES[$ID]}"
+  PAGE_FILE="$SCRIPT_DIR/${PAGE_FILES[$ID]}"
+  if [[ ! -f "$PAGE_FILE" ]]; then
+    echo "Chyba: Soubor '$PAGE_FILE' neexistuje." >&2
+    exit 1
+  fi
 else
   echo "Chyba: Neznámé ID '$ID'." >&2
-  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2, 23r1, pruvodce-23r1, pruvodce_po-23r1" >&2
+  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2, 23r1, pruvodce-23r1, pruvodce_po-23r1, strategie35" >&2
   exit 1
 fi
 
@@ -919,6 +935,188 @@ PROMPT
 fi
 
 # =============================================================================
+# REŽIM: STRÁNKA V docs/pages/ (strategie35, ...)
+# =============================================================================
+if [[ "$MODE" == "page" ]]; then
+  banner "PIPELINE: ${PAGE_ID} — ${PAGE_NAME}"
+
+  # AGENT 1: UČITEL MATEMATIKY — kontroluje obsah a vylepšuje vysvětlení
+  banner "AGENT 1 — UČITEL MATEMATIKY (vylepšuje příklady a strategie)"
+  step "Spouštím učitelského agenta..."
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený učitel matematiky na 1. stupni základní školy s 15 lety praxe. Specializuješ se na přípravu žáků 5. třídy na přijímací zkoušky MA5 na víceletá gymnázia. Používáš vizuální metody, konkrétní příklady z každodenního života a postup krok za krokem. Nikdy nepoužíváš rovnice ani algebru — vše vysvětluješ logicky a graficky. Dbáš na to, aby žák pochopil PROČ, nejen JAK. Mluvíš jazykem přátelským pro 11leté dítě." \
+    --allowedTools "Read,Edit,Glob" \
+    --permission-mode acceptEdits \
+    "Přečti soubor ${PAGE_FILE} — pracovní list '${PAGE_NAME}'.
+
+Dokument obsahuje sekce pro jednotlivé typy úloh. Každá sekce má:
+- Oranžový box s příkladem z reálného testu (div.ukazka)
+- Zelenou strategii (div.strategy)
+- Krokové řešení (div.steps s div.step)
+- Výsledek (div.answer) a varování (div.warn)
+
+Jako zkušený učitel matematiky vylepši obsah pro žáka 5. třídy:
+
+1. Prostuduj všechny sekce (typy úloh)
+2. Vyber 2–3 sekce, kde lze pedagogicky vylepšit strategii nebo kroky řešení
+3. Uprav je přímo v HTML souboru nástrojem Edit:
+   - Doplň přirovnání z každodenního života (peníze, jablka, délky...)
+   - Přidej mezikrok tam, kde žák přeskočí příliš velký myšlenkový skok
+   - Zjednodušš jazyk — žádná slova jako 'eliminace', 'substituce', 'soustava'
+   - Uprav varování (div.warn) tak, aby zachytilo skutečnou nejčastější chybu
+4. NEMĚŇ výsledky, správné odpovědi ani HTML strukturu (třídy, tagy, CSS)
+5. Zachovej <span class=\"calc\"> pro výpočty
+
+Na konci napiš stručné shrnutí (max 300 slov):
+- Které sekce jsi upravil/a (název + co)
+- Co konkrétně jsi přidal/a a proč
+- Jak to pomůže žákovi lépe pochopit daný typ úlohy" \
+    > "$TEACHER_FILE" 2>&1
+
+  ok "Učitel dokončil úpravy."
+  echo ""
+  cat "$TEACHER_FILE"
+
+  # DIALOG: UČITEL ↔ ŽÁK
+  banner "DIALOG — UČITEL ↔ ŽÁK (${DIALOG_ROUNDS} kola)"
+  run_dialog \
+    "Přečti si soubor ${PAGE_FILE} — pracovní list '${PAGE_NAME}'." \
+    "${PAGE_ID} — ${PAGE_NAME}" \
+    "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Dostáváš konkrétní zpětnou vazbu od žáka a upravuješ POUZE místa, která jsou nejasná — cíleně a konkrétně."
+
+  # AGENT 2: ŽÁK 5. TŘÍDY — testuje srozumitelnost
+  banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje srozumitelnost)"
+  step "Spouštím žákovského agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  PROMPT2=$(mktemp)
+  cat > "$PROMPT2" <<PROMPT
+Přečti soubor ${PAGE_FILE} — pracovní list '${PAGE_NAME}'.
+
+Učitel pracovní list právě upravil. Tady je jeho shrnutí:
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Přečti si celý dokument a odpověz jako žák 5. třídy, který se připravuje na přijímací zkoušky:
+
+1. **Které strategie ti byly jasné** — u kterých typů úloh víš po přečtení, co dělat?
+2. **Kde ses zasekl/a** — které kroky nebo strategie ti nedávají smysl? Buď konkrétní.
+3. **Nejlepší příklad** — který vzorový příklad ti pomohl nejvíc a proč?
+4. **Nejtěžší typ** — který typ úlohy stále nechápáš i po přečtení?
+5. **Co bys změnil/a** — jak by se ti pracovní list lépe studoval?
+6. **Hodnocení** — jak moc ti tento list pomůže u zkoušky? (1 = výborně, 5 = vůbec)
+
+Piš neformálně a upřímně.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi žák nebo žákyně 5. třídy základní školy, je ti 11 let. Připravuješ se na přijímací zkoušky na víceleté gymnázium. Matematiku celkem zvládáš, ale někdy se zasekneš u složitějšího zadání. Nemáš rád/a nudné texty plné odborných slov. Chceš jasné, rychlé vysvětlení s příklady. Odpovídáš upřímně a neformálně — jako skutečný žák, ne jako dospělý." \
+    --allowedTools "Read" \
+    < "$PROMPT2" > "$STUDENT_FILE" 2>&1
+  rm -f "$PROMPT2"
+
+  ok "Žák dokončil hodnocení."
+  echo ""
+  cat "$STUDENT_FILE"
+
+  # AGENT 3: PRACOVNÍK CERMAT — ověřuje správnost a úplnost
+  banner "AGENT 3 — PRACOVNÍK CERMAT (správnost, úplnost, didaktika)"
+  step "Spouštím CERMAT agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  STUDENT_FEEDBACK=$(cat "$STUDENT_FILE")
+  PROMPT3=$(mktemp)
+  cat > "$PROMPT3" <<PROMPT
+Posud didaktický pracovní list '${PAGE_NAME}' pro přípravu na přijímací zkoušky MA5.
+
+Soubor: ${PAGE_FILE}
+
+Učitel upravil obsah:
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Zpětná vazba žáka 5. třídy:
+--- ZPĚTNÁ VAZBA ŽÁKA ---
+${STUDENT_FEEDBACK}
+--- KONEC ZPĚTNÉ VAZBY ---
+
+Přečti si aktuální stav souboru ${PAGE_FILE}.
+
+Z pozice pracovníka CERMAT posud:
+
+1. **Správnost výsledků a postupů** — jsou vzorová řešení matematicky správná? Jsou výpočty v krocích bezchybné?
+2. **Soulad s testovými úlohami** — odpovídají popsané strategie skutečným typům úloh v MA5? Chybí důležitý typ?
+3. **Pedagogická vhodnost** — jsou postupy bez algebry a rovnic, přístupné pro 5. třídu?
+4. **Gradace obtížnosti** — je přechod od jednoduchého ke složitějšímu vhodný?
+5. **Konkrétní doporučení** — co přesně opravit nebo doplnit? Cituj konkrétní pasáže.
+
+Buď konkrétní a konstruktivní. Max 500 slov.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený odborný pracovník Centra pro zjišťování výsledků vzdělávání (CERMAT) s 10 lety zkušeností. Podílel/a ses na tvorbě a hodnocení didaktických testů MA5 pro přijímací zkoušky na víceletá gymnázia. Výborně znáš požadavky na matematické kompetence žáků 5. třídy, typické chyby v testech a způsoby, jak na ně žáky připravit. Hodnotíš didaktické materiály odborně, konstruktivně a konkrétně." \
+    --allowedTools "Read" \
+    < "$PROMPT3" 2>&1 | tee -a "$REPORT_FILE.cermat_tmp"
+  rm -f "$PROMPT3"
+
+  CERMAT_REPORT=$(cat "$REPORT_FILE.cermat_tmp" 2>/dev/null || echo "")
+
+  # AGENT 4: GRAFIK CERMAT — navrhuje vizuální doplnění
+  banner "AGENT 4 — GRAFIK CERMAT (navrhuje vizuální doplnění)"
+  step "Spouštím grafického agenta..."
+
+  TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
+  STUDENT_FEEDBACK=$(cat "$STUDENT_FILE")
+  PROMPT4=$(mktemp)
+  cat > "$PROMPT4" <<PROMPT
+Posud vizuální stránku pracovního listu '${PAGE_NAME}' pro MA5.
+
+Soubor: ${PAGE_FILE}
+
+Shrnutí učitele:
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+
+Zpětná vazba žáka:
+--- ZPĚTNÁ VAZBA ŽÁKA ---
+${STUDENT_FEEDBACK}
+--- KONEC ZPĚTNÉ VAZBY ---
+
+Přečti si soubor ${PAGE_FILE}.
+
+Z pozice zkušeného grafika navrhni:
+
+1. **Kde chybí vizuál** — u kterých typů úloh by SVG diagram, tabulka nebo schéma pomohlo pochopit strategii lépe než text? Pro každý návrh uveď:
+   - Název sekce (typ úlohy)
+   - Typ vizuálu (schéma, diagram, tabulka, nákres)
+   - Co přesně má vizuál zobrazovat
+   - Proč to pomůže žákovi
+
+2. **Stávající SVG a tabulky** — jsou přehledné, správně popsané, čitelné na mobilu i tisku?
+
+3. **Vizuální průvodce strategií** — navrhni 1–2 místa, kde by krátký „krokovník" (3–4 rámečky se šipkami) vizuálně znázornil postup řešení.
+
+4. **Technické doporučení** — formát vizuálu (inline SVG, CSS), čitelnost na mobilu i tisku.
+
+Buď konkrétní. Max 500 slov.
+PROMPT
+
+  "$CLAUDE_BIN" -p \
+    --system-prompt "Jsi zkušený autor grafů a ilustrací pro didaktické materiály CERMAT s 10 lety praxe. Tvoříš obrázky, schémata, diagramy a grafy pro přijímací testy MA5 na víceletá gymnázia. Výborně znáš, jak vizualizovat matematické koncepty pro žáky 5. třídy — používáš jasné barvy, velké popisky, jednoduché tvary a minimální text. Víš, že správný obrázek dokáže vysvětlit víc než odstavec textu. Tvé vizuály jsou přehledné, barevně konzistentní a fungují jak na obrazovce, tak při tisku na papír." \
+    --allowedTools "Read,Glob" \
+    < "$PROMPT4" > "$GRAFIK_FILE" 2>&1
+  rm -f "$PROMPT4"
+
+  ok "Grafik dokončil návrhy."
+  echo ""
+  cat "$GRAFIK_FILE"
+fi
+
+# =============================================================================
 # VÝSTUPNÍ REPORT
 # =============================================================================
 banner "VÝSTUPNÍ REPORT"
@@ -929,6 +1127,8 @@ elif [[ "$MODE" == "pruvodce" ]]; then
   REPORT_TITLE="pruvodce-${PRUVODCE_ID} — ${PRUVODCE_NAME} (průvodce typy úloh)"
 elif [[ "$MODE" == "pruvodce_po" ]]; then
   REPORT_TITLE="pruvodce_po-${PRUVODCE_PO_ID} — ${PRUVODCE_PO_NAME} (průvodce po testu)"
+elif [[ "$MODE" == "page" ]]; then
+  REPORT_TITLE="${PAGE_ID} — ${PAGE_NAME}"
 else
   REPORT_TITLE="${RESENI_ID} — ${RESENI_NAME} (vzorové řešení)"
 fi
