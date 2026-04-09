@@ -70,6 +70,7 @@ a { color: #0d6655; }
 .sol-table td:first-child { text-align: left; font-weight: 600; }
 .sol-table tr:nth-child(even) { background: #f0faf8; }
 .sol-table .hl { background: #d0f0e8; font-weight: 700; }
+.tbl-wrap { overflow-x: auto; }
 
 /* SUBTASK DIVIDER */
 .subtask { margin-top: 14px; padding-top: 12px; border-top: 1px dashed #b2dfdb; }
@@ -106,7 +107,8 @@ a { color: #0d6655; }
   </div>
 
   <div class="perex">
-    <strong>Proč zrovna těchto 7 typů?</strong> Analýzou 19 archivních testů (2020–2025) vznikl přehled úloh, které se každý rok opakují a jsou zároveň dost těžké, aby je polovina žáků nedokázala vyřešit. Zvládneš-li je všechny, je 35 bodů dosažitelných i bez perfektního rýsování. Každý typ má svou vlastní strategii — nemusíš vymýšlet nový postup, stačí rozpoznat typ a aplikovat postup.
+    <strong>Proč zrovna těchto 7 typů?</strong> Analýzou 19 archivních testů (2020–2025) vznikl přehled úloh, které se každý rok opakují a jsou zároveň dost těžké, aby je polovina žáků nedokázala vyřešit. Zvládneš-li je všechny, je 35 bodů dosažitelných i bez perfektního rýsování. Každý typ má svou vlastní strategii — nemusíš vymýšlet nový postup, stačí rozpoznat typ a aplikovat postup.<br><br>
+    <strong>Poznámka:</strong> Dalších 8 bodů přidají výběrové úlohy 9–12 (každá za 2 body, výběr z možností) — ty závisejí na zadání a opakují se méně pravidelně, proto je tento list vynechává. Ale počítej s nimi: 26–32 bodů z těchto 7 typů + 8 bodů z Ú9–12 = pohodlných 35+.
   </div>
 
 
@@ -132,8 +134,34 @@ a { color: #0d6655; }
 
       <div class="strategy">
         <strong>🧭 Strategie</strong>
-        Nakresli si dílek nebo skupinku. U „zvětšené o polovinu" napiš: <em>2 dílky + 1 dílek = 3 dílky = 198</em>. U „součet S, rozdíl D" použij trik: <em>větší = (S+D)÷2</em>.
+        Představ si čokoládovou tyčinku rozdělenou na stejně velké dílky. Neznámé číslo = celá tyčinka (2 dílky). „Zvětšená o svou polovinu" = tyčinka + polovina tyčinky = celkem 3 dílky. Nakresli si: <em>□□ + □ = 3 dílky = 198</em>.<br>
+        U „součet a rozdíl": Honza a Klára mají dohromady 109 Kč, Honza má o 13 Kč víc.<br>
+        <strong>Trik — uřízni Honzovi přebývajících 13:</strong> Honzovi v duchu odeber těch 13 Kč navíc a dej je zatím stranou. Teď mají oba stejně — a hromádka <em>klesla</em> na 109 − 13 = 96 Kč. Každý má 96 ÷ 2 = <em>48 Kč → to je Klára</em>. Honzovi vrať odříznutých 13 zpátky: 48 + 13 = <em>61 Kč → to je Honza</em>.
       </div>
+
+      <!-- Pásový diagram TYP 1 -->
+      <svg viewBox="0 0 460 92" style="width:100%;max-width:460px;display:block;margin:4px auto 14px" aria-label="Pásový diagram: neznámé číslo = 2 dílky, polovina navíc = 1 dílek, celkem 3 dílky = 198">
+        <!-- Box 1 -->
+        <rect x="10" y="22" width="128" height="38" rx="4" fill="#d0f0e8" stroke="#0d6655" stroke-width="1.5"/>
+        <text x="74" y="38" font-size="11" fill="#0d6655" text-anchor="middle" font-weight="800">1. dílek</text>
+        <text x="74" y="53" font-size="14" fill="#0a4034" text-anchor="middle" font-weight="800">66</text>
+        <!-- Box 2 -->
+        <rect x="142" y="22" width="128" height="38" rx="4" fill="#d0f0e8" stroke="#0d6655" stroke-width="1.5"/>
+        <text x="206" y="38" font-size="11" fill="#0d6655" text-anchor="middle" font-weight="800">2. dílek</text>
+        <text x="206" y="53" font-size="14" fill="#0a4034" text-anchor="middle" font-weight="800">66</text>
+        <!-- Box 3 (polovina navíc - dashed yellow) -->
+        <rect x="274" y="22" width="128" height="38" rx="4" fill="#fffde7" stroke="#f9a825" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="338" y="38" font-size="11" fill="#7d4e00" text-anchor="middle" font-weight="800">+ polovina</text>
+        <text x="338" y="53" font-size="14" fill="#7d4e00" text-anchor="middle" font-weight="800">66</text>
+        <!-- Bracket: neznámé číslo -->
+        <line x1="10" y1="68" x2="270" y2="68" stroke="#0d6655" stroke-width="2"/>
+        <line x1="10" y1="64" x2="10" y2="72" stroke="#0d6655" stroke-width="2"/>
+        <line x1="270" y1="64" x2="270" y2="72" stroke="#0d6655" stroke-width="2"/>
+        <text x="140" y="82" font-size="12" fill="#0d6655" text-anchor="middle" font-weight="800">neznámé číslo = 132</text>
+        <!-- Total label -->
+        <text x="430" y="36" font-size="12" fill="#555" text-anchor="middle">= 198</text>
+        <text x="430" y="51" font-size="11" fill="#777" text-anchor="middle">(3 dílky)</text>
+      </svg>
 
       <div class="subtask">
         <div class="subtask-label">Řešení 1.1</div>
@@ -147,8 +175,9 @@ a { color: #0d6655; }
             3 dílky = 198 → <span class="calc">1 dílek = 198 ÷ 3 = 66</span>
           </div></div>
           <div class="step"><div class="step-n">3</div><div class="step-body">
-            <div class="step-label">Neznámé = 2 dílky</div>
-            <span class="calc">x = 2 × 66 = 132</span>
+            <div class="step-label">Neznámé = 2 dílky (ne 3!)</div>
+            Neznámé číslo byla celá tyčinka — tedy jen ty první 2 dílky. Třetí dílek je ta „polovina navíc", která se přidala. Teprve DOHROMADY tvoří 3 dílky = 198.<br>
+            <span class="calc">neznámé číslo = 2 × 66 = 132</span>
           </div></div>
         </div>
         <div class="answer"><div class="a-label">✓ Výsledek</div>Neznámé číslo je <strong>132</strong>. Ověření: 132 + 66 = 198 ✓</div>
@@ -158,17 +187,17 @@ a { color: #0d6655; }
         <div class="subtask-label">Řešení 1.2</div>
         <div class="steps">
           <div class="step"><div class="step-n">1</div><div class="step-body">
-            <div class="step-label">Trik: přidej rozdíl k součtu</div>
-            Kdybychom k menšímu číslu přidali rozdíl 13, obě čísla by byla stejná — a součet by zůstal 109+13 = <span class="calc">122</span>.<br>
-            To jsou 2 stejná čísla, každé = <span class="calc">122 ÷ 2 = 61</span>.
+            <div class="step-label">Uřízni Honzovi přebývajících 13</div>
+            Honza má o 13 Kč víc. V duchu mu těch 13 odeber a dej je stranou. Teď mají oba stejně a hromádka klesla: 109 − 13 = <span class="calc">96 Kč</span>.<br>
+            Každý má 96 ÷ 2 = <span class="calc">48 Kč → to je Klára</span>.
           </div></div>
           <div class="step"><div class="step-n">2</div><div class="step-body">
-            <div class="step-label">Odečti rozdíl zpět</div>
-            Větší číslo = 61. Menší = <span class="calc">109 − 61 = 48</span> (nebo 61 − 13 = 48).
+            <div class="step-label">Vrať Honzovi jeho 13 zpátky</div>
+            Klára = 48 Kč. Honzovi přidej odříznutých 13: 48 + 13 = <span class="calc">61 Kč → to je Honza</span>.
           </div></div>
         </div>
         <div class="answer"><div class="a-label">✓ Výsledek</div>Čísla jsou <strong>61 a 48</strong>. Ověření: 61+48 = 109 ✓; 61−48 = 13 ✓</div>
-        <div class="warn">Nikdy neodhaduj naslepo. Trik (S+D)÷2 funguje vždy, když znáš součet i rozdíl.</div>
+        <div class="warn">Nejčastější chyba u 1.1: žáci dostanou výsledek 3 dílky = 198 a jako odpověď napíšou 198 ÷ 3 = 66 — ale zapomenou, že neznámé číslo jsou 2 dílky, ne 1! Výsledek je 66 × 2 = 132. U 1.2: nepočítej trik pozpátku — nejdřív odeč rozdíl od součtu (109 − 13 = 96), pak dělení dvěma (96 ÷ 2 = 48 = Klára), pak přidej 13 zpátky (48 + 13 = 61 = Honza).</div>
       </div>
 
     </div>
@@ -293,7 +322,8 @@ a { color: #0d6655; }
           „Jen 3 chlapci nebydlí ve 3. patře" → 3 chlapci jsou v 1. patře → 5 − 3 = <span class="calc">2 chlapci ve 3. patře</span>.
         </div></div>
         <div class="step"><div class="step-n">4</div><div class="step-body">
-          <strong>1. patro</strong>: 1.+2. = 8; 2. patro = 3 → 1. patro = <span class="calc">8 − 3 = 5 dětí</span> <em>(→ odpověď 5.2)</em>.<br>
+          <strong>2. patro</strong>: z podmínky „1. a 3. patro = 5 ch + 3 d = 8 dětí" plyne 2. patro = 11 − 8 = <span class="calc">3 dívky</span>.<br>
+          <strong>1. patro</strong>: 1.+2. = 8 → 1. patro = 8 − 3 = <span class="calc">5 dětí</span> <em>(→ odpověď 5.2)</em>.<br>
           Chlapců v 1. patře = 3 → dívek v 1. patře = 5 − 3 = <span class="calc">2</span>.
         </div></div>
         <div class="step"><div class="step-n">5</div><div class="step-body">
@@ -313,7 +343,7 @@ a { color: #0d6655; }
   <div class="task">
     <div class="task-header">
       <div class="task-left">
-        <div class="task-num">TYP 4 · Úloha 5–6 · každý rok</div>
+        <div class="task-num">TYP 4 · Úloha 6 · každý rok</div>
         <div class="task-name">Geometrie bez rýsování — obvody a obsahy</div>
         <div class="task-when">Poznáš to, když: tvar je složen z čtverečků nebo trojúhelníků, znáš obvod celku nebo jednu stranu, ptají se na délky/obsahy, případně na počet různých řešení</div>
       </div>
@@ -331,7 +361,7 @@ a { color: #0d6655; }
 
       <div class="strategy">
         <strong>🧭 Strategie: vypiš všechny možnosti systematicky</strong>
-        Obvod = 2 × (a + b). Zjisti, jaký je součet stran a, b. Pak zkouš všechny celočíselné dvojice a &gt; b &gt; 0 systematicky — od největší strany dolů. Nezapomeň, že čtverec (a = b) je také platný případ.
+        Obvod = 2 × (a + b). Zjisti, jaký je součet stran a, b. Pak zkouš všechny celočíselné dvojice a &gt; b &gt; 0 systematicky — od největší strany dolů. (Čtverec a = b platí jen když je součet stran sudý — tady a + b = 9 je liché, čtverec celými čísly neexistuje.)
       </div>
 
       <div class="steps">
@@ -348,7 +378,7 @@ a { color: #0d6655; }
             <tr><td>6 cm</td><td>3 cm</td><td>18 cm²</td></tr>
             <tr class="hl"><td>5 cm</td><td>4 cm</td><td><strong>20 cm²</strong></td></tr>
           </table>
-          (Čtverec 4,5 × 4,5 není z celých čtverečků — neplatí.)
+          (a + b = 9 je liché → čtverec celými čísly neexistuje; pro sudý součet bychom přidali řádek a = b.)
         </div></div>
       </div>
       <div class="answer"><div class="a-label">✓ Výsledky</div>5.1: nejdelší strana = <strong>8 cm</strong> · 5.2: <strong>4 různé obsahy</strong> · 5.3: největší obsah = <strong>20 cm²</strong></div>
@@ -389,8 +419,40 @@ a { color: #0d6655; }
 
       <div class="strategy">
         <strong>🧭 Strategie: přelož slova na výpočet</strong>
-        „o třetinu menší než X" = X − X÷3; „o devítinu větší než X" = X + X÷9; „dvakrát větší" = 2×X nebo X + X (záleží na kontextu). Vždy počítej z referenčního čísla za slovem „než". Nepočítej z výsledku.
+        Slovo „než" ti říká, od čeho počítáš — vždy najdi číslo <em>za slovem „než"</em> a od toho odečti nebo přičti zlomkovou část.<br>
+        🛒 „o třetinu menší než 42" = jako sleva třetiny z 42 Kč: <em>42 − (42 ÷ 3) = 42 − 14 = 28</em>.<br>
+        📈 „o devítinu větší než 72" = jako přirážka devítiny k 72: <em>72 + (72 ÷ 9) = 72 + 8 = 80</em>.<br>
+        Nejdřív si z grafu vypiš přesná čísla do tabulky — pak teprve čti tvrzení a počítej.
       </div>
+
+      <!-- Krokovník TYP 5 -->
+      <svg viewBox="0 0 520 62" style="width:100%;max-width:520px;display:block;margin:4px auto 14px" aria-label="Krokovník: Najdi než → základ → základ ÷ jmenovatel → odečti nebo přičti">
+        <!-- Box 1 -->
+        <rect x="4" y="14" width="110" height="34" rx="6" fill="#0d6655" stroke="none"/>
+        <text x="59" y="27" font-size="10" fill="white" text-anchor="middle" font-weight="800">① Najdi</text>
+        <text x="59" y="40" font-size="11" fill="#a8e6d6" text-anchor="middle" font-weight="800">slovo „než"</text>
+        <!-- Arrow -->
+        <polygon points="118,31 126,27 126,35" fill="#0d6655"/>
+        <line x1="114" y1="31" x2="126" y2="31" stroke="#0d6655" stroke-width="2"/>
+        <!-- Box 2 -->
+        <rect x="128" y="14" width="118" height="34" rx="6" fill="#0d6655" stroke="none"/>
+        <text x="187" y="27" font-size="10" fill="white" text-anchor="middle" font-weight="800">② Číslo ZA „než"</text>
+        <text x="187" y="40" font-size="11" fill="#a8e6d6" text-anchor="middle" font-weight="800">= základ</text>
+        <!-- Arrow -->
+        <polygon points="250,31 258,27 258,35" fill="#0d6655"/>
+        <line x1="246" y1="31" x2="258" y2="31" stroke="#0d6655" stroke-width="2"/>
+        <!-- Box 3 -->
+        <rect x="260" y="14" width="118" height="34" rx="6" fill="#0d6655" stroke="none"/>
+        <text x="319" y="27" font-size="10" fill="white" text-anchor="middle" font-weight="800">③ základ</text>
+        <text x="319" y="40" font-size="11" fill="#a8e6d6" text-anchor="middle" font-weight="800">÷ jmenovatel</text>
+        <!-- Arrow -->
+        <polygon points="382,31 390,27 390,35" fill="#0d6655"/>
+        <line x1="378" y1="31" x2="390" y2="31" stroke="#0d6655" stroke-width="2"/>
+        <!-- Box 4 -->
+        <rect x="392" y="14" width="124" height="34" rx="6" fill="#1abc9c" stroke="none"/>
+        <text x="454" y="27" font-size="10" fill="white" text-anchor="middle" font-weight="800">④ základ − část</text>
+        <text x="454" y="40" font-size="11" fill="#d0f0e8" text-anchor="middle" font-weight="800">nebo + část</text>
+      </svg>
 
       <div class="steps">
         <div class="step"><div class="step-n">1</div><div class="step-body">
@@ -404,7 +466,7 @@ a { color: #0d6655; }
         </div></div>
       </div>
       <div class="answer"><div class="a-label">✓ Výsledky</div>8.1: <strong>A</strong> · 8.2: <strong>N</strong> · 8.3: <strong>A</strong></div>
-      <div class="warn">„O třetinu menší než X" ≠ „třetina z X". Odečítáš třetinu od X, nesrovnáváš X se třetinou. Reference je vždy číslo ZA slovem „než".</div>
+      <div class="warn">Nejčastější chyba: žák počítá třetinu z MENŠÍHO čísla místo z referenčního. V 8.1 by chybně vzal třetinu z 28 (= asi 9) místo třetiny z 42 (= 14). Správný postup: jdi za slovo „než" → 42 ÷ 3 = 14 → 42 − 14 = 28. Reference je vždy číslo ZA slovem „než" — nikdy to druhé.</div>
 
     </div>
   </div>
@@ -439,37 +501,39 @@ a { color: #0d6655; }
       </div>
 
       <!-- SVG showing cube face concept -->
-      <svg viewBox="0 0 400 120" style="width:100%;max-width:460px;display:block;margin:8px auto 14px" aria-label="Dvě kostky: max a min teček">
+      <svg viewBox="0 0 440 122" style="width:100%;max-width:460px;display:block;margin:8px auto 14px" aria-label="Dvě kostky: max a min teček">
         <!-- MAX: 1+1 hidden -->
-        <rect x="10" y="20" width="70" height="70" rx="6" fill="#d0f0e8" stroke="#0d6655" stroke-width="1.5"/>
+        <rect x="10" y="22" width="70" height="70" rx="6" fill="#d0f0e8" stroke="#0d6655" stroke-width="1.5"/>
         <text x="45" y="60" font-size="12" fill="#0a4034" text-anchor="middle" font-weight="700">kostka A</text>
         <text x="45" y="76" font-size="11" fill="#0a4034" text-anchor="middle">12 teček</text>
-        <!-- hidden face A -->
-        <rect x="80" y="35" width="14" height="40" rx="3" fill="#f9a825" stroke="#e07040" stroke-width="1.5"/>
-        <text x="87" y="58" font-size="10" fill="#7d4e00" text-anchor="middle" font-weight="700">1</text>
+        <!-- hidden face A (wider: 22px) -->
+        <rect x="82" y="34" width="22" height="42" rx="3" fill="#f9a825" stroke="#e07040" stroke-width="1.5"/>
+        <text x="93" y="60" font-size="13" fill="#7d4e00" text-anchor="middle" font-weight="700">1</text>
         <!-- hidden face B -->
-        <rect x="100" y="35" width="14" height="40" rx="3" fill="#f9a825" stroke="#e07040" stroke-width="1.5"/>
-        <text x="107" y="58" font-size="10" fill="#7d4e00" text-anchor="middle" font-weight="700">1</text>
-        <rect x="114" y="20" width="70" height="70" rx="6" fill="#d0f0e8" stroke="#0d6655" stroke-width="1.5"/>
-        <text x="149" y="60" font-size="12" fill="#0a4034" text-anchor="middle" font-weight="700">kostka B</text>
-        <text x="149" y="76" font-size="11" fill="#0a4034" text-anchor="middle">12 teček</text>
-        <text x="95" y="12" font-size="11" fill="#0d6655" text-anchor="middle" font-weight="700">MAXIMUM → schovej 1+1=2</text>
-        <text x="95" y="103" font-size="12" fill="#0d6655" text-anchor="middle" font-weight="700">24 − 2 = 22 teček ✓</text>
+        <rect x="110" y="34" width="22" height="42" rx="3" fill="#f9a825" stroke="#e07040" stroke-width="1.5"/>
+        <text x="121" y="60" font-size="13" fill="#7d4e00" text-anchor="middle" font-weight="700">1</text>
+        <rect x="134" y="22" width="70" height="70" rx="6" fill="#d0f0e8" stroke="#0d6655" stroke-width="1.5"/>
+        <text x="169" y="60" font-size="12" fill="#0a4034" text-anchor="middle" font-weight="700">kostka B</text>
+        <text x="169" y="76" font-size="11" fill="#0a4034" text-anchor="middle">12 teček</text>
+        <text x="107" y="14" font-size="11" fill="#0d6655" text-anchor="middle" font-weight="700">MAXIMUM → schovej 1+1=2</text>
+        <text x="107" y="108" font-size="12" fill="#0d6655" text-anchor="middle" font-weight="700">24 − 2 = 22 teček ✓</text>
         <!-- separator -->
-        <line x1="205" y1="10" x2="205" y2="110" stroke="#ddd" stroke-width="1.5"/>
+        <line x1="222" y1="10" x2="222" y2="112" stroke="#ddd" stroke-width="1.5"/>
         <!-- MIN: 3+3 hidden -->
-        <rect x="218" y="20" width="70" height="70" rx="6" fill="#ffe0cc" stroke="#e07040" stroke-width="1.5"/>
-        <text x="253" y="60" font-size="12" fill="#7d3400" text-anchor="middle" font-weight="700">kostka A</text>
-        <text x="253" y="76" font-size="11" fill="#7d3400" text-anchor="middle">12 teček</text>
-        <rect x="288" y="35" width="14" height="40" rx="3" fill="#c0392b" stroke="#922b21" stroke-width="1.5"/>
-        <text x="295" y="58" font-size="10" fill="white" text-anchor="middle" font-weight="700">3</text>
-        <rect x="308" y="35" width="14" height="40" rx="3" fill="#c0392b" stroke="#922b21" stroke-width="1.5"/>
-        <text x="315" y="58" font-size="10" fill="white" text-anchor="middle" font-weight="700">3</text>
-        <rect x="322" y="20" width="70" height="70" rx="6" fill="#ffe0cc" stroke="#e07040" stroke-width="1.5"/>
-        <text x="357" y="60" font-size="12" fill="#7d3400" text-anchor="middle" font-weight="700">kostka B</text>
-        <text x="357" y="76" font-size="11" fill="#7d3400" text-anchor="middle">12 teček</text>
-        <text x="303" y="12" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="700">MINIMUM → schovej 3+3=6</text>
-        <text x="303" y="103" font-size="12" fill="#c0392b" text-anchor="middle" font-weight="700">24 − 6 = 18 teček ✓</text>
+        <rect x="232" y="22" width="70" height="70" rx="6" fill="#ffe0cc" stroke="#e07040" stroke-width="1.5"/>
+        <text x="267" y="60" font-size="12" fill="#7d3400" text-anchor="middle" font-weight="700">kostka A</text>
+        <text x="267" y="76" font-size="11" fill="#7d3400" text-anchor="middle">12 teček</text>
+        <!-- hidden face A (wider: 22px) -->
+        <rect x="304" y="34" width="22" height="42" rx="3" fill="#c0392b" stroke="#922b21" stroke-width="1.5"/>
+        <text x="315" y="60" font-size="13" fill="white" text-anchor="middle" font-weight="700">3</text>
+        <!-- hidden face B -->
+        <rect x="332" y="34" width="22" height="42" rx="3" fill="#c0392b" stroke="#922b21" stroke-width="1.5"/>
+        <text x="343" y="60" font-size="13" fill="white" text-anchor="middle" font-weight="700">3</text>
+        <rect x="356" y="22" width="70" height="70" rx="6" fill="#ffe0cc" stroke="#e07040" stroke-width="1.5"/>
+        <text x="391" y="60" font-size="12" fill="#7d3400" text-anchor="middle" font-weight="700">kostka B</text>
+        <text x="391" y="76" font-size="11" fill="#7d3400" text-anchor="middle">12 teček</text>
+        <text x="328" y="14" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="700">MINIMUM → schovej 3+3=6</text>
+        <text x="328" y="108" font-size="12" fill="#c0392b" text-anchor="middle" font-weight="700">24 − 6 = 18 teček ✓</text>
       </svg>
 
       <div class="steps">
@@ -514,12 +578,56 @@ a { color: #0d6655; }
 
       <div class="strategy">
         <strong>🧭 Strategie: napiš si tabulku pro malé hodnoty, najdi vzorec</strong>
-        Zapiš si pro n = 1, 2, 3, 4, 5, 6 počet tmavých a bílých čtverců. Uvidíš pravidelnost. Pak odvoď vzorec. Nezkoušej počítat n = 73 bez vzorce — trvalo by to celý test.
+        Zapiš si pro n = 1, 2, 3, 4, 5, 6 počet tmavých a bílých čtverců. Sleduj sloupec „Tmavé − Bílé" — čísla tvoří jednoduchou řadu. Pak se zeptej: <em>„Co mají liché počty řad společného? Co sudé?"</em> Vzorec si přečteš přímo z tabulky — nemusíš nic vymýšlet. Nezkoušej počítat n = 73 bez vzorce — trvalo by to celý test.
       </div>
 
       <div class="steps">
         <div class="step"><div class="step-n">1</div><div class="step-body">
           <div class="step-label">Tabulka malých hodnot</div>
+          <!-- Mini-pyramid SVG n=1..5 -->
+          <svg viewBox="0 0 460 90" style="width:100%;max-width:460px;display:block;margin:6px auto 10px" aria-label="Pyramidy pro n=1 až n=5: tmavé a bílé řady">
+            <!-- n=1: 1 tmavý -->
+            <rect x="8" y="14" width="16" height="16" rx="2" fill="#0d6655"/>
+            <text x="16" y="44" font-size="10" fill="#0a4034" text-anchor="middle">n=1</text>
+            <text x="16" y="55" font-size="10" fill="#0d6655" text-anchor="middle" font-weight="700">T=1</text>
+            <text x="16" y="65" font-size="10" fill="#aaa" text-anchor="middle">B=0</text>
+            <text x="16" y="75" font-size="10" fill="#0d6655" text-anchor="middle" font-weight="700">Δ=+1</text>
+            <!-- n=2: row 1 dark, row 2 white (2 wide) -->
+            <rect x="52" y="14" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="44" y="32" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="62" y="32" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <text x="60" y="58" font-size="10" fill="#0a4034" text-anchor="middle">n=2</text>
+            <text x="60" y="68" font-size="10" fill="#0d6655" text-anchor="middle" font-weight="700">T=1</text>
+            <text x="60" y="78" font-size="10" fill="#7d4e00" text-anchor="middle">B=2 Δ=−1</text>
+            <!-- n=3: T B T -->
+            <rect x="108" y="4" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="100" y="22" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="118" y="22" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="92" y="40" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="110" y="40" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="128" y="40" width="16" height="16" rx="2" fill="#0d6655"/>
+            <text x="112" y="68" font-size="10" fill="#0a4034" text-anchor="middle">n=3</text>
+            <text x="112" y="78" font-size="10" fill="#0d6655" text-anchor="middle" font-weight="700">T=4 B=2 Δ=+2</text>
+            <!-- n=4: T B T B -->
+            <rect x="186" y="4" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="178" y="22" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="196" y="22" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="170" y="40" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="188" y="40" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="206" y="40" width="16" height="16" rx="2" fill="#0d6655"/>
+            <rect x="162" y="58" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="180" y="58" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="198" y="58" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <rect x="216" y="58" width="16" height="16" rx="2" fill="#e8f8f5" stroke="#0d6655" stroke-width="1"/>
+            <text x="190" y="84" font-size="10" fill="#0a4034" text-anchor="middle">n=4 T=4 B=6 Δ=−2</text>
+            <!-- n=5 label only (too tall to draw) -->
+            <text x="370" y="20" font-size="11" fill="#0d6655" text-anchor="middle" font-weight="700">n=5:</text>
+            <text x="370" y="35" font-size="11" fill="#0d6655" text-anchor="middle">T = 4+5 = 9</text>
+            <text x="370" y="50" font-size="11" fill="#555" text-anchor="middle">B = 2+4+... = 6</text>
+            <text x="370" y="65" font-size="11" fill="#0d6655" text-anchor="middle" font-weight="700">Δ = +3</text>
+            <text x="370" y="80" font-size="10" fill="#888" text-anchor="middle">(liché → +)</text>
+          </svg>
+          <div class="tbl-wrap">
           <table class="sol-table" style="max-width:460px">
             <tr><th>Počet řad n</th><th>Tmavé</th><th>Bílé</th><th>Tmavé − Bílé</th></tr>
             <tr><td>1 (jen T)</td><td>1</td><td>0</td><td>1</td></tr>
@@ -530,11 +638,14 @@ a { color: #0d6655; }
             <tr><td>6</td><td>9</td><td>6+6=12</td><td>−3</td></tr>
             <tr><td>10</td><td>25</td><td>30</td><td class="hl">−5</td></tr>
           </table>
+          </div><!-- /tbl-wrap -->
         </div></div>
         <div class="step"><div class="step-n">2</div><div class="step-body">
-          <div class="step-label">Vzorec</div>
+          <div class="step-label">Přečti vzorec z tabulky</div>
+          Koukni na sloupec „Tmavé − Bílé": pro liché n (1, 3, 5) vychází 1, 2, 3 — přesně polovina z (n + 1). Pro sudé n (2, 4, 6) vychází −1, −2, −3 — bílých je víc o polovinu z n.<br>
           Pro <strong>sudé n</strong>: Bílé &gt; Tmavé o <span class="calc">n ÷ 2</span>.<br>
-          Pro <strong>liché n</strong>: Tmavé &gt; Bílé o <span class="calc">(n + 1) ÷ 2</span>.
+          Pro <strong>liché n</strong>: Tmavé &gt; Bílé o <span class="calc">(n + 1) ÷ 2</span>.<br>
+          <em>Ověř vzorec: n=1 → (1+1)÷2 = 1 ✓ · n=3 → (3+1)÷2 = 2 ✓ · n=5 → (5+1)÷2 = 3 ✓</em>
         </div></div>
         <div class="step"><div class="step-n">3</div><div class="step-body">
           <div class="step-label">14.1 — n = 10 (sudé)</div>
@@ -546,12 +657,12 @@ a { color: #0d6655; }
         </div></div>
         <div class="step"><div class="step-n">5</div><div class="step-body">
           <div class="step-label">14.3 — tmavých o 101 více → liché n</div>
-          <span class="calc">(n + 1) ÷ 2 = 101</span> → n + 1 = 202 → <span class="calc">n = 201</span>.<br>
-          Ověření: (201+1)÷2 = 101 ✓
+          Liché n dává rozdíl (n + 1) ÷ 2. Chci, aby rozdíl byl 101. Přemýšlím pozpátku: polovina z čeho je 101? → <span class="calc">101 × 2 = 202</span> — to je číslo (n + 1). O jedno méně: <span class="calc">n = 202 − 1 = 201</span>.<br>
+          Ověření: <span class="calc">(201 + 1) ÷ 2 = 202 ÷ 2 = 101 ✓</span>
         </div></div>
       </div>
       <div class="answer"><div class="a-label">✓ Výsledky</div>14.1: rozdíl <strong>5</strong> (bílých více) · 14.2: rozdíl <strong>37</strong> (tmavých více) · 14.3: <strong>201 řad</strong></div>
-      <div class="warn">Bez tabulky malých hodnot skoro nikdo vzorec neuhodne. Vždy napiš aspoň 4–6 řádků tabulky, vzorec se ukáže sám.</div>
+      <div class="warn">Nejčastější chyba: žák přeskočí tabulku, zkusí vzorec od oka — a pak použije vzorec pro sudé n tam, kde n je liché (nebo naopak). Vždy napiš aspoň 6 řádků tabulky, označ si lichá n a sudá n zvlášť a teprve pak hledej vzorec v každé skupině.</div>
 
     </div>
   </div>
@@ -560,18 +671,22 @@ a { color: #0d6655; }
   <!-- ZÁVĚR -->
   <div style="background:#e8f8f5; border-radius:10px; padding:18px 20px; margin-top:8px; font-size:14px; line-height:1.7; color:#0b4f41;">
     <strong style="font-size:13px; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:8px; color:#0d6655;">📊 Bodová rozvaha bez rýsování</strong>
-    Úloha 7 (rýsování) je za 6 bodů a je nejobtížnější. Pokud zvládneš ostatní typy na tomto listu, získáš z úloh 1, 4, 5, 6, 8, 13 a 14 dohromady až <strong>30 bodů</strong>. Přidej výsledky z výběrových úloh 9–12 (každá 2 body) a máš pohodlně 35 i bez jediné čáry pravítkem.
-    <table class="sol-table" style="margin-top:12px;max-width:500px">
+    Úloha 7 (rýsování) je za 6 bodů a je nejobtížnější. Pokud zvládneš ostatní typy na tomto listu, získáš z úloh 1, 4, 5, 6, 8, 13 a 14 dohromady až <strong>32 bodů</strong>. Přidej výsledky z výběrových úloh 9–12 (každá 2 body, výběr z možností) a máš pohodlně 35 i bez jediné čáry pravítkem.
+    <div class="tbl-wrap">
+    <table class="sol-table" style="margin-top:12px;max-width:560px">
       <tr><th>Typ</th><th>Úloha</th><th>Body</th></tr>
       <tr><td>Neznámé číslo</td><td>Ú1</td><td>4</td></tr>
       <tr><td>Dvě skupiny</td><td>Ú4</td><td>3–6</td></tr>
       <tr><td>Logická dedukce</td><td>Ú5</td><td>3–5</td></tr>
-      <tr><td>Geometrie bez rýsování</td><td>Ú5–6</td><td>4</td></tr>
+      <tr><td>Geometrie bez rýsování</td><td>Ú6</td><td>4</td></tr>
       <tr><td>Tvrzení A/N z grafu</td><td>Ú8</td><td>3–4</td></tr>
       <tr><td>Prostorová logika</td><td>Ú13</td><td>5</td></tr>
       <tr><td>Posloupnost</td><td>Ú14</td><td>4</td></tr>
-      <tr class="hl"><td><strong>Celkem</strong></td><td></td><td><strong>26–32 bodů</strong></td></tr>
+      <tr><td><strong>Mezisoučet — 7 typů</strong></td><td></td><td><strong>26–32 bodů</strong></td></tr>
+      <tr><td>Výběrové úlohy (A/N/výběr)</td><td>Ú9–12</td><td>až 8</td></tr>
+      <tr class="hl"><td><strong>Celkem bez rýsování</strong></td><td></td><td><strong>34–40 bodů</strong></td></tr>
     </table>
+    </div>
   </div>
 
 </div>
