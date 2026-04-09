@@ -47,10 +47,12 @@ declare -A PRUVODCE_PO_NAMES=(
 declare -A PAGE_NAMES=(
   [strategie35]="Strategie 35 bodů"
   [cviceni39b]="Procvičování na 39 bodů"
+  [predikce2026]="Predikce testu 2026"
 )
 declare -A PAGE_FILES=(
   [strategie35]="docs/pages/PL_Strategie35.html"
   [cviceni39b]="docs/pages/PL_Cviceni_39b.html"
+  [predikce2026]="docs/pages/PL2026_Predikce_testu.html"
 )
 
 # ── rozpoznání typu (PL vs řešení vs průvodce vs pruvodce_po) ─────────────
@@ -110,9 +112,14 @@ elif [[ -n "${PAGE_NAMES[$ID]+x}" ]]; then
     echo "Chyba: Soubor '$PAGE_FILE' neexistuje." >&2
     exit 1
   fi
+  # Speciální režim pro predikce2026: žák nejdřív řeší, pak komentuje
+  PAGE_STUDENT_MODE="review"
+  if [[ "$PAGE_ID" == "predikce2026" ]]; then
+    PAGE_STUDENT_MODE="solve_first"
+  fi
 else
   echo "Chyba: Neznámé ID '$ID'." >&2
-  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2, 23r1, pruvodce-23r1, pruvodce_po-23r1, strategie35" >&2
+  echo "Platné hodnoty: PL01–PL09, 25n1, 25n2, 25r1, 25r2, 23r1, pruvodce-23r1, pruvodce_po-23r1, strategie35, cviceni39b, predikce2026" >&2
   exit 1
 fi
 
@@ -982,10 +989,17 @@ Na konci napiš stručné shrnutí (max 300 slov):
 
   # DIALOG: UČITEL ↔ ŽÁK
   banner "DIALOG — UČITEL ↔ ŽÁK (${DIALOG_ROUNDS} kola)"
-  run_dialog \
-    "Přečti si soubor ${PAGE_FILE} — pracovní list '${PAGE_NAME}'." \
-    "${PAGE_ID} — ${PAGE_NAME}" \
-    "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Dostáváš konkrétní zpětnou vazbu od žáka a upravuješ POUZE místa, která jsou nejasná — cíleně a konkrétně."
+  if [[ "$PAGE_STUDENT_MODE" == "solve_first" ]]; then
+    run_dialog \
+      "Přečti si soubor ${PAGE_FILE} — simulovaný test '${PAGE_NAME}'. DŮLEŽITÉ: Čti POUZE div.zadani (text každé úlohy). Ignoruj nápovědy a řešení (hint-panel, sol-panel jsou skryté). Pro každou úlohu 1–14 se pokus ji vyřešit sám/sama a napiš svůj výsledek nebo kde ses zasekl/a." \
+      "${PAGE_ID} — ${PAGE_NAME}" \
+      "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Vidíš, kde se žák zasekl při samostatném řešení, a upravuješ nápovědy a řešení tak, aby přesně pomohly v těch místech, kde žák tápal."
+  else
+    run_dialog \
+      "Přečti si soubor ${PAGE_FILE} — pracovní list '${PAGE_NAME}'." \
+      "${PAGE_ID} — ${PAGE_NAME}" \
+      "Jsi zkušený učitel matematiky s 15 lety praxe. Připravuješ žáky 5. třídy na MA5. Nikdy nepoužíváš rovnice ani algebru. Dostáváš konkrétní zpětnou vazbu od žáka a upravuješ POUZE místa, která jsou nejasná — cíleně a konkrétně."
+  fi
 
   # AGENT 2: ŽÁK 5. TŘÍDY — testuje srozumitelnost
   banner "AGENT 2 — ŽÁK 5. TŘÍDY (testuje srozumitelnost)"
@@ -993,7 +1007,36 @@ Na konci napiš stručné shrnutí (max 300 slov):
 
   TEACHER_SUMMARY=$(cat "$TEACHER_FILE")
   PROMPT2=$(mktemp)
-  cat > "$PROMPT2" <<PROMPT
+
+  if [[ "$PAGE_STUDENT_MODE" == "solve_first" ]]; then
+    cat > "$PROMPT2" <<PROMPT
+Přečti soubor ${PAGE_FILE} — simulovaný test '${PAGE_NAME}'.
+
+Soubor obsahuje 14 testových úloh. Každá úloha má zadání (div.zadani nebo h2/p s textem úlohy).
+Nápovědy a řešení jsou skryté — ignoruj je úplně.
+
+TVŮJ ÚKOL:
+Pro každou z 14 úloh čti POUZE zadání a zkus ji vyřešit jako žák 5. třídy.
+Nepoužívej rovnice ani algebru — kresli, počítej po skupinkách, zkoušej čísla.
+
+Pro každou úlohu napiš:
+- **Úloha [číslo]:** Tvůj postup (jak jsi přemýšlel/a) + tvůj výsledek
+  NEBO: Kde ses zasekl/a a co ti chybělo, aby ses dostal/a dál
+
+Pak napiš učiteli:
+- Které úlohy ti šly snadno
+- Kde se úloha zdála nejasná (i bez nápovědy)
+- Kde ti nápověda po odkrytí pomohla vs. kde nestačila
+
+Piš neformálně, jako žák 5. třídy. Buď upřímný/á — i "nevím jak" je dobrá odpověď, pokud přidáš co jsi zkoušel/a.
+
+Učitel právě vylepšil nápovědy a řešení. Shrnutí:
+--- SHRNUTÍ UČITELE ---
+${TEACHER_SUMMARY}
+--- KONEC SHRNUTÍ ---
+PROMPT
+  else
+    cat > "$PROMPT2" <<PROMPT
 Přečti soubor ${PAGE_FILE} — pracovní list '${PAGE_NAME}'.
 
 Učitel pracovní list právě upravil. Tady je jeho shrnutí:
@@ -1012,9 +1055,16 @@ Přečti si celý dokument a odpověz jako žák 5. třídy, který se připravu
 
 Piš neformálně a upřímně.
 PROMPT
+  fi
+
+  if [[ "$PAGE_STUDENT_MODE" == "solve_first" ]]; then
+    STUDENT_SYS="Jsi žák nebo žákyně 5. třídy základní školy, je ti 11 let. Připravuješ se na přijímací zkoušky na víceleté gymnázium. Matematiku celkem zvládáš, ale někdy se zasekneš. NEJDŘÍVE se pokusíš úlohu sám/sama vyřešit — teprve pak se podíváš na nápovědu. Odpovídáš upřímně: popisuješ svůj skutečný myšlenkový postup, i když nevede ke správnému výsledku."
+  else
+    STUDENT_SYS="Jsi žák nebo žákyně 5. třídy základní školy, je ti 11 let. Připravuješ se na přijímací zkoušky na víceleté gymnázium. Matematiku celkem zvládáš, ale někdy se zasekneš u složitějšího zadání. Nemáš rád/a nudné texty plné odborných slov. Chceš jasné, rychlé vysvětlení s příklady. Odpovídáš upřímně a neformálně — jako skutečný žák, ne jako dospělý."
+  fi
 
   "$CLAUDE_BIN" -p \
-    --system-prompt "Jsi žák nebo žákyně 5. třídy základní školy, je ti 11 let. Připravuješ se na přijímací zkoušky na víceleté gymnázium. Matematiku celkem zvládáš, ale někdy se zasekneš u složitějšího zadání. Nemáš rád/a nudné texty plné odborných slov. Chceš jasné, rychlé vysvětlení s příklady. Odpovídáš upřímně a neformálně — jako skutečný žák, ne jako dospělý." \
+    --system-prompt "$STUDENT_SYS" \
     --allowedTools "Read" \
     < "$PROMPT2" > "$STUDENT_FILE" 2>&1
   rm -f "$PROMPT2"
